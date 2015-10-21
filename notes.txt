@@ -1,0 +1,16 @@
+notes
+
+1.12.1 w/ PUP
+* Commit SHA: 33aae90454553a7d1a07f52694dbc1b23dc4e5d1
+
+1.13.0-dev.7.3 w/ PUP
+* Commit SHA: 47a0ab9
+* Tree SHA: d73ceecaf451a2de174ed6ab36fcf474410d9282
+
+Create commit
+
+git commit-tree \
+	-p 47a0ab9 \
+	-p 33aae90454553a7d1a07f52694dbc1b23dc4e5d1 \
+	-m "Delta from 1.12.1 to 1.13.0-dev.7.2 docs w/ dartdoc 0.7.3-dev @ 47c43d2" \
+	d73ceecaf451a2de174ed6ab36fcf474410d9282
