@@ -1,0 +1,52 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section id="getter">
+  <section class="multi-line-signature">
+   <span class="returntype">
+    <a class="" href="dart-async/Future-class.html">
+     Future
+    </a>
+    &lt;
+    <a class="" href="dart-core/Map-class.html">
+     Map
+    </a>
+    &lt;
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+    ,
+    <a class="" href="dart-core/Uri-class.html">
+     Uri
+    </a>
+    &gt;&gt;
+   </span>
+   <span class="name ">
+    packageMap
+   </span>
+  </section>
+  <section class="desc markdown">
+   <p>
+    Returns the package mapping of the current isolate, if any.
+   </p>
+   <p>
+    If the current isolate is using a
+    <a class="" href="dart-isolate/Isolate/packageRoot.html">
+     packageRoot
+    </a>
+    , this getter
+returns
+    <code>
+     null
+    </code>
+    .
+   </p>
+   <p>
+    The package map maps the name of a package that is available to the
+program, to a URI that package URIs for that package are resolved against.
+   </p>
+   <p>
+    Returns an empty map if the isolate does not have a way to resolve package
+URIs.
+   </p>
+  </section>
+ </section>
+</div>

@@ -37,11 +37,11 @@
    <code class="prettyprint lang-dart">
     void updateIce([Map configuration, Map mediaConstraints]) {
   if (mediaConstraints != null) {
-    _blink.BlinkRTCPeerConnection.instance.updateIce_Callback_2_(unwrap_jso(this), configuration, mediaConstraints);
+    _blink.BlinkRTCPeerConnection.instance.updateIce_Callback_2_(unwrap_jso(this), convertDartToNative_Dictionary(configuration), convertDartToNative_Dictionary(mediaConstraints));
     return;
   }
   if (configuration != null) {
-    _blink.BlinkRTCPeerConnection.instance.updateIce_Callback_1_(unwrap_jso(this), configuration);
+    _blink.BlinkRTCPeerConnection.instance.updateIce_Callback_1_(unwrap_jso(this), convertDartToNative_Dictionary(configuration));
     return;
   }
   _blink.BlinkRTCPeerConnection.instance.updateIce_Callback_0_(unwrap_jso(this));

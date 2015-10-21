@@ -48,9 +48,9 @@
    <code class="prettyprint lang-dart">
     static KeyRange upperBound_(Object bound, [bool open]) {
   if (open != null) {
-    return _blink.BlinkIDBKeyRange.instance.upperBound_Callback_2_(bound, open);
+    return wrap_jso(_blink.BlinkIDBKeyRange.instance.upperBound_Callback_2_(bound, open));
   }
-  return _blink.BlinkIDBKeyRange.instance.upperBound_Callback_1_(bound);
+  return wrap_jso(_blink.BlinkIDBKeyRange.instance.upperBound_Callback_1_(bound));
 }
    </code>
   </pre>

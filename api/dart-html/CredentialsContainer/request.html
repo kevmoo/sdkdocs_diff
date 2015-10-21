@@ -30,9 +30,9 @@
    <code class="prettyprint lang-dart">
     Future request([Map options]) {
   if (options != null) {
-    return _blink.BlinkCredentialsContainer.instance.request_Callback_1_(unwrap_jso(this), options);
+    return wrap_jso(_blink.BlinkCredentialsContainer.instance.request_Callback_1_(unwrap_jso(this), convertDartToNative_Dictionary(options)));
   }
-  return _blink.BlinkCredentialsContainer.instance.request_Callback_0_(unwrap_jso(this));
+  return wrap_jso(_blink.BlinkCredentialsContainer.instance.request_Callback_0_(unwrap_jso(this)));
 }
    </code>
   </pre>

@@ -38,9 +38,9 @@
    <code class="prettyprint lang-dart">
     Object next([Object value]) {
   if (value != null) {
-    return _blink.BlinkIterator.instance.next_Callback_1_(unwrap_jso(this), value);
+    return wrap_jso(_blink.BlinkIterator.instance.next_Callback_1_(unwrap_jso(this), value));
   }
-  return _blink.BlinkIterator.instance.next_Callback_0_(unwrap_jso(this));
+  return wrap_jso(_blink.BlinkIterator.instance.next_Callback_0_(unwrap_jso(this)));
 }
    </code>
   </pre>

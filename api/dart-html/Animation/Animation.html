@@ -52,13 +52,14 @@
 @DocsEditable()
 factory Animation(Element target, List&lt;Map&gt; keyframes, [timingInput]) {
   if ((keyframes is List&lt;Map&gt; || keyframes == null) &amp;&amp; (target is Element || target == null) &amp;&amp; timingInput == null) {
-    return _blink.BlinkAnimation.instance.constructorCallback_2_(target, keyframes);
+    return wrap_jso(_blink.BlinkAnimation.instance.constructorCallback_2_(target, keyframes));
   }
   if ((timingInput is num || timingInput == null) &amp;&amp; (keyframes is List&lt;Map&gt; || keyframes == null) &amp;&amp; (target is Element || target == null)) {
-    return _blink.BlinkAnimation.instance.constructorCallback_3_(target, keyframes, timingInput);
+    return wrap_jso(_blink.BlinkAnimation.instance.constructorCallback_3_(target, keyframes, timingInput));
   }
   if ((timingInput is Map || timingInput == null) &amp;&amp; (keyframes is List&lt;Map&gt; || keyframes == null) &amp;&amp; (target is Element || target == null)) {
-    return _blink.BlinkAnimation.instance.constructorCallback_3_(target, keyframes, timingInput);
+    var timingInput_1 = convertDartToNative_Dictionary(timingInput);
+    return wrap_jso(_blink.BlinkAnimation.instance.constructorCallback_3_(target, keyframes, timingInput_1));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

@@ -31,10 +31,11 @@
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    @DomName(&#39;HTMLAudioElement.HTMLAudioElement&#39;)
-@DocsEditable()
-factory AudioElement([String src]) {
-  return _blink.BlinkHTMLAudioElement.instance.constructorCallback_1_(src);
+    factory AudioElement([String src]) {
+  if (src == null)
+    return wrap_jso(_blink.BlinkHTMLAudioElement.instance.constructorCallback_0_());
+  else
+    return wrap_jso(_blink.BlinkHTMLAudioElement.instance.constructorCallback_1_(src));
 }
    </code>
   </pre>

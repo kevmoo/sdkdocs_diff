@@ -52,6 +52,11 @@ is also possible to send object instances (which would be copied in the
 process). This is currently only supported by the dartvm.  For now, the
 dart2js compiler only supports the restricted messages described above.
   </p>
+  <p>
+   The send happens immediately and doesn&#39;t block.  The corresponding receive
+port can receive the message as soon as its isolate&#39;s event loop is ready
+to deliver it, independently of what the sending isolate is doing.
+  </p>
  </section>
  <section class="summary source-code" id="source">
   <h2>

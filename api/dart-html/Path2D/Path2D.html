@@ -30,13 +30,13 @@
 @DocsEditable()
 factory Path2D([path_OR_text]) {
   if (path_OR_text == null) {
-    return _blink.BlinkPath2D.instance.constructorCallback_0_();
+    return wrap_jso(_blink.BlinkPath2D.instance.constructorCallback_0_());
   }
   if ((path_OR_text is Path2D || path_OR_text == null)) {
-    return _blink.BlinkPath2D.instance.constructorCallback_1_(path_OR_text);
+    return wrap_jso(_blink.BlinkPath2D.instance.constructorCallback_1_(path_OR_text));
   }
   if ((path_OR_text is String || path_OR_text == null)) {
-    return _blink.BlinkPath2D.instance.constructorCallback_1_(path_OR_text);
+    return wrap_jso(_blink.BlinkPath2D.instance.constructorCallback_1_(path_OR_text));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

@@ -1,0 +1,146 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   void
+  </span>
+  <span class="name ">
+   addMemberHelper
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="addMemberHelper-param-declaration">
+   <span class="type-annotation">
+    <a class="" href="dart-mirrors/MethodMirror-class.html">
+     MethodMirror
+    </a>
+   </span>
+   <span class="parameter-name">
+    declaration
+   </span>
+  </span>
+  ,
+  <span class="parameter" id="addMemberHelper-param-path">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    path
+   </span>
+  </span>
+  ,
+  <span class="parameter" id="addMemberHelper-param-sb">
+   <span class="type-annotation">
+    <a class="" href="dart-core/StringBuffer-class.html">
+     StringBuffer
+    </a>
+   </span>
+   <span class="parameter-name">
+    sb
+   </span>
+  </span>
+  , {
+  <span class="parameter" id="addMemberHelper-param-isStatic">
+   <span class="type-annotation">
+    <a class="" href="dart-core/bool-class.html">
+     bool
+    </a>
+   </span>
+   <span class="parameter-name">
+    isStatic
+   </span>
+   :
+   <span class="default-value">
+    false
+   </span>
+  </span>
+  ,
+  <span class="parameter" id="addMemberHelper-param-memberName">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    memberName
+   </span>
+  </span>
+  })
+ </section>
+ <section class="desc markdown">
+  <p class="no-docs">
+   Not documented.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    void addMemberHelper(mirrors.MethodMirror declaration, String path, StringBuffer sb, {bool isStatic: false, String memberName}) {
+  var jsName = _getJsMemberName(declaration);
+  path = (path != null &amp;&amp; path.isNotEmpty) ? &#34;${path}.${jsName}&#34; : jsName;
+  var name = memberName != null ? memberName : _getDeclarationName(declaration);
+  if (declaration.isConstructor) {
+    sb.write(&#34;factory&#34;);
+  } else if (isStatic) {
+    sb.write(&#34;static&#34;);
+  } else {
+    sb.write(&#34;patch&#34;);
+  }
+  sb.write(&#34; &#34;);
+  if (declaration.isGetter) {
+    sb.write(&#34;get $name =&gt; ${_accessJsPath(path)};&#34;);
+  } else if (declaration.isSetter) {
+    sb.write(&#34;set $name(v) =&gt; ${_accessJsPath(path)} = v;&#34;);
+  } else {
+    sb.write(&#34;$name(&#34;);
+    bool hasOptional = false;
+    int i = 0;
+    var args = &lt;String&gt;[];
+    for (var p in declaration.parameters) {
+      assert(!p.isNamed); // XXX throw
+      assert(!p.hasDefaultValue);
+      if (i &gt; 0) {
+        sb.write(&#34;, &#34;);
+      }
+      if (p.isOptional &amp;&amp; !hasOptional) {
+        sb.write(&#34;[&#34;);
+        hasOptional = true;
+      }
+      var arg = &#34;p$i&#34;;
+      args.add(arg);
+      sb.write(arg);
+      if (p.isOptional) {
+        sb.write(&#34;=${_UNDEFINED_VAR}&#34;);
+      }
+      i++;
+    }
+    if (hasOptional) {
+      sb.write(&#34;]&#34;);
+    }
+    // TODO(jacobr):
+    sb.write(&#34;) =&gt; &#34;);
+    if (declaration.isConstructor) {
+        sb.write(&#34;new ${_JS_LIBRARY_PREFIX}.JsObject(&#34;);
+    }
+    sb
+      ..write(_accessJsPath(path))
+      ..write(declaration.isConstructor ? &#34;,&#34; : &#34;.apply(&#34;)
+      ..write(&#34;[${args.join(&#34;,&#34;)}]&#34;);
+
+    if (hasOptional) {
+      sb.write(&#34;.takeWhile((i) =&gt; i != ${_UNDEFINED_VAR}).toList()&#34;);
+    }
+    sb.write(&#34;);&#34;);
+  }
+  sb.write(&#34;\n&#34;);
+}
+   </code>
+  </pre>
+ </section>
+</div>

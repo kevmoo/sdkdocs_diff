@@ -199,6 +199,72 @@ and capabilities can be sent, and can be used to create a new functioning
      read-only
     </div>
    </dd>
+   <dt id="packageMap" class="property">
+    <span class="name">
+     <a class="" href="dart-isolate/Isolate/packageMap.html">
+      packageMap
+     </a>
+    </span>
+    <span class="signature">
+     →
+     <a class="" href="dart-async/Future-class.html">
+      Future
+     </a>
+     &lt;
+     <a class="" href="dart-core/Map-class.html">
+      Map
+     </a>
+     &lt;
+     <a class="" href="dart-core/String-class.html">
+      String
+     </a>
+     ,
+     <a class="" href="dart-core/Uri-class.html">
+      Uri
+     </a>
+     &gt;&gt;
+    </span>
+   </dt>
+   <dd>
+    <p>
+     Returns the package mapping of the current isolate, if any.
+     <a href="dart-isolate/Isolate/packageMap.html">
+      …
+     </a>
+    </p>
+    <div class="features">
+     read-only
+    </div>
+   </dd>
+   <dt id="packageRoot" class="property">
+    <span class="name">
+     <a class="" href="dart-isolate/Isolate/packageRoot.html">
+      packageRoot
+     </a>
+    </span>
+    <span class="signature">
+     →
+     <a class="" href="dart-async/Future-class.html">
+      Future
+     </a>
+     &lt;
+     <a class="" href="dart-core/Uri-class.html">
+      Uri
+     </a>
+     &gt;
+    </span>
+   </dt>
+   <dd>
+    <p>
+     Returns the package root of the current isolate, if any.
+     <a href="dart-isolate/Isolate/packageRoot.html">
+      …
+     </a>
+    </p>
+    <div class="features">
+     read-only
+    </div>
+   </dd>
   </dl>
  </section>
  <section class="summary offset-anchor" id="static-methods">
@@ -364,39 +430,6 @@ isolate.
       </span>
      </span>
      ,
-     <span class="parameter" id="spawnUri-param-checked">
-      <span class="type-annotation">
-       <a class="" href="dart-core/bool-class.html">
-        bool
-       </a>
-      </span>
-      <span class="parameter-name">
-       checked
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="spawnUri-param-packageRoot">
-      <span class="type-annotation">
-       <a class="" href="dart-core/Uri-class.html">
-        Uri
-       </a>
-      </span>
-      <span class="parameter-name">
-       packageRoot
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="spawnUri-param-errorsAreFatal">
-      <span class="type-annotation">
-       <a class="" href="dart-core/bool-class.html">
-        bool
-       </a>
-      </span>
-      <span class="parameter-name">
-       errorsAreFatal
-      </span>
-     </span>
-     ,
      <span class="parameter" id="spawnUri-param-onExit">
       <span class="type-annotation">
        <a class="" href="dart-isolate/SendPort-class.html">
@@ -416,6 +449,79 @@ isolate.
       </span>
       <span class="parameter-name">
        onError
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="spawnUri-param-errorsAreFatal">
+      <span class="type-annotation">
+       <a class="" href="dart-core/bool-class.html">
+        bool
+       </a>
+      </span>
+      <span class="parameter-name">
+       errorsAreFatal
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="spawnUri-param-checked">
+      <span class="type-annotation">
+       <a class="" href="dart-core/bool-class.html">
+        bool
+       </a>
+      </span>
+      <span class="parameter-name">
+       checked
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="spawnUri-param-environment">
+      <span class="type-annotation">
+       <a class="" href="dart-core/Map-class.html">
+        Map
+       </a>
+       &lt;
+       <a class="" href="dart-core/String-class.html">
+        String
+       </a>
+       ,
+       <a class="" href="dart-core/String-class.html">
+        String
+       </a>
+       &gt;
+      </span>
+      <span class="parameter-name">
+       environment
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="spawnUri-param-packageRoot">
+      <span class="type-annotation">
+       <a class="" href="dart-core/Uri-class.html">
+        Uri
+       </a>
+      </span>
+      <span class="parameter-name">
+       packageRoot
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="spawnUri-param-packageMap">
+      <span class="type-annotation">
+       <a class="" href="dart-core/Map-class.html">
+        Map
+       </a>
+       &lt;
+       <a class="" href="dart-core/String-class.html">
+        String
+       </a>
+       ,
+       <a class="" href="dart-core/Uri-class.html">
+        Uri
+       </a>
+       &gt;
+      </span>
+      <span class="parameter-name">
+       packageMap
       </span>
      </span>
      })

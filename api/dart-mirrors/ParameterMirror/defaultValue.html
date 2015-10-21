@@ -12,21 +12,31 @@
   </section>
   <section class="desc markdown">
    <p>
-    If this is a required parameter, returns
+    Returns the default value of an optional parameter.
+   </p>
+   <p>
+    Returns an
+    <a class="" href="dart-mirrors/InstanceMirror-class.html">
+     InstanceMirror
+    </a>
+    on the (compile-time constant)
+default value for an optional parameter.
+If no default value is declared, it defaults to
     <code>
      null
     </code>
-    . Otherwise returns a
-mirror on the default value for this parameter. If no default is declared
-for an optional parameter, the default is
-    <code>
-     null
-    </code>
-    and a mirror on
+    and a mirror of
     <code>
      null
     </code>
     is returned.
+   </p>
+   <p>
+    Returns
+    <code>
+     null
+    </code>
+    for a required parameter.
    </p>
   </section>
  </section>

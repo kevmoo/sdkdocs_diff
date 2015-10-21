@@ -70,15 +70,15 @@
    <code class="prettyprint lang-dart">
     DomMatrix scale3d(num scale, [num ox, num oy, num oz]) {
   if (oz != null) {
-    return _blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_4_(unwrap_jso(this), scale, ox, oy, oz);
+    return wrap_jso(_blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_4_(unwrap_jso(this), scale, ox, oy, oz));
   }
   if (oy != null) {
-    return _blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_3_(unwrap_jso(this), scale, ox, oy);
+    return wrap_jso(_blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_3_(unwrap_jso(this), scale, ox, oy));
   }
   if (ox != null) {
-    return _blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_2_(unwrap_jso(this), scale, ox);
+    return wrap_jso(_blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_2_(unwrap_jso(this), scale, ox));
   }
-  return _blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_1_(unwrap_jso(this), scale);
+  return wrap_jso(_blink.BlinkDOMMatrixReadOnly.instance.scale3d_Callback_1_(unwrap_jso(this), scale));
 }
    </code>
   </pre>

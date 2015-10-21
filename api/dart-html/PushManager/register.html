@@ -48,7 +48,7 @@
     @DomName(&#39;PushManager.register&#39;)
 @DocsEditable()
 @Experimental() // untriaged
-Future register(String senderId) =&gt; _blink.BlinkPushManager.instance.register_Callback_1_(unwrap_jso(this), senderId);
+Future register(String senderId) =&gt; wrap_jso(_blink.BlinkPushManager.instance.register_Callback_1_(unwrap_jso(this), senderId));
    </code>
   </pre>
  </section>

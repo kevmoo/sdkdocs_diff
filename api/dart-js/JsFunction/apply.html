@@ -47,7 +47,8 @@ supplied it is the value of
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    dynamic apply(List args, {thisArg}) native &#34;JsFunction_apply&#34;;
+    dynamic apply(List args, {thisArg}) =&gt;
+  _maybeWrap(_apply(args, thisArg: thisArg));
    </code>
   </pre>
  </section>

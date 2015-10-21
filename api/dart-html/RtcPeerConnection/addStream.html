@@ -41,7 +41,7 @@
    <code class="prettyprint lang-dart">
     void addStream(MediaStream stream, [Map mediaConstraints]) {
   if (mediaConstraints != null) {
-    _blink.BlinkRTCPeerConnection.instance.addStream_Callback_2_(unwrap_jso(this), unwrap_jso(stream), mediaConstraints);
+    _blink.BlinkRTCPeerConnection.instance.addStream_Callback_2_(unwrap_jso(this), unwrap_jso(stream), convertDartToNative_Dictionary(mediaConstraints));
     return;
   }
   _blink.BlinkRTCPeerConnection.instance.addStream_Callback_1_(unwrap_jso(this), unwrap_jso(stream));

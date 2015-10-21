@@ -1,0 +1,74 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="name ">
+   TimelineTask.withTaskId
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="withTaskId-param-taskId">
+   <span class="type-annotation">
+    <a class="" href="dart-core/int-class.html">
+     int
+    </a>
+   </span>
+   <span class="parameter-name">
+    taskId
+   </span>
+  </span>
+  , {
+  <span class="parameter" id="withTaskId-param-category">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    category
+   </span>
+   :
+   <span class="default-value">
+    &#39;Dart&#39;
+   </span>
+  </span>
+  })
+ </section>
+ <section class="desc markdown">
+  <p>
+   Create a task with an explicit
+   <code>
+    taskId
+   </code>
+   . This is useful if you are
+passing a task between isolates. Optionally you can specify a
+   <code>
+    category
+   </code>
+   name.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    TimelineTask.withTaskId(int taskId, {String category: &#39;Dart&#39;})
+    : _taskId = taskId,
+      category = category {
+  if (taskId is! int) {
+    throw new ArgumentError.value(taskId,
+                                  &#39;taskId&#39;,
+                                  &#39;Must be an int&#39;);
+  }
+  if (category is! String) {
+    throw new ArgumentError.value(category,
+                                  &#39;category&#39;,
+                                  &#39;Must be a String&#39;);
+  }
+}
+   </code>
+  </pre>
+ </section>
+</div>

@@ -5,7 +5,18 @@
   </span>
   (
   <wbr>
-  )
+  {
+  <span class="parameter" id="-param-context">
+   <span class="type-annotation">
+    <a class="" href="dart-io/SecurityContext-class.html">
+     SecurityContext
+    </a>
+   </span>
+   <span class="parameter-name">
+    context
+   </span>
+  </span>
+  })
  </section>
  <section class="desc markdown">
   <p class="no-docs">
@@ -20,7 +31,7 @@
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    factory HttpClient() =&gt; new _HttpClient();
+    factory HttpClient({SecurityContext context}) =&gt; new _HttpClient(context);
    </code>
   </pre>
  </section>

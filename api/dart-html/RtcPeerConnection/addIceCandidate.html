@@ -76,7 +76,7 @@
    <code class="prettyprint lang-dart">
     @DomName(&#39;RTCPeerConnection.addIceCandidate&#39;)
 @DocsEditable()
-void addIceCandidate(RtcIceCandidate candidate, VoidCallback successCallback, _RtcErrorCallback failureCallback) =&gt; _blink.BlinkRTCPeerConnection.instance.addIceCandidate_Callback_3_(unwrap_jso(this), unwrap_jso(candidate), unwrap_jso(successCallback), unwrap_jso(failureCallback));
+void addIceCandidate(RtcIceCandidate candidate, VoidCallback successCallback, _RtcErrorCallback failureCallback) =&gt; _blink.BlinkRTCPeerConnection.instance.addIceCandidate_Callback_3_(unwrap_jso(this), unwrap_jso(candidate), unwrap_jso(() =&gt; successCallback()), unwrap_jso((errorInformation) =&gt; failureCallback(errorInformation)));
    </code>
   </pre>
  </section>

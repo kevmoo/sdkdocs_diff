@@ -35,10 +35,10 @@
 @DocsEditable()
 factory DomMatrix([DomMatrixReadOnly other]) {
   if (other == null) {
-    return _blink.BlinkDOMMatrix.instance.constructorCallback_0_();
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.constructorCallback_0_());
   }
   if ((other is DomMatrixReadOnly || other == null)) {
-    return _blink.BlinkDOMMatrix.instance.constructorCallback_1_(other);
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.constructorCallback_1_(other));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

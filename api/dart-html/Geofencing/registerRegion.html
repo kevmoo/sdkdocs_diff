@@ -48,7 +48,7 @@
     @DomName(&#39;Geofencing.registerRegion&#39;)
 @DocsEditable()
 @Experimental() // untriaged
-Future registerRegion(GeofencingRegion region) =&gt; _blink.BlinkGeofencing.instance.registerRegion_Callback_1_(unwrap_jso(this), unwrap_jso(region));
+Future registerRegion(GeofencingRegion region) =&gt; wrap_jso(_blink.BlinkGeofencing.instance.registerRegion_Callback_1_(unwrap_jso(this), unwrap_jso(region)));
    </code>
   </pre>
  </section>

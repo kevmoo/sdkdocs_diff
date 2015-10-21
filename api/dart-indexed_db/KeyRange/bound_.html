@@ -70,12 +70,12 @@
    <code class="prettyprint lang-dart">
     static KeyRange bound_(Object lower, Object upper, [bool lowerOpen, bool upperOpen]) {
   if (upperOpen != null) {
-    return _blink.BlinkIDBKeyRange.instance.bound_Callback_4_(lower, upper, lowerOpen, upperOpen);
+    return wrap_jso(_blink.BlinkIDBKeyRange.instance.bound_Callback_4_(lower, upper, lowerOpen, upperOpen));
   }
   if (lowerOpen != null) {
-    return _blink.BlinkIDBKeyRange.instance.bound_Callback_3_(lower, upper, lowerOpen);
+    return wrap_jso(_blink.BlinkIDBKeyRange.instance.bound_Callback_3_(lower, upper, lowerOpen));
   }
-  return _blink.BlinkIDBKeyRange.instance.bound_Callback_2_(lower, upper);
+  return wrap_jso(_blink.BlinkIDBKeyRange.instance.bound_Callback_2_(lower, upper));
 }
    </code>
   </pre>

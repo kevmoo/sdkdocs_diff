@@ -8,6 +8,7 @@
   </span>
   (
   <wbr>
+  [
   <span class="parameter" id="registerJsInterfaces-param-classes">
    <span class="type-annotation">
     <a class="" href="dart-core/List-class.html">
@@ -23,7 +24,7 @@
     classes
    </span>
   </span>
-  )
+  ])
  </section>
  <section class="desc markdown">
   <p>
@@ -39,50 +40,8 @@ generally only be called by machine generated code.
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    void registerJsInterfaces(List&lt;Type&gt; classes) {
-  if (_finalized == true) {
-    throw &#39;JSInterop class registration already finalized&#39;;
-  }
-  for (Type type in classes) {
-    if (!_jsInterfaceTypes.add(type)) continue; // Already registered.
-    mirrors.ClassMirror typeMirror = mirrors.reflectType(type);
-    typeMirror.declarations.forEach((symbol, declaration) {
-      if (declaration is mirrors.MethodMirror ||
-          declaration is mirrors.VariableMirror &amp;&amp; !declaration.isStatic) {
-        bool treatAsGetter = false;
-        bool treatAsSetter = false;
-        if (declaration is mirrors.VariableMirror) {
-          treatAsGetter = true;
-          if (!declaration.isConst &amp;&amp; !declaration.isFinal) {
-            treatAsSetter = true;
-          }
-        } else {
-          if (declaration.isGetter) {
-            treatAsGetter = true;
-          } else if (declaration.isSetter) {
-            treatAsSetter = true;
-          } else if (!declaration.isConstructor) {
-            _allowedMethods
-                .putIfAbsent(symbol, () =&gt; new _DeclarationSet())
-                .add(declaration);
-          }
-        }
-        if (treatAsGetter) {
-          _allowedGetters
-              .putIfAbsent(symbol, () =&gt; new _DeclarationSet())
-              .add(declaration);
-          _allowedMethods
-              .putIfAbsent(symbol, () =&gt; new _DeclarationSet())
-              .add(declaration);
-        }
-        if (treatAsSetter) {
-          _allowedSetters
-              .putIfAbsent(symbol, () =&gt; new _DeclarationSet())
-              .add(declaration);
-        }
-      }
-    });
-  }
+    void registerJsInterfaces([List&lt;Type&gt; classes]) {
+  // This method is now obsolete in Dartium.
 }
    </code>
   </pre>

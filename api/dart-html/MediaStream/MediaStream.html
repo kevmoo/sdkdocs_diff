@@ -30,13 +30,13 @@
 @DocsEditable()
 factory MediaStream([stream_OR_tracks]) {
   if (stream_OR_tracks == null) {
-    return _blink.BlinkMediaStream.instance.constructorCallback_0_();
+    return wrap_jso(_blink.BlinkMediaStream.instance.constructorCallback_0_());
   }
   if ((stream_OR_tracks is MediaStream || stream_OR_tracks == null)) {
-    return _blink.BlinkMediaStream.instance.constructorCallback_1_(stream_OR_tracks);
+    return wrap_jso(_blink.BlinkMediaStream.instance.constructorCallback_1_(stream_OR_tracks));
   }
   if ((stream_OR_tracks is List&lt;MediaStreamTrack&gt; || stream_OR_tracks == null)) {
-    return _blink.BlinkMediaStream.instance.constructorCallback_1_(stream_OR_tracks);
+    return wrap_jso(_blink.BlinkMediaStream.instance.constructorCallback_1_(stream_OR_tracks));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

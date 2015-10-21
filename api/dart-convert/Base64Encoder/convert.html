@@ -1,0 +1,56 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   <a class="" href="dart-core/String-class.html">
+    String
+   </a>
+  </span>
+  <span class="name ">
+   convert
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="convert-param-input">
+   <span class="type-annotation">
+    <a class="" href="dart-core/List-class.html">
+     List
+    </a>
+    &lt;
+    <a class="" href="dart-core/int-class.html">
+     int
+    </a>
+    &gt;
+   </span>
+   <span class="parameter-name">
+    input
+   </span>
+  </span>
+  )
+ </section>
+ <section class="desc markdown">
+  <p>
+   Converts
+   <code>
+    input
+   </code>
+   and returns the result of the conversion.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    String convert(List&lt;int&gt; input) {
+  if (input.isEmpty) return &#34;&#34;;
+  var encoder = new _Base64Encoder();
+  Uint8List buffer = encoder.encode(input, 0, input.length, true);
+  return new String.fromCharCodes(buffer);
+}
+   </code>
+  </pre>
+ </section>
+</div>

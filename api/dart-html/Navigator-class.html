@@ -7,6 +7,26 @@
  <section>
   <dl class="dl-horizontal">
    <dt>
+    Inheritance
+   </dt>
+   <dd>
+    <ul class="gt-separated dark clazz-relationships">
+     <li>
+      <a class="" href="dart-core/Object-class.html">
+       Object
+      </a>
+     </li>
+     <li>
+      <a class="" href="dart-html/DartHtmlDomObject-class.html">
+       DartHtmlDomObject
+      </a>
+     </li>
+     <li>
+      Navigator
+     </li>
+    </ul>
+   </dd>
+   <dt>
     Implements
    </dt>
    <dd>
@@ -42,6 +62,35 @@
       DomName(&#39;Navigator&#39;)
      </li>
     </ul>
+   </dd>
+  </dl>
+ </section>
+ <section class="summary offset-anchor" id="static-methods">
+  <h2>
+   Static Methods
+  </h2>
+  <dl class="callables">
+   <dt id="internalCreateNavigator" class="callable">
+    <span class="name ">
+     <a class="" href="dart-html/Navigator/internalCreateNavigator.html">
+      internalCreateNavigator
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     )
+     <span class="returntype parameter">
+      →
+      <a class="" href="dart-html/Navigator-class.html">
+       Navigator
+      </a>
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
    </dd>
   </dl>
  </section>
@@ -108,6 +157,27 @@
     </p>
     <div class="features">
      read-only
+    </div>
+   </dd>
+   <dt id="blink_jsObject" class="property">
+    <span class="name">
+     <a class="" href="dart-html/DartHtmlDomObject/blink_jsObject.html">
+      blink_jsObject
+     </a>
+    </span>
+    <span class="signature">
+     →
+     <a class="" href="dart-js/JsObject-class.html">
+      JsObject
+     </a>
+    </span>
+   </dt>
+   <dd>
+    <p>
+     The underlying JS DOM object.
+    </p>
+    <div class="features">
+     read / write, inherited
     </div>
    </dd>
    <dt id="connection" class="property">
@@ -272,7 +342,7 @@
    </dd>
    <dt id="hashCode" class="property">
     <span class="name">
-     <a class="" href="dart-core/Object/hashCode.html">
+     <a class="" href="dart-html/Navigator/hashCode.html">
       hashCode
      </a>
     </span>
@@ -285,13 +355,9 @@
    </dt>
    <dd>
     <p>
-     Get a hash code for this object.
-     <a href="dart-core/Object/hashCode.html">
-      …
-     </a>
     </p>
     <div class="features">
-     read-only, inherited
+     read-only
     </div>
    </dd>
    <dt id="language" class="property">
@@ -662,6 +728,27 @@
    </dd>
   </dl>
  </section>
+ <section class="summary offset-anchor" id="constructors">
+  <h2>
+   Constructors
+  </h2>
+  <dl class="constructor-summary-list">
+   <dt id="Navigator.internal_" class="callable">
+    <span class="name">
+     <a class="" href="dart-html/Navigator/Navigator.internal_.html">
+      Navigator.internal_
+     </a>
+    </span>
+    <span class="signature">
+     ()
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
+  </dl>
+ </section>
  <section class="summary offset-anchor" id="operators">
   <h2>
    Operators
@@ -669,7 +756,7 @@
   <dl class="callables">
    <dt id="operator ==" class="callable">
     <span class="name ">
-     <a class="" href="dart-core/Object/operator_equals.html">
+     <a class="" href="dart-html/Navigator/operator_equals.html">
       operator ==
      </a>
     </span>
@@ -693,13 +780,10 @@
    <dd>
     <p>
      The equality operator.
-     <a href="dart-core/Object/operator_equals.html">
+     <a href="dart-html/Navigator/operator_equals.html">
       …
      </a>
     </p>
-    <div class="features">
-     inherited
-    </div>
    </dd>
   </dl>
  </section>
@@ -822,49 +906,6 @@
      <a href="dart-html/Navigator/getUserMedia.html">
       …
      </a>
-    </p>
-   </dd>
-   <dt id="isProtocolHandlerRegistered" class="callable">
-    <span class="name ">
-     <a class="" href="dart-html/Navigator/isProtocolHandlerRegistered.html">
-      isProtocolHandlerRegistered
-     </a>
-    </span>
-    <span class="signature">
-     (
-     <wbr>
-     <span class="parameter" id="isProtocolHandlerRegistered-param-scheme">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       scheme
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="isProtocolHandlerRegistered-param-url">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       url
-      </span>
-     </span>
-     )
-     <span class="returntype parameter">
-      →
-      <a class="" href="dart-core/String-class.html">
-       String
-      </a>
-     </span>
-    </span>
-   </dt>
-   <dd>
-    <p>
     </p>
    </dd>
    <dt id="noSuchMethod" class="callable">
@@ -1036,46 +1077,6 @@ the original invocation.
     <div class="features">
      inherited
     </div>
-   </dd>
-   <dt id="unregisterProtocolHandler" class="callable">
-    <span class="name ">
-     <a class="" href="dart-html/Navigator/unregisterProtocolHandler.html">
-      unregisterProtocolHandler
-     </a>
-    </span>
-    <span class="signature">
-     (
-     <wbr>
-     <span class="parameter" id="unregisterProtocolHandler-param-scheme">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       scheme
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="unregisterProtocolHandler-param-url">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       url
-      </span>
-     </span>
-     )
-     <span class="returntype parameter">
-      → void
-     </span>
-    </span>
-   </dt>
-   <dd>
-    <p>
-    </p>
    </dd>
   </dl>
  </section>

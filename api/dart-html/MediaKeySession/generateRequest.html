@@ -40,10 +40,10 @@
    <code class="prettyprint lang-dart">
     Future generateRequest(String initDataType, initData) {
   if ((initData is TypedData) &amp;&amp; (initDataType is String)) {
-    return _blink.BlinkMediaKeySession.instance.generateRequest_Callback_2_(unwrap_jso(this), initDataType, unwrap_jso(initData));
+    return wrap_jso(_blink.BlinkMediaKeySession.instance.generateRequest_Callback_2_(unwrap_jso(this), initDataType, unwrap_jso(initData)));
   }
   if ((initData is ByteBuffer) &amp;&amp; (initDataType is String)) {
-    return _blink.BlinkMediaKeySession.instance.generateRequest_Callback_2_(unwrap_jso(this), initDataType, unwrap_jso(initData));
+    return wrap_jso(_blink.BlinkMediaKeySession.instance.generateRequest_Callback_2_(unwrap_jso(this), initDataType, unwrap_jso(initData)));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

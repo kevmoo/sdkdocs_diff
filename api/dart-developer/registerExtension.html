@@ -1,0 +1,98 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   void
+  </span>
+  <span class="name ">
+   registerExtension
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="registerExtension-param-method">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    method
+   </span>
+  </span>
+  ,
+  <span class="parameter" id="registerExtension-param-handler">
+   <span class="type-annotation">
+    <a class="" href="dart-async/Future-class.html">
+     Future
+    </a>
+    &lt;
+    <a class="" href="dart-developer/ServiceExtensionResponse-class.html">
+     ServiceExtensionResponse
+    </a>
+    &gt;
+   </span>
+   <span class="parameter-name">
+    handler
+   </span>
+   (
+   <span class="parameter" id="ServiceExtensionHandler-param-method">
+    <span class="type-annotation">
+     <a class="" href="dart-core/String-class.html">
+      String
+     </a>
+    </span>
+    <span class="parameter-name">
+     method
+    </span>
+   </span>
+   ,
+   <span class="parameter" id="ServiceExtensionHandler-param-parameters">
+    <span class="parameter-name">
+     parameters
+    </span>
+   </span>
+   )
+  </span>
+  )
+ </section>
+ <section class="desc markdown">
+  <p>
+   Register a
+   <a class="" href="dart-developer/ServiceExtensionHandler.html">
+    ServiceExtensionHandler
+   </a>
+   that will be invoked in this isolate
+for
+   <code>
+    method
+   </code>
+   .
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    void registerExtension(String method, ServiceExtensionHandler handler) {
+  if (method is! String) {
+    throw new ArgumentError.value(method,
+                                  &#39;method&#39;,
+                                  &#39;Must be a String&#39;);
+  }
+  if (_lookupExtension(method) != null) {
+    throw new ArgumentError(&#39;Extension already registered: $method&#39;);
+  }
+  if (handler is! ServiceExtensionHandler) {
+    throw new ArgumentError.value(handler,
+                                  &#39;handler&#39;,
+                                  &#39;Must be a ServiceExtensionHandler&#39;);
+  }
+  _registerExtension(method, handler);
+}
+   </code>
+  </pre>
+ </section>
+</div>

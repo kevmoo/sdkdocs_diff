@@ -35,9 +35,12 @@
 @DocsEditable()
 factory RtcPeerConnection(Map rtcConfiguration, [Map mediaConstraints]) {
   if (mediaConstraints != null) {
-    return _blink.BlinkRTCPeerConnection.instance.constructorCallback_2_(rtcConfiguration, mediaConstraints);
+    var rtcConfiguration_1 = convertDartToNative_Dictionary(rtcConfiguration);
+    var mediaConstraints_2 = convertDartToNative_Dictionary(mediaConstraints);
+    return wrap_jso(_blink.BlinkRTCPeerConnection.instance.constructorCallback_2_(rtcConfiguration_1, mediaConstraints_2));
   }
-  return _blink.BlinkRTCPeerConnection.instance.constructorCallback_1_(rtcConfiguration);
+  var rtcConfiguration_1 = convertDartToNative_Dictionary(rtcConfiguration);
+  return wrap_jso(_blink.BlinkRTCPeerConnection.instance.constructorCallback_1_(rtcConfiguration_1));
 }
    </code>
   </pre>

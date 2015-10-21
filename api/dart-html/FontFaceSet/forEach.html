@@ -78,10 +78,10 @@
    <code class="prettyprint lang-dart">
     void forEach(FontFaceSetForEachCallback callback, [Object thisArg]) {
   if (thisArg != null) {
-    _blink.BlinkFontFaceSet.instance.forEach_Callback_2_(unwrap_jso(this), unwrap_jso(callback), thisArg);
+    _blink.BlinkFontFaceSet.instance.forEach_Callback_2_(unwrap_jso(this), unwrap_jso((fontFace, fontFaceAgain, set) =&gt; callback(wrap_jso(fontFace), wrap_jso(fontFaceAgain), wrap_jso(set))), thisArg);
     return;
   }
-  _blink.BlinkFontFaceSet.instance.forEach_Callback_1_(unwrap_jso(this), unwrap_jso(callback));
+  _blink.BlinkFontFaceSet.instance.forEach_Callback_1_(unwrap_jso(this), unwrap_jso((fontFace, fontFaceAgain, set) =&gt; callback(wrap_jso(fontFace), wrap_jso(fontFaceAgain), wrap_jso(set))));
   return;
 }
    </code>

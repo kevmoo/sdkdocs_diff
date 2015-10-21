@@ -51,8 +51,12 @@ Throws an
   <pre>
    <code class="prettyprint lang-dart">
     void addAll(Iterable&lt;E&gt; iterable) {
+  int i = this.length;
   for (E element in iterable) {
-    this[this.length++] = element;
+    assert(this.length == i || (throw new ConcurrentModificationError(this)));
+    this.length = i + 1;
+    this[i] = element;
+    i++;
   }
 }
    </code>

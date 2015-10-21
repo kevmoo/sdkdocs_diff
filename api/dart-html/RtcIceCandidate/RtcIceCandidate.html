@@ -28,7 +28,8 @@
     @DomName(&#39;RTCIceCandidate.RTCIceCandidate&#39;)
 @DocsEditable()
 factory RtcIceCandidate(Map dictionary) {
-  return _blink.BlinkRTCIceCandidate.instance.constructorCallback_1_(dictionary);
+  var dictionary_1 = convertDartToNative_Dictionary(dictionary);
+  return wrap_jso(_blink.BlinkRTCIceCandidate.instance.constructorCallback_1_(dictionary_1));
 }
    </code>
   </pre>

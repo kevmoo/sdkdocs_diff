@@ -26,14 +26,14 @@
    </span>
   </span>
   ,
-  <span class="parameter" id="secureServer-param-certificateName">
+  <span class="parameter" id="secureServer-param-context">
    <span class="type-annotation">
-    <a class="" href="dart-core/String-class.html">
-     String
+    <a class="" href="dart-io/SecurityContext-class.html">
+     SecurityContext
     </a>
    </span>
    <span class="parameter-name">
-    certificateName
+    context
    </span>
   </span>
   , {
@@ -169,7 +169,7 @@ arguments.
    <code class="prettyprint lang-dart">
     static Future&lt;RawSecureSocket&gt; secureServer(
     RawSocket socket,
-    String certificateName,
+    SecurityContext context,
     {StreamSubscription subscription,
      List&lt;int&gt; bufferedData,
      bool requestClientCertificate: false,
@@ -180,7 +180,7 @@ arguments.
   return _RawSecureSocket.connect(
       socket.address,
       socket.remotePort,
-      certificateName,
+      context: context,
       is_server: true,
       socket: socket,
       subscription: subscription,

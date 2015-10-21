@@ -47,7 +47,7 @@
 @DocsEditable()
 // http://www.w3.org/TR/performance-timeline/#sec-window.performance-attribute
 @Experimental()
-List&lt;PerformanceEntry&gt; getEntries() =&gt; _blink.BlinkPerformance.instance.getEntries_Callback_0_(unwrap_jso(this));
+List&lt;PerformanceEntry&gt; getEntries() =&gt; wrap_jso(_blink.BlinkPerformance.instance.getEntries_Callback_0_(unwrap_jso(this)));
    </code>
   </pre>
  </section>

@@ -46,7 +46,7 @@
     return;
   }
   if ((scrollOptions is Map) &amp;&amp; (y is num) &amp;&amp; (x is num)) {
-    _blink.BlinkWindow.instance.scrollTo_Callback_3_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y), scrollOptions);
+    _blink.BlinkWindow.instance.scrollTo_Callback_3_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y), convertDartToNative_Dictionary(scrollOptions));
     return;
   }
   if ((y is int) &amp;&amp; (x is int) &amp;&amp; scrollOptions == null) {
@@ -54,7 +54,7 @@
     return;
   }
   if ((scrollOptions is Map) &amp;&amp; (y is int) &amp;&amp; (x is int)) {
-    _blink.BlinkWindow.instance.scrollTo_Callback_3_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y), scrollOptions);
+    _blink.BlinkWindow.instance.scrollTo_Callback_3_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y), convertDartToNative_Dictionary(scrollOptions));
     return;
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);

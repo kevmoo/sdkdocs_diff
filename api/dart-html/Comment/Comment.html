@@ -35,9 +35,9 @@
 @DocsEditable()
 factory Comment([String data]) {
   if (data != null) {
-    return _blink.BlinkComment.instance.constructorCallback_1_(data);
+    return wrap_jso(_blink.BlinkComment.instance.constructorCallback_1_(data));
   }
-  return _blink.BlinkComment.instance.constructorCallback_0_();
+  return wrap_jso(_blink.BlinkComment.instance.constructorCallback_0_());
 }
    </code>
   </pre>

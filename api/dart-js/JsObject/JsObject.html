@@ -41,8 +41,14 @@ to it.
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    factory JsObject(JsFunction constructor, [List arguments]) =&gt;
-    _create(constructor, arguments);
+    factory JsObject(JsFunction constructor, [List arguments]) {
+  try {
+    return _create(constructor, arguments);
+  } catch (e) {
+    // Re-throw any errors (returned as a string) as a DomException.
+    throw new html.DomException.jsInterop(e);
+  }
+}
    </code>
   </pre>
  </section>

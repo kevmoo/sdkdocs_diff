@@ -54,7 +54,14 @@ object.
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    operator []=(property, value) native &#34;JsObject_[]=&#34;;
+    operator []=(property, value) {
+  try {
+    _operator_setter(property, value);
+  } catch (e) {
+    // Re-throw any errors (returned as a string) as a DomException.
+    throw new html.DomException.jsInterop(e);
+  }
+}
    </code>
   </pre>
  </section>

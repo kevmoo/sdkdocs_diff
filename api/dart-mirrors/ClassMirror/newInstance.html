@@ -53,7 +53,7 @@
    <em>
     c
    </em>
-   be the class reflected by this mirror
+   be the class reflected by this mirror,
 let
    <em>
     a1, ..., an
@@ -62,7 +62,8 @@ let
    <code>
     positionalArguments
    </code>
-   let
+   ,
+let
    <em>
     k1, ..., km
    </em>
@@ -70,7 +71,8 @@ let
    <code>
     namedArguments.keys
    </code>
-   and let
+   ,
+and let
    <em>
     v1, ..., vm
    </em>
@@ -79,21 +81,26 @@ let
     namedArguments.values
    </code>
    .
-If
+  </p>
+  <p>
+   If
    <code>
     constructorName
    </code>
-   was created from the empty string
-Then this method will execute the instance creation expression
+   was created from the empty string, then this method
+will execute the instance creation expression
    <em>
     new c(a1, ..., an, k1: v1, ..., km: vm)
    </em>
-   in a scope that has access to the private members
-of
+   in a scope that has access to
+the private members of
    <em>
     c
    </em>
-   . Otherwise, let
+   .
+  </p>
+  <p>
+   Otherwise, let
    <em>
     f
    </em>
@@ -101,45 +108,61 @@ of
    <code>
     constructorName
    </code>
-   Then this method will execute the instance creation expression
+   . Then this method will execute the instance creation
+expression
    <em>
     new c.f(a1, ..., an, k1: v1, ..., km: vm)
    </em>
-   in a scope that has access to the private members
-of
+   in a scope that has
+access to the private members of
    <em>
     c
    </em>
    .
-In either case:
-If the expression evaluates to a result
-   <em>
-    r
-   </em>
-   , this method returns
-the result of calling
-   <a class="" href="dart-mirrors/reflect.html">
-    reflect
-   </a>
-   \(
-   <em>
-    r
-   </em>
-   \).
-If evaluating the expression causes a compilation error
-the effect is the same as if a non-reflective compilation error
-had been encountered.
-If evaluating the expression throws an exception
-   <em>
-    e
-   </em>
-   (that it does not catch)
-this method throws
-   <em>
-    e
-   </em>
-   .
   </p>
+  <p>
+   In either case:
+  </p>
+  <ul>
+   <li>
+    <p>
+     If the expression evaluates to a result
+     <em>
+      r
+     </em>
+     , this method returns the
+  result of calling
+     <a class="" href="dart-mirrors/reflect.html">
+      reflect
+     </a>
+     \(
+     <em>
+      r
+     </em>
+     \).
+    </p>
+   </li>
+   <li>
+    <p>
+     If evaluating the expression causes a compilation error, the effect is
+  the same as if a non-reflective compilation error had been encountered.
+    </p>
+   </li>
+   <li>
+    <p>
+     If evaluating the expression throws an exception
+     <em>
+      e
+     </em>
+     (that it does not
+  catch), this method throws
+     <em>
+      e
+     </em>
+     .
+    </p>
+   </li>
+  </ul>
  </section>
  <section class="summary source-code" id="source">
   <h2>
@@ -150,8 +173,8 @@ this method throws
   <pre>
    <code class="prettyprint lang-dart">
     InstanceMirror newInstance(Symbol constructorName,
-                          List positionalArguments,
-                          [Map&lt;Symbol,dynamic&gt; namedArguments]);
+                           List positionalArguments,
+                           [Map&lt;Symbol,dynamic&gt; namedArguments]);
    </code>
   </pre>
  </section>

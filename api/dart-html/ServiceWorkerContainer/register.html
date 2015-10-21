@@ -40,9 +40,9 @@
    <code class="prettyprint lang-dart">
     Future register(String url, [Map options]) {
   if (options != null) {
-    return _blink.BlinkServiceWorkerContainer.instance.register_Callback_2_(unwrap_jso(this), url, options);
+    return wrap_jso(_blink.BlinkServiceWorkerContainer.instance.register_Callback_2_(unwrap_jso(this), url, convertDartToNative_Dictionary(options)));
   }
-  return _blink.BlinkServiceWorkerContainer.instance.register_Callback_1_(unwrap_jso(this), url);
+  return wrap_jso(_blink.BlinkServiceWorkerContainer.instance.register_Callback_1_(unwrap_jso(this), url));
 }
    </code>
   </pre>

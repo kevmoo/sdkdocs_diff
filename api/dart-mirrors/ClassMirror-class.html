@@ -242,23 +242,10 @@ class.
    </dt>
    <dd>
     <p>
-     Returns
-     <code>
-      true
-     </code>
-     if this declaration is considered private
-according to the Dart language specification.
-Always returns
-     <code>
-      false
-     </code>
-     if this declaration
-is a library.
-Otherwise return
-     <code>
-      false
-     </code>
-     .
+     Whether this declaration is library private.
+     <a href="dart-mirrors/DeclarationMirror/isPrivate.html">
+      …
+     </a>
     </p>
     <div class="features">
      read-only, inherited
@@ -279,7 +266,7 @@ Otherwise return
    </dt>
    <dd>
     <p>
-     Is this declaration top-level?
+     Whether this declaration is top-level.
      <a href="dart-mirrors/DeclarationMirror/isTopLevel.html">
       …
      </a>
@@ -362,13 +349,9 @@ entity is synthetic.
    <dd>
     <p>
      The mixin of this class.
-If this class is the result of a mixin application of the
-form S with M, returns a class mirror on M.
-Otherwise returns a class mirror on
-     <code>
-      reflectee
-     </code>
-     .
+     <a href="dart-mirrors/ClassMirror/mixin.html">
+      …
+     </a>
     </p>
     <div class="features">
      read-only
@@ -413,8 +396,7 @@ Otherwise returns a class mirror on
    </dt>
    <dd>
     <p>
-     A mirror on the owner of this Dart language entity. This is the declaration
-immediately surrounding the reflectee.
+     A mirror on the owner of this Dart language entity.
      <a href="dart-mirrors/DeclarationMirror/owner.html">
       …
      </a>
@@ -721,18 +703,9 @@ this type.
    </dt>
    <dd>
     <p>
-     Returns
-     <code>
-      true
-     </code>
-     if this mirror is equal to
+     Whether this mirror is equal to
      <code>
       other
-     </code>
-     .
-Otherwise returns
-     <code>
-      false
      </code>
      .
      <a href="dart-mirrors/ClassMirror/operator_equals.html">
@@ -774,7 +747,7 @@ Otherwise returns
    </dt>
    <dd>
     <p>
-     Perform
+     Performs
      <code>
       invocation
      </code>
@@ -783,7 +756,6 @@ Otherwise returns
       reflectee
      </code>
      .
-Equivalent to
      <a href="dart-mirrors/ObjectMirror/delegate.html">
       …
      </a>
@@ -822,9 +794,7 @@ Equivalent to
    </dt>
    <dd>
     <p>
-     Invokes a getter and returns a mirror on the result. The getter
-can be the implicit getter for a field or a user-defined getter
-method.
+     Invokes a getter and returns a mirror on the result.
      <a href="dart-mirrors/ObjectMirror/getField.html">
       …
      </a>
@@ -929,8 +899,10 @@ method.
       &lt;=&gt;
      </code>
      in the language
-specification. This is the type relationship tested on assignment in
-checked mode.
+specification.
+     <a href="dart-mirrors/TypeMirror/isAssignableTo.html">
+      …
+     </a>
     </p>
     <div class="features">
      inherited
@@ -1008,11 +980,10 @@ class denoted by the argument.
       &lt;:
      </code>
      in the language
-specification. This is the type relationship used in
-     <code>
-      is
-     </code>
-     test checks.
+specification.
+     <a href="dart-mirrors/TypeMirror/isSubtypeOf.html">
+      …
+     </a>
     </p>
     <div class="features">
      inherited
@@ -1172,9 +1143,7 @@ the original invocation.
    </dt>
    <dd>
     <p>
-     Invokes a setter and returns a mirror on the result. The setter
-may be either the implicit setter for a non-final field or a
-user-defined setter method.
+     Invokes a setter and returns a mirror on the result.
      <a href="dart-mirrors/ObjectMirror/setField.html">
       …
      </a>

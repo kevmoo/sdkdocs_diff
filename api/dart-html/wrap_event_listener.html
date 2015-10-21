@@ -1,0 +1,57 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   <a class="" href="dart-js/JsFunction-class.html">
+    JsFunction
+   </a>
+  </span>
+  <span class="name ">
+   wrap_event_listener
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="wrap_event_listener-param-theObject">
+   <span class="parameter-name">
+    theObject
+   </span>
+  </span>
+  ,
+  <span class="parameter" id="wrap_event_listener-param-listener">
+   <span class="type-annotation">
+    <a class="" href="dart-core/Function-class.html">
+     Function
+    </a>
+   </span>
+   <span class="parameter-name">
+    listener
+   </span>
+  </span>
+  )
+ </section>
+ <section class="desc markdown">
+  <p class="no-docs">
+   Not documented.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    js.JsFunction wrap_event_listener(theObject, Function listener) {
+  var thisHashCode = theObject.hashCode;
+  var listenerHashCode = identityHashCode(listener);
+
+  _knownListeners.putIfAbsent(thisHashCode, () =&gt; new Map&lt;int, js.JsFunction&gt;());
+  _knownListeners[thisHashCode].putIfAbsent(listenerHashCode, () =&gt;
+    new js.JsFunction.withThis((theObject, event) =&gt; listener(wrap_jso(event))));
+
+  return _knownListeners[thisHashCode][listenerHashCode];
+}
+   </code>
+  </pre>
+ </section>
+</div>

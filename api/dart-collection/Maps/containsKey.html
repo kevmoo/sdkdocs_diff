@@ -17,6 +17,11 @@
   </span>
   ,
   <span class="parameter" id="containsKey-param-key">
+   <span class="type-annotation">
+    <a class="" href="dart-core/Object-class.html">
+     Object
+    </a>
+   </span>
    <span class="parameter-name">
     key
    </span>
@@ -36,9 +41,9 @@
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    static bool containsKey(Map map, key) {
+    static bool containsKey(Map map, Object key) {
   for (final k in map.keys) {
-    if (key == k) {
+    if (k == key) {
       return true;
     }
   }

@@ -27,11 +27,17 @@ use cases.
   <p>
    Examples:
   </p>
-  <pre class="prettyprint lang-dart">
+  <p>
+   var encoded = JSON.encode(
    <code>
-    var encoded = JSON.encode([1, 2, { &#34;a&#34;: null }]);
-var decoded = JSON.decode(&#39;[&#34;foo&#34;, { &#34;bar&#34;: 499 }]&#39;);
+    1, 2, { &#34;a&#34;: null }
    </code>
-  </pre>
+   );
+   var decoded = JSON.decode(&#39;
+   <code>
+    &#34;foo&#34;, { &#34;bar&#34;: 499 }
+   </code>
+   &#39;);
+  </p>
  </section>
 </div>

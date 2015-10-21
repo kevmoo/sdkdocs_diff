@@ -51,10 +51,10 @@
 @DocsEditable()
 factory ImageData(data_OR_width, int height_OR_width, [int height]) {
   if ((height_OR_width is int || height_OR_width == null) &amp;&amp; (data_OR_width is int || data_OR_width == null) &amp;&amp; height == null) {
-    return _blink.BlinkImageData.instance.constructorCallback_2_(data_OR_width, height_OR_width);
+    return wrap_jso(_blink.BlinkImageData.instance.constructorCallback_2_(data_OR_width, height_OR_width));
   }
   if ((height is int || height == null) &amp;&amp; (height_OR_width is int || height_OR_width == null) &amp;&amp; (data_OR_width is Uint8ClampedList || data_OR_width == null)) {
-    return _blink.BlinkImageData.instance.constructorCallback_3_(data_OR_width, height_OR_width, height);
+    return wrap_jso(_blink.BlinkImageData.instance.constructorCallback_3_(data_OR_width, height_OR_width, height));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

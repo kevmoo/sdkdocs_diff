@@ -100,14 +100,11 @@ introspect its function.
    </dt>
    <dd>
     <p>
-     Does
+     Whether
      <code>
       reflectee
      </code>
-     contain the instance reflected by this mirror?
-This will always be true in the local case (reflecting instances
-in the same isolate), but only true in the remote case if this
-mirror reflects a simple value.
+     will return the instance reflected by this mirror.
      <a href="dart-mirrors/InstanceMirror/hasReflectee.html">
       …
      </a>
@@ -299,67 +296,9 @@ instance here.
    <dd>
     <p>
      Executes the closure and returns a mirror on the result.
-Let
-     <em>
-      f
-     </em>
-     be the closure reflected by this mirror,
-let
-     <em>
-      a1, ..., an
-     </em>
-     be the elements of
-     <code>
-      positionalArguments
-     </code>
-     let
-     <em>
-      k1, ..., km
-     </em>
-     be the identifiers denoted by the elements of
-     <code>
-      namedArguments.keys
-     </code>
-     and let
-     <em>
-      v1, ..., vm
-     </em>
-     be the elements of
-     <code>
-      namedArguments.values
-     </code>
-     .
-Then this method will perform the method invocation
-     <em>
-      f(a1, ..., an, k1: v1, ..., km: vm)
-     </em>
-     If the invocation returns a result
-     <em>
-      r
-     </em>
-     , this method returns
-the result of calling
-     <a class="" href="dart-mirrors/reflect.html">
-      reflect
+     <a href="dart-mirrors/ClosureMirror/apply.html">
+      …
      </a>
-     \(
-     <em>
-      r
-     </em>
-     \).
-If the invocation causes a compilation error
-the effect is the same as if a non-reflective compilation error
-had been encountered.
-If the invocation throws an exception
-     <em>
-      e
-     </em>
-     (that it does not catch)
-this method throws
-     <em>
-      e
-     </em>
-     .
     </p>
    </dd>
    <dt id="delegate" class="callable">
@@ -389,7 +328,7 @@ this method throws
    </dt>
    <dd>
     <p>
-     Perform
+     Performs
      <code>
       invocation
      </code>
@@ -398,7 +337,6 @@ this method throws
       reflectee
      </code>
      .
-Equivalent to
      <a href="dart-mirrors/ObjectMirror/delegate.html">
       …
      </a>
@@ -437,9 +375,7 @@ Equivalent to
    </dt>
    <dd>
     <p>
-     Invokes a getter and returns a mirror on the result. The getter
-can be the implicit getter for a field or a user-defined getter
-method.
+     Invokes a getter and returns a mirror on the result.
      <a href="dart-mirrors/ObjectMirror/getField.html">
       …
      </a>
@@ -605,9 +541,7 @@ the original invocation.
    </dt>
    <dd>
     <p>
-     Invokes a setter and returns a mirror on the result. The setter
-may be either the implicit setter for a non-final field or a
-user-defined setter method.
+     Invokes a setter and returns a mirror on the result.
      <a href="dart-mirrors/ObjectMirror/setField.html">
       …
      </a>

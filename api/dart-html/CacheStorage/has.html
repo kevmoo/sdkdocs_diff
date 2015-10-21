@@ -48,7 +48,7 @@
     @DomName(&#39;CacheStorage.has&#39;)
 @DocsEditable()
 @Experimental() // untriaged
-Future has(String cacheName) =&gt; _blink.BlinkCacheStorage.instance.has_Callback_1_(unwrap_jso(this), cacheName);
+Future has(String cacheName) =&gt; wrap_jso(_blink.BlinkCacheStorage.instance.has_Callback_1_(unwrap_jso(this), cacheName));
    </code>
   </pre>
  </section>

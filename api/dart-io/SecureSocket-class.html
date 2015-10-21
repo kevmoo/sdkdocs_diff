@@ -69,29 +69,14 @@ other
       </span>
      </span>
      , {
-     <span class="parameter" id="connect-param-sendClientCertificate">
+     <span class="parameter" id="connect-param-context">
       <span class="type-annotation">
-       <a class="" href="dart-core/bool-class.html">
-        bool
+       <a class="" href="dart-io/SecurityContext-class.html">
+        SecurityContext
        </a>
       </span>
       <span class="parameter-name">
-       sendClientCertificate
-      </span>
-      :
-      <span class="default-value">
-       false
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="connect-param-certificateName">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       certificateName
+       context
       </span>
      </span>
      ,
@@ -114,6 +99,17 @@ other
        </span>
       </span>
       )
+     </span>
+     ,
+     <span class="parameter" id="connect-param-sendClientCertificate">
+      <span class="type-annotation">
+       <a class="" href="dart-core/bool-class.html">
+        bool
+       </a>
+      </span>
+      <span class="parameter-name">
+       sendClientCertificate
+      </span>
      </span>
      ,
      <span class="parameter" id="connect-param-supportedProtocols">
@@ -165,82 +161,6 @@ other
      </a>
     </p>
    </dd>
-   <dt id="initialize" class="callable">
-    <span class="name ">
-     <a class="" href="dart-io/SecureSocket/initialize.html">
-      initialize
-     </a>
-    </span>
-    <span class="signature">
-     (
-     <wbr>
-     {
-     <span class="parameter" id="initialize-param-database">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       database
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="initialize-param-password">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       password
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="initialize-param-useBuiltinRoots">
-      <span class="type-annotation">
-       <a class="" href="dart-core/bool-class.html">
-        bool
-       </a>
-      </span>
-      <span class="parameter-name">
-       useBuiltinRoots
-      </span>
-      :
-      <span class="default-value">
-       true
-      </span>
-     </span>
-     })
-     <span class="returntype parameter">
-      → void
-     </span>
-    </span>
-   </dt>
-   <dd>
-    <p>
-     Initializes the NSS library. If
-     <a class="" href="dart-io/SecureSocket/initialize.html">
-      initialize
-     </a>
-     is not called, the library
-is automatically initialized as if
-     <a class="" href="dart-io/SecureSocket/initialize.html">
-      initialize
-     </a>
-     were called with no
-arguments. If
-     <a class="" href="dart-io/SecureSocket/initialize.html">
-      initialize
-     </a>
-     is called more than once, or called after
-automatic initialization has happened (when a secure connection is made),
-then a TlsException is thrown.
-     <a href="dart-io/SecureSocket/initialize.html">
-      …
-     </a>
-    </p>
-   </dd>
    <dt id="secure" class="callable">
     <span class="name ">
      <a class="" href="dart-io/SecureSocket/secure.html">
@@ -267,29 +187,14 @@ then a TlsException is thrown.
       </span>
      </span>
      ,
-     <span class="parameter" id="secure-param-sendClientCertificate">
+     <span class="parameter" id="secure-param-context">
       <span class="type-annotation">
-       <a class="" href="dart-core/bool-class.html">
-        bool
+       <a class="" href="dart-io/SecurityContext-class.html">
+        SecurityContext
        </a>
       </span>
       <span class="parameter-name">
-       sendClientCertificate
-      </span>
-      :
-      <span class="default-value">
-       false
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="secure-param-certificateName">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       certificateName
+       context
       </span>
      </span>
      ,
@@ -367,14 +272,14 @@ connection is prepared for TLS handshake.
       </span>
      </span>
      ,
-     <span class="parameter" id="secureServer-param-certificateName">
+     <span class="parameter" id="secureServer-param-context">
       <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
+       <a class="" href="dart-io/SecurityContext-class.html">
+        SecurityContext
        </a>
       </span>
       <span class="parameter-name">
-       certificateName
+       context
       </span>
      </span>
      , {
@@ -1077,6 +982,9 @@ client certificate was received.  If it is the client end,
       this
      </code>
      .
+     <a href="dart-io/IOSink/addStream.html">
+      …
+     </a>
     </p>
     <div class="features">
      inherited

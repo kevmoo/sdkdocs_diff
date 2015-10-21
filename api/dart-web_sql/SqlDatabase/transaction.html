@@ -76,14 +76,14 @@
    <code class="prettyprint lang-dart">
     void transaction(SqlTransactionCallback callback, [SqlTransactionErrorCallback errorCallback, VoidCallback successCallback]) {
   if (successCallback != null) {
-    _blink.BlinkDatabase.instance.transaction_Callback_3_(unwrap_jso(this), unwrap_jso(callback), unwrap_jso(errorCallback), unwrap_jso(successCallback));
+    _blink.BlinkDatabase.instance.transaction_Callback_3_(unwrap_jso(this), unwrap_jso((transaction) =&gt; callback(wrap_jso(transaction))), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))), unwrap_jso(() =&gt; successCallback()));
     return;
   }
   if (errorCallback != null) {
-    _blink.BlinkDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(callback), unwrap_jso(errorCallback));
+    _blink.BlinkDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso((transaction) =&gt; callback(wrap_jso(transaction))), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))));
     return;
   }
-  _blink.BlinkDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(callback));
+  _blink.BlinkDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso((transaction) =&gt; callback(wrap_jso(transaction))));
   return;
 }
    </code>

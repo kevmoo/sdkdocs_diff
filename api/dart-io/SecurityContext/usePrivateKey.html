@@ -1,0 +1,63 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   void
+  </span>
+  <span class="name ">
+   usePrivateKey
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="usePrivateKey-param-keyFile">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    keyFile
+   </span>
+  </span>
+  , {
+  <span class="parameter" id="usePrivateKey-param-password">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    password
+   </span>
+  </span>
+  })
+ </section>
+ <section class="desc markdown">
+  <p>
+   Sets the private key for a server certificate or client certificate.
+A secure connection using this SecurityContext will use this key with
+the server or client certificate to sign and decrypt messages.
+   <code>
+    keyFile
+   </code>
+   is a PEM file containing an encrypted
+private key, encrypted with
+   <code>
+    password
+   </code>
+   .  An unencrypted file can be
+used, but this is not usual.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    void usePrivateKey(String keyFile, {String password});
+   </code>
+  </pre>
+ </section>
+</div>

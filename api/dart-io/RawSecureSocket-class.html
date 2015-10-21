@@ -7,7 +7,7 @@ RawSecureSocket.connect.  A secure server, created with
 RawSecureServerSocket, also returns RawSecureSocket objects representing
 the server end of a secure connection.
 The certificate provided by the server is checked
-using the certificate database provided in SecureSocket.initialize, and/or
+using the trusted certificates set in the SecurityContext object and/or
 the default built-in root certificates.
   </p>
  </section>
@@ -58,29 +58,14 @@ the default built-in root certificates.
       </span>
      </span>
      , {
-     <span class="parameter" id="connect-param-sendClientCertificate">
+     <span class="parameter" id="connect-param-context">
       <span class="type-annotation">
-       <a class="" href="dart-core/bool-class.html">
-        bool
+       <a class="" href="dart-io/SecurityContext-class.html">
+        SecurityContext
        </a>
       </span>
       <span class="parameter-name">
-       sendClientCertificate
-      </span>
-      :
-      <span class="default-value">
-       false
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="connect-param-certificateName">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       certificateName
+       context
       </span>
      </span>
      ,
@@ -176,29 +161,14 @@ RawSecureSocket when it is connected and ready for subscription.
       </span>
      </span>
      ,
-     <span class="parameter" id="secure-param-sendClientCertificate">
+     <span class="parameter" id="secure-param-context">
       <span class="type-annotation">
-       <a class="" href="dart-core/bool-class.html">
-        bool
+       <a class="" href="dart-io/SecurityContext-class.html">
+        SecurityContext
        </a>
       </span>
       <span class="parameter-name">
-       sendClientCertificate
-      </span>
-      :
-      <span class="default-value">
-       false
-      </span>
-     </span>
-     ,
-     <span class="parameter" id="secure-param-certificateName">
-      <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
-       </a>
-      </span>
-      <span class="parameter-name">
-       certificateName
+       context
       </span>
      </span>
      ,
@@ -292,14 +262,14 @@ connection is prepared for TLS handshake.
       </span>
      </span>
      ,
-     <span class="parameter" id="secureServer-param-certificateName">
+     <span class="parameter" id="secureServer-param-context">
       <span class="type-annotation">
-       <a class="" href="dart-core/String-class.html">
-        String
+       <a class="" href="dart-io/SecurityContext-class.html">
+        SecurityContext
        </a>
       </span>
       <span class="parameter-name">
-       certificateName
+       context
       </span>
      </span>
      , {

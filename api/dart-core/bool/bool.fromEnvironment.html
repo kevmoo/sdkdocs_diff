@@ -74,6 +74,18 @@ the result is the
    .
   </p>
   <p>
+   The result is the same as would be returned by:
+  </p>
+  <pre class="prettyprint lang-dart">
+   <code>
+    (const String.fromEnvironment(name) == &#34;true&#34;)
+    ? true
+    : (const String.fromEnvironment(name) == &#34;false&#34;)
+        ? false
+        : defaultValue
+   </code>
+  </pre>
+  <p>
    Example:
   </p>
   <pre class="prettyprint lang-dart">
@@ -82,7 +94,11 @@ the result is the
    </code>
   </pre>
   <p>
-   If you want to use a different truth-string, you can use the
+   If you want to use a different truth-string than
+   <code>
+    &#34;true&#34;
+   </code>
+   , you can use the
    <code>
     String.fromEnvironment
    </code>

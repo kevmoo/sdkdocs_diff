@@ -44,7 +44,7 @@
     @DomName(&#39;DOMError.DOMError&#39;)
 @DocsEditable()
 factory DomError(String name, [String message]) {
-  return _blink.BlinkDOMError.instance.constructorCallback_2_(name, message);
+  return wrap_jso(_blink.BlinkDOMError.instance.constructorCallback_2_(name, message));
 }
    </code>
   </pre>

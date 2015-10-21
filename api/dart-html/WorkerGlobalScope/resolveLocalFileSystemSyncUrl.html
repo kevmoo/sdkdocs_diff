@@ -61,7 +61,7 @@
 @SupportedBrowser(SupportedBrowser.SAFARI)
 @Experimental()
 @Experimental() // untriaged
-_EntrySync resolveLocalFileSystemSyncUrl(String url) =&gt; _blink.BlinkWorkerGlobalScope.instance.webkitResolveLocalFileSystemSyncURL_Callback_1_(unwrap_jso(this), url);
+_EntrySync resolveLocalFileSystemSyncUrl(String url) =&gt; wrap_jso(_blink.BlinkWorkerGlobalScope.instance.webkitResolveLocalFileSystemSyncURL_Callback_1_(unwrap_jso(this), url));
    </code>
   </pre>
  </section>

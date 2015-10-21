@@ -44,7 +44,7 @@
     @DomName(&#39;SharedWorker.SharedWorker&#39;)
 @DocsEditable()
 factory SharedWorker(String scriptURL, [String name]) {
-  return _blink.BlinkSharedWorker.instance.constructorCallback_2_(scriptURL, name);
+  return wrap_jso(_blink.BlinkSharedWorker.instance.constructorCallback_2_(scriptURL, name));
 }
    </code>
   </pre>

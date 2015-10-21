@@ -48,7 +48,7 @@
     @DomName(&#39;CredentialsContainer.notifySignedIn&#39;)
 @DocsEditable()
 @Experimental() // untriaged
-Future notifySignedIn(Credential credential) =&gt; _blink.BlinkCredentialsContainer.instance.notifySignedIn_Callback_1_(unwrap_jso(this), unwrap_jso(credential));
+Future notifySignedIn(Credential credential) =&gt; wrap_jso(_blink.BlinkCredentialsContainer.instance.notifySignedIn_Callback_1_(unwrap_jso(this), unwrap_jso(credential)));
    </code>
   </pre>
  </section>

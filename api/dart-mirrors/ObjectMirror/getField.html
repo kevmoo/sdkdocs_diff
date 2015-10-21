@@ -24,8 +24,10 @@
  </section>
  <section class="desc markdown">
   <p>
-   Invokes a getter and returns a mirror on the result. The getter
-can be the implicit getter for a field or a user-defined getter
+   Invokes a getter and returns a mirror on the result.
+  </p>
+  <p>
+   The getter can be the implicit getter for a field or a user-defined getter
 method.
   </p>
   <p>
@@ -33,7 +35,8 @@ method.
    <em>
     o
    </em>
-   be the object reflected by this mirror, let
+   be the object reflected by this mirror,
+let
    <em>
     f
    </em>
@@ -41,13 +44,15 @@ method.
    <code>
     fieldName
    </code>
-   ,
-Then this method will perform the getter invocation
+   .
+  </p>
+  <p>
+   Then this method will perform the getter invocation
    <em>
     o.f
    </em>
-   in a scope that has access to the private members
-of
+   in a scope that
+has access to the private members of
    <em>
     o
    </em>
@@ -55,8 +60,8 @@ of
    <em>
     o
    </em>
-   is a class or library) or the private members of the
-class of
+   is a class or library) or
+the private members of the class of
    <em>
     o
    </em>
@@ -106,8 +111,8 @@ mirror on a closure corresponding to that method.
    <em>
     r
    </em>
-   , this method returns
-the result of calling
+   , this method returns the result of
+calling
    <a class="" href="dart-mirrors/reflect.html">
     reflect
    </a>
@@ -116,15 +121,18 @@ the result of calling
     r
    </em>
    \).
-If the invocation causes a compilation error
-the effect is the same as if a non-reflective compilation error
-had been encountered.
-If the invocation throws an exception
+  </p>
+  <p>
+   If the invocation causes a compilation error, the effect is the same as if
+a non-reflective compilation error had been encountered.
+  </p>
+  <p>
+   If the invocation throws an exception
    <em>
     e
    </em>
-   (that it does not catch)
-this method throws
+   (that it does not catch), this
+method throws
    <em>
     e
    </em>

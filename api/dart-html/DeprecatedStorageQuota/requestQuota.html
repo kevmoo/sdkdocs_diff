@@ -77,11 +77,11 @@
    <code class="prettyprint lang-dart">
     void requestQuota(int newQuotaInBytes, [StorageQuotaCallback quotaCallback, StorageErrorCallback errorCallback]) {
   if (errorCallback != null) {
-    _blink.BlinkDeprecatedStorageQuota.instance.requestQuota_Callback_3_(unwrap_jso(this), newQuotaInBytes, unwrap_jso(quotaCallback), unwrap_jso(errorCallback));
+    _blink.BlinkDeprecatedStorageQuota.instance.requestQuota_Callback_3_(unwrap_jso(this), newQuotaInBytes, unwrap_jso((grantedQuotaInBytes) =&gt; quotaCallback(grantedQuotaInBytes)), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))));
     return;
   }
   if (quotaCallback != null) {
-    _blink.BlinkDeprecatedStorageQuota.instance.requestQuota_Callback_2_(unwrap_jso(this), newQuotaInBytes, unwrap_jso(quotaCallback));
+    _blink.BlinkDeprecatedStorageQuota.instance.requestQuota_Callback_2_(unwrap_jso(this), newQuotaInBytes, unwrap_jso((grantedQuotaInBytes) =&gt; quotaCallback(grantedQuotaInBytes)));
     return;
   }
   _blink.BlinkDeprecatedStorageQuota.instance.requestQuota_Callback_1_(unwrap_jso(this), newQuotaInBytes);

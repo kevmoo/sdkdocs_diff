@@ -125,7 +125,7 @@
    <code class="prettyprint lang-dart">
     @DomName(&#39;SQLTransaction.executeSql&#39;)
 @DocsEditable()
-void executeSql(String sqlStatement, List&lt;Object&gt; arguments, [SqlStatementCallback callback, SqlStatementErrorCallback errorCallback]) =&gt; _blink.BlinkSQLTransaction.instance.executeSql_Callback_4_(unwrap_jso(this), sqlStatement, arguments, unwrap_jso(callback), unwrap_jso(errorCallback));
+void executeSql(String sqlStatement, List&lt;Object&gt; arguments, [SqlStatementCallback callback, SqlStatementErrorCallback errorCallback]) =&gt; _blink.BlinkSQLTransaction.instance.executeSql_Callback_4_(unwrap_jso(this), sqlStatement, unwrap_jso(arguments), unwrap_jso((transaction, resultSet) =&gt; callback(wrap_jso(transaction), wrap_jso(resultSet))), unwrap_jso((transaction, error) =&gt; errorCallback(wrap_jso(transaction), wrap_jso(error))));
    </code>
   </pre>
  </section>

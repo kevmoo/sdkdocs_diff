@@ -30,9 +30,10 @@
 @DocsEditable()
 factory RtcSessionDescription([Map descriptionInitDict]) {
   if (descriptionInitDict != null) {
-    return _blink.BlinkRTCSessionDescription.instance.constructorCallback_1_(descriptionInitDict);
+    var descriptionInitDict_1 = convertDartToNative_Dictionary(descriptionInitDict);
+    return wrap_jso(_blink.BlinkRTCSessionDescription.instance.constructorCallback_1_(descriptionInitDict_1));
   }
-  return _blink.BlinkRTCSessionDescription.instance.constructorCallback_0_();
+  return wrap_jso(_blink.BlinkRTCSessionDescription.instance.constructorCallback_0_());
 }
    </code>
   </pre>

@@ -95,23 +95,10 @@
    </dt>
    <dd>
     <p>
-     Returns
-     <code>
-      true
-     </code>
-     if this declaration is considered private
-according to the Dart language specification.
-Always returns
-     <code>
-      false
-     </code>
-     if this declaration
-is a library.
-Otherwise return
-     <code>
-      false
-     </code>
-     .
+     Whether this declaration is library private.
+     <a href="dart-mirrors/DeclarationMirror/isPrivate.html">
+      …
+     </a>
     </p>
     <div class="features">
      read-only
@@ -132,7 +119,7 @@ Otherwise return
    </dt>
    <dd>
     <p>
-     Is this declaration top-level?
+     Whether this declaration is top-level.
      <a href="dart-mirrors/DeclarationMirror/isTopLevel.html">
       …
      </a>
@@ -214,8 +201,7 @@ entity is synthetic.
    </dt>
    <dd>
     <p>
-     A mirror on the owner of this Dart language entity. This is the declaration
-immediately surrounding the reflectee.
+     A mirror on the owner of this Dart language entity.
      <a href="dart-mirrors/DeclarationMirror/owner.html">
       …
      </a>

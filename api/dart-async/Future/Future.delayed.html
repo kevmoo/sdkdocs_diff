@@ -18,7 +18,7 @@
   , [
   <span class="parameter" id="delayed-param-computation">
    <span class="type-annotation">
-    T
+    dynamic
    </span>
    <span class="parameter-name">
     computation
@@ -91,7 +91,7 @@ later time that isn&#39;t necessarily after a known fixed duration.
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    factory Future.delayed(Duration duration, [T computation()]) {
+    factory Future.delayed(Duration duration, [computation()]) {
   _Future result = new _Future&lt;T&gt;();
   new Timer(duration, () {
     try {

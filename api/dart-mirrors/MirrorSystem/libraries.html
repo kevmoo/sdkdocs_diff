@@ -21,10 +21,20 @@
   </section>
   <section class="desc markdown">
    <p>
-    Returns an immutable map from URIs to mirrors for all libraries known
-to this mirror system. For a runtime mirror system, only libraries which
-are currently loaded are included, and repeated calls of this method may
-return different maps as libraries are loaded.
+    All libraries known to the mirror system, indexed by their URI.
+   </p>
+   <p>
+    Returns an unmodifiable map of the libraries with
+    <a class="" href="dart-mirrors/LibraryMirror/uri.html">
+     LibraryMirror.uri
+    </a>
+    as
+keys.
+   </p>
+   <p>
+    For a runtime mirror system, only libraries which are currently loaded
+are included, and repeated calls of this method may return different maps
+as libraries are loaded.
    </p>
   </section>
  </section>

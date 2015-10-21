@@ -309,6 +309,147 @@ into JavaScript Objects and Arrays.
    Functions
   </h2>
   <dl class="callables">
+   <dt id="addMemberHelper" class="callable">
+    <span class="name ">
+     <a class="" href="dart-js/addMemberHelper.html">
+      addMemberHelper
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="addMemberHelper-param-declaration">
+      <span class="type-annotation">
+       <a class="" href="dart-mirrors/MethodMirror-class.html">
+        MethodMirror
+       </a>
+      </span>
+      <span class="parameter-name">
+       declaration
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="addMemberHelper-param-path">
+      <span class="type-annotation">
+       <a class="" href="dart-core/String-class.html">
+        String
+       </a>
+      </span>
+      <span class="parameter-name">
+       path
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="addMemberHelper-param-sb">
+      <span class="type-annotation">
+       <a class="" href="dart-core/StringBuffer-class.html">
+        StringBuffer
+       </a>
+      </span>
+      <span class="parameter-name">
+       sb
+      </span>
+     </span>
+     , {
+     <span class="parameter" id="addMemberHelper-param-isStatic">
+      <span class="type-annotation">
+       <a class="" href="dart-core/bool-class.html">
+        bool
+       </a>
+      </span>
+      <span class="parameter-name">
+       isStatic
+      </span>
+      :
+      <span class="default-value">
+       false
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="addMemberHelper-param-memberName">
+      <span class="type-annotation">
+       <a class="" href="dart-core/String-class.html">
+        String
+       </a>
+      </span>
+      <span class="parameter-name">
+       memberName
+      </span>
+     </span>
+     })
+     <span class="returntype parameter">
+      → void
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
+   <dt id="allowInterop" class="callable">
+    <span class="name ">
+     <a class="" href="dart-js/allowInterop.html">
+      allowInterop
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="allowInterop-param-f">
+      <span class="type-annotation">
+       <a class="" href="dart-core/Function-class.html">
+        Function
+       </a>
+      </span>
+      <span class="parameter-name">
+       f
+      </span>
+     </span>
+     )
+     <span class="returntype parameter">
+      →
+      <a class="" href="dart-core/Function-class.html">
+       Function
+      </a>
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
+   <dt id="allowInteropCaptureThis" class="callable">
+    <span class="name ">
+     <a class="" href="dart-js/allowInteropCaptureThis.html">
+      allowInteropCaptureThis
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="allowInteropCaptureThis-param-f">
+      <span class="type-annotation">
+       <a class="" href="dart-core/Function-class.html">
+        Function
+       </a>
+      </span>
+      <span class="parameter-name">
+       f
+      </span>
+     </span>
+     )
+     <span class="returntype parameter">
+      →
+      <a class="" href="dart-core/Function-class.html">
+       Function
+      </a>
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
    <dt id="finalizeJsInterfaces" class="callable">
     <span class="name ">
      <a class="" href="dart-js/finalizeJsInterfaces.html">
@@ -331,6 +472,38 @@ be added. Creating an instance of JsObject will also automatically trigger
 all JsObjects to be finalized.
     </p>
    </dd>
+   <dt id="getDartHtmlWrapperFor" class="callable">
+    <span class="name ">
+     <a class="" href="dart-js/getDartHtmlWrapperFor.html">
+      getDartHtmlWrapperFor
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="getDartHtmlWrapperFor-param-object">
+      <span class="type-annotation">
+       <a class="" href="dart-js/JsObject-class.html">
+        JsObject
+       </a>
+      </span>
+      <span class="parameter-name">
+       object
+      </span>
+     </span>
+     )
+     <span class="returntype parameter">
+      → dynamic
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+     Get the dart wrapper object for object. Top-level so we
+we can access it from other libraries without it being
+a public instance field on JsObject.
+    </p>
+   </dd>
    <dt id="registerJsInterfaces" class="callable">
     <span class="name ">
      <a class="" href="dart-js/registerJsInterfaces.html">
@@ -340,6 +513,7 @@ all JsObjects to be finalized.
     <span class="signature">
      (
      <wbr>
+     [
      <span class="parameter" id="registerJsInterfaces-param-classes">
       <span class="type-annotation">
        <a class="" href="dart-core/List-class.html">
@@ -355,7 +529,7 @@ all JsObjects to be finalized.
        classes
       </span>
      </span>
-     )
+     ])
      <span class="returntype parameter">
       → void
      </span>
@@ -365,6 +539,71 @@ all JsObjects to be finalized.
     <p>
      Temporary method that we hope to remove at some point. This method should
 generally only be called by machine generated code.
+    </p>
+   </dd>
+   <dt id="setDartHtmlWrapperFor" class="callable">
+    <span class="name ">
+     <a class="" href="dart-js/setDartHtmlWrapperFor.html">
+      setDartHtmlWrapperFor
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="setDartHtmlWrapperFor-param-object">
+      <span class="type-annotation">
+       <a class="" href="dart-js/JsObject-class.html">
+        JsObject
+       </a>
+      </span>
+      <span class="parameter-name">
+       object
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="setDartHtmlWrapperFor-param-wrapper">
+      <span class="parameter-name">
+       wrapper
+      </span>
+     </span>
+     )
+     <span class="returntype parameter">
+      → void
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+     Set the dart wrapper object for object. Top-level so we
+we can access it from other libraries without it being
+a public instance field on JsObject.
+    </p>
+   </dd>
+   <dt id="unwrap_jso" class="callable">
+    <span class="name ">
+     <a class="" href="dart-js/unwrap_jso.html">
+      unwrap_jso
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="unwrap_jso-param-dartClass_instance">
+      <span class="parameter-name">
+       dartClass_instance
+      </span>
+     </span>
+     )
+     <span class="returntype parameter">
+      → dynamic
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+     Used by callMethod to get the JS object for each argument passed if the
+argument is a Dart class instance that delegates to a DOM object.  See
+wrap_jso defined in dart:html.
     </p>
    </dd>
   </dl>
@@ -400,6 +639,17 @@ generally only be called by machine generated code.
    <dd>
     <p>
      Proxies a JavaScript Function object.
+    </p>
+   </dd>
+   <dt id="JsNative">
+    <span class="name ">
+     <a class="" href="dart-js/JsNative-class.html">
+      JsNative
+     </a>
+    </span>
+   </dt>
+   <dd>
+    <p>
     </p>
    </dd>
    <dt id="JsObject">

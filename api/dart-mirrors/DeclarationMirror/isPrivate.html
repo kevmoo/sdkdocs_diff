@@ -12,23 +12,28 @@
   </section>
   <section class="desc markdown">
    <p>
-    Returns
+    Whether this declaration is library private.
+   </p>
+   <p>
+    Always returns
+    <code>
+     false
+    </code>
+    for a library declaration,
+otherwise returns
     <code>
      true
     </code>
-    if this declaration is considered private
-according to the Dart language specification.
-Always returns
+    if the declaration&#39;s name starts with an
+underscore character (
+    <code>
+     _
+    </code>
+    ), and
     <code>
      false
     </code>
-    if this declaration
-is a library.
-Otherwise return
-    <code>
-     false
-    </code>
-    .
+    if it doesn&#39;t.
    </p>
   </section>
  </section>

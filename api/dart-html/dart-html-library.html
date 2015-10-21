@@ -648,6 +648,23 @@ download
      read-only
     </div>
    </dd>
+   <dt id="htmlBlinkFunctionMap" class="property">
+    <span class="name">
+     <a class="" href="dart-html/htmlBlinkFunctionMap.html">
+      htmlBlinkFunctionMap
+     </a>
+    </span>
+    <span class="signature">
+     → dynamic
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+    <div class="features">
+     read-only
+    </div>
+   </dd>
    <dt id="htmlBlinkMap" class="property">
     <span class="name">
      <a class="" href="dart-html/htmlBlinkMap.html">
@@ -696,18 +713,90 @@ download
    Functions
   </h2>
   <dl class="callables">
-   <dt id="make_dart_rectangle" class="callable">
+   <dt id="convertNativeObjectToDartMap" class="callable">
     <span class="name ">
-     <a class="" href="dart-html/make_dart_rectangle.html">
-      make_dart_rectangle
+     <a class="" href="dart-html/convertNativeObjectToDartMap.html">
+      convertNativeObjectToDartMap
      </a>
     </span>
     <span class="signature">
      (
      <wbr>
-     <span class="parameter" id="make_dart_rectangle-param-r">
+     <span class="parameter" id="convertNativeObjectToDartMap-param-jsObject">
+      <span class="type-annotation">
+       <a class="" href="dart-js/JsObject-class.html">
+        JsObject
+       </a>
+      </span>
       <span class="parameter-name">
-       r
+       jsObject
+      </span>
+     </span>
+     )
+     <span class="returntype parameter">
+      →
+      <a class="" href="dart-core/Map-class.html">
+       Map
+      </a>
+      &lt;
+      <a class="" href="dart-core/String-class.html">
+       String
+      </a>
+      , dynamic&gt;
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
+   <dt id="debug_or_assert" class="callable">
+    <span class="name ">
+     <a class="" href="dart-html/debug_or_assert.html">
+      debug_or_assert
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="debug_or_assert-param-message">
+      <span class="parameter-name">
+       message
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="debug_or_assert-param-expression">
+      <span class="parameter-name">
+       expression
+      </span>
+     </span>
+     )
+     <span class="returntype parameter">
+      → dynamic
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
+   <dt id="getHtmlCreateFunction" class="callable">
+    <span class="name ">
+     <a class="" href="dart-html/getHtmlCreateFunction.html">
+      getHtmlCreateFunction
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     <span class="parameter" id="getHtmlCreateFunction-param-key">
+      <span class="type-annotation">
+       <a class="" href="dart-core/String-class.html">
+        String
+       </a>
+      </span>
+      <span class="parameter-name">
+       key
       </span>
      </span>
      )
@@ -943,71 +1032,37 @@ with full access to the DOM.
 Note: this API is still evolving and may move to dart:isolate.
     </p>
    </dd>
-   <dt id="unwrap_jso" class="callable">
+   <dt id="wrap_event_listener" class="callable">
     <span class="name ">
-     <a class="" href="dart-html/unwrap_jso.html">
-      unwrap_jso
+     <a class="" href="dart-html/wrap_event_listener.html">
+      wrap_event_listener
      </a>
     </span>
     <span class="signature">
      (
      <wbr>
-     <span class="parameter" id="unwrap_jso-param-dartClass_instance">
+     <span class="parameter" id="wrap_event_listener-param-theObject">
       <span class="parameter-name">
-       dartClass_instance
+       theObject
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="wrap_event_listener-param-listener">
+      <span class="type-annotation">
+       <a class="" href="dart-core/Function-class.html">
+        Function
+       </a>
+      </span>
+      <span class="parameter-name">
+       listener
       </span>
      </span>
      )
      <span class="returntype parameter">
-      → dynamic
-     </span>
-    </span>
-   </dt>
-   <dd>
-    <p>
-    </p>
-   </dd>
-   <dt id="wrap_jso" class="callable">
-    <span class="name ">
-     <a class="" href="dart-html/wrap_jso.html">
-      wrap_jso
-     </a>
-    </span>
-    <span class="signature">
-     (
-     <wbr>
-     <span class="parameter" id="wrap_jso-param-jsObject">
-      <span class="parameter-name">
-       jsObject
-      </span>
-     </span>
-     )
-     <span class="returntype parameter">
-      → dynamic
-     </span>
-    </span>
-   </dt>
-   <dd>
-    <p>
-    </p>
-   </dd>
-   <dt id="wrap_jso_list" class="callable">
-    <span class="name ">
-     <a class="" href="dart-html/wrap_jso_list.html">
-      wrap_jso_list
-     </a>
-    </span>
-    <span class="signature">
-     (
-     <wbr>
-     <span class="parameter" id="wrap_jso_list-param-jso_nodes">
-      <span class="parameter-name">
-       jso_nodes
-      </span>
-     </span>
-     )
-     <span class="returntype parameter">
-      → dynamic
+      →
+      <a class="" href="dart-js/JsFunction-class.html">
+       JsFunction
+      </a>
      </span>
     </span>
    </dt>
@@ -1823,6 +1878,19 @@ Note: this API is still evolving and may move to dart:isolate.
     <p>
      A stream of custom events, which enables the user to &#34;fire&#34; (add) their own
 custom events to a stream.
+    </p>
+   </dd>
+   <dt id="DartHtmlDomObject">
+    <span class="name ">
+     <a class="" href="dart-html/DartHtmlDomObject-class.html">
+      DartHtmlDomObject
+     </a>
+    </span>
+   </dt>
+   <dd>
+    <p>
+     An abstract class for all DOM objects we wrap in dart:html and related
+ libraries.
     </p>
    </dd>
    <dt id="DataListElement">
@@ -5737,6 +5805,24 @@ and to send and receive data on that WebSocket.
     <span class="name deprecated">
      <a class="deprecated" href="dart-html/XsltProcessor-class.html">
       XsltProcessor
+     </a>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
+  </dl>
+ </section>
+ <section class="summary offset-anchor" id="exceptions">
+  <h2>
+   Exceptions / Errors
+  </h2>
+  <dl>
+   <dt id="DebugAssertException">
+    <span class="name ">
+     <a class="" href="dart-html/DebugAssertException-class.html">
+      DebugAssertException
      </a>
     </span>
    </dt>

@@ -43,9 +43,9 @@
    <code class="prettyprint lang-dart">
     RtcDataChannel createDataChannel(String label, [Map options]) {
   if (options != null) {
-    return _blink.BlinkRTCPeerConnection.instance.createDataChannel_Callback_2_(unwrap_jso(this), label, options);
+    return wrap_jso(_blink.BlinkRTCPeerConnection.instance.createDataChannel_Callback_2_(unwrap_jso(this), label, convertDartToNative_Dictionary(options)));
   }
-  return _blink.BlinkRTCPeerConnection.instance.createDataChannel_Callback_1_(unwrap_jso(this), label);
+  return wrap_jso(_blink.BlinkRTCPeerConnection.instance.createDataChannel_Callback_1_(unwrap_jso(this), label));
 }
    </code>
   </pre>

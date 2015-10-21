@@ -47,9 +47,20 @@
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    @DomName(&#39;Blob.Blob&#39;)
-@DocsEditable()
-factory Blob(List blobParts, [String type, String endings]) =&gt; wrap_jso(_create(blobParts, type, endings));
+    factory Blob(List blobParts, [String type, String endings]) {
+  // TODO: any coercions on the elements of blobParts, e.g. coerce a typed
+  // array to ArrayBuffer if it is a total view.
+
+  var parts = convertDartToNative_List(blobParts.map(unwrap_jso).toList());
+  if (type == null &amp;&amp; endings == null) {
+    return wrap_jso(_blink.BlinkBlob.instance.constructorCallback_1_(parts));
+  }
+  var bag = {};
+  if (type != null) bag[&#39;type&#39;] = type;
+  if (endings != null) bag[&#39;endings&#39;] = endings;
+  return wrap_jso(_blink.BlinkBlob.instance.constructorCallback_2_(parts,
+      convertDartToNative_Dictionary(bag)));
+}
    </code>
   </pre>
  </section>

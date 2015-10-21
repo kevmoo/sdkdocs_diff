@@ -69,7 +69,27 @@
    <code class="prettyprint lang-dart">
     @DomName(&#39;Document.createElementNS&#39;)
 @DocsEditable()
-Element createElementNS(String namespaceURI, String qualifiedName, [String typeExtension]) =&gt; wrap_jso(_blink.BlinkDocument.instance.createElementNS_Callback_3_(unwrap_jso(this), namespaceURI, qualifiedName, typeExtension));
+Element createElementNS(String namespaceURI, String qualifiedName, [String typeExtension]) {
+  var newElement = (typeExtension == null) ?
+    _blink.BlinkDocument.instance.createElementNS_Callback_2_(unwrap_jso(this), namespaceURI, qualifiedName) :
+    _blink.BlinkDocument.instance.createElementNS_Callback_3_(unwrap_jso(this), namespaceURI, qualifiedName, typeExtension);
+
+  var wrapped;
+
+  wrapped = js.getDartHtmlWrapperFor(newElement);  // Here&#39;s our Dart class.
+  if (wrapped != null) {
+    wrapped.blink_jsObject = newElement;
+  } else {
+    wrapped = wrap_jso(newElement);
+    if (wrapped == null) {
+      wrapped = wrap_jso_custom_element(newElement);
+    } else {
+      js.setDartHtmlWrapperFor(wrapped.blink_jsObject, wrapped);  // Here&#39;s our Dart class.
+    }
+  }
+
+  return wrapped;
+}
    </code>
   </pre>
  </section>

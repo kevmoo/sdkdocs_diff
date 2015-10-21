@@ -88,11 +88,11 @@
    <code class="prettyprint lang-dart">
     void queryUsageAndQuota(int storageType, [StorageUsageCallback usageCallback, StorageErrorCallback errorCallback]) {
   if (errorCallback != null) {
-    _blink.BlinkDeprecatedStorageInfo.instance.queryUsageAndQuota_Callback_3_(unwrap_jso(this), storageType, unwrap_jso(usageCallback), unwrap_jso(errorCallback));
+    _blink.BlinkDeprecatedStorageInfo.instance.queryUsageAndQuota_Callback_3_(unwrap_jso(this), storageType, unwrap_jso((currentUsageInBytes, currentQuotaInBytes) =&gt; usageCallback(currentUsageInBytes, currentQuotaInBytes)), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))));
     return;
   }
   if (usageCallback != null) {
-    _blink.BlinkDeprecatedStorageInfo.instance.queryUsageAndQuota_Callback_2_(unwrap_jso(this), storageType, unwrap_jso(usageCallback));
+    _blink.BlinkDeprecatedStorageInfo.instance.queryUsageAndQuota_Callback_2_(unwrap_jso(this), storageType, unwrap_jso((currentUsageInBytes, currentQuotaInBytes) =&gt; usageCallback(currentUsageInBytes, currentQuotaInBytes)));
     return;
   }
   _blink.BlinkDeprecatedStorageInfo.instance.queryUsageAndQuota_Callback_1_(unwrap_jso(this), storageType);

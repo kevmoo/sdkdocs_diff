@@ -91,9 +91,9 @@
    <code class="prettyprint lang-dart">
     SqlDatabase openDatabase(String name, String version, String displayName, int estimatedSize, [DatabaseCallback creationCallback]) {
   if (creationCallback != null) {
-    return _blink.BlinkWindow.instance.openDatabase_Callback_5_(unwrap_jso(this), name, version, displayName, estimatedSize, unwrap_jso(creationCallback));
+    return wrap_jso(_blink.BlinkWindow.instance.openDatabase_Callback_5_(unwrap_jso(this), name, version, displayName, estimatedSize, unwrap_jso((database) =&gt; creationCallback(wrap_jso(database)))));
   }
-  return _blink.BlinkWindow.instance.openDatabase_Callback_4_(unwrap_jso(this), name, version, displayName, estimatedSize);
+  return wrap_jso(_blink.BlinkWindow.instance.openDatabase_Callback_4_(unwrap_jso(this), name, version, displayName, estimatedSize));
 }
    </code>
   </pre>

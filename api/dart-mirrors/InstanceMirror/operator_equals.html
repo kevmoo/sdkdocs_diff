@@ -19,20 +19,28 @@
  </section>
  <section class="desc markdown">
   <p>
-   Returns true if this mirror is equal to
+   Whether this mirror is equal to
    <code>
     other
    </code>
    .
-The equality holds if and only if
-(1)
-   <code>
-    other
-   </code>
-   is a mirror of the same kind
-and
-(2) either
-(a)
+  </p>
+  <p>
+   The equality holds if and only if
+  </p>
+  <ol>
+   <li>
+    <code>
+     other
+    </code>
+    is a mirror of the same kind, and
+   </li>
+   <li>
+    either
+   </li>
+  </ol>
+  <p>
+   a.
    <a class="" href="dart-mirrors/InstanceMirror/hasReflectee.html">
     hasReflectee
    </a>
@@ -40,13 +48,15 @@ and
    <code>
     identical(reflectee, other.reflectee)
    </code>
-   or
-(b) the remote objects reflected by this mirror and
-by
+   , or
+  </p>
+  <p>
+   b. the remote objects reflected by this mirror and by
    <code>
     other
    </code>
-   are identical.
+   are
+   identical.
   </p>
  </section>
  <section class="summary source-code" id="source">

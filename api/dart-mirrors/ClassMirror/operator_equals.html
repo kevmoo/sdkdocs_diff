@@ -19,39 +19,33 @@
  </section>
  <section class="desc markdown">
   <p>
-   Returns
-   <code>
-    true
-   </code>
-   if this mirror is equal to
+   Whether this mirror is equal to
    <code>
     other
-   </code>
-   .
-Otherwise returns
-   <code>
-    false
    </code>
    .
   </p>
   <p>
    The equality holds if and only if
-(1)
-   <code>
-    other
-   </code>
-   is a mirror of the same kind
-and
-(2) This mirror and
-   <code>
-    other
-   </code>
-   reflect the same class.
   </p>
+  <ol>
+   <li>
+    <code>
+     other
+    </code>
+    is a mirror of the same kind, and
+   </li>
+   <li>
+    This mirror and
+    <code>
+     other
+    </code>
+    reflect the same class.
+   </li>
+  </ol>
   <p>
-   Note that if the reflected class is an invocation of
-a generic class,(2) implies that the reflected class
-and
+   Note that if the reflected class is an invocation of a generic class, 2.
+implies that the reflected class and
    <code>
     other
    </code>

@@ -1,0 +1,56 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   <a class="" href="dart-core/Function-class.html">
+    Function
+   </a>
+  </span>
+  <span class="name ">
+   allowInteropCaptureThis
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="allowInteropCaptureThis-param-f">
+   <span class="type-annotation">
+    <a class="" href="dart-core/Function-class.html">
+     Function
+    </a>
+   </span>
+   <span class="parameter-name">
+    f
+   </span>
+  </span>
+  )
+ </section>
+ <section class="desc markdown">
+  <p class="no-docs">
+   Not documented.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    Function allowInteropCaptureThis(Function f) {
+  if (f is JsFunction) {
+    // Behavior when the function is already a JS function is unspecified.
+    throw new ArgumentError(
+        &#34;Function is already a JS function so cannot capture this.&#34;);
+    return f;
+  } else {
+    var ret = _interopCaptureThisExpando[f];
+    if (ret == null) {
+      ret = new JsFunction.withThis(f);
+      _interopCaptureThisExpando[f] = ret;
+    }
+    return ret;
+  }
+}
+   </code>
+  </pre>
+ </section>
+</div>

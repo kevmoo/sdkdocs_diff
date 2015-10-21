@@ -48,7 +48,7 @@
     @DomName(&#39;StorageQuota.queryInfo&#39;)
 @DocsEditable()
 @Experimental() // untriaged
-Future queryInfo(String type) =&gt; _blink.BlinkStorageQuota.instance.queryInfo_Callback_1_(unwrap_jso(this), type);
+Future queryInfo(String type) =&gt; wrap_jso(_blink.BlinkStorageQuota.instance.queryInfo_Callback_1_(unwrap_jso(this), type));
    </code>
   </pre>
  </section>

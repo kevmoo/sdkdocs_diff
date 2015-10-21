@@ -59,9 +59,9 @@
    <code class="prettyprint lang-dart">
     DomMatrix translateSelf(num tx, num ty, [num tz]) {
   if (tz != null) {
-    return _blink.BlinkDOMMatrix.instance.translateSelf_Callback_3_(unwrap_jso(this), tx, ty, tz);
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.translateSelf_Callback_3_(unwrap_jso(this), tx, ty, tz));
   }
-  return _blink.BlinkDOMMatrix.instance.translateSelf_Callback_2_(unwrap_jso(this), tx, ty);
+  return wrap_jso(_blink.BlinkDOMMatrix.instance.translateSelf_Callback_2_(unwrap_jso(this), tx, ty));
 }
    </code>
   </pre>

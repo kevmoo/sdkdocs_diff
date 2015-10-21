@@ -1,0 +1,82 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   dynamic
+  </span>
+  <span class="name ">
+   getHtmlCreateFunction
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="getHtmlCreateFunction-param-key">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    key
+   </span>
+  </span>
+  )
+ </section>
+ <section class="desc markdown">
+  <p class="no-docs">
+   Not documented.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    getHtmlCreateFunction(String key) {
+  var result;
+
+  // TODO(vsm): Add Cross Frame and JS types here as well.
+
+  // Check the html library.
+  result = _getHtmlFunction(key);
+  if (result != null) {
+    return result;
+  }
+
+  // Check the web gl library.
+  result = _getWebGlFunction(key);
+  if (result != null) {
+    return result;
+  }
+
+  // Check the indexed db library.
+  result = _getIndexDbFunction(key);
+  if (result != null) {
+    return result;
+  }
+
+  // Check the web audio library.
+  result = _getWebAudioFunction(key);
+  if (result != null) {
+    return result;
+  }
+
+  // Check the web sql library.
+  result = _getWebSqlFunction(key);
+  if (result != null) {
+    return result;
+  }
+
+  // Check the svg library.
+  result = _getSvgFunction(key);
+  if (result != null) {
+    return result;
+  }
+
+  return null;
+}
+   </code>
+  </pre>
+ </section>
+</div>

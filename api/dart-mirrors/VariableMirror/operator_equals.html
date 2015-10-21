@@ -19,7 +19,7 @@
  </section>
  <section class="desc markdown">
   <p>
-   Returns true if this mirror is equal to
+   Whether this mirror is equal to
    <code>
     other
    </code>
@@ -27,22 +27,25 @@
   </p>
   <p>
    The equality holds if and only if
-(1)
-   <code>
-    other
-   </code>
-   is a mirror of the same kind
-and
-(2)
-   <code>
-    simpleName == other.simpleName
-   </code>
-   and
-   <code>
-    owner == other.owner
-   </code>
-   .
   </p>
+  <ol>
+   <li>
+    <code>
+     other
+    </code>
+    is a mirror of the same kind, and
+   </li>
+   <li>
+    <code>
+     simpleName == other.simpleName
+    </code>
+    and
+    <code>
+     owner == other.owner
+    </code>
+    .
+   </li>
+  </ol>
  </section>
  <section class="summary source-code" id="source">
   <h2>

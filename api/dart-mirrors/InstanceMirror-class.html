@@ -80,14 +80,11 @@
    </dt>
    <dd>
     <p>
-     Does
+     Whether
      <code>
       reflectee
      </code>
-     contain the instance reflected by this mirror?
-This will always be true in the local case (reflecting instances
-in the same isolate), but only true in the remote case if this
-mirror reflects a simple value.
+     will return the instance reflected by this mirror.
      <a href="dart-mirrors/InstanceMirror/hasReflectee.html">
       …
      </a>
@@ -221,34 +218,14 @@ instance here.
    </dt>
    <dd>
     <p>
-     Returns true if this mirror is equal to
+     Whether this mirror is equal to
      <code>
       other
      </code>
      .
-The equality holds if and only if
-(1)
-     <code>
-      other
-     </code>
-     is a mirror of the same kind
-and
-(2) either
-(a)
-     <a class="" href="dart-mirrors/InstanceMirror/hasReflectee.html">
-      hasReflectee
+     <a href="dart-mirrors/InstanceMirror/operator_equals.html">
+      …
      </a>
-     is true and so is
-     <code>
-      identical(reflectee, other.reflectee)
-     </code>
-     or
-(b) the remote objects reflected by this mirror and
-by
-     <code>
-      other
-     </code>
-     are identical.
     </p>
    </dd>
   </dl>
@@ -285,7 +262,7 @@ by
    </dt>
    <dd>
     <p>
-     Perform
+     Performs
      <code>
       invocation
      </code>
@@ -294,7 +271,6 @@ by
       reflectee
      </code>
      .
-Equivalent to
      <a href="dart-mirrors/ObjectMirror/delegate.html">
       …
      </a>
@@ -333,9 +309,7 @@ Equivalent to
    </dt>
    <dd>
     <p>
-     Invokes a getter and returns a mirror on the result. The getter
-can be the implicit getter for a field or a user-defined getter
-method.
+     Invokes a getter and returns a mirror on the result.
      <a href="dart-mirrors/ObjectMirror/getField.html">
       …
      </a>
@@ -501,9 +475,7 @@ the original invocation.
    </dt>
    <dd>
     <p>
-     Invokes a setter and returns a mirror on the result. The setter
-may be either the implicit setter for a non-final field or a
-user-defined setter method.
+     Invokes a setter and returns a mirror on the result.
      <a href="dart-mirrors/ObjectMirror/setField.html">
       …
      </a>

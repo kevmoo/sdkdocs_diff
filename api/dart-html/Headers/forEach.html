@@ -78,10 +78,10 @@
    <code class="prettyprint lang-dart">
     void forEach(HeadersForEachCallback callback, [Object thisArg]) {
   if (thisArg != null) {
-    _blink.BlinkHeaders.instance.forEach_Callback_2_(unwrap_jso(this), unwrap_jso(callback), thisArg);
+    _blink.BlinkHeaders.instance.forEach_Callback_2_(unwrap_jso(this), unwrap_jso((String value, String key, map) =&gt; callback(value, key, wrap_jso(map))), thisArg);
     return;
   }
-  _blink.BlinkHeaders.instance.forEach_Callback_1_(unwrap_jso(this), unwrap_jso(callback));
+  _blink.BlinkHeaders.instance.forEach_Callback_1_(unwrap_jso(this), unwrap_jso((String value, String key, map) =&gt; callback(value, key, wrap_jso(map))));
   return;
 }
    </code>

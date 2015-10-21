@@ -55,12 +55,23 @@
    <code class="prettyprint lang-dart">
     @DomName(&#39;Document.createElement&#39;)
 Element createElement(String tagName, [String typeExtension]) {
-  if (typeExtension != null) {
-    return _createElement(tagName, typeExtension);
+  var newElement = (typeExtension == null) ?
+    _blink.BlinkDocument.instance.createElement_Callback_1_(unwrap_jso(this), tagName) :
+    _blink.BlinkDocument.instance.createElement_Callback_2_(unwrap_jso(this), tagName, typeExtension);
+
+  var wrapped = js.getDartHtmlWrapperFor(newElement);  // Here&#39;s our Dart class.
+  if (wrapped != null) {
+    wrapped.blink_jsObject = newElement;
   } else {
-    // Fast-path for Dartium when typeExtension is not needed.
-    return _Utils.createElement(this, tagName);
+    wrapped = wrap_jso(newElement);
+    if (wrapped == null) {
+      wrapped = wrap_jso_custom_element(newElement);
+    } else {
+      js.setDartHtmlWrapperFor(wrapped.blink_jsObject, wrapped);
+    }
   }
+
+  return wrapped;
 }
    </code>
   </pre>

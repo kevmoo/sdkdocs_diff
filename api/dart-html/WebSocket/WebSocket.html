@@ -40,13 +40,14 @@
 @DocsEditable()
 factory WebSocket(String url, [protocol_OR_protocols]) {
   if ((url is String || url == null) &amp;&amp; protocol_OR_protocols == null) {
-    return _blink.BlinkWebSocket.instance.constructorCallback_1_(url);
+    return wrap_jso(_blink.BlinkWebSocket.instance.constructorCallback_1_(url));
   }
   if ((protocol_OR_protocols is String || protocol_OR_protocols == null) &amp;&amp; (url is String || url == null)) {
-    return _blink.BlinkWebSocket.instance.constructorCallback_2_(url, protocol_OR_protocols);
+    return wrap_jso(_blink.BlinkWebSocket.instance.constructorCallback_2_(url, protocol_OR_protocols));
   }
   if ((protocol_OR_protocols is List&lt;String&gt; || protocol_OR_protocols == null) &amp;&amp; (url is String || url == null)) {
-    return _blink.BlinkWebSocket.instance.constructorCallback_2_(url, protocol_OR_protocols);
+    List protocols_1 = convertDartToNative_StringArray(protocol_OR_protocols);
+    return wrap_jso(_blink.BlinkWebSocket.instance.constructorCallback_2_(url, protocols_1));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

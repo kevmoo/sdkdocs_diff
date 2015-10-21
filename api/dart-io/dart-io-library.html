@@ -1741,7 +1741,7 @@ RawSecureSocket.connect.  A secure server, created with
 RawSecureServerSocket, also returns RawSecureSocket objects representing
 the server end of a secure connection.
 The certificate provided by the server is checked
-using the certificate database provided in SecureSocket.initialize, and/or
+using the trusted certificates set in the SecurityContext object and/or
 the default built-in root certificates.
     </p>
    </dd>
@@ -1766,25 +1766,6 @@ stream of low-level
      objects, one for each connection
 made to the listening socket.
      <a href="dart-io/RawServerSocket-class.html">
-      …
-     </a>
-    </p>
-   </dd>
-   <dt id="RawServerSocketReference">
-    <span class="name deprecated">
-     <a class="deprecated" href="dart-io/RawServerSocketReference-class.html">
-      RawServerSocketReference
-     </a>
-    </span>
-   </dt>
-   <dd>
-    <p>
-     A
-     <a class="deprecated" href="dart-io/RawServerSocketReference-class.html">
-      RawServerSocketReference
-     </a>
-     .
-     <a href="dart-io/RawServerSocketReference-class.html">
       …
      </a>
     </p>
@@ -1895,6 +1876,23 @@ other
      s.
     </p>
    </dd>
+   <dt id="SecurityContext">
+    <span class="name ">
+     <a class="" href="dart-io/SecurityContext-class.html">
+      SecurityContext
+     </a>
+    </span>
+   </dt>
+   <dd>
+    <p>
+     The object containing the certificates to trust when making
+a secure client connection, and the certificate chain and
+private key to serve from a secure server.
+     <a href="dart-io/SecurityContext-class.html">
+      …
+     </a>
+    </p>
+   </dd>
    <dt id="ServerSocket">
     <span class="name ">
      <a class="" href="dart-io/ServerSocket-class.html">
@@ -1916,25 +1914,6 @@ stream of
      objects, one for each connection made to the
 listening socket.
      <a href="dart-io/ServerSocket-class.html">
-      …
-     </a>
-    </p>
-   </dd>
-   <dt id="ServerSocketReference">
-    <span class="name deprecated">
-     <a class="deprecated" href="dart-io/ServerSocketReference-class.html">
-      ServerSocketReference
-     </a>
-    </span>
-   </dt>
-   <dd>
-    <p>
-     A
-     <a class="deprecated" href="dart-io/ServerSocketReference-class.html">
-      ServerSocketReference
-     </a>
-     .
-     <a href="dart-io/ServerSocketReference-class.html">
       …
      </a>
     </p>

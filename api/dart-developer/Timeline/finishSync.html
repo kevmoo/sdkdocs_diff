@@ -1,0 +1,39 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   void
+  </span>
+  <span class="name ">
+   finishSync
+  </span>
+  (
+  <wbr>
+  )
+ </section>
+ <section class="desc markdown">
+  <p>
+   Finish the last synchronous operation that was started.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    static void finishSync() {
+  if (_stack.length == 0) {
+    throw new StateError(
+        &#39;Uneven calls to startSync and finishSync&#39;);
+  }
+  // Pop top item off of stack.
+  var block = _stack.removeLast();
+  // Finish it.
+  block.finish();
+}
+   </code>
+  </pre>
+ </section>
+</div>

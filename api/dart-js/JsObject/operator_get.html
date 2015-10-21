@@ -30,13 +30,13 @@ object.
     property
    </code>
    must be either
-   <code>
+   <a class="" href="dart-core/String-class.html">
     String
-   </code>
+   </a>
    or
-   <code>
+   <a class="" href="dart-core/num-class.html">
     num
-   </code>
+   </a>
    .
   </p>
  </section>
@@ -48,7 +48,14 @@ object.
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    operator [](property) native &#34;JsObject_[]&#34;;
+    operator [](property) {
+  try {
+    return _maybeWrap(_operator_getter(property));
+  } catch (e) {
+    // Re-throw any errors (returned as a string) as a DomException.
+    throw new html.DomException.jsInterop(e);
+  }
+}
    </code>
   </pre>
  </section>

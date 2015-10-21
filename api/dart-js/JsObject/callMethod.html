@@ -65,10 +65,11 @@ returns the result.
    <code class="prettyprint lang-dart">
     callMethod(String method, [List args]) {
   try {
-    return _callMethod(method, args);
+    return _maybeWrap(_callMethod(method, args));
   } catch (e) {
     if (hasProperty(method)) {
-      rethrow;
+      // Return a DomException if DOM call returned an error.
+      throw new html.DomException.jsInterop(e);
     } else {
       throw new NoSuchMethodError(this, new Symbol(method), args, null);
     }

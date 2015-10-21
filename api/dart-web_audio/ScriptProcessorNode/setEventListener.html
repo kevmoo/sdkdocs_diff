@@ -59,7 +59,7 @@
     @DomName(&#39;ScriptProcessorNode.setEventListener&#39;)
 @DocsEditable()
 @Experimental() // untriaged
-void setEventListener(EventListener eventListener) =&gt; _blink.BlinkScriptProcessorNode.instance.setEventListener_Callback_1_(unwrap_jso(this), unwrap_jso(eventListener));
+void setEventListener(EventListener eventListener) =&gt; _blink.BlinkScriptProcessorNode.instance.setEventListener_Callback_1_(unwrap_jso(this), unwrap_jso((event) =&gt; eventListener(wrap_jso(event))));
    </code>
   </pre>
  </section>

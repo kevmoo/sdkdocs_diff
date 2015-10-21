@@ -17,6 +17,11 @@
   </span>
   ,
   <span class="parameter" id="containsValue-param-value">
+   <span class="type-annotation">
+    <a class="" href="dart-core/Object-class.html">
+     Object
+    </a>
+   </span>
    <span class="parameter-name">
     value
    </span>
@@ -36,9 +41,9 @@
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    static bool containsValue(Map map, value) {
+    static bool containsValue(Map map, Object value) {
   for (final v in map.values) {
-    if (value == v) {
+    if (v == value) {
       return true;
     }
   }

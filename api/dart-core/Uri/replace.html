@@ -263,7 +263,7 @@ from this
   if (userInfo != null) {
     userInfo = _makeUserInfo(userInfo, 0, userInfo.length);
   } else {
-    userInfo = this.userInfo;
+    userInfo = this._userInfo;
   }
   if (port != null) {
     port = _makePort(port, scheme);
@@ -277,7 +277,7 @@ from this
   if (host != null) {
     host = _makeHost(host, 0, host.length, false);
   } else if (this.hasAuthority) {
-    host = this.host;
+    host = this._host;
   } else if (userInfo.isNotEmpty || port != null || isFile) {
     host = &#34;&#34;;
   }
@@ -287,7 +287,7 @@ from this
     path = _makePath(path, 0, _stringOrNullLength(path), pathSegments,
                      scheme, hasAuthority);
   } else {
-    path = this.path;
+    path = this._path;
     if ((isFile || (hasAuthority &amp;&amp; !path.isEmpty)) &amp;&amp;
         !path.startsWith(&#39;/&#39;)) {
       path = &#34;/&#34; + path;
@@ -296,14 +296,14 @@ from this
 
   if (query != null || queryParameters != null) {
     query = _makeQuery(query, 0, _stringOrNullLength(query), queryParameters);
-  } else if (this.hasQuery) {
-    query = this.query;
+  } else {
+    query = this._query;
   }
 
   if (fragment != null) {
     fragment = _makeFragment(fragment, 0, fragment.length);
-  } else if (this.hasFragment) {
-    fragment = this.fragment;
+  } else {
+    fragment = this._fragment;
   }
 
   return new Uri._internal(

@@ -48,7 +48,7 @@
     @DomName(&#39;ScreenOrientation.lock&#39;)
 @DocsEditable()
 @Experimental() // untriaged
-Future lock(String orientation) =&gt; _blink.BlinkScreenOrientation.instance.lock_Callback_1_(unwrap_jso(this), orientation);
+Future lock(String orientation) =&gt; wrap_jso(_blink.BlinkScreenOrientation.instance.lock_Callback_1_(unwrap_jso(this), orientation));
    </code>
   </pre>
  </section>

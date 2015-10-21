@@ -20,7 +20,8 @@
 entity is synthetic.
    </p>
    <p>
-    If the reflectee is a variable, the returned location gives the position of   * the variable name at its point of declaration.
+    If the reflectee is a variable, the returned location gives the position
+of the variable name at its point of declaration.
    </p>
    <p>
     If the reflectee is a library, class, typedef, function or type variable
@@ -29,14 +30,17 @@ first metadata declaration associated with the reflectee.
    </p>
    <p>
     Otherwise:
-If the reflectee is a library, the returned location gives the position of
+   </p>
+   <p>
+    If the reflectee is a library, the returned location gives the position of
 the keyword &#39;library&#39; at the reflectee&#39;s point of declaration, if the
 reflectee is a named library, or the first character of the first line in
 the compilation unit defining the reflectee if the reflectee is anonymous.
    </p>
    <p>
     If the reflectee is an abstract class, the returned location gives the
-position of the keyword &#39;abstract&#39; at the reflectee&#39;s point of declaration.   * Otherwise, if the reflectee is a class, the returned location gives the
+position of the keyword &#39;abstract&#39; at the reflectee&#39;s point of declaration.
+Otherwise, if the reflectee is a class, the returned location gives the
 position of the keyword &#39;class&#39; at the reflectee&#39;s point of declaration.
    </p>
    <p>

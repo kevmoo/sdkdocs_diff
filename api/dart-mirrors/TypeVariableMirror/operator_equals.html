@@ -19,39 +19,38 @@
  </section>
  <section class="desc markdown">
   <p>
-   Returns
-   <code>
-    true
-   </code>
-   if this mirror is equal to
+   Whether
    <code>
     other
    </code>
-   .
-Otherwise returns
-   <code>
-    false
-   </code>
-   .
+   is a
+   <a class="" href="dart-mirrors/TypeVariableMirror-class.html">
+    TypeVariableMirror
+   </a>
+   on the same type variable as this
+mirror.
   </p>
   <p>
    The equality holds if and only if
-(1)
-   <code>
-    other
-   </code>
-   is a mirror of the same kind
-and
-(2)
-   <code>
-    simpleName == other.simpleName
-   </code>
-   and
-   <code>
-    owner == other.owner
-   </code>
-   .
   </p>
+  <ol>
+   <li>
+    <code>
+     other
+    </code>
+    is a mirror of the same kind, and
+   </li>
+   <li>
+    <code>
+     simpleName == other.simpleName
+    </code>
+    and
+    <code>
+     owner == other.owner
+    </code>
+    .
+   </li>
+  </ol>
  </section>
  <section class="summary source-code" id="source">
   <h2>

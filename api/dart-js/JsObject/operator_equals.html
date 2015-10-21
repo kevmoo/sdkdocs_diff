@@ -128,7 +128,14 @@ the
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    operator ==(other) =&gt; other is JsObject &amp;&amp; _identityEquality(this, other);
+    operator ==(other) {
+  var is_JsObject = other is JsObject;
+  if (!is_JsObject) {
+    other = html_common.unwrap_jso(other);
+    is_JsObject = other is JsObject;
+  }
+  return is_JsObject &amp;&amp; _identityEquality(this, other);
+}
    </code>
   </pre>
  </section>

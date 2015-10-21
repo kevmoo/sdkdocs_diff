@@ -25,7 +25,9 @@
  <section class="desc markdown">
   <p>
    Reflects an instance.
-Returns an
+  </p>
+  <p>
+   Returns an
    <a class="" href="dart-mirrors/InstanceMirror-class.html">
     InstanceMirror
    </a>
@@ -33,27 +35,26 @@ Returns an
    <code>
     reflectee
    </code>
-   .
-If
+   . If
    <code>
     reflectee
    </code>
-   is a function or an instance of a class
-that has a
+   is a
+function or an instance of a class that has a
    <code>
     call
    </code>
-   method, the returned instance mirror
-will be a
+   method, the returned
+instance mirror will be a
    <a class="" href="dart-mirrors/ClosureMirror-class.html">
     ClosureMirror
    </a>
    .
   </p>
   <p>
-   Note that since one cannot obtain an object from
-another isolate, this function can only be used to
-obtain  mirrors on objects of the current isolate.
+   Note that since one cannot obtain an object from another isolate, this
+function can only be used to obtain  mirrors on objects of the current
+isolate.
   </p>
  </section>
  <section class="summary source-code" id="source">

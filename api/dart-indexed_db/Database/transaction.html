@@ -43,22 +43,22 @@
    <code class="prettyprint lang-dart">
     Transaction transaction(storeName_OR_storeNames, [String mode]) {
   if ((storeName_OR_storeNames is String || storeName_OR_storeNames == null) &amp;&amp; mode == null) {
-    return _blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames));
+    return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames)));
   }
   if ((mode is String || mode == null) &amp;&amp; (storeName_OR_storeNames is String || storeName_OR_storeNames == null)) {
-    return _blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames), mode);
+    return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames), mode));
   }
   if ((storeName_OR_storeNames is List&lt;String&gt; || storeName_OR_storeNames == null) &amp;&amp; mode == null) {
-    return _blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames));
+    return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames)));
   }
   if ((mode is String || mode == null) &amp;&amp; (storeName_OR_storeNames is List&lt;String&gt; || storeName_OR_storeNames == null)) {
-    return _blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames), mode);
+    return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames), mode));
   }
   if ((storeName_OR_storeNames is DomStringList || storeName_OR_storeNames == null) &amp;&amp; mode == null) {
-    return _blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames));
+    return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames)));
   }
   if ((mode is String || mode == null) &amp;&amp; (storeName_OR_storeNames is DomStringList || storeName_OR_storeNames == null)) {
-    return _blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames), mode);
+    return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeName_OR_storeNames), mode));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

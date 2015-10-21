@@ -44,8 +44,7 @@
    </dt>
    <dd>
     <p>
-     Returns a unique name used to refer to an isolate
-in debugging messages.
+     A unique name used to refer to the isolate in debugging messages.
     </p>
     <div class="features">
      read-only
@@ -90,16 +89,7 @@ in debugging messages.
    </dt>
    <dd>
     <p>
-     Returns
-     <code>
-      true
-     </code>
-     if and only if this mirror reflects
-the currently running isolate. Otherwise returns
-     <code>
-      false
-     </code>
-     .
+     Whether this mirror reflects the currently running isolate.
     </p>
     <div class="features">
      read-only
@@ -120,12 +110,7 @@ the currently running isolate. Otherwise returns
    </dt>
    <dd>
     <p>
-     Returns a
-     <code>
-      LibraryMirror
-     </code>
-     on the root library for this
-isolate.
+     The root library for the reflected isolate.
     </p>
     <div class="features">
      read-only
@@ -205,33 +190,18 @@ isolate.
    </dt>
    <dd>
     <p>
-     Returns
-     <code>
-      true
-     </code>
-     if this mirror is equal to
+     Whether
      <code>
       other
      </code>
-     .
-Otherwise returns
-     <code>
-      false
-     </code>
-     .
-The equality holds if and only if
-(1)
-     <code>
-      other
-     </code>
-     is a mirror of the same kind
-and
-(2) the isolate being reflected by this mirror is the same
-isolate being reflected by
-     <code>
-      other
-     </code>
-     .
+     is an
+     <a class="" href="dart-mirrors/IsolateMirror-class.html">
+      IsolateMirror
+     </a>
+     on the same isolate as this mirror.
+     <a href="dart-mirrors/IsolateMirror/operator_equals.html">
+      …
+     </a>
     </p>
    </dd>
   </dl>

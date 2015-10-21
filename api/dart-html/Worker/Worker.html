@@ -33,7 +33,7 @@
     @DomName(&#39;Worker.Worker&#39;)
 @DocsEditable()
 factory Worker(String scriptUrl) {
-  return _blink.BlinkWorker.instance.constructorCallback_1_(scriptUrl);
+  return wrap_jso(_blink.BlinkWorker.instance.constructorCallback_1_(scriptUrl));
 }
    </code>
   </pre>

@@ -90,6 +90,9 @@
     e._initCustomEvent(type, canBubble, cancelable, null);
   }
 
+  // Need for identity.
+  js.setDartHtmlWrapperFor(e.blink_jsObject, e);
+
   return e;
 }
    </code>

@@ -53,9 +53,9 @@
    <code class="prettyprint lang-dart">
     Transaction transactionStores(List&lt;String&gt; storeNames, [String mode]) {
   if (mode != null) {
-    return _blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeNames), mode);
+    return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_2_(unwrap_jso(this), unwrap_jso(storeNames), mode));
   }
-  return _blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeNames));
+  return wrap_jso(_blink.BlinkIDBDatabase.instance.transaction_Callback_1_(unwrap_jso(this), unwrap_jso(storeNames)));
 }
    </code>
   </pre>

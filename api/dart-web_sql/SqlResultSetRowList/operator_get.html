@@ -48,7 +48,7 @@ or throws a
     Map operator[](int index) {
   if (index &lt; 0 || index &gt;= length)
     throw new RangeError.index(index, this);
-  return _blink.BlinkSQLResultSetRowList.instance.item_Callback_1_(unwrap_jso(this), index);
+  return wrap_jso(_blink.BlinkSQLResultSetRowList.instance.item_Callback_1_(unwrap_jso(this), index));
 }
    </code>
   </pre>

@@ -32,29 +32,14 @@
    </span>
   </span>
   , {
-  <span class="parameter" id="connect-param-sendClientCertificate">
+  <span class="parameter" id="connect-param-context">
    <span class="type-annotation">
-    <a class="" href="dart-core/bool-class.html">
-     bool
+    <a class="" href="dart-io/SecurityContext-class.html">
+     SecurityContext
     </a>
    </span>
    <span class="parameter-name">
-    sendClientCertificate
-   </span>
-   :
-   <span class="default-value">
-    false
-   </span>
-  </span>
-  ,
-  <span class="parameter" id="connect-param-certificateName">
-   <span class="type-annotation">
-    <a class="" href="dart-core/String-class.html">
-     String
-    </a>
-   </span>
-   <span class="parameter-name">
-    certificateName
+    context
    </span>
   </span>
   ,
@@ -103,12 +88,9 @@ host on the given port. The returned Future is completed with the
 RawSecureSocket when it is connected and ready for subscription.
   </p>
   <p>
-   The certificate provided by the server is checked using the certificate
-database provided in
-   <a class="" href="dart-io/SecureSocket/initialize.html">
-    SecureSocket.initialize
-   </a>
-   , and/or the default built-in
+   The certificate provided by the server is checked
+using the trusted certificates set in the SecurityContext object and/or
+the default built-in
 root certificates. If
    <code>
     sendClientCertificate
@@ -159,24 +141,20 @@ to continue the
     static Future&lt;RawSecureSocket&gt; connect(
     host,
     int port,
-    {bool sendClientCertificate: false,
-     String certificateName,
+    {SecurityContext context,
      bool onBadCertificate(X509Certificate certificate),
      List&lt;String&gt; supportedProtocols}) {
   _RawSecureSocket._verifyFields(
       host,
       port,
-      certificateName,
       false,
       false,
       false,
-      sendClientCertificate,
       onBadCertificate);
   return RawSocket.connect(host, port)
       .then((socket) {
         return secure(socket,
-                      sendClientCertificate: sendClientCertificate,
-                      certificateName: certificateName,
+                      context: context,
                       onBadCertificate: onBadCertificate,
                       supportedProtocols: supportedProtocols);
       });

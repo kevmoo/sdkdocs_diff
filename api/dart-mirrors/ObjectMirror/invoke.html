@@ -57,42 +57,45 @@
    <em>
     f
    </em>
-   be the simple name of the member denoted by
+   be the simple name
+of the member denoted by
    <code>
     memberName
    </code>
-   ,
-let
+   , let
    <em>
     a1, ..., an
    </em>
-   be the elements of
+   be the elements
+of
    <code>
     positionalArguments
    </code>
-   let
+   , let
    <em>
     k1, ..., km
    </em>
-   be the identifiers denoted by the elements of
+   be the identifiers denoted by
+the elements of
    <code>
     namedArguments.keys
    </code>
-   and let
+   , and let
    <em>
     v1, ..., vm
    </em>
-   be the elements of
+   be the
+elements of
    <code>
     namedArguments.values
    </code>
-   .
-Then this method will perform the method invocation
+   . Then this method will perform the
+method invocation
    <em>
     o.f(a1, ..., an, k1: v1, ..., km: vm)
    </em>
-   in a scope that has access to the private members
-of
+   in a scope that
+has access to the private members of
    <em>
     o
    </em>
@@ -100,18 +103,20 @@ of
    <em>
     o
    </em>
-   is a class or library) or the private members of the
-class of
+   is a class or library) or
+the private members of the class of
    <em>
     o
    </em>
    (otherwise).
-If the invocation returns a result
+  </p>
+  <p>
+   If the invocation returns a result
    <em>
     r
    </em>
-   , this method returns
-the result of calling
+   , this method returns the result of
+calling
    <a class="" href="dart-mirrors/reflect.html">
     reflect
    </a>
@@ -120,15 +125,18 @@ the result of calling
     r
    </em>
    \).
-If the invocation causes a compilation error
-the effect is the same as if a non-reflective compilation error
-had been encountered.
-If the invocation throws an exception
+  </p>
+  <p>
+   If the invocation causes a compilation error the effect is the same as if
+a non-reflective compilation error had been encountered.
+  </p>
+  <p>
+   If the invocation throws an exception
    <em>
     e
    </em>
-   (that it does not catch)
-this method throws
+   (that it does not catch), this
+method throws
    <em>
     e
    </em>

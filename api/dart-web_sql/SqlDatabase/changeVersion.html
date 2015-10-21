@@ -98,15 +98,15 @@
    <code class="prettyprint lang-dart">
     void changeVersion(String oldVersion, String newVersion, [SqlTransactionCallback callback, SqlTransactionErrorCallback errorCallback, VoidCallback successCallback]) {
   if (successCallback != null) {
-    _blink.BlinkDatabase.instance.changeVersion_Callback_5_(unwrap_jso(this), oldVersion, newVersion, unwrap_jso(callback), unwrap_jso(errorCallback), unwrap_jso(successCallback));
+    _blink.BlinkDatabase.instance.changeVersion_Callback_5_(unwrap_jso(this), oldVersion, newVersion, unwrap_jso((transaction) =&gt; callback(wrap_jso(transaction))), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))), unwrap_jso(() =&gt; successCallback()));
     return;
   }
   if (errorCallback != null) {
-    _blink.BlinkDatabase.instance.changeVersion_Callback_4_(unwrap_jso(this), oldVersion, newVersion, unwrap_jso(callback), unwrap_jso(errorCallback));
+    _blink.BlinkDatabase.instance.changeVersion_Callback_4_(unwrap_jso(this), oldVersion, newVersion, unwrap_jso((transaction) =&gt; callback(wrap_jso(transaction))), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))));
     return;
   }
   if (callback != null) {
-    _blink.BlinkDatabase.instance.changeVersion_Callback_3_(unwrap_jso(this), oldVersion, newVersion, unwrap_jso(callback));
+    _blink.BlinkDatabase.instance.changeVersion_Callback_3_(unwrap_jso(this), oldVersion, newVersion, unwrap_jso((transaction) =&gt; callback(wrap_jso(transaction))));
     return;
   }
   _blink.BlinkDatabase.instance.changeVersion_Callback_2_(unwrap_jso(this), oldVersion, newVersion);

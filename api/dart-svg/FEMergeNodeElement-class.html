@@ -17,6 +17,11 @@
       </a>
      </li>
      <li>
+      <a class="" href="dart-html/DartHtmlDomObject-class.html">
+       DartHtmlDomObject
+      </a>
+     </li>
+     <li>
       <a class="" href="dart-html/EventTarget-class.html">
        EventTarget
       </a>
@@ -99,6 +104,35 @@
    </dd>
   </dl>
  </section>
+ <section class="summary offset-anchor" id="static-methods">
+  <h2>
+   Static Methods
+  </h2>
+  <dl class="callables">
+   <dt id="internalCreateFEMergeNodeElement" class="callable">
+    <span class="name ">
+     <a class="" href="dart-svg/FEMergeNodeElement/internalCreateFEMergeNodeElement.html">
+      internalCreateFEMergeNodeElement
+     </a>
+    </span>
+    <span class="signature">
+     (
+     <wbr>
+     )
+     <span class="returntype parameter">
+      →
+      <a class="" href="dart-svg/FEMergeNodeElement-class.html">
+       FEMergeNodeElement
+      </a>
+     </span>
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
+  </dl>
+ </section>
  <section class="summary offset-anchor" id="instance-properties">
   <h2>
    Properties
@@ -155,6 +189,27 @@
     </p>
     <div class="features">
      read-only, inherited
+    </div>
+   </dd>
+   <dt id="blink_jsObject" class="property">
+    <span class="name">
+     <a class="" href="dart-html/DartHtmlDomObject/blink_jsObject.html">
+      blink_jsObject
+     </a>
+    </span>
+    <span class="signature">
+     →
+     <a class="" href="dart-js/JsObject-class.html">
+      JsObject
+     </a>
+    </span>
+   </dt>
+   <dd>
+    <p>
+     The underlying JS DOM object.
+    </p>
+    <div class="features">
+     read / write, inherited
     </div>
    </dd>
    <dt id="borderEdge" class="property">
@@ -282,7 +337,7 @@ border box.
    </dd>
    <dt id="className" class="property">
     <span class="name">
-     <a class="" href="dart-html/Element/className.html">
+     <a class="" href="dart-svg/SvgElement/className.html">
       className
      </a>
     </span>
@@ -603,7 +658,7 @@ document.
    </dd>
    <dt id="hashCode" class="property">
     <span class="name">
-     <a class="" href="dart-core/Object/hashCode.html">
+     <a class="" href="dart-html/EventTarget/hashCode.html">
       hashCode
      </a>
     </span>
@@ -616,10 +671,6 @@ document.
    </dt>
    <dd>
     <p>
-     Get a hash code for this object.
-     <a href="dart-core/Object/hashCode.html">
-      …
-     </a>
     </p>
     <div class="features">
      read-only, inherited
@@ -3600,6 +3651,20 @@ deprecated.
      </a>
     </p>
    </dd>
+   <dt id="FEMergeNodeElement.internal_" class="callable">
+    <span class="name">
+     <a class="" href="dart-svg/FEMergeNodeElement/FEMergeNodeElement.internal_.html">
+      FEMergeNodeElement.internal_
+     </a>
+    </span>
+    <span class="signature">
+     ()
+    </span>
+   </dt>
+   <dd>
+    <p>
+    </p>
+   </dd>
   </dl>
  </section>
  <section class="summary offset-anchor" id="operators">
@@ -3609,7 +3674,7 @@ deprecated.
   <dl class="callables">
    <dt id="operator ==" class="callable">
     <span class="name ">
-     <a class="" href="dart-core/Object/operator_equals.html">
+     <a class="" href="dart-html/EventTarget/operator_equals.html">
       operator ==
      </a>
     </span>
@@ -3633,7 +3698,7 @@ deprecated.
    <dd>
     <p>
      The equality operator.
-     <a href="dart-core/Object/operator_equals.html">
+     <a href="dart-html/EventTarget/operator_equals.html">
       …
      </a>
     </p>
@@ -3721,23 +3786,27 @@ deprecated.
     <span class="signature">
      (
      <wbr>
-     <span class="parameter" id="animate-param-effect">
+     <span class="parameter" id="animate-param-frames">
       <span class="type-annotation">
-       <a class="" href="dart-core/Object-class.html">
-        Object
+       <a class="" href="dart-core/Iterable-class.html">
+        Iterable
        </a>
+       &lt;
+       <a class="" href="dart-core/Map-class.html">
+        Map
+       </a>
+       &lt;
+       <a class="" href="dart-core/String-class.html">
+        String
+       </a>
+       , dynamic&gt;&gt;
       </span>
       <span class="parameter-name">
-       effect
+       frames
       </span>
      </span>
      , [
      <span class="parameter" id="animate-param-timing">
-      <span class="type-annotation">
-       <a class="" href="dart-core/Object-class.html">
-        Object
-       </a>
-      </span>
       <span class="parameter-name">
        timing
       </span>
@@ -3753,6 +3822,14 @@ deprecated.
    </dt>
    <dd>
     <p>
+     Creates a new AnimationEffect object whose target element is the object
+on which the method is called, and calls the play() method of the
+AnimationTimeline object of the document timeline of the node document
+of the element, passing the newly created AnimationEffect as the argument
+to the method. Returns an AnimationPlayer for the effect.
+     <a href="dart-html/Element/animate.html">
+      …
+     </a>
     </p>
     <div class="features">
      inherited

@@ -1,0 +1,79 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   <a class="" href="dart-developer/AsyncBlock-class.html">
+    AsyncBlock
+   </a>
+  </span>
+  <span class="name ">
+   start
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="start-param-name">
+   <span class="type-annotation">
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+   </span>
+   <span class="parameter-name">
+    name
+   </span>
+  </span>
+  , {
+  <span class="parameter" id="start-param-arguments">
+   <span class="parameter-name">
+    arguments
+   </span>
+  </span>
+  })
+ </section>
+ <section class="desc markdown">
+  <p>
+   Start a block in this task named
+   <code>
+    name
+   </code>
+   . Optionally takes
+a
+   <a class="" href="dart-core/Map-class.html">
+    Map
+   </a>
+   of
+   <code>
+    arguments
+   </code>
+   .
+Returns an
+   <a class="" href="dart-developer/AsyncBlock-class.html">
+    AsyncBlock
+   </a>
+   which is used to finish this block.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    AsyncBlock start(String name, {Map arguments}) {
+  if (name is! String) {
+    throw new ArgumentError.value(name,
+                                  &#39;name&#39;,
+                                  &#39;Must be a String&#39;);
+  }
+  var block = new AsyncBlock._(name, _taskId, category);
+  if (arguments is Map) {
+    block.arguments.addAll(arguments);
+  }
+  /// Emit start event.
+  block._start();
+  return block;
+}
+   </code>
+  </pre>
+ </section>
+</div>

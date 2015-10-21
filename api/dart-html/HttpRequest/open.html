@@ -142,7 +142,13 @@ finer-grained control is needed.
    <code class="prettyprint lang-dart">
     @DomName(&#39;XMLHttpRequest.open&#39;)
 @DocsEditable()
-void open(String method, String url, {bool async, String user, String password}) =&gt; _blink.BlinkXMLHttpRequest.instance.open_Callback_5_(unwrap_jso(this), method, url, async, user, password);
+void open(String method, String url, {bool async, String user, String password}) {
+  if (async == null &amp;&amp; user == null &amp;&amp; password == null) {
+    _blink.BlinkXMLHttpRequest.instance.open_Callback_2_(unwrap_jso(this), method, url);
+  } else {
+    _blink.BlinkXMLHttpRequest.instance.open_Callback_5_(unwrap_jso(this), method, url, async, user, password);
+  }
+}
    </code>
   </pre>
  </section>

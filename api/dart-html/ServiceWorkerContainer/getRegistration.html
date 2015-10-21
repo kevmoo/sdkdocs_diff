@@ -35,9 +35,9 @@
    <code class="prettyprint lang-dart">
     Future getRegistration([String documentURL]) {
   if (documentURL != null) {
-    return _blink.BlinkServiceWorkerContainer.instance.getRegistration_Callback_1_(unwrap_jso(this), documentURL);
+    return wrap_jso(_blink.BlinkServiceWorkerContainer.instance.getRegistration_Callback_1_(unwrap_jso(this), documentURL));
   }
-  return _blink.BlinkServiceWorkerContainer.instance.getRegistration_Callback_0_(unwrap_jso(this));
+  return wrap_jso(_blink.BlinkServiceWorkerContainer.instance.getRegistration_Callback_0_(unwrap_jso(this)));
 }
    </code>
   </pre>

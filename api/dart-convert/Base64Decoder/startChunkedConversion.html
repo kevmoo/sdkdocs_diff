@@ -1,0 +1,53 @@
+<div class="col-xs-12 col-sm-9 col-md-8 main-content">
+ <section class="multi-line-signature">
+  <span class="returntype">
+   <a class="" href="dart-convert/StringConversionSink-class.html">
+    StringConversionSink
+   </a>
+  </span>
+  <span class="name ">
+   startChunkedConversion
+  </span>
+  (
+  <wbr>
+  <span class="parameter" id="startChunkedConversion-param-sink">
+   <span class="type-annotation">
+    <a class="" href="dart-core/Sink-class.html">
+     Sink
+    </a>
+    &lt;
+    <a class="" href="dart-core/List-class.html">
+     List
+    </a>
+    &lt;
+    <a class="" href="dart-core/int-class.html">
+     int
+    </a>
+    &gt;&gt;
+   </span>
+   <span class="parameter-name">
+    sink
+   </span>
+  </span>
+  )
+ </section>
+ <section class="desc markdown">
+  <p>
+   Starts a chunked conversion.
+  </p>
+ </section>
+ <section class="summary source-code" id="source">
+  <h2>
+   <span>
+    Source
+   </span>
+  </h2>
+  <pre>
+   <code class="prettyprint lang-dart">
+    StringConversionSink startChunkedConversion(Sink&lt;List&lt;int&gt;&gt; sink) {
+  return new _Base64DecoderSink(sink);
+}
+   </code>
+  </pre>
+ </section>
+</div>

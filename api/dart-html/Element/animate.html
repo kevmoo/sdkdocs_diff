@@ -3,13 +3,10 @@
   <div>
    <ol class="annotation-list">
     <li>
-     DomName(&#39;Element.animate&#39;)
-    </li>
-    <li>
-     DocsEditable()
-    </li>
-    <li>
      Experimental()
+    </li>
+    <li>
+     SupportedBrowser(SupportedBrowser.CHROME, &#39;36&#39;)
     </li>
    </ol>
   </div>
@@ -23,23 +20,27 @@
   </span>
   (
   <wbr>
-  <span class="parameter" id="animate-param-effect">
+  <span class="parameter" id="animate-param-frames">
    <span class="type-annotation">
-    <a class="" href="dart-core/Object-class.html">
-     Object
+    <a class="" href="dart-core/Iterable-class.html">
+     Iterable
     </a>
+    &lt;
+    <a class="" href="dart-core/Map-class.html">
+     Map
+    </a>
+    &lt;
+    <a class="" href="dart-core/String-class.html">
+     String
+    </a>
+    , dynamic&gt;&gt;
    </span>
    <span class="parameter-name">
-    effect
+    frames
    </span>
   </span>
   , [
   <span class="parameter" id="animate-param-timing">
-   <span class="type-annotation">
-    <a class="" href="dart-core/Object-class.html">
-     Object
-    </a>
-   </span>
    <span class="parameter-name">
     timing
    </span>
@@ -47,8 +48,43 @@
   ])
  </section>
  <section class="desc markdown">
-  <p class="no-docs">
-   Not documented.
+  <p>
+   Creates a new AnimationEffect object whose target element is the object
+on which the method is called, and calls the play() method of the
+AnimationTimeline object of the document timeline of the node document
+of the element, passing the newly created AnimationEffect as the argument
+to the method. Returns an AnimationPlayer for the effect.
+  </p>
+  <p>
+   Examples
+  </p>
+  <pre class="prettyprint lang-dart">
+   <code>
+    var animation = elem.animate([{&#34;opacity&#34;: 75}, {&#34;opacity&#34;: 0}], 200);
+
+var animation = elem.animate([
+  {&#34;transform&#34;: &#34;translate(100px, -100%)&#34;},
+  {&#34;transform&#34; : &#34;translate(400px, 500px)&#34;}
+], 1500);
+   </code>
+  </pre>
+  <p>
+   The
+   <code>
+    frames
+   </code>
+   parameter is an Iterable&lt;Map&gt;, where the
+map entries specify CSS animation effects. The
+   <code>
+    timing
+   </code>
+   paramter can be a double, representing the number of milliseconds
+for the transition, or a Map with fields corresponding to those
+of the
+   <a class="" href="dart-html/Timing-class.html">
+    Timing
+   </a>
+   object.
   </p>
  </section>
  <section class="summary source-code" id="source">
@@ -59,10 +95,26 @@
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    @DomName(&#39;Element.animate&#39;)
-@DocsEditable()
-@Experimental() // untriaged
-AnimationPlayer animate(Object effect, [Object timing]) =&gt; wrap_jso(_blink.BlinkElement.instance.animate_Callback_2_(unwrap_jso(this), effect, timing));
+    @Experimental()
+@SupportedBrowser(SupportedBrowser.CHROME, &#39;36&#39;)
+AnimationPlayer animate(Iterable&lt;Map&lt;String, dynamic&gt;&gt; frames, [timing]) {
+  if (frames is! Iterable || !(frames.every((x) =&gt; x is Map))) {
+    throw new ArgumentError(&#34;The frames parameter should be a List of Maps &#34;
+        &#34;with frame information&#34;);
+  }
+  var convertedFrames = frames;
+  if (convertedFrames is Iterable) {
+    convertedFrames = convertDartToNative_List(
+        frames.map(convertDartToNative_Dictionary).toList());
+  }
+  var convertedTiming = timing;
+  if (convertedTiming is Map) {
+    convertedTiming = convertDartToNative_Dictionary(convertedTiming);
+  }
+  return convertedTiming == null
+    ? _animate(convertedFrames)
+    : _animate(convertedFrames, convertedTiming);
+}
    </code>
   </pre>
  </section>

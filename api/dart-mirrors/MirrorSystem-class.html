@@ -117,39 +117,6 @@ or inspecting the contents of a variable) would fail dynamically.
      <code>
       name
      </code>
-     . If
-     <code>
-      library
-     </code>
-     is not a
-     <a class="" href="dart-mirrors/LibraryMirror-class.html">
-      LibraryMirror
-     </a>
-     or if
-     <code>
-      name
-     </code>
-     is a private identifier and
-     <code>
-      library
-     </code>
-     is
-     <code>
-      null
-     </code>
-     , throws an
-     <a class="" href="dart-core/ArgumentError-class.html">
-      ArgumentError
-     </a>
-     . If
-     <code>
-      name
-     </code>
-     is a private identifier, the symbol returned is
-with respect to
-     <code>
-      library
-     </code>
      .
      <a href="dart-mirrors/MirrorSystem/getSymbol.html">
       …
@@ -232,7 +199,9 @@ with respect to
       MirrorSystem
      </code>
      .
-This may be null if this mirror system is not running.
+     <a href="dart-mirrors/MirrorSystem/isolate.html">
+      …
+     </a>
     </p>
     <div class="features">
      read-only
@@ -262,10 +231,10 @@ This may be null if this mirror system is not running.
    </dt>
    <dd>
     <p>
-     Returns an immutable map from URIs to mirrors for all libraries known
-to this mirror system. For a runtime mirror system, only libraries which
-are currently loaded are included, and repeated calls of this method may
-return different maps as libraries are loaded.
+     All libraries known to the mirror system, indexed by their URI.
+     <a href="dart-mirrors/MirrorSystem/libraries.html">
+      …
+     </a>
     </p>
     <div class="features">
      read-only

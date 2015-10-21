@@ -1,15 +1,5 @@
 <div class="col-xs-12 col-sm-9 col-md-8 main-content">
  <section class="multi-line-signature">
-  <div>
-   <ol class="annotation-list">
-    <li>
-     DomName(&#39;Crypto.getRandomValues&#39;)
-    </li>
-    <li>
-     DocsEditable()
-    </li>
-   </ol>
-  </div>
   <span class="returntype">
    <a class="" href="dart-typed_data/TypedData-class.html">
     TypedData
@@ -45,9 +35,17 @@
   </h2>
   <pre>
    <code class="prettyprint lang-dart">
-    @DomName(&#39;Crypto.getRandomValues&#39;)
-@DocsEditable()
-TypedData getRandomValues(TypedData array) =&gt; _blink.BlinkCrypto.instance.getRandomValues_Callback_1_(unwrap_jso(this), unwrap_jso(array));
+    TypedData getRandomValues(TypedData array) {
+  var random = _getRandomValues(array);
+  // The semantics of the operation are that it modifies the argument, but we
+  // have no way of making a Dart typed data created initially in Dart reference
+  // externalized storage. So we copy the values back from the returned copy.
+  // TODO(alanknight): Make this less ridiculously slow.
+  for (var i = 0; i &lt; random.length; i++) {
+    array[i] = random[i];
+  }
+  return array;
+}
    </code>
   </pre>
  </section>

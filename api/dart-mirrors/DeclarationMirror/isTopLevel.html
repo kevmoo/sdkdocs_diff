@@ -12,13 +12,18 @@
   </section>
   <section class="desc markdown">
    <p>
-    Is this declaration top-level?
+    Whether this declaration is top-level.
    </p>
    <p>
-    This is defined to be equivalent to:
-    <code>
-     mirror.owner != null &amp;&amp; mirror.owner is LibraryMirror
-    </code>
+    A declaration is considered top-level if its
+    <a class="" href="dart-mirrors/DeclarationMirror/owner.html">
+     owner
+    </a>
+    is a
+    <a class="" href="dart-mirrors/LibraryMirror-class.html">
+     LibraryMirror
+    </a>
+    .
    </p>
   </section>
  </section>

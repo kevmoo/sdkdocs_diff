@@ -71,17 +71,13 @@ when the server writes to the HttpResponse or closes it.
    to create an HTTPS server.
   </p>
   <p>
-   The server presents a certificate to the client. In the following
-example, the certificate is named
-   <code>
-    localhost_cert
-   </code>
-   and comes from
-the database found in the
-   <code>
-    pkcert
-   </code>
-   directory.
+   The server presents a certificate to the client. The certificate
+chain and the private key are set in the SecurityContext
+object that is passed to
+   <a class="" href="dart-io/HttpServer/bindSecure.html">
+    bindSecure
+   </a>
+   .
   </p>
   <pre class="prettyprint lang-dart">
    <code>
@@ -89,15 +85,20 @@ the database found in the
 import &#34;dart:isolate&#34;;
 
 main() {
-  var testPkcertDatabase = Platform.script.resolve(&#39;pkcert&#39;)
-                                   .toFilePath();
-  SecureSocket.initialize(database: testPkcertDatabase,
-                          password: &#39;dartdart&#39;);
+  SecurityContext context = new SecurityContext();
+  var chain =
+      Platform.script.resolve(&#39;certificates/server_chain.pem&#39;)
+      .toFilePath();
+  var key =
+      Platform.script.resolve(&#39;certificates/server_key.pem&#39;)
+      .toFilePath();
+  context.useCertificateChain(chain);
+  context.usePrivateKey(key, password: &#39;dartdart&#39;);
 
   HttpServer
       .bindSecure(InternetAddress.ANY_IP_V6,
                   443,
-                  certificateName: &#39;localhost_cert&#39;)
+                  context)
       .then((server) {
         server.listen((HttpRequest request) {
           request.response.write(&#39;Hello, world!&#39;);
@@ -108,13 +109,8 @@ main() {
    </code>
   </pre>
   <p>
-   The certificate database is managed using the Mozilla certutil tool (see
-   <a href="https://developer.mozilla.org/en-US/docs/NSS/tools/NSS_Tools_certutil">
-    NSS Tools certutil
-   </a>
-   ).
-Dart uses the NSS library to handle SSL, and the Mozilla certutil
-must be used to manipulate the certificate database.
+   The certificates and keys are pem files, which can be created and
+ managed with the tools in OpenSSL and BoringSSL.
   </p>
   <h2>
    Connect to a server socket
@@ -323,6 +319,17 @@ servers.
       </span>
       <span class="parameter-name">
        port
+      </span>
+     </span>
+     ,
+     <span class="parameter" id="bindSecure-param-context">
+      <span class="type-annotation">
+       <a class="" href="dart-io/SecurityContext-class.html">
+        SecurityContext
+       </a>
+      </span>
+      <span class="parameter-name">
+       context
       </span>
      </span>
      , {

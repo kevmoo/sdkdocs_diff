@@ -46,22 +46,25 @@
 @DocsEditable()
 factory FontFace(String family, source, [Map descriptors]) {
   if ((source is String || source == null) &amp;&amp; (family is String || family == null) &amp;&amp; descriptors == null) {
-    return _blink.BlinkFontFace.instance.constructorCallback_2_(family, source);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_2_(family, source));
   }
   if ((descriptors is Map || descriptors == null) &amp;&amp; (source is String || source == null) &amp;&amp; (family is String || family == null)) {
-    return _blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors);
+    var descriptors_1 = convertDartToNative_Dictionary(descriptors);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors_1));
   }
   if ((source is TypedData || source == null) &amp;&amp; (family is String || family == null) &amp;&amp; descriptors == null) {
-    return _blink.BlinkFontFace.instance.constructorCallback_2_(family, source);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_2_(family, source));
   }
   if ((descriptors is Map || descriptors == null) &amp;&amp; (source is TypedData || source == null) &amp;&amp; (family is String || family == null)) {
-    return _blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors);
+    var descriptors_1 = convertDartToNative_Dictionary(descriptors);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors_1));
   }
   if ((source is ByteBuffer || source == null) &amp;&amp; (family is String || family == null) &amp;&amp; descriptors == null) {
-    return _blink.BlinkFontFace.instance.constructorCallback_2_(family, source);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_2_(family, source));
   }
   if ((descriptors is Map || descriptors == null) &amp;&amp; (source is ByteBuffer || source == null) &amp;&amp; (family is String || family == null)) {
-    return _blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors);
+    var descriptors_1 = convertDartToNative_Dictionary(descriptors);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors_1));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

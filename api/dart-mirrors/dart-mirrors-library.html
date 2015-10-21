@@ -169,30 +169,6 @@ development and may not support all operations yet.
    <dd>
     <p>
      Reflects an instance.
-Returns an
-     <a class="" href="dart-mirrors/InstanceMirror-class.html">
-      InstanceMirror
-     </a>
-     reflecting
-     <code>
-      reflectee
-     </code>
-     .
-If
-     <code>
-      reflectee
-     </code>
-     is a function or an instance of a class
-that has a
-     <code>
-      call
-     </code>
-     method, the returned instance mirror
-will be a
-     <a class="" href="dart-mirrors/ClosureMirror-class.html">
-      ClosureMirror
-     </a>
-     .
      <a href="dart-mirrors/reflect.html">
       …
      </a>
@@ -229,25 +205,6 @@ will be a
    <dd>
     <p>
      Reflects a class declaration.
-Let
-     <em>
-      C
-     </em>
-     be the original class declaration of the class
-represented by
-     <code>
-      key
-     </code>
-     .
-This function returns a
-     <a class="" href="dart-mirrors/ClassMirror-class.html">
-      ClassMirror
-     </a>
-     reflecting
-     <em>
-      C
-     </em>
-     .
      <a href="dart-mirrors/reflectClass.html">
       …
      </a>
@@ -283,12 +240,7 @@ This function returns a
    </dt>
    <dd>
     <p>
-     This function returns a
-     <a class="" href="dart-mirrors/TypeMirror-class.html">
-      TypeMirror
-     </a>
-     reflecting the type
-represented by
+     Reflects the type represented by
      <code>
       key
      </code>
@@ -640,8 +592,7 @@ function type or type variable.
      <a class="" href="dart-mirrors/TypeVariableMirror-class.html">
       TypeVariableMirror
      </a>
-     represents a type parameter of a generic
-type.
+     represents a type parameter of a generic type.
     </p>
    </dd>
    <dt id="VariableMirror">

@@ -63,19 +63,20 @@
 @DocsEditable()
 factory DomPoint([point_OR_x, num y, num z, num w]) {
   if (point_OR_x == null &amp;&amp; y == null &amp;&amp; z == null &amp;&amp; w == null) {
-    return _blink.BlinkDOMPoint.instance.constructorCallback_0_();
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_0_());
   }
   if ((point_OR_x is Map || point_OR_x == null) &amp;&amp; y == null &amp;&amp; z == null &amp;&amp; w == null) {
-    return _blink.BlinkDOMPoint.instance.constructorCallback_1_(point_OR_x);
+    var point_1 = convertDartToNative_Dictionary(point_OR_x);
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_1_(point_1));
   }
   if ((y is num || y == null) &amp;&amp; (point_OR_x is num || point_OR_x == null) &amp;&amp; z == null &amp;&amp; w == null) {
-    return _blink.BlinkDOMPoint.instance.constructorCallback_2_(point_OR_x, y);
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_2_(point_OR_x, y));
   }
   if ((z is num || z == null) &amp;&amp; (y is num || y == null) &amp;&amp; (point_OR_x is num || point_OR_x == null) &amp;&amp; w == null) {
-    return _blink.BlinkDOMPoint.instance.constructorCallback_3_(point_OR_x, y, z);
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_3_(point_OR_x, y, z));
   }
   if ((w is num || w == null) &amp;&amp; (z is num || z == null) &amp;&amp; (y is num || y == null) &amp;&amp; (point_OR_x is num || point_OR_x == null)) {
-    return _blink.BlinkDOMPoint.instance.constructorCallback_4_(point_OR_x, y, z, w);
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_4_(point_OR_x, y, z, w));
   }
   throw new ArgumentError(&#34;Incorrect number or type of arguments&#34;);
 }

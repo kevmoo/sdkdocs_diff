@@ -72,7 +72,7 @@
 @SupportedBrowser(SupportedBrowser.SAFARI)
 @Experimental()
 @Experimental() // untriaged
-_DOMFileSystemSync requestFileSystemSync(int type, int size) =&gt; _blink.BlinkWorkerGlobalScope.instance.webkitRequestFileSystemSync_Callback_2_(unwrap_jso(this), type, size);
+_DOMFileSystemSync requestFileSystemSync(int type, int size) =&gt; wrap_jso(_blink.BlinkWorkerGlobalScope.instance.webkitRequestFileSystemSync_Callback_2_(unwrap_jso(this), type, size));
    </code>
   </pre>
  </section>

@@ -68,7 +68,7 @@
 @DocsEditable()
 // http://www.w3.org/TR/performance-timeline/#sec-window.performance-attribute
 @Experimental()
-List&lt;PerformanceEntry&gt; getEntriesByName(String name, String entryType) =&gt; _blink.BlinkPerformance.instance.getEntriesByName_Callback_2_(unwrap_jso(this), name, entryType);
+List&lt;PerformanceEntry&gt; getEntriesByName(String name, String entryType) =&gt; wrap_jso(_blink.BlinkPerformance.instance.getEntriesByName_Callback_2_(unwrap_jso(this), name, entryType));
    </code>
   </pre>
  </section>

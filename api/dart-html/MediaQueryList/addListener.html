@@ -55,7 +55,7 @@
    <code class="prettyprint lang-dart">
     @DomName(&#39;MediaQueryList.addListener&#39;)
 @DocsEditable()
-void addListener(EventListener listener) =&gt; _blink.BlinkMediaQueryList.instance.addListener_Callback_1_(unwrap_jso(this), unwrap_jso(listener));
+void addListener(EventListener listener) =&gt; _blink.BlinkMediaQueryList.instance.addListener_Callback_1_(unwrap_jso(this), unwrap_jso((event) =&gt; listener(wrap_jso(event))));
    </code>
   </pre>
  </section>

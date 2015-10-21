@@ -32,29 +32,14 @@
    </span>
   </span>
   ,
-  <span class="parameter" id="secure-param-sendClientCertificate">
+  <span class="parameter" id="secure-param-context">
    <span class="type-annotation">
-    <a class="" href="dart-core/bool-class.html">
-     bool
+    <a class="" href="dart-io/SecurityContext-class.html">
+     SecurityContext
     </a>
    </span>
    <span class="parameter-name">
-    sendClientCertificate
-   </span>
-   :
-   <span class="default-value">
-    false
-   </span>
-  </span>
-  ,
-  <span class="parameter" id="secure-param-certificateName">
-   <span class="type-annotation">
-    <a class="" href="dart-core/String-class.html">
-     String
-    </a>
-   </span>
-   <span class="parameter-name">
-    certificateName
+    context
    </span>
   </span>
   ,
@@ -188,8 +173,7 @@ socket as its address value.
     static Future&lt;SecureSocket&gt; secure(
     Socket socket,
     {host,
-     bool sendClientCertificate: false,
-     String certificateName,
+     SecurityContext context,
      bool onBadCertificate(X509Certificate certificate)}) {
   var completer = new Completer();
   (socket as dynamic)._detachRaw()
@@ -198,7 +182,7 @@ socket as its address value.
           detachedRaw[0],
           subscription: detachedRaw[1],
           host: host,
-          sendClientCertificate: sendClientCertificate,
+          context: context,
           onBadCertificate: onBadCertificate);
         })
       .then((raw) {

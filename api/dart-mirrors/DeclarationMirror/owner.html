@@ -12,47 +12,65 @@
   </section>
   <section class="desc markdown">
    <p>
-    A mirror on the owner of this Dart language entity. This is the declaration
-immediately surrounding the reflectee.
+    A mirror on the owner of this Dart language entity.
    </p>
    <p>
-    For a library, the owner is
-    <code>
-     null
-    </code>
-    .
-For a class declaration, typedef or top level function
-or variable, the owner is the enclosing library.
-For a mixin application
-    <em>
-     S with M
-    </em>
-    , the owner is the owner
-of
-    <em>
-     M
-    </em>
-    .
-For a constructor, the owner is the immediately enclosing class.
-For a method, instance variable or
-a static variable, the owner is the immediately enclosing class,
-unless the class is a mixin application
-    <em>
-     S with M
-    </em>
-    , in which case
-the owner is
-    <em>
-     M
-    </em>
-    . Note that
-    <em>
-     M
-    </em>
-    may be an invocation of a generic.
-For a parameter, local variable or local function the owner is the
-immediately enclosing function.
+    The owner is the declaration immediately surrounding the reflectee:
    </p>
+   <ul>
+    <li>
+     For a library, the owner is
+     <code>
+      null
+     </code>
+     .
+    </li>
+    <li>
+     <p>
+      For a class declaration, typedef or top level function or variable, the
+  owner is the enclosing library.
+     </p>
+    </li>
+    <li>
+     For a mixin application
+     <code>
+      S with M
+     </code>
+     , the owner is the owner of
+     <code>
+      M
+     </code>
+     .
+    </li>
+    <li>
+     For a constructor, the owner is the immediately enclosing class.
+    </li>
+    <li>
+     <p>
+      For a method, instance variable or a static variable, the owner is the
+  immediately enclosing class, unless the class is a mixin application
+      <code>
+       S with M
+      </code>
+      , in which case the owner is
+      <code>
+       M
+      </code>
+      . Note that
+      <code>
+       M
+      </code>
+      may be an
+  invocation of a generic.
+     </p>
+    </li>
+    <li>
+     <p>
+      For a parameter, local variable or local function the owner is the
+  immediately enclosing function.
+     </p>
+    </li>
+   </ul>
   </section>
  </section>
 </div>
