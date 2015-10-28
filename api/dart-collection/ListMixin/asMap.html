@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>asMap method - ListMixin class - dart:collection library - Dart API</title>
-    <!-- required because all the links are pseudo-absolute -->
-    <base href="../..">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>asMap method - ListMixin class - dart:collection library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
 
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="static-assets/prettify.css">
-    <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static-assets/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="static-assets/prettify.css">
+  <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
 
-    <meta name="description" content="API docs for the asMap method from the ListMixin class, for the Dart programming language.">
-    <link rel="icon" href="static-assets/favicon.png">
+  <meta name="description" content="API docs for the asMap method from the ListMixin class, for the Dart programming language.">
+  <link rel="icon" href="static-assets/favicon.png">
 
-    <!-- Do not remove placeholder -->
-    <!-- Header Placeholder -->
+  <!-- Do not remove placeholder -->
+  <!-- Header Placeholder -->
 </head>
 
 <body>
@@ -25,46 +25,46 @@
 <div id="overlay-under-drawer"></div>
 
 <header class="container-fluid" id="title">
-    <nav class="navbar navbar-fixed-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 contents">
-              <button id="sidenav-left-toggle" type="button">&nbsp;</button>
-              <ol class="breadcrumbs gt-separated hidden-xs">
-                  <li><a href="index.html">Dart SDK</a></li>
-                  <li><a href="dart-collection/dart-collection-library.html">dart:collection</a></li>
-                  <li><a href="dart-collection/ListMixin-class.html">ListMixin</a></li>
-                  <li class="self-crumb">asMap</li>
-              </ol>
-              <div class="self-name">asMap</div>
-              <form class="search navbar-right" role="search">
-                <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
-              </form>
-            </div> <!-- /col -->
-          </div> <!-- /row -->
-        </div> <!-- /container -->
-    </nav>
-
-    <div class="container masthead">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
       <div class="row">
         <div class="col-sm-12 contents">
-          <ol class="breadcrumbs gt-separated visible-xs">
-              <li><a href="index.html">Dart SDK</a></li>
-              <li><a href="dart-collection/dart-collection-library.html">dart:collection</a></li>
-              <li><a href="dart-collection/ListMixin-class.html">ListMixin</a></li>
-              <li class="self-crumb">asMap</li>
+          <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+          <ol class="breadcrumbs gt-separated hidden-xs">
+            <li><a href="index.html">Dart SDK</a></li>
+            <li><a href="dart-collection/dart-collection-library.html">dart:collection</a></li>
+            <li><a href="dart-collection/ListMixin-class.html">ListMixin</a></li>
+            <li class="self-crumb">asMap</li>
           </ol>
-          <div class="title-description">
-              <h1 class="title">
-                  <div class="kind">method</div> asMap
-              </h1>
-          </div>
-          <ul class="subnav">
-              <li><a href="dart-collection/ListMixin/asMap.html#source">Source</a></li>
-          </ul>
+          <div class="self-name">asMap</div>
+          <form class="search navbar-right" role="search">
+            <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+          </form>
         </div> <!-- /col -->
       </div> <!-- /row -->
     </div> <!-- /container -->
+  </nav>
+
+  <div class="container masthead">
+    <div class="row">
+      <div class="col-sm-12 contents">
+        <ol class="breadcrumbs gt-separated visible-xs">
+          <li><a href="index.html">Dart SDK</a></li>
+          <li><a href="dart-collection/dart-collection-library.html">dart:collection</a></li>
+          <li><a href="dart-collection/ListMixin-class.html">ListMixin</a></li>
+          <li class="self-crumb">asMap</li>
+        </ol>
+        <div class="title-description">
+          <h1 class="title">
+            <div class="kind">method</div> asMap
+          </h1>
+        </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/asMap.html#source">Source</a></li>
+        </ul>
+      </div> <!-- /col -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
 
 </header>
 
@@ -158,14 +158,15 @@
 
     <section class="desc markdown">
     
-          <p>Returns an unmodifiable <code>Map</code> view of <code>this</code>.</p>
+        <p>Returns an unmodifiable <code>Map</code> view of <code>this</code>.</p>
 <p>The map uses the indices of this list as keys and the corresponding objects
 as values. The <code>Map.keys</code> <code>Iterable</code> iterates the indices of this list
 in numerical order.</p>
-<p>List&lt;String&gt; words = <code>'fee', 'fi', 'fo', 'fum'</code>;
+<pre class="prettyprint lang-dart"><code>List&lt;String&gt; words = ['fee', 'fi', 'fo', 'fum'];
 Map&lt;int, String&gt; map = words.asMap();
-map<code>0</code> + map<code>1</code>;   // 'feefi';
-map.keys.toList(); // <code>0, 1, 2, 3</code></p>
+map[0] + map[1];   // 'feefi';
+map.keys.toList(); // [0, 1, 2, 3]
+</code></pre>
     
     </section>
 
@@ -178,29 +179,29 @@ map.keys.toList(); // <code>0, 1, 2, 3</code></p>
 
   </div> <!-- /.main-content -->
 
-  </div> <!-- row -->
+</div> <!-- row -->
 </div> <!-- container -->
 
 <footer>
-    <div class="container-fluid">
-        <div class="container">
-            <p class="text-center">
-                <span class="no-break">
-                  Dart SDK 1.13.0-dev.7.2
-                </span>
-                &bull;
-                <span class="no-break">
-                  <a href="https://www.dartlang.org">
-                    <img src="static-assets/favicon.png" alt="Dart" title="Dart" width="16" height="16">
-                  </a>
-                </span>
-                &bull;
-                <span class="copyright no-break">
-                  <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc license</a>
-                </span>
-            </p>
-        </div>
+  <div class="container-fluid">
+    <div class="container">
+      <p class="text-center">
+        <span class="no-break">
+          Dart SDK 1.13.0-dev.7.4
+        </span>
+        &bull;
+        <span class="no-break">
+          <a href="https://www.dartlang.org">
+            <img src="static-assets/favicon.png" alt="Dart" title="Dart" width="16" height="16">
+          </a>
+        </span>
+        &bull;
+        <span class="copyright no-break">
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc license</a>
+        </span>
+      </p>
     </div>
+  </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -210,7 +211,7 @@ map.keys.toList(); // <code>0, 1, 2, 3</code></p>
 <!-- Do not remove placeholder -->
 <!-- Footer Placeholder -->
 
-<!-- Made with <3 by dartdoc version 0.7.2 -->
+<!-- Made with <3 by dartdoc version 0.7.5-dev -->
 </body>
 
 </html>
