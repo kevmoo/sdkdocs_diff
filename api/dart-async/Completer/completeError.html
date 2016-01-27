@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the completeError method from the Completer class, for the Dart programming language.">
   <title>completeError method - Completer class - dart:async library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
-  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
   <link rel="stylesheet" href="static-assets/prettify.css">
   <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="static-assets/styles.css">
-
-  <meta name="description" content="API docs for the completeError method from the Completer class, for the Dart programming language.">
   <link rel="icon" href="static-assets/favicon.png">
 
   <!-- Do not remove placeholder -->
@@ -56,12 +55,9 @@
         </ol>
         <div class="title-description">
           <h1 class="title">
-            <div class="kind">method</div> completeError
+            <span class="kind">method</span> completeError
           </h1>
         </div>
-        <ul class="subnav">
-          <li><a href="dart-async/Completer/completeError.html#source">Source</a></li>
-        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -80,42 +76,41 @@
     
     
     
-      <li class="section-title"><a href="dart-async/Completer-class.html#instance-properties">Properties</a></li>
-      <li><a class="" href="dart-async/Completer/future.html">future</a></li>
-      <li><a class="" href="dart-core/Object/hashCode.html">hashCode</a></li>
-      <li><a class="" href="dart-async/Completer/isCompleted.html">isCompleted</a></li>
-      <li><a class="" href="dart-core/Object/runtimeType.html">runtimeType</a></li>
-    
       <li class="section-title"><a href="dart-async/Completer-class.html#constructors">Constructors</a></li>
       <li><a href="dart-async/Completer/Completer.html">Completer</a></li>
       <li><a href="dart-async/Completer/Completer.sync.html">sync</a></li>
     
-      <li class="section-title"><a href="dart-async/Completer-class.html#operators">Operators</a></li>
-      <li><a class="" href="dart-core/Object/operator_equals.html">operator ==</a></li>
+      <li class="section-title">
+        <a href="dart-async/Completer-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="dart-async/Completer/future.html">future</a></li>
+      <li class="inherited"><a href="dart-core/Object/hashCode.html">hashCode</a></li>
+      <li><a href="dart-async/Completer/isCompleted.html">isCompleted</a></li>
+      <li class="inherited"><a href="dart-core/Object/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title inherited"><a href="dart-async/Completer-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="dart-core/Object/operator_equals.html">operator ==</a></li>
     
       <li class="section-title"><a href="dart-async/Completer-class.html#instance-methods">Methods</a></li>
-      <li><a class="" href="dart-async/Completer/complete.html">complete</a></li>
-      <li><a class="" href="dart-async/Completer/completeError.html">completeError</a></li>
-      <li><a class="" href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-      <li><a class="" href="dart-core/Object/toString.html">toString</a></li>
+      <li><a href="dart-async/Completer/complete.html">complete</a></li>
+      <li><a href="dart-async/Completer/completeError.html">completeError</a></li>
+      <li class="inherited"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="dart-core/Object/toString.html">toString</a></li>
     </ol>
 
   </div><!--/.sidebar-offcanvas-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-
     <section class="multi-line-signature">
-        <span class="returntype">void</span>
-        <span class="name ">completeError</span>(<wbr><span class="parameter" id="completeError-param-error"><span class="type-annotation"><a class="" href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span></span>, [<span class="parameter" id="completeError-param-stackTrace"><span class="type-annotation"><a class="" href="dart-core/StackTrace-class.html">StackTrace</a></span> <span class="parameter-name">stackTrace</span></span>])
+      <span class="returntype">void</span>
+      <span class="name ">completeError</span>(<wbr><span class="parameter" id="completeError-param-error"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span></span>, [<span class="parameter" id="completeError-param-stackTrace"><span class="type-annotation"><a href="dart-core/StackTrace-class.html">StackTrace</a></span> <span class="parameter-name">stackTrace</span></span>])
     </section>
-
     <section class="desc markdown">
-    
-        <p>Complete <a class="" href="dart-async/Completer/future.html">future</a> with an error.</p>
-<p>Calling <a class="" href="dart-async/Completer/complete.html">complete</a> or <code>completeError</code> must not be done more than once.</p>
+      <p>Complete <a href="dart-async/Completer/future.html">future</a> with an error.</p>
+<p>Calling <a href="dart-async/Completer/complete.html">complete</a> or <code>completeError</code> must not be done more than once.</p>
 <p>Completing a future with an error indicates that an exception was thrown
 while trying to produce a value.</p>
-<p>If <code>error</code> is <code>null</code>, it is replaced by a <a class="" href="dart-core/NullThrownError-class.html">NullThrownError</a>.</p>
+<p>If <code>error</code> is <code>null</code>, it is replaced by a <a href="dart-core/NullThrownError-class.html">NullThrownError</a>.</p>
 <p>If <code>error</code> is a <code>Future</code>, the future itself is used as the error value.
 If you want to complete with the result of the future, you can use:</p>
 <pre class="prettyprint lang-dart"><code>thisCompleter.complete(theFuture)
@@ -123,13 +118,9 @@ If you want to complete with the result of the future, you can use:</p>
 <p>or if you only want to handle an error from the future:</p>
 <pre class="prettyprint lang-dart"><code>theFuture.catchError(thisCompleter.completeError);
 </code></pre>
+    </section>
     
-    </section>
-
-    <section class="summary source-code" id="source">
-      <h2><span>Source</span> </h2>
-      <pre><code class="prettyprint lang-dart">void completeError(Object error, [StackTrace stackTrace]);</code></pre>
-    </section>
+    
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +132,7 @@ If you want to complete with the result of the future, you can use:</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.0-dev.7.4
+          Dart SDK 1.13.2
         </span>
         &bull;
         <span class="no-break">
@@ -165,7 +156,6 @@ If you want to complete with the result of the future, you can use:</p>
 <!-- Do not remove placeholder -->
 <!-- Footer Placeholder -->
 
-<!-- Made with <3 by dartdoc version 0.7.5-dev -->
 </body>
 
 </html>

@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the flush method from the IOSink class, for the Dart programming language.">
   <title>flush method - IOSink class - dart:io library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
-  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
   <link rel="stylesheet" href="static-assets/prettify.css">
   <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="static-assets/styles.css">
-
-  <meta name="description" content="API docs for the flush method from the IOSink class, for the Dart programming language.">
   <link rel="icon" href="static-assets/favicon.png">
 
   <!-- Do not remove placeholder -->
@@ -56,12 +55,9 @@
         </ol>
         <div class="title-description">
           <h1 class="title">
-            <div class="kind">method</div> flush
+            <span class="kind">method</span> flush
           </h1>
         </div>
-        <ul class="subnav">
-          <li><a href="dart-io/IOSink/flush.html#source">Source</a></li>
-        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -80,55 +76,50 @@
     
     
     
-      <li class="section-title"><a href="dart-io/IOSink-class.html#instance-properties">Properties</a></li>
-      <li><a class="" href="dart-io/IOSink/done.html">done</a></li>
-      <li><a class="" href="dart-io/IOSink/encoding.html">encoding</a></li>
-      <li><a class="" href="dart-core/Object/hashCode.html">hashCode</a></li>
-      <li><a class="" href="dart-core/Object/runtimeType.html">runtimeType</a></li>
-    
       <li class="section-title"><a href="dart-io/IOSink-class.html#constructors">Constructors</a></li>
       <li><a href="dart-io/IOSink/IOSink.html">IOSink</a></li>
     
-      <li class="section-title"><a href="dart-io/IOSink-class.html#operators">Operators</a></li>
-      <li><a class="" href="dart-core/Object/operator_equals.html">operator ==</a></li>
+      <li class="section-title">
+        <a href="dart-io/IOSink-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="dart-io/IOSink/done.html">done</a></li>
+      <li><a href="dart-io/IOSink/encoding.html">encoding</a></li>
+      <li class="inherited"><a href="dart-core/Object/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="dart-core/Object/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title inherited"><a href="dart-io/IOSink-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="dart-core/Object/operator_equals.html">operator ==</a></li>
     
       <li class="section-title"><a href="dart-io/IOSink-class.html#instance-methods">Methods</a></li>
-      <li><a class="" href="dart-io/IOSink/add.html">add</a></li>
-      <li><a class="" href="dart-io/IOSink/addError.html">addError</a></li>
-      <li><a class="" href="dart-io/IOSink/addStream.html">addStream</a></li>
-      <li><a class="" href="dart-io/IOSink/close.html">close</a></li>
-      <li><a class="" href="dart-io/IOSink/flush.html">flush</a></li>
-      <li><a class="" href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-      <li><a class="" href="dart-core/Object/toString.html">toString</a></li>
-      <li><a class="" href="dart-io/IOSink/write.html">write</a></li>
-      <li><a class="" href="dart-io/IOSink/writeAll.html">writeAll</a></li>
-      <li><a class="" href="dart-io/IOSink/writeCharCode.html">writeCharCode</a></li>
-      <li><a class="" href="dart-io/IOSink/writeln.html">writeln</a></li>
+      <li><a href="dart-io/IOSink/add.html">add</a></li>
+      <li><a href="dart-io/IOSink/addError.html">addError</a></li>
+      <li><a href="dart-io/IOSink/addStream.html">addStream</a></li>
+      <li><a href="dart-io/IOSink/close.html">close</a></li>
+      <li><a href="dart-io/IOSink/flush.html">flush</a></li>
+      <li class="inherited"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="dart-core/Object/toString.html">toString</a></li>
+      <li><a href="dart-io/IOSink/write.html">write</a></li>
+      <li><a href="dart-io/IOSink/writeAll.html">writeAll</a></li>
+      <li><a href="dart-io/IOSink/writeCharCode.html">writeCharCode</a></li>
+      <li><a href="dart-io/IOSink/writeln.html">writeln</a></li>
     </ol>
 
   </div><!--/.sidebar-offcanvas-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-
     <section class="multi-line-signature">
-        <span class="returntype"></span>
-        <span class="name ">flush</span>(<wbr>)
+      <span class="returntype"><a href="dart-async/Future-class.html">Future</a></span>
+      <span class="name ">flush</span>(<wbr>)
     </section>
-
     <section class="desc markdown">
-    
-        <p>Returns a <a class="" href="dart-async/Future-class.html">Future</a> that completes once all buffered data is accepted by the
-to underlying <a class="" href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.</p>
-<p>It's an error to call this method, while an <a class="" href="dart-io/IOSink/addStream.html">addStream</a> is incomplete.</p>
+      <p>Returns a <a href="dart-async/Future-class.html">Future</a> that completes once all buffered data is accepted by the
+to underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.</p>
+<p>It's an error to call this method, while an <a href="dart-io/IOSink/addStream.html">addStream</a> is incomplete.</p>
 <p>NOTE: This is not necessarily the same as the data being flushed by the
 operating system.</p>
+    </section>
     
-    </section>
-
-    <section class="summary source-code" id="source">
-      <h2><span>Source</span> </h2>
-      <pre><code class="prettyprint lang-dart">Future flush();</code></pre>
-    </section>
+    
 
   </div> <!-- /.main-content -->
 
@@ -140,7 +131,7 @@ operating system.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.0-dev.7.4
+          Dart SDK 1.13.2
         </span>
         &bull;
         <span class="no-break">
@@ -164,7 +155,6 @@ operating system.</p>
 <!-- Do not remove placeholder -->
 <!-- Footer Placeholder -->
 
-<!-- Made with <3 by dartdoc version 0.7.5-dev -->
 </body>
 
 </html>

@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the noSuchMethod method from the JsFunction class, for the Dart programming language.">
   <title>noSuchMethod method - JsFunction class - dart:js library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
-  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
   <link rel="stylesheet" href="static-assets/prettify.css">
   <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="static-assets/styles.css">
-
-  <meta name="description" content="API docs for the noSuchMethod method from the JsFunction class, for the Dart programming language.">
   <link rel="icon" href="static-assets/favicon.png">
 
   <!-- Do not remove placeholder -->
@@ -56,12 +55,9 @@
         </ol>
         <div class="title-description">
           <h1 class="title">
-            <div class="kind">method</div> noSuchMethod
+            <span class="kind">method</span> noSuchMethod
           </h1>
         </div>
-        <ul class="subnav">
-          <li><a href="dart-js/JsFunction/noSuchMethod.html#source">Source</a></li>
-        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -80,59 +76,50 @@
     
     
     
-      <li class="section-title"><a href="dart-js/JsFunction-class.html#instance-properties">Properties</a></li>
-      <li><a class="" href="dart-js/JsObject/hashCode.html">hashCode</a></li>
-      <li><a class="" href="dart-core/Object/runtimeType.html">runtimeType</a></li>
-    
       <li class="section-title"><a href="dart-js/JsFunction-class.html#constructors">Constructors</a></li>
       <li><a href="dart-js/JsFunction/JsFunction.internal.html">internal</a></li>
       <li><a href="dart-js/JsFunction/JsFunction.withThis.html">withThis</a></li>
     
-      <li class="section-title"><a href="dart-js/JsFunction-class.html#operators">Operators</a></li>
-      <li><a class="" href="dart-js/JsObject/operator_equals.html">operator ==</a></li>
-      <li><a class="" href="dart-js/JsObject/operator_get.html">operator []</a></li>
-      <li><a class="" href="dart-js/JsObject/operator_put.html">operator []=</a></li>
+      <li class="section-title inherited">
+        <a href="dart-js/JsFunction-class.html#instance-properties">Properties</a>
+      </li>
+      <li class="inherited"><a href="dart-js/JsObject/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="dart-core/Object/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title inherited"><a href="dart-js/JsFunction-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/operator_get.html">operator []</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/operator_put.html">operator []=</a></li>
     
       <li class="section-title"><a href="dart-js/JsFunction-class.html#instance-methods">Methods</a></li>
-      <li><a class="" href="dart-js/JsFunction/apply.html">apply</a></li>
-      <li><a class="" href="dart-js/JsObject/callMethod.html">callMethod</a></li>
-      <li><a class="" href="dart-js/JsObject/deleteProperty.html">deleteProperty</a></li>
-      <li><a class="" href="dart-js/JsObject/hasProperty.html">hasProperty</a></li>
-      <li><a class="" href="dart-js/JsObject/instanceof.html">instanceof</a></li>
-      <li><a class="" href="dart-js/JsFunction/noSuchMethod.html">noSuchMethod</a></li>
-      <li><a class="" href="dart-js/JsObject/toString.html">toString</a></li>
+      <li><a href="dart-js/JsFunction/apply.html">apply</a></li>
+      <li><a href="dart-js/JsFunction/call.html">call</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/callMethod.html">callMethod</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/deleteProperty.html">deleteProperty</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/hasProperty.html">hasProperty</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/instanceof.html">instanceof</a></li>
+      <li><a href="dart-js/JsFunction/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="dart-js/JsObject/toString.html">toString</a></li>
     </ol>
 
   </div><!--/.sidebar-offcanvas-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-
     <section class="multi-line-signature">
-        <span class="returntype">dynamic</span>
-        <span class="name ">noSuchMethod</span>(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a class="" href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+      <span class="returntype">dynamic</span>
+      <span class="name ">noSuchMethod</span>(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     </section>
-
     <section class="desc markdown">
-    
-        <p><code>noSuchMethod</code> is invoked when users invoke a non-existent method
+      <p><code>noSuchMethod</code> is invoked when users invoke a non-existent method
 on an object. The name of the method and the arguments of the
 invocation are passed to <code>noSuchMethod</code> in an <code>Invocation</code>.
 If <code>noSuchMethod</code> returns a value, that value becomes the result of
 the original invocation.</p>
 <p>The default behavior of <code>noSuchMethod</code> is to throw a
 <code>NoSuchMethodError</code>.</p>
+    </section>
     
-    </section>
-
-    <section class="summary source-code" id="source">
-      <h2><span>Source</span> </h2>
-      <pre><code class="prettyprint lang-dart">noSuchMethod(Invocation invocation) {
-  if (invocation.isMethod &amp;&amp; invocation.memberName == #call) {
-    return apply(_buildArgs(invocation));
-  }
-  return super.noSuchMethod(invocation);
-}</code></pre>
-    </section>
+    
 
   </div> <!-- /.main-content -->
 
@@ -144,7 +131,7 @@ the original invocation.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.0-dev.7.4
+          Dart SDK 1.13.2
         </span>
         &bull;
         <span class="no-break">
@@ -168,7 +155,6 @@ the original invocation.</p>
 <!-- Do not remove placeholder -->
 <!-- Footer Placeholder -->
 
-<!-- Made with <3 by dartdoc version 0.7.5-dev -->
 </body>
 
 </html>

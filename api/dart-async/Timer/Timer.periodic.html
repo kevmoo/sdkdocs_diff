@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the Timer.periodic constructor from the Class Timer class from the dart:async library, for the Dart programming language.">
   <title>Timer.periodic constructor - Timer class - dart:async library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
-  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
   <link rel="stylesheet" href="static-assets/prettify.css">
   <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="static-assets/styles.css">
-
-  <meta name="description" content="API docs for the Timer.periodic constructor from the Class Timer class from the dart:async library, for the Dart programming language.">
   <link rel="icon" href="static-assets/favicon.png">
 
   <!-- Do not remove placeholder -->
@@ -56,12 +55,9 @@
         </ol>
         <div class="title-description">
           <h1 class="title">
-            <div class="kind">factory constructor</div> Timer.periodic
+            <span class="kind">factory constructor</span> Timer.periodic
           </h1>
         </div>
-        <ul class="subnav">
-          <li><a href="dart-async/Timer/Timer.periodic.html#source">Source</a></li>
-        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -81,40 +77,40 @@
     
     
       <li class="section-title"><a href="dart-async/Timer-class.html#static-methods">Static methods</a></li>
-      <li><a class="" href="dart-async/Timer/run.html">run</a></li>
-    
-      <li class="section-title"><a href="dart-async/Timer-class.html#instance-properties">Properties</a></li>
-      <li><a class="" href="dart-core/Object/hashCode.html">hashCode</a></li>
-      <li><a class="" href="dart-async/Timer/isActive.html">isActive</a></li>
-      <li><a class="" href="dart-core/Object/runtimeType.html">runtimeType</a></li>
+      <li><a href="dart-async/Timer/run.html">run</a></li>
     
       <li class="section-title"><a href="dart-async/Timer-class.html#constructors">Constructors</a></li>
       <li><a href="dart-async/Timer/Timer.html">Timer</a></li>
       <li><a href="dart-async/Timer/Timer.periodic.html">periodic</a></li>
     
-      <li class="section-title"><a href="dart-async/Timer-class.html#operators">Operators</a></li>
-      <li><a class="" href="dart-core/Object/operator_equals.html">operator ==</a></li>
+      <li class="section-title">
+        <a href="dart-async/Timer-class.html#instance-properties">Properties</a>
+      </li>
+      <li class="inherited"><a href="dart-core/Object/hashCode.html">hashCode</a></li>
+      <li><a href="dart-async/Timer/isActive.html">isActive</a></li>
+      <li class="inherited"><a href="dart-core/Object/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title inherited"><a href="dart-async/Timer-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="dart-core/Object/operator_equals.html">operator ==</a></li>
     
       <li class="section-title"><a href="dart-async/Timer-class.html#instance-methods">Methods</a></li>
-      <li><a class="" href="dart-async/Timer/cancel.html">cancel</a></li>
-      <li><a class="" href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-      <li><a class="" href="dart-core/Object/toString.html">toString</a></li>
+      <li><a href="dart-async/Timer/cancel.html">cancel</a></li>
+      <li class="inherited"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="dart-core/Object/toString.html">toString</a></li>
     </ol>
 
   </div><!--/.sidebar-offcanvas-left-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-
-      <section class="multi-line-signature">
-        
-                <span class="name ">Timer.periodic</span>(<wbr><span class="parameter" id="periodic-param-duration"><span class="type-annotation"><a class="" href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>, <span class="parameter" id="periodic-param-callback"><span class="type-annotation">void</span> <span class="parameter-name">callback</span>(<span class="parameter" id="callback-param-timer"><span class="type-annotation"><a class="" href="dart-async/Timer-class.html">Timer</a></span> <span class="parameter-name">timer</span></span>)</span>)
-      </section>
+    <section class="multi-line-signature">
+      
+            <span class="name ">Timer.periodic</span>(<wbr><span class="parameter" id="periodic-param-duration"><span class="type-annotation"><a href="dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span>, <span class="parameter" id="periodic-param-callback"><span class="type-annotation">void</span> <span class="parameter-name">callback</span>(<span class="parameter" id="callback-param-timer"><span class="type-annotation"><a href="dart-async/Timer-class.html">Timer</a></span> <span class="parameter-name">timer</span></span>)</span>)
+    </section>
 
     <section class="desc markdown">
-    
-        <p>Creates a new repeating timer.</p>
+      <p>Creates a new repeating timer.</p>
 <p>The <code>callback</code> is invoked repeatedly with <code>duration</code> intervals until
-canceled with the <a class="" href="dart-async/Timer/cancel.html">cancel</a> function.</p>
+canceled with the <a href="dart-async/Timer/cancel.html">cancel</a> function.</p>
 <p>The exact timing depends on the underlying timer implementation.
 No more than <code>n</code> callbacks will be made in <code>duration * n</code> time,
 but the time between two consecutive callbacks
@@ -123,22 +119,9 @@ can be shorter and longer than <code>duration</code>.</p>
 a <code>duration</code> after either when the previous callback ended,
 when the previous callback started, or when the previous callback was
 scheduled for - even if the actual callback was delayed.</p>
-    
     </section>
-
-      <section class="summary source-code" id="source">
-        <h2><span>Source</span> </h2>
-        <pre><code class="prettyprint lang-dart">factory Timer.periodic(Duration duration,
-                       void callback(Timer timer)) {
-  if (Zone.current == Zone.ROOT) {
-    // No need to bind the callback. We know that the root&apos;s timer will
-    // be invoked in the root zone.
-    return Zone.current.createPeriodicTimer(duration, callback);
-  }
-  return Zone.current.createPeriodicTimer(
-      duration, Zone.current.bindUnaryCallback(callback, runGuarded: true));
-}</code></pre>
-      </section>
+    
+    
 
   </div> <!-- /.main-content -->
 
@@ -150,7 +133,7 @@ scheduled for - even if the actual callback was delayed.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.0-dev.7.4
+          Dart SDK 1.13.2
         </span>
         &bull;
         <span class="no-break">
@@ -174,7 +157,6 @@ scheduled for - even if the actual callback was delayed.</p>
 <!-- Do not remove placeholder -->
 <!-- Footer Placeholder -->
 
-<!-- Made with <3 by dartdoc version 0.7.5-dev -->
 </body>
 
 </html>

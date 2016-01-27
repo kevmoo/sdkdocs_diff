@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the send method from the SendPort class, for the Dart programming language.">
   <title>send method - SendPort class - dart:isolate library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
-  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
   <link rel="stylesheet" href="static-assets/prettify.css">
   <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="static-assets/styles.css">
-
-  <meta name="description" content="API docs for the send method from the SendPort class, for the Dart programming language.">
   <link rel="icon" href="static-assets/favicon.png">
 
   <!-- Do not remove placeholder -->
@@ -56,12 +55,9 @@
         </ol>
         <div class="title-description">
           <h1 class="title">
-            <div class="kind">method</div> send
+            <span class="kind">method</span> send
           </h1>
         </div>
-        <ul class="subnav">
-          <li><a href="dart-isolate/SendPort/send.html#source">Source</a></li>
-        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -80,53 +76,48 @@
     
     
     
-      <li class="section-title"><a href="dart-isolate/SendPort-class.html#instance-properties">Properties</a></li>
-      <li><a class="" href="dart-isolate/SendPort/hashCode.html">hashCode</a></li>
-      <li><a class="" href="dart-core/Object/runtimeType.html">runtimeType</a></li>
-    
       <li class="section-title"><a href="dart-isolate/SendPort-class.html#constructors">Constructors</a></li>
       <li><a href="dart-isolate/SendPort/SendPort.html">SendPort</a></li>
     
+      <li class="section-title">
+        <a href="dart-isolate/SendPort-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="dart-isolate/SendPort/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="dart-core/Object/runtimeType.html">runtimeType</a></li>
+    
       <li class="section-title"><a href="dart-isolate/SendPort-class.html#operators">Operators</a></li>
-      <li><a class="" href="dart-isolate/SendPort/operator_equals.html">operator ==</a></li>
+      <li><a href="dart-isolate/SendPort/operator_equals.html">operator ==</a></li>
     
       <li class="section-title"><a href="dart-isolate/SendPort-class.html#instance-methods">Methods</a></li>
-      <li><a class="" href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-      <li><a class="" href="dart-isolate/SendPort/send.html">send</a></li>
-      <li><a class="" href="dart-core/Object/toString.html">toString</a></li>
+      <li class="inherited"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+      <li><a href="dart-isolate/SendPort/send.html">send</a></li>
+      <li class="inherited"><a href="dart-core/Object/toString.html">toString</a></li>
     </ol>
 
   </div><!--/.sidebar-offcanvas-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-
     <section class="multi-line-signature">
-        <span class="returntype">void</span>
-        <span class="name ">send</span>(<wbr><span class="parameter" id="send-param-message"><span class="parameter-name">message</span></span>)
+      <span class="returntype">void</span>
+      <span class="name ">send</span>(<wbr><span class="parameter" id="send-param-message"><span class="parameter-name">message</span></span>)
     </section>
-
     <section class="desc markdown">
-    
-        <p>Sends an asynchronous <code>message</code> through this send port, to its
+      <p>Sends an asynchronous <code>message</code> through this send port, to its
 corresponding <code>ReceivePort</code>.</p>
 <p>The content of <code>message</code> can be: primitive values (null, num, bool, double,
-String), instances of <a class="" href="dart-isolate/SendPort-class.html">SendPort</a>, and lists and maps whose elements are any
+String), instances of <a href="dart-isolate/SendPort-class.html">SendPort</a>, and lists and maps whose elements are any
 of these. List and maps are also allowed to be cyclic.</p>
 <p>In the special circumstances when two isolates share the same code and are
-running in the same process (e.g. isolates created via <a class="" href="dart-isolate/Isolate/spawn.html">Isolate.spawn</a>), it
+running in the same process (e.g. isolates created via <a href="dart-isolate/Isolate/spawn.html">Isolate.spawn</a>), it
 is also possible to send object instances (which would be copied in the
 process). This is currently only supported by the dartvm.  For now, the
 dart2js compiler only supports the restricted messages described above.</p>
 <p>The send happens immediately and doesn't block.  The corresponding receive
 port can receive the message as soon as its isolate's event loop is ready
 to deliver it, independently of what the sending isolate is doing.</p>
+    </section>
     
-    </section>
-
-    <section class="summary source-code" id="source">
-      <h2><span>Source</span> </h2>
-      <pre><code class="prettyprint lang-dart">void send(var message);</code></pre>
-    </section>
+    
 
   </div> <!-- /.main-content -->
 
@@ -138,7 +129,7 @@ to deliver it, independently of what the sending isolate is doing.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.0-dev.7.4
+          Dart SDK 1.13.2
         </span>
         &bull;
         <span class="no-break">
@@ -162,7 +153,6 @@ to deliver it, independently of what the sending isolate is doing.</p>
 <!-- Do not remove placeholder -->
 <!-- Footer Placeholder -->
 
-<!-- Made with <3 by dartdoc version 0.7.5-dev -->
 </body>
 
 </html>
