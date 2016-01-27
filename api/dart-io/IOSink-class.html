@@ -105,6 +105,7 @@
     
       <li class="section-title"><a href="dart-io/dart-io-library.html#classes">Classes</a></li>
       <li><a href="dart-io/BytesBuilder-class.html">BytesBuilder</a></li>
+      <li><a href="dart-io/CompressionOptions-class.html">CompressionOptions</a></li>
       <li><a href="dart-io/ContentType-class.html">ContentType</a></li>
       <li><a href="dart-io/Cookie-class.html">Cookie</a></li>
       <li><a href="dart-io/Datagram-class.html">Datagram</a></li>
@@ -194,13 +195,12 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
 
     <section class="desc markdown">
-      <p>Helper class to wrap a <code>StreamConsumer<list<int>&gt;</list<int></code> and provide
-utility functions for writing to the StreamConsumer directly. The
-<a href="dart-io/IOSink-class.html">IOSink</a> buffers the input given by all <a href="dart-core/StringSink-class.html">StringSink</a> methods and will delay
-an <a href="dart-io/IOSink/addStream.html">addStream</a> until the buffer is flushed.</p>
-<p>When the <a href="dart-io/IOSink-class.html">IOSink</a> is bound to a stream (through <a href="dart-io/IOSink/addStream.html">addStream</a>) any call
-to the <a href="dart-io/IOSink-class.html">IOSink</a> will throw a <a href="dart-core/StateError-class.html">StateError</a>. When the <a href="dart-io/IOSink/addStream.html">addStream</a> completes,
-the <a href="dart-io/IOSink-class.html">IOSink</a> will again be open for all calls.</p>
+      <p>A combined byte and text output.</p>
+<p>An <a href="dart-io/IOSink-class.html">IOSink</a> combines a <a href="dart-async/StreamSink-class.html">StreamSink</a> of bytes with a <a href="dart-core/StringSink-class.html">StringSink</a>,
+and allows easy output of both bytes and text.</p>
+<p>Writing text (<a href="dart-io/IOSink/write.html">write</a>) and adding bytes (<a href="dart-io/IOSink/add.html">add</a>) may be interleaved freely.</p>
+<p>While a stream is being added using <a href="dart-io/IOSink/addStream.html">addStream</a>, any further attempts
+to add or write to the <a href="dart-io/IOSink-class.html">IOSink</a> will fail until the <a href="dart-io/IOSink/addStream.html">addStream</a> completes.</p>
 <p>If data is added to the <a href="dart-io/IOSink-class.html">IOSink</a> after the sink is closed, the data will be
 ignored. Use the <a href="dart-io/IOSink/done.html">done</a> future to be notified when the <a href="dart-io/IOSink-class.html">IOSink</a> is closed.</p>
     </section>
@@ -239,7 +239,8 @@ ignored. Use the <a href="dart-io/IOSink/done.html">done</a> future to be notifi
           <span class="name"><a href="dart-io/IOSink/IOSink.html">IOSink</a></span><span class="signature">(<span class="parameter" id="-param-target"><span class="type-annotation"><a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>&lt;<a href="dart-core/List-class.html">List</a>&lt;<a href="dart-core/int-class.html">int</a>&gt;&gt;</span> <span class="parameter-name">target</span></span>, {<span class="parameter" id="-param-encoding"><span class="type-annotation"><a href="dart-convert/Encoding-class.html">Encoding</a></span> <span class="parameter-name">encoding</span>: <span class="default-value">UTF8</span></span>})</span>
         </dt>
         <dd>
-          <p></p>
+          <p>Create an <a href="dart-io/IOSink-class.html">IOSink</a> that outputs to a [target] [StreamConsumer] of bytes.<a href="dart-io/IOSink/IOSink.html">&hellip;</a>
+</p>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -321,7 +322,7 @@ underlying consumer this property might be mutable.</p>
           </span>
         </dt>
         <dd>
-          <p>Adds <code>data</code> to the target consumer, ignoring <a href="dart-io/IOSink/encoding.html">encoding</a>.<a href="dart-io/IOSink/add.html">&hellip;</a>
+          <p>Adds byte <code>data</code> to the target consumer, ignoring <a href="dart-io/IOSink/encoding.html">encoding</a>.<a href="dart-io/IOSink/add.html">&hellip;</a>
 </p>
         </dd>
         <dt id="addError" class="callable">
@@ -366,11 +367,7 @@ to underlying <a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>.
           </span>
         </dt>
         <dd class="inherited">
-          <p><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> is invoked when users invoke a non-existent method
-on an object. The name of the method and the arguments of the
-invocation are passed to <a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> in an <a href="dart-core/Invocation-class.html">Invocation</a>.
-If <a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> returns a value, that value becomes the result of
-the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a>
+          <p>Invoked when a non-existent method or property is accessed.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a>
 </p>
           <div class="features">inherited</div>
         </dd>
@@ -408,7 +405,7 @@ the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a
           </span>
         </dt>
         <dd>
-          <p>Writes the <code>charCode</code> to <code>this</code>.<a href="dart-io/IOSink/writeCharCode.html">&hellip;</a>
+          <p>Writes the character of <code>charCode</code>.<a href="dart-io/IOSink/writeCharCode.html">&hellip;</a>
 </p>
         </dd>
         <dt id="writeln" class="callable">
@@ -469,7 +466,7 @@ writes the result to <code>this</code>, followed by a newline.<a href="dart-io/I
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

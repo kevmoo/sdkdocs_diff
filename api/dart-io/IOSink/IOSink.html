@@ -113,6 +113,11 @@
             <span class="name ">IOSink</span>(<wbr><span class="parameter" id="-param-target"><span class="type-annotation"><a href="dart-async/StreamConsumer-class.html">StreamConsumer</a>&lt;<a href="dart-core/List-class.html">List</a>&lt;<a href="dart-core/int-class.html">int</a>&gt;&gt;</span> <span class="parameter-name">target</span></span>, {<span class="parameter" id="-param-encoding"><span class="type-annotation"><a href="dart-convert/Encoding-class.html">Encoding</a></span> <span class="parameter-name">encoding</span>: <span class="default-value">UTF8</span></span>})
     </section>
 
+    <section class="desc markdown">
+      <p>Create an <a href="dart-io/IOSink-class.html">IOSink</a> that outputs to a [target] [StreamConsumer] of bytes.</p>
+<p>Text written to <a href="dart-async/StreamSink-class.html">StreamSink</a> methods is encoded to bytes using <code>encoding</code>
+before being output on <code>target</code>.</p>
+    </section>
     
     
 
@@ -126,7 +131,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

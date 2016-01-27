@@ -102,6 +102,7 @@
     
       <li class="section-title"><a href="dart-core/DateTime-class.html#constructors">Constructors</a></li>
       <li><a href="dart-core/DateTime/DateTime.html">DateTime</a></li>
+      <li><a href="dart-core/DateTime/DateTime.fromMicrosecondsSinceEpoch.html">fromMicrosecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.fromMillisecondsSinceEpoch.html">fromMillisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.now.html">now</a></li>
       <li><a href="dart-core/DateTime/DateTime.utc.html">utc</a></li>
@@ -113,6 +114,8 @@
       <li><a href="dart-core/DateTime/hashCode.html">hashCode</a></li>
       <li><a href="dart-core/DateTime/hour.html">hour</a></li>
       <li><a href="dart-core/DateTime/isUtc.html">isUtc</a></li>
+      <li><a href="dart-core/DateTime/microsecond.html">microsecond</a></li>
+      <li><a href="dart-core/DateTime/microsecondsSinceEpoch.html">microsecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/millisecond.html">millisecond</a></li>
       <li><a href="dart-core/DateTime/millisecondsSinceEpoch.html">millisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/minute.html">minute</a></li>
@@ -151,12 +154,14 @@
     </section>
     <section class="desc markdown">
       <p>Returns an ISO-8601 full-precision extended format representation.</p>
-<p>The format is <code>yyyy-MM-ddTHH:mm:ss.sssZ</code> for UTC time, and
-<code>yyyy-MM-ddTHH:mm:ss.sss</code> (no trailing "Z") for local/non-UTC time,
+<p>The format is <code>yyyy-MM-ddTHH:mm:ss.mmmuuuZ</code> for UTC time, and
+<code>yyyy-MM-ddTHH:mm:ss.mmmuuu</code> (no trailing "Z") for local/non-UTC time,
 where:</p><ul><li>
 <p><code>yyyy</code> is a, possibly negative, four digit representation of the year,
   if the year is in the range -9999 to 9999,
-  otherwise it is a signed six digit representation of the year.</p></li><li><code>MM</code> is the month in the range 01 to 12,</li><li><code>dd</code> is the day of the month in the range 01 to 31,</li><li><code>HH</code> are hours in the range 00 to 23,</li><li><code>mm</code> are minutes in the range 00 to 59,</li><li><code>ss</code> are seconds in the range 00 to 59 (no leap seconds), and</li><li><code>sss</code> are milliseconds in the range 000 to 999.</li></ul>
+  otherwise it is a signed six digit representation of the year.</p></li><li><code>MM</code> is the month in the range 01 to 12,</li><li><code>dd</code> is the day of the month in the range 01 to 31,</li><li><code>HH</code> are hours in the range 00 to 23,</li><li><code>mm</code> are minutes in the range 00 to 59,</li><li><code>ss</code> are seconds in the range 00 to 59 (no leap seconds),</li><li><code>mmm</code> are microseconds in the range 000 to 999, and</li><li>
+<p><code>uuu</code> are microseconds in the range 001 to 999. If <a href="dart-core/DateTime/microsecond.html">microsecond</a> equals
+  0, then this part is omitted.</p></li></ul>
 <p>The resulting string can be parsed back using <a href="dart-core/DateTime/parse.html">parse</a>.</p>
     </section>
     
@@ -172,7 +177,7 @@ where:</p><ul><li>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

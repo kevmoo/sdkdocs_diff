@@ -154,7 +154,7 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <section class="multi-line-signature">
       
-            <span class="name ">WebSocket.fromUpgradedSocket</span>(<wbr><span class="parameter" id="fromUpgradedSocket-param-socket"><span class="type-annotation"><a href="dart-io/Socket-class.html">Socket</a></span> <span class="parameter-name">socket</span></span>, {<span class="parameter" id="fromUpgradedSocket-param-protocol"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">protocol</span></span>, <span class="parameter" id="fromUpgradedSocket-param-serverSide"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">serverSide</span></span>})
+            <span class="name ">WebSocket.fromUpgradedSocket</span>(<wbr><span class="parameter" id="fromUpgradedSocket-param-socket"><span class="type-annotation"><a href="dart-io/Socket-class.html">Socket</a></span> <span class="parameter-name">socket</span></span>, {<span class="parameter" id="fromUpgradedSocket-param-protocol"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">protocol</span></span>, <span class="parameter" id="fromUpgradedSocket-param-serverSide"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">serverSide</span></span>, <span class="parameter" id="fromUpgradedSocket-param-compression"><span class="type-annotation"><a href="dart-io/CompressionOptions-class.html">CompressionOptions</a></span> <span class="parameter-name">compression</span>: <span class="default-value">CompressionOptions.DEFAULT</span></span>})
     </section>
 
     <section class="desc markdown">
@@ -168,6 +168,9 @@ WebSocket client can automatically perform the handshake using
 <p><code>serverSide</code> must be passed explicitly. If it's <code>false</code>, the WebSocket will
 act as the client and mask the messages it sends. If it's <code>true</code>, it will
 act as the server and will not mask its messages.</p>
+<p>If <code>compression</code> is provided, the <a href="dart-io/WebSocket-class.html">WebSocket</a> created will be configured
+to negotiate with the specified <a href="dart-io/CompressionOptions-class.html">CompressionOptions</a>. If none is specified
+then the <a href="dart-io/WebSocket-class.html">WebSocket</a> will be created with the default <a href="dart-io/CompressionOptions-class.html">CompressionOptions</a>.</p>
     </section>
     
     
@@ -182,7 +185,7 @@ act as the server and will not mask its messages.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

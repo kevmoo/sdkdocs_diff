@@ -102,6 +102,7 @@
     
       <li class="section-title"><a href="dart-core/DateTime-class.html#constructors">Constructors</a></li>
       <li><a href="dart-core/DateTime/DateTime.html">DateTime</a></li>
+      <li><a href="dart-core/DateTime/DateTime.fromMicrosecondsSinceEpoch.html">fromMicrosecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.fromMillisecondsSinceEpoch.html">fromMillisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.now.html">now</a></li>
       <li><a href="dart-core/DateTime/DateTime.utc.html">utc</a></li>
@@ -113,6 +114,8 @@
       <li><a href="dart-core/DateTime/hashCode.html">hashCode</a></li>
       <li><a href="dart-core/DateTime/hour.html">hour</a></li>
       <li><a href="dart-core/DateTime/isUtc.html">isUtc</a></li>
+      <li><a href="dart-core/DateTime/microsecond.html">microsecond</a></li>
+      <li><a href="dart-core/DateTime/microsecondsSinceEpoch.html">microsecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/millisecond.html">millisecond</a></li>
       <li><a href="dart-core/DateTime/millisecondsSinceEpoch.html">millisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/minute.html">minute</a></li>
@@ -146,22 +149,22 @@
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
 
-    <section class="multi-line-signature">
-      <span class="returntype"><a href="dart-core/int-class.html">int</a></span>
-        <span class="name ">millisecondsSinceEpoch</span>        <div class="features">
-          read-only
-        </div>
-    </section>
 
-    <section class="desc markdown">
-      <p>The number of milliseconds since
+      <section id="getter">
+      
+      <section class="multi-line-signature">
+        <span class="returntype"><a href="dart-core/int-class.html">int</a></span>
+        <span class="name ">millisecondsSinceEpoch</span></section>
+      
+      <section class="desc markdown">
+  <p>The number of milliseconds since
 the "Unix epoch" 1970-01-01T00:00:00Z (UTC).</p>
 <p>This value is independent of the time zone.</p>
 <p>This value is at most
 8,640,000,000,000,000ms (100,000,000 days) from the Unix epoch.
 In other words: <code>millisecondsSinceEpoch.abs() &lt;= 8640000000000000</code>.</p>
-    </section>
-    
+</section>
+</section>
 
 
   </div> <!-- /.main-content -->
@@ -174,7 +177,7 @@ In other words: <code>millisecondsSinceEpoch.abs() &lt;= 8640000000000000</code>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

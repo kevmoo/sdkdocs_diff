@@ -102,6 +102,7 @@
     
       <li class="section-title"><a href="dart-core/DateTime-class.html#constructors">Constructors</a></li>
       <li><a href="dart-core/DateTime/DateTime.html">DateTime</a></li>
+      <li><a href="dart-core/DateTime/DateTime.fromMicrosecondsSinceEpoch.html">fromMicrosecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.fromMillisecondsSinceEpoch.html">fromMillisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.now.html">now</a></li>
       <li><a href="dart-core/DateTime/DateTime.utc.html">utc</a></li>
@@ -113,6 +114,8 @@
       <li><a href="dart-core/DateTime/hashCode.html">hashCode</a></li>
       <li><a href="dart-core/DateTime/hour.html">hour</a></li>
       <li><a href="dart-core/DateTime/isUtc.html">isUtc</a></li>
+      <li><a href="dart-core/DateTime/microsecond.html">microsecond</a></li>
+      <li><a href="dart-core/DateTime/microsecondsSinceEpoch.html">microsecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/millisecond.html">millisecond</a></li>
       <li><a href="dart-core/DateTime/millisecondsSinceEpoch.html">millisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/minute.html">minute</a></li>
@@ -151,12 +154,26 @@
     </section>
     <section class="desc markdown">
       <p>Returns a <a href="dart-core/Duration-class.html">Duration</a> with the difference between <code>this</code> and <code>other</code>.</p>
-<pre class="prettyprint lang-dart"><code>DateTime berlinWallFell = new DateTime(1989, DateTime.NOVEMBER, 9);
-DateTime dDay = new DateTime(1944, DateTime.JUNE, 6);
+<pre class="prettyprint lang-dart"><code>DateTime berlinWallFell = new DateTime.utc(1989, DateTime.NOVEMBER, 9);
+DateTime dDay = new DateTime.utc(1944, DateTime.JUNE, 6);
 
 Duration difference = berlinWallFell.difference(dDay);
 assert(difference.inDays == 16592);
 </code></pre>
+<p>The difference is measured in seconds and fractions of seconds.
+The difference above counts the number of fractional seconds between
+midnight at the beginning of those dates.
+If the dates above had been in local time, not UTC, then the difference
+between two midnights may not be a multiple of 24 hours due to daylight
+saving differences.</p>
+<p>For example, in Australia, similar code using local time instead of UTC:</p>
+<pre class="prettyprint lang-dart"><code>DateTime berlinWallFell = new DateTime(1989, DateTime.NOVEMBER, 9);
+DateTime dDay = new DateTime(1944, DateTime.JUNE, 6);
+Duration difference = berlinWallFell.difference(dDay);
+assert(difference.inDays == 16592);
+</code></pre>
+<p>will fail because the difference is actually 16591 days and 23 hours, and
+<a href="dart-core/Duration/inDays.html">Duration.inDays</a> only returns the number of whole days.</p>
     </section>
     
     
@@ -171,7 +188,7 @@ assert(difference.inDays == 16592);
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

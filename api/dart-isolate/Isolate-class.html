@@ -170,12 +170,43 @@ and capabilities can be sent, and can be used to create a new functioning
     read-only
   </div>
 </dd>
+        <dt id="packageConfig" class="property">
+          <span class="name"><a href="dart-isolate/Isolate/packageConfig.html">packageConfig</a></span>
+          <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a>&lt;<a href="dart-core/Uri-class.html">Uri</a>&gt;</span>
+        </dt>
+        <dd>
+          <p>Returns the package root of the current isolate, if any.<a href="dart-isolate/Isolate/packageConfig.html">&hellip;</a>
+</p>
+          <div class="features">
+    read-only
+  </div>
+</dd>
+        <dt id="packageRoot" class="property">
+          <span class="name"><a href="dart-isolate/Isolate/packageRoot.html">packageRoot</a></span>
+          <span class="signature">&#8594; <a href="dart-async/Future-class.html">Future</a>&lt;<a href="dart-core/Uri-class.html">Uri</a>&gt;</span>
+        </dt>
+        <dd>
+          <p>Returns the package root of the current isolate, if any.<a href="dart-isolate/Isolate/packageRoot.html">&hellip;</a>
+</p>
+          <div class="features">
+    read-only
+  </div>
+</dd>
       </dl>
     </section>
 
     <section class="summary offset-anchor" id="static-methods">
       <h2>Static Methods</h2>
       <dl class="callables">
+        <dt id="resolvePackageUri" class="callable">
+          <span class="name"><a href="dart-isolate/Isolate/resolvePackageUri.html">resolvePackageUri</a></span><span class="signature">(<wbr><span class="parameter" id="resolvePackageUri-param-packageUri"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">packageUri</span></span>)
+            <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a>&lt;<a href="dart-core/Uri-class.html">Uri</a>&gt;</span>
+          </span>
+        </dt>
+        <dd>
+          <p>Maps a package: URI to a non-package Uri.<a href="dart-isolate/Isolate/resolvePackageUri.html">&hellip;</a>
+</p>
+        </dd>
         <dt id="spawn" class="callable">
           <span class="name"><a href="dart-isolate/Isolate/spawn.html">spawn</a></span><span class="signature">(<wbr><span class="parameter" id="spawn-param-entryPoint"><span class="type-annotation">void</span> <span class="parameter-name">entryPoint</span>(<span class="parameter" id="entryPoint-param-message"><span class="parameter-name">message</span></span>)</span>, <span class="parameter" id="spawn-param-message"><span class="parameter-name">message</span></span>, {<span class="parameter" id="spawn-param-paused"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">paused</span>: <span class="default-value">false</span></span>, <span class="parameter" id="spawn-param-errorsAreFatal"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">errorsAreFatal</span></span>, <span class="parameter" id="spawn-param-onExit"><span class="type-annotation"><a href="dart-isolate/SendPort-class.html">SendPort</a></span> <span class="parameter-name">onExit</span></span>, <span class="parameter" id="spawn-param-onError"><span class="type-annotation"><a href="dart-isolate/SendPort-class.html">SendPort</a></span> <span class="parameter-name">onError</span></span>})
             <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a>&lt;<a href="dart-isolate/Isolate-class.html">Isolate</a>&gt;</span>
@@ -187,7 +218,7 @@ isolate.<a href="dart-isolate/Isolate/spawn.html">&hellip;</a>
 </p>
         </dd>
         <dt id="spawnUri" class="callable">
-          <span class="name"><a href="dart-isolate/Isolate/spawnUri.html">spawnUri</a></span><span class="signature">(<wbr><span class="parameter" id="spawnUri-param-uri"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">uri</span></span>, <span class="parameter" id="spawnUri-param-args"><span class="type-annotation"><a href="dart-core/List-class.html">List</a>&lt;<a href="dart-core/String-class.html">String</a>&gt;</span> <span class="parameter-name">args</span></span>, <span class="parameter" id="spawnUri-param-message"><span class="parameter-name">message</span></span>, {<span class="parameter" id="spawnUri-param-paused"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">paused</span>: <span class="default-value">false</span></span>, <span class="parameter" id="spawnUri-param-onExit"><span class="type-annotation"><a href="dart-isolate/SendPort-class.html">SendPort</a></span> <span class="parameter-name">onExit</span></span>, <span class="parameter" id="spawnUri-param-onError"><span class="type-annotation"><a href="dart-isolate/SendPort-class.html">SendPort</a></span> <span class="parameter-name">onError</span></span>, <span class="parameter" id="spawnUri-param-errorsAreFatal"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">errorsAreFatal</span></span>, <span class="parameter" id="spawnUri-param-checked"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">checked</span></span>, <span class="parameter" id="spawnUri-param-environment"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a>&lt;<a href="dart-core/String-class.html">String</a>, <a href="dart-core/String-class.html">String</a>&gt;</span> <span class="parameter-name">environment</span></span>, <span class="parameter" id="spawnUri-param-packageRoot"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">packageRoot</span></span>})
+          <span class="name"><a href="dart-isolate/Isolate/spawnUri.html">spawnUri</a></span><span class="signature">(<wbr><span class="parameter" id="spawnUri-param-uri"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">uri</span></span>, <span class="parameter" id="spawnUri-param-args"><span class="type-annotation"><a href="dart-core/List-class.html">List</a>&lt;<a href="dart-core/String-class.html">String</a>&gt;</span> <span class="parameter-name">args</span></span>, <span class="parameter" id="spawnUri-param-message"><span class="parameter-name">message</span></span>, {<span class="parameter" id="spawnUri-param-paused"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">paused</span>: <span class="default-value">false</span></span>, <span class="parameter" id="spawnUri-param-onExit"><span class="type-annotation"><a href="dart-isolate/SendPort-class.html">SendPort</a></span> <span class="parameter-name">onExit</span></span>, <span class="parameter" id="spawnUri-param-onError"><span class="type-annotation"><a href="dart-isolate/SendPort-class.html">SendPort</a></span> <span class="parameter-name">onError</span></span>, <span class="parameter" id="spawnUri-param-errorsAreFatal"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">errorsAreFatal</span></span>, <span class="parameter" id="spawnUri-param-checked"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">checked</span></span>, <span class="parameter" id="spawnUri-param-environment"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a>&lt;<a href="dart-core/String-class.html">String</a>, <a href="dart-core/String-class.html">String</a>&gt;</span> <span class="parameter-name">environment</span></span>, <span class="parameter" id="spawnUri-param-packageRoot"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">packageRoot</span></span>, <span class="parameter" id="spawnUri-param-packageConfig"><span class="type-annotation"><a href="dart-core/Uri-class.html">Uri</a></span> <span class="parameter-name">packageConfig</span></span>, <span class="parameter" id="spawnUri-param-automaticPackageResolution"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">automaticPackageResolution</span>: <span class="default-value">false</span></span>})
             <span class="returntype parameter">&#8594; <a href="dart-async/Future-class.html">Future</a>&lt;<a href="dart-isolate/Isolate-class.html">Isolate</a>&gt;</span>
           </span>
         </dt>
@@ -337,11 +368,7 @@ the specified URI.<a href="dart-isolate/Isolate/spawnUri.html">&hellip;</a>
           </span>
         </dt>
         <dd class="inherited">
-          <p><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> is invoked when users invoke a non-existent method
-on an object. The name of the method and the arguments of the
-invocation are passed to <a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> in an <a href="dart-core/Invocation-class.html">Invocation</a>.
-If <a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> returns a value, that value becomes the result of
-the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a>
+          <p>Invoked when a non-existent method or property is accessed.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a>
 </p>
           <div class="features">inherited</div>
         </dd>
@@ -422,8 +449,11 @@ the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a
     
       <li class="section-title"><a href="dart-isolate/Isolate-class.html#static-properties">Static properties</a></li>
       <li><a href="dart-isolate/Isolate/current.html">current</a></li>
+      <li><a href="dart-isolate/Isolate/packageConfig.html">packageConfig</a></li>
+      <li><a href="dart-isolate/Isolate/packageRoot.html">packageRoot</a></li>
     
       <li class="section-title"><a href="dart-isolate/Isolate-class.html#static-methods">Static methods</a></li>
+      <li><a href="dart-isolate/Isolate/resolvePackageUri.html">resolvePackageUri</a></li>
       <li><a href="dart-isolate/Isolate/spawn.html">spawn</a></li>
       <li><a href="dart-isolate/Isolate/spawnUri.html">spawnUri</a></li>
     
@@ -466,7 +496,7 @@ the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

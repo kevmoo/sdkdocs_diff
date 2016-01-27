@@ -128,6 +128,7 @@
       <li><a href="dart-core/Symbol-class.html">Symbol</a></li>
       <li><a href="dart-core/Type-class.html">Type</a></li>
       <li><a href="dart-core/Uri-class.html">Uri</a></li>
+      <li><a href="dart-core/UriData-class.html">UriData</a></li>
     
       <li class="section-title"><a href="dart-core/dart-core-library.html#exceptions">Exceptions</a></li>
       <li><a href="dart-core/AbstractClassInstantiationError-class.html">AbstractClassInstantiationError</a></li>
@@ -489,10 +490,18 @@ the <a href="http://pub.dartlang.org/packages/intl">intl</a> package.</p>
 
       <dl class="constructor-summary-list">
         <dt id="DateTime" class="callable">
-          <span class="name"><a href="dart-core/DateTime/DateTime.html">DateTime</a></span><span class="signature">(<span class="parameter" id="-param-year"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">year</span></span>, [<span class="parameter" id="-param-month"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">month</span> = <span class="default-value">1</span></span>, <span class="parameter" id="-param-day"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">day</span> = <span class="default-value">1</span></span>, <span class="parameter" id="-param-hour"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hour</span> = <span class="default-value">0</span></span>, <span class="parameter" id="-param-minute"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minute</span> = <span class="default-value">0</span></span>, <span class="parameter" id="-param-second"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">second</span> = <span class="default-value">0</span></span>, <span class="parameter" id="-param-millisecond"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">millisecond</span> = <span class="default-value">0</span></span>])</span>
+          <span class="name"><a href="dart-core/DateTime/DateTime.html">DateTime</a></span><span class="signature">(<span class="parameter" id="-param-year"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">year</span></span>, [<span class="parameter" id="-param-month"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">month</span> = <span class="default-value">1</span></span>, <span class="parameter" id="-param-day"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">day</span> = <span class="default-value">1</span></span>, <span class="parameter" id="-param-hour"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hour</span> = <span class="default-value">0</span></span>, <span class="parameter" id="-param-minute"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minute</span> = <span class="default-value">0</span></span>, <span class="parameter" id="-param-second"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">second</span> = <span class="default-value">0</span></span>, <span class="parameter" id="-param-millisecond"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">millisecond</span> = <span class="default-value">0</span></span>, <span class="parameter" id="-param-microsecond"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">microsecond</span> = <span class="default-value">0</span></span>])</span>
         </dt>
         <dd>
           <p>Constructs a <a href="dart-core/DateTime-class.html">DateTime</a> instance specified in the local time zone.<a href="dart-core/DateTime/DateTime.html">&hellip;</a>
+</p>
+        </dd>
+        <dt id="DateTime.fromMicrosecondsSinceEpoch" class="callable">
+          <span class="name"><a href="dart-core/DateTime/DateTime.fromMicrosecondsSinceEpoch.html">DateTime.fromMicrosecondsSinceEpoch</a></span><span class="signature">(<span class="parameter" id="fromMicrosecondsSinceEpoch-param-microsecondsSinceEpoch"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">microsecondsSinceEpoch</span></span>, {<span class="parameter" id="fromMicrosecondsSinceEpoch-param-isUtc"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isUtc</span>: <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          <p>Constructs a new <a href="dart-core/DateTime-class.html">DateTime</a> instance
+with the given <code>microsecondsSinceEpoch</code>.<a href="dart-core/DateTime/DateTime.fromMicrosecondsSinceEpoch.html">&hellip;</a>
 </p>
         </dd>
         <dt id="DateTime.fromMillisecondsSinceEpoch" class="callable">
@@ -512,7 +521,7 @@ local time zone.<a href="dart-core/DateTime/DateTime.now.html">&hellip;</a>
 </p>
         </dd>
         <dt id="DateTime.utc" class="callable">
-          <span class="name"><a href="dart-core/DateTime/DateTime.utc.html">DateTime.utc</a></span><span class="signature">(<span class="parameter" id="utc-param-year"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">year</span></span>, [<span class="parameter" id="utc-param-month"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">month</span> = <span class="default-value">1</span></span>, <span class="parameter" id="utc-param-day"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">day</span> = <span class="default-value">1</span></span>, <span class="parameter" id="utc-param-hour"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hour</span> = <span class="default-value">0</span></span>, <span class="parameter" id="utc-param-minute"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minute</span> = <span class="default-value">0</span></span>, <span class="parameter" id="utc-param-second"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">second</span> = <span class="default-value">0</span></span>, <span class="parameter" id="utc-param-millisecond"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">millisecond</span> = <span class="default-value">0</span></span>])</span>
+          <span class="name"><a href="dart-core/DateTime/DateTime.utc.html">DateTime.utc</a></span><span class="signature">(<span class="parameter" id="utc-param-year"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">year</span></span>, [<span class="parameter" id="utc-param-month"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">month</span> = <span class="default-value">1</span></span>, <span class="parameter" id="utc-param-day"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">day</span> = <span class="default-value">1</span></span>, <span class="parameter" id="utc-param-hour"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">hour</span> = <span class="default-value">0</span></span>, <span class="parameter" id="utc-param-minute"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">minute</span> = <span class="default-value">0</span></span>, <span class="parameter" id="utc-param-second"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">second</span> = <span class="default-value">0</span></span>, <span class="parameter" id="utc-param-millisecond"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">millisecond</span> = <span class="default-value">0</span></span>, <span class="parameter" id="utc-param-microsecond"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">microsecond</span> = <span class="default-value">0</span></span>])</span>
         </dt>
         <dd>
           <p>Constructs a <a href="dart-core/DateTime-class.html">DateTime</a> instance specified in the UTC time zone.<a href="dart-core/DateTime/DateTime.utc.html">&hellip;</a>
@@ -563,6 +572,29 @@ local time zone.<a href="dart-core/DateTime/DateTime.now.html">&hellip;</a>
         </dt>
         <dd>
           <p>True if this <a href="dart-core/DateTime-class.html">DateTime</a> is set to UTC time.<a href="dart-core/DateTime/isUtc.html">&hellip;</a>
+</p>
+          <div class="features">
+    read-only
+  </div>
+</dd>
+        <dt id="microsecond" class="property">
+          <span class="name"><a href="dart-core/DateTime/microsecond.html">microsecond</a></span>
+          <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+        </dt>
+        <dd>
+          <p>The microsecond <code>0...999</code>.<a href="dart-core/DateTime/microsecond.html">&hellip;</a>
+</p>
+          <div class="features">
+    read-only
+  </div>
+</dd>
+        <dt id="microsecondsSinceEpoch" class="property">
+          <span class="name"><a href="dart-core/DateTime/microsecondsSinceEpoch.html">microsecondsSinceEpoch</a></span>
+          <span class="signature">&#8594; <a href="dart-core/int-class.html">int</a></span>
+        </dt>
+        <dd>
+          <p>The number of microseconds since
+the "Unix epoch" 1970-01-01T00:00:00Z (UTC).<a href="dart-core/DateTime/microsecondsSinceEpoch.html">&hellip;</a>
 </p>
           <div class="features">
     read-only
@@ -762,11 +794,7 @@ returning zero if the values are equal.<a href="dart-core/DateTime/compareTo.htm
           </span>
         </dt>
         <dd class="inherited">
-          <p><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> is invoked when users invoke a non-existent method
-on an object. The name of the method and the arguments of the
-invocation are passed to <a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> in an <a href="dart-core/Invocation-class.html">Invocation</a>.
-If <a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a> returns a value, that value becomes the result of
-the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a>
+          <p>Invoked when a non-existent method or property is accessed.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a>
 </p>
           <div class="features">inherited</div>
         </dd>
@@ -852,6 +880,7 @@ the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a
     
       <li class="section-title"><a href="dart-core/DateTime-class.html#constructors">Constructors</a></li>
       <li><a href="dart-core/DateTime/DateTime.html">DateTime</a></li>
+      <li><a href="dart-core/DateTime/DateTime.fromMicrosecondsSinceEpoch.html">fromMicrosecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.fromMillisecondsSinceEpoch.html">fromMillisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/DateTime.now.html">now</a></li>
       <li><a href="dart-core/DateTime/DateTime.utc.html">utc</a></li>
@@ -863,6 +892,8 @@ the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a
       <li><a href="dart-core/DateTime/hashCode.html">hashCode</a></li>
       <li><a href="dart-core/DateTime/hour.html">hour</a></li>
       <li><a href="dart-core/DateTime/isUtc.html">isUtc</a></li>
+      <li><a href="dart-core/DateTime/microsecond.html">microsecond</a></li>
+      <li><a href="dart-core/DateTime/microsecondsSinceEpoch.html">microsecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/millisecond.html">millisecond</a></li>
       <li><a href="dart-core/DateTime/millisecondsSinceEpoch.html">millisecondsSinceEpoch</a></li>
       <li><a href="dart-core/DateTime/minute.html">minute</a></li>
@@ -901,7 +932,7 @@ the original invocation.<a href="dart-core/Object/noSuchMethod.html">&hellip;</a
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">

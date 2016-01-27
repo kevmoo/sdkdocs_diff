@@ -116,7 +116,7 @@
     <section class="desc markdown">
       <p>Returns a <code>Future</code> that completes once all buffered data is accepted by the
 to underlying <code>StreamConsumer</code>.</p>
-<p>It's an error to call this method, while an <code>addStream</code> is incomplete.</p>
+<p>This method must not be called while an <code>addStream</code> is incomplete.</p>
 <p>NOTE: This is not necessarily the same as the data being flushed by the
 operating system.</p>
     </section>
@@ -133,7 +133,7 @@ operating system.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.13.2
+          Dart SDK 1.14.0-dev.7.2
         </span>
         &bull;
         <span class="no-break">
