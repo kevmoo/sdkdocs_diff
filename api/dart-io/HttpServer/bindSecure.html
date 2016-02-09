@@ -58,6 +58,9 @@
             <span class="kind">method</span> bindSecure
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/HttpServer/bindSecure.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -183,7 +186,23 @@ distributed among all the bound <code>HttpServer</code>s. Connections can be
 distributed over multiple isolates this way.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;HttpServer&gt; bindSecure(address,
+                                     int port,
+                                     SecurityContext context,
+                                     {int backlog: 0,
+                                      bool v6Only: false,
+                                      bool requestClientCertificate: false,
+                                      bool shared: false})
+    =&gt; _HttpServer.bindSecure(address,
+                              port,
+                              context,
+                              backlog,
+                              v6Only,
+                              requestClientCertificate,
+                              shared);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -195,7 +214,7 @@ distributed over multiple isolates this way.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

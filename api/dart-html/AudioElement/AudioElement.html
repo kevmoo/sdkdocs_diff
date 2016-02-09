@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> AudioElement
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/AudioElement/AudioElement.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -336,7 +339,15 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory AudioElement([String src]) {
+  if (src == null)
+    return wrap_jso(_blink.BlinkHTMLAudioElement.instance.constructorCallback_0_());
+  else
+    return wrap_jso(_blink.BlinkHTMLAudioElement.instance.constructorCallback_1_(src));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -348,7 +359,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

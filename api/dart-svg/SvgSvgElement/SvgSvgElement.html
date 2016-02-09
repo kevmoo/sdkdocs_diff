@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> SvgSvgElement
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-svg/SvgSvgElement/SvgSvgElement.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -345,7 +348,15 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory SvgSvgElement() {
+  final el = new SvgElement.tag(&quot;svg&quot;);
+  // The SVG spec requires the version attribute to match the spec version
+  el.attributes[&apos;version&apos;] = &quot;1.1&quot;;
+  return el;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -357,7 +368,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

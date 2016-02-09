@@ -56,6 +56,9 @@
             <span class="kind">function</span> sleep
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/sleep.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -197,7 +200,16 @@
 in a isolate while it is blocked in a <a href="dart-io/sleep.html">sleep</a> call.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void sleep(Duration duration) {
+  int milliseconds = duration.inMilliseconds;
+  if (milliseconds &lt; 0) {
+    throw new ArgumentError(&quot;sleep: duration cannot be negative&quot;);
+  }
+  _ProcessUtils._sleep(milliseconds);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -209,7 +221,7 @@ in a isolate while it is blocked in a <a href="dart-io/sleep.html">sleep</a> cal
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> resolveSymbolicLinks
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/FileSystemEntity/resolveSymbolicLinks.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -155,7 +158,20 @@ new File(path).resolveSymbolicLinks().then((resolved) {
 behavior.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;String&gt; resolveSymbolicLinks() {
+  return _IOService._dispatch(_FILE_RESOLVE_SYMBOLIC_LINKS, [path])
+      .then((response) {
+        if (_isErrorResponse(response)) {
+          throw _exceptionFromResponse(response,
+                                       &quot;Cannot resolve symbolic links&quot;,
+                                       path);
+        }
+        return response;
+      });
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -167,7 +183,7 @@ behavior.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

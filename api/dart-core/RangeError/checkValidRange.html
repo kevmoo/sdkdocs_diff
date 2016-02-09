@@ -58,6 +58,9 @@
             <span class="kind">method</span> checkValidRange
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/RangeError/checkValidRange.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -127,7 +130,27 @@ respectively.</p>
 and <code>end</code> otherwise.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static int checkValidRange(int start, int end, int length,
+                            [String startName, String endName,
+                             String message]) {
+  // Comparing with `0` as receiver produces better dart2js type inference.
+  // Ditto `start &gt; end` below.
+  if (0 &gt; start || start &gt; length) {
+    if (startName == null) startName = &quot;start&quot;;
+    throw new RangeError.range(start, 0, length, startName, message);
+  }
+  if (end != null) {
+    if (start &gt; end || end &gt; length) {
+      if (endName == null) endName = &quot;end&quot;;
+      throw new RangeError.range(end, start, length, endName, message);
+    }
+    return end;
+  }
+  return length;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -139,7 +162,7 @@ and <code>end</code> otherwise.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

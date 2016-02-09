@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> HashMap.fromIterables
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/HashMap/HashMap.fromIterables.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -129,7 +132,14 @@ overwrites the previous value.</p>
 <p>It is an error if the two <a href="dart-core/Iterable-class.html">Iterable</a>s don't have the same length.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory HashMap.fromIterables(Iterable&lt;K&gt; keys, Iterable&lt;V&gt; values) {
+  HashMap&lt;K, V&gt; map = new HashMap&lt;K, V&gt;();
+  Maps._fillMapWithIterables(map, keys, values);
+  return map;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +151,7 @@ overwrites the previous value.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

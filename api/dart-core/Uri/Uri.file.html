@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Uri.file
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/Uri.file.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -215,7 +218,14 @@ new Uri.file(r"\\server\share\file", windows: true);
 <p>If the path passed is not a legal file path <a href="dart-core/ArgumentError-class.html">ArgumentError</a> is thrown.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Uri.file(String path, {bool windows}) {
+  windows = (windows == null) ? Uri._isWindows : windows;
+  return windows ? _makeWindowsFileUrl(path, false)
+                 : _makeFileUri(path, false);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -227,7 +237,7 @@ new Uri.file(r"\\server\share\file", windows: true);
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

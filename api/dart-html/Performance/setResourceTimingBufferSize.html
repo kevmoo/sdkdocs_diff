@@ -58,6 +58,9 @@
             <span class="kind">method</span> setResourceTimingBufferSize
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Performance/setResourceTimingBufferSize.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -135,7 +138,16 @@
       <span class="name ">setResourceTimingBufferSize</span>(<wbr><span class="parameter" id="setResourceTimingBufferSize-param-maxSize"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">maxSize</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Performance.webkitSetResourceTimingBufferSize&apos;)
+@DocsEditable()
+@SupportedBrowser(SupportedBrowser.CHROME)
+@SupportedBrowser(SupportedBrowser.SAFARI)
+@Experimental()
+// http://www.w3c-test.org/webperf/specs/ResourceTiming/#performanceresourcetiming-methods
+void setResourceTimingBufferSize(int maxSize) =&gt; _blink.BlinkPerformance.instance.webkitSetResourceTimingBufferSize_Callback_1_(unwrap_jso(this), maxSize);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -147,7 +159,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

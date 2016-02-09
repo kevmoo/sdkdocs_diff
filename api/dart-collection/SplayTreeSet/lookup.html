@@ -58,6 +58,9 @@
             <span class="kind">method</span> lookup
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeSet/lookup.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -147,7 +150,15 @@
 If so, that object is returned, otherwise returns null.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">E lookup(Object object) {
+  if (!_validKey(object)) return null;
+  int comp = _splay(object);
+  if (comp != 0) return null;
+  return _root.key;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -159,7 +170,7 @@ If so, that object is returned, otherwise returns null.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> remove
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Storage/remove.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -125,7 +128,14 @@ Returns <code>null</code> if <code>key</code> was not in the map.</p>
 always mean that the key was absent.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String remove(String key) {
+  final value = this[key];
+  _removeItem(key);
+  return value;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -137,7 +147,7 @@ always mean that the key was absent.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

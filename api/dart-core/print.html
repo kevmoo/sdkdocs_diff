@@ -56,6 +56,9 @@
             <span class="kind">function</span> print
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/print.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -156,7 +159,17 @@
       <p>Prints a string representation of the object to the console.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void print(Object object) {
+  String line = &quot;$object&quot;;
+  if (printToZone == null) {
+    printToConsole(line);
+  } else {
+    printToZone(line);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -168,7 +181,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

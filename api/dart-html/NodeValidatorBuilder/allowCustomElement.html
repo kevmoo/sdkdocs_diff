@@ -58,6 +58,9 @@
             <span class="kind">method</span> allowCustomElement
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/NodeValidatorBuilder/allowCustomElement.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -121,7 +124,37 @@ but will not allow tag extensions. Use <a href="dart-html/NodeValidatorBuilder/a
 tag extensions.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void allowCustomElement(String tagName,
+    {UriPolicy uriPolicy,
+    Iterable&lt;String&gt; attributes,
+    Iterable&lt;String&gt; uriAttributes}) {
+
+  var tagNameUpper = tagName.toUpperCase();
+  var attrs;
+  if (attributes != null) {
+    attrs =
+        attributes.map((name) =&gt; &apos;$tagNameUpper::${name.toLowerCase()}&apos;);
+  }
+  var uriAttrs;
+  if (uriAttributes != null) {
+    uriAttrs =
+        uriAttributes.map((name) =&gt; &apos;$tagNameUpper::${name.toLowerCase()}&apos;);
+  }
+  if (uriPolicy == null) {
+    uriPolicy = new UriPolicy();
+  }
+
+  add(new _CustomElementNodeValidator(
+      uriPolicy,
+      [tagNameUpper],
+      attrs,
+      uriAttrs,
+      false,
+      true));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -133,7 +166,7 @@ tag extensions.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> addAll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsArray/addAll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -164,7 +167,13 @@
 Throws an <code>UnsupportedError</code> if this list is fixed-length.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void addAll(Iterable&lt;E&gt; iterable) {
+  // TODO(jacobr): this can be optimized slightly.
+  callMethod(&apos;push&apos;, new List.from(iterable));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -176,7 +185,7 @@ Throws an <code>UnsupportedError</code> if this list is fixed-length.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

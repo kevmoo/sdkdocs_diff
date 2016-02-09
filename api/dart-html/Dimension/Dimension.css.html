@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> Dimension.css
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Dimension/Dimension.css.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -121,7 +124,23 @@ simplistic CSS length measurements. Non-numeric values such as <code>auto</code>
 FormatError.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Dimension.css(String cssValue) {
+  if (cssValue == &apos;&apos;) cssValue = &apos;0px&apos;;
+  if (cssValue.endsWith(&apos;%&apos;)) {
+    _unit = &apos;%&apos;;
+  } else {
+    _unit = cssValue.substring(cssValue.length - 2);
+  }
+  if (cssValue.contains(&apos;.&apos;)) {
+    _value = double.parse(cssValue.substring(0,
+        cssValue.length - _unit.length));
+  } else {
+    _value = int.parse(cssValue.substring(0, cssValue.length - _unit.length));
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -133,7 +152,7 @@ FormatError.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

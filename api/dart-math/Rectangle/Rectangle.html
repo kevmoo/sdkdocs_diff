@@ -58,6 +58,9 @@
             <span class="kind">const constructor</span> Rectangle
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-math/Rectangle/Rectangle.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -129,7 +132,12 @@ If <code>width</code> or <code>height</code> are negative, they are clamped to z
 point <code>(left, top)</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">const Rectangle(this.left, this.top, T width, T height)
+    : this.width = (width &lt; 0) ? -width * 0 : width,  // Inline _clampToZero.
+      this.height = (height &lt; 0) ?  -height * 0 : height;</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +149,7 @@ point <code>(left, top)</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> bind
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/SecureServerSocket/bind.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,31 @@ incoming connections will be distributed among all the bound
 isolates this way.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;SecureServerSocket&gt; bind(
+    address,
+    int port,
+    SecurityContext context,
+    {int backlog: 0,
+     bool v6Only: false,
+     bool requestClientCertificate: false,
+     bool requireClientCertificate: false,
+     List&lt;String&gt; supportedProtocols,
+     bool shared: false}) {
+  return RawSecureServerSocket.bind(
+      address,
+      port,
+      context,
+      backlog: backlog,
+      v6Only: v6Only,
+      requestClientCertificate: requestClientCertificate,
+      requireClientCertificate: requireClientCertificate,
+      supportedProtocols: supportedProtocols,
+      shared: shared).then(
+          (serverSocket) =&gt; new SecureServerSocket._(serverSocket));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +218,7 @@ isolates this way.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> setRange
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/setRange.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -173,7 +176,39 @@ range <code>start</code> to <code>end</code>, even if the two ranges overlap.</p
 made.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void setRange(int start, int end, Iterable&lt;E&gt; iterable, [int skipCount = 0]) {
+  RangeError.checkValidRange(start, end, this.length);
+  int length = end - start;
+  if (length == 0) return;
+  RangeError.checkNotNegative(skipCount, &quot;skipCount&quot;);
+
+  List otherList;
+  int otherStart;
+  // TODO(floitsch): Make this accept more.
+  if (iterable is List) {
+    otherList = iterable;
+    otherStart = skipCount;
+  } else {
+    otherList = iterable.skip(skipCount).toList(growable: false);
+    otherStart = 0;
+  }
+  if (otherStart + length &gt; otherList.length) {
+    throw IterableElementError.tooFew();
+  }
+  if (otherStart &lt; start) {
+    // Copy backwards to ensure correct copy if [from] is this.
+    for (int i = length - 1; i &gt;= 0; i--) {
+      this[start + i] = otherList[otherStart + i];
+    }
+  } else {
+    for (int i = 0; i &lt; length; i++) {
+      this[start + i] = otherList[otherStart + i];
+    }
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -185,7 +220,7 @@ made.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

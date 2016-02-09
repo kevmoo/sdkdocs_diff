@@ -58,6 +58,9 @@
             <span class="kind">method</span> retainAll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeSet/retainAll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -149,7 +152,28 @@ equal element in this set is retained, and elements that are not equal
 to any element in <code>elements</code> are removed.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void retainAll(Iterable&lt;Object&gt; elements) {
+  // Build a set with the same sense of equality as this set.
+  SplayTreeSet&lt;E&gt; retainSet = new SplayTreeSet&lt;E&gt;(_comparator, _validKey);
+  int modificationCount = _modificationCount;
+  for (Object object in elements) {
+    if (modificationCount != _modificationCount) {
+      // The iterator should not have side effects.
+      throw new ConcurrentModificationError(this);
+    }
+    // Equivalent to this.contains(object).
+    if (_validKey(object) &amp;&amp; _splay(object) == 0) retainSet.add(_root.key);
+  }
+  // Take over the elements from the retained set, if it differs.
+  if (retainSet._count != _count) {
+    _root = retainSet._root;
+    _count = retainSet._count;
+    _modificationCount++;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -161,7 +185,7 @@ to any element in <code>elements</code> are removed.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

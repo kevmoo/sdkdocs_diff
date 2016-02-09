@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Uri.dataFromString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/Uri.dataFromString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -171,7 +174,21 @@ as an omitted <code>charset</code> parameter defaults to meaning <code>US-ASCII<
 <p>To read the content back, use <a href="dart-core/UriData/contentAsString.html">UriData.contentAsString</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Uri.dataFromString(String content,
+                           {String mimeType,
+                            Encoding encoding,
+                            Map&lt;String, String&gt; parameters,
+                            bool base64: false}) {
+  UriData data =  new UriData.fromString(content,
+                                         mimeType: mimeType,
+                                         encoding: encoding,
+                                         parameters: parameters,
+                                         base64: base64);
+  return data.uri;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -183,7 +200,7 @@ as an omitted <code>charset</code> parameter defaults to meaning <code>US-ASCII<
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

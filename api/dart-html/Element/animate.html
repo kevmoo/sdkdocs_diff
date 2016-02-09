@@ -58,6 +58,9 @@
             <span class="kind">method</span> animate
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/animate.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -414,7 +417,29 @@ for the transition, or a Map with fields corresponding to those
 of the <a href="dart-html/Timing-class.html">Timing</a> object.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Experimental()
+@SupportedBrowser(SupportedBrowser.CHROME, &apos;36&apos;)
+AnimationPlayer animate(Iterable&lt;Map&lt;String, dynamic&gt;&gt; frames, [timing]) {
+  if (frames is! Iterable || !(frames.every((x) =&gt; x is Map))) {
+    throw new ArgumentError(&quot;The frames parameter should be a List of Maps &quot;
+        &quot;with frame information&quot;);
+  }
+  var convertedFrames = frames;
+  if (convertedFrames is Iterable) {
+    convertedFrames = convertDartToNative_List(
+        frames.map(convertDartToNative_Dictionary).toList());
+  }
+  var convertedTiming = timing;
+  if (convertedTiming is Map) {
+    convertedTiming = convertDartToNative_Dictionary(convertedTiming);
+  }
+  return convertedTiming == null
+    ? _animate(convertedFrames)
+    : _animate(convertedFrames, convertedTiming);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -426,7 +451,7 @@ of the <a href="dart-html/Timing-class.html">Timing</a> object.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

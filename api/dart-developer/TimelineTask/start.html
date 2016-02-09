@@ -58,6 +58,9 @@
             <span class="kind">method</span> start
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-developer/TimelineTask/start.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -110,7 +113,22 @@
 Optionally takes a <a href="dart-core/Map-class.html">Map</a> of <code>arguments</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void start(String name, {Map arguments}) {
+  if (name is! String) {
+    throw new ArgumentError.value(name,
+                                  &apos;name&apos;,
+                                  &apos;Must be a String&apos;);
+  }
+  var block = new _AsyncBlock._(name, _taskId);
+  if (arguments is Map) {
+    block.arguments.addAll(arguments);
+  }
+  _stack.add(block);
+  block._start();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -122,7 +140,7 @@ Optionally takes a <a href="dart-core/Map-class.html">Map</a> of <code>arguments
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

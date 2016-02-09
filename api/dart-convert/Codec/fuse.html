@@ -58,6 +58,9 @@
             <span class="kind">method</span> fuse
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/Codec/fuse.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -128,7 +131,14 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
 </code></pre>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">// TODO(floitsch): use better example with line-splitter once that one is
+// in this library.
+Codec&lt;S, dynamic&gt; fuse(Codec&lt;T, dynamic&gt; other) {
+  return new _FusedCodec&lt;S, T, dynamic&gt;(this, other);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -140,7 +150,7 @@ assert(jsonObject is List &amp;&amp; jsonObject[0] == "1" &amp;&amp; jsonObject[
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

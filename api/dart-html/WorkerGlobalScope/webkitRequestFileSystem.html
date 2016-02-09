@@ -58,6 +58,9 @@
             <span class="kind">method</span> webkitRequestFileSystem
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/WorkerGlobalScope/webkitRequestFileSystem.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -128,7 +131,16 @@
       <span class="name ">webkitRequestFileSystem</span>(<wbr><span class="parameter" id="webkitRequestFileSystem-param-type"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">type</span></span>, <span class="parameter" id="webkitRequestFileSystem-param-size"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">size</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;FileSystem&gt; webkitRequestFileSystem(int type, int size) {
+  var completer = new Completer&lt;FileSystem&gt;();
+  _webkitRequestFileSystem(type, size,
+      (value) { completer.complete(value); },
+      (error) { completer.completeError(error); });
+  return completer.future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -140,7 +152,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

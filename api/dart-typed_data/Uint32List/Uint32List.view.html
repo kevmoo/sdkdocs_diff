@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Uint32List.view
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-typed_data/Uint32List/Uint32List.view.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -178,7 +181,13 @@ the length of <code>buffer</code>.</p>
 <a href="dart-typed_data/Uint32List/BYTES_PER_ELEMENT-constant.html">BYTES_PER_ELEMENT</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Uint32List.view(ByteBuffer buffer,
+                        [int offsetInBytes = 0, int length]) {
+  return buffer.asUint32List(offsetInBytes, length);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -190,7 +199,7 @@ the length of <code>buffer</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

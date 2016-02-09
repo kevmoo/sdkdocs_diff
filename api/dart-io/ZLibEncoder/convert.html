@@ -58,6 +58,9 @@
             <span class="kind">method</span> convert
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/ZLibEncoder/convert.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -116,7 +119,14 @@
 constructor.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">List&lt;int&gt; convert(List&lt;int&gt; bytes) {
+  _BufferSink sink = new _BufferSink();
+  startChunkedConversion(sink)..add(bytes)..close();
+  return sink.builder.takeBytes();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -128,7 +138,7 @@ constructor.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> remove
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeSet/remove.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -147,7 +150,13 @@ in the set. Returns false otherwise. The method has no effect
 if <code>value</code> value was not in the set.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool remove(Object object) {
+  if (!_validKey(object)) return false;
+  return _remove(object) != null;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -159,7 +168,7 @@ if <code>value</code> value was not in the set.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

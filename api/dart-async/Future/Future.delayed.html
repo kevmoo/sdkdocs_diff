@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Future.delayed
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Future/Future.delayed.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -132,7 +135,20 @@ error.</p>
 later time that isn't necessarily after a known fixed duration.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Future.delayed(Duration duration, [computation()]) {
+  _Future result = new _Future&lt;T&gt;();
+  new Timer(duration, () {
+    try {
+      result._complete(computation == null ? null : computation());
+    } catch (e, s) {
+      _completeWithErrorCallback(result, e, s);
+    }
+  });
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -144,7 +160,7 @@ later time that isn't necessarily after a known fixed duration.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> getObject
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-indexed_db/ObjectStore/getObject.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -125,7 +128,19 @@
       <span class="name ">getObject</span>(<wbr><span class="parameter" id="getObject-param-key"><span class="parameter-name">key</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;IDBObjectStore.get&apos;)
+Future getObject(key) {
+  try {
+    var request = _get(key);
+
+    return _completeRequest(request);
+  } catch (e, stacktrace) {
+    return new Future.error(e, stacktrace);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -137,7 +152,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

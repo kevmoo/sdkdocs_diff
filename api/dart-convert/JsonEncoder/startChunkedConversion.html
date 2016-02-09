@@ -58,6 +58,9 @@
             <span class="kind">method</span> startChunkedConversion
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/JsonEncoder/startChunkedConversion.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -114,7 +117,19 @@
 an error to invoke <code>add</code> more than once on the returned sink.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">ChunkedConversionSink&lt;Object&gt; startChunkedConversion(Sink&lt;String&gt; sink) {
+  if (sink is! StringConversionSink) {
+    sink = new StringConversionSink.from(sink);
+  } else if (sink is _Utf8EncoderSink) {
+    return new _JsonUtf8EncoderSink(sink._sink, _toEncodable,
+                                    JsonUtf8Encoder._utf8Encode(indent),
+                                    JsonUtf8Encoder.DEFAULT_BUFFER_SIZE);
+  }
+  return new _JsonEncoderSink(sink, _toEncodable, indent);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -126,7 +141,7 @@ an error to invoke <code>add</code> more than once on the returned sink.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

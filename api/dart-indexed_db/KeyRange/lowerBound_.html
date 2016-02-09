@@ -58,6 +58,9 @@
             <span class="kind">method</span> lowerBound_
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-indexed_db/KeyRange/lowerBound_.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -116,7 +119,15 @@
       <span class="name ">lowerBound_</span>(<wbr><span class="parameter" id="lowerBound_-param-bound"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">bound</span></span>, [<span class="parameter" id="lowerBound_-param-open"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">open</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static KeyRange lowerBound_(Object bound, [bool open]) {
+  if (open != null) {
+    return wrap_jso(_blink.BlinkIDBKeyRange.instance.lowerBound_Callback_2_(bound, open));
+  }
+  return wrap_jso(_blink.BlinkIDBKeyRange.instance.lowerBound_Callback_1_(bound));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -128,7 +139,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> take
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Iterable/take.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -138,7 +141,12 @@ elements have been seen.</p>
 <p>The <code>count</code> must not be negative.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Iterable&lt;E&gt; take(int count) {
+ return new TakeIterable&lt;E&gt;(this, count);
+  }</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -150,7 +158,7 @@ elements have been seen.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

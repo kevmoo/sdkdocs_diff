@@ -58,6 +58,9 @@
             <span class="kind">method</span> start
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Stopwatch/start.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -117,7 +120,21 @@ been stopped, then calling start again restarts it without resetting the
 <p>If the <a href="dart-core/Stopwatch-class.html">Stopwatch</a> is currently running, then calling start does nothing.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void start() {
+  if (isRunning) return;
+  if (_start == null) {
+    // This stopwatch has never been started.
+    _start = _now();
+  } else {
+    // Restart this stopwatch. Prepend the elapsed time to the current
+    // start time.
+    _start = _now() - (_stop - _start);
+    _stop = null;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -129,7 +146,7 @@ been stopped, then calling start again restarts it without resetting the
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

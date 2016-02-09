@@ -58,6 +58,9 @@
             <span class="kind">method</span> indexOf
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/indexOf.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -166,7 +169,23 @@ notes.indexOf('re', 2); // 3
 </code></pre>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">int indexOf(Object element, [int startIndex = 0]) {
+  if (startIndex &gt;= this.length) {
+    return -1;
+  }
+  if (startIndex &lt; 0) {
+    startIndex = 0;
+  }
+  for (int i = startIndex; i &lt; this.length; i++) {
+    if (this[i] == element) {
+      return i;
+    }
+  }
+  return -1;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -178,7 +197,7 @@ notes.indexOf('re', 2); // 3
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

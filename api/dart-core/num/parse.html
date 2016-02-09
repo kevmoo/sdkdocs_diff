@@ -58,6 +58,9 @@
             <span class="kind">method</span> parse
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/num/parse.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -150,7 +153,19 @@ of that invocation becomes the result of calling <code>parse</code>.</p>
 with a payload).</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static num parse(String input, [num onError(String input)]) {
+  String source = input.trim();
+  // TODO(lrn): Optimize to detect format and result type in one check.
+  num result = int.parse(source, onError: _returnNull);
+  if (result != null) return result;
+  result = double.parse(source, _returnNull);
+  if (result != null) return result;
+  if (onError == null) throw new FormatException(input);
+  return onError(input);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -162,7 +177,7 @@ with a payload).</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

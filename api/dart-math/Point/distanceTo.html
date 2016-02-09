@@ -58,6 +58,9 @@
             <span class="kind">method</span> distanceTo
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-math/Point/distanceTo.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -112,7 +115,14 @@
       <p>Returns the distance between <code>this</code> and <code>other</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">double distanceTo(Point&lt;T&gt; other) {
+  var dx = x - other.x;
+  var dy = y - other.y;
+  return sqrt(dx * dx + dy * dy);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -124,7 +134,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

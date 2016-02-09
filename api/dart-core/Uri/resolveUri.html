@@ -58,6 +58,9 @@
             <span class="kind">method</span> resolveUri
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/resolveUri.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -157,7 +160,86 @@ In that case, the paths are combined without removing leading "..", and
 an empty path is not converted to "/".</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Uri resolveUri(Uri reference) {
+  // From RFC 3986.
+  String targetScheme;
+  String targetUserInfo = &quot;&quot;;
+  String targetHost;
+  int targetPort;
+  String targetPath;
+  String targetQuery;
+  if (reference.scheme.isNotEmpty) {
+    targetScheme = reference.scheme;
+    if (reference.hasAuthority) {
+      targetUserInfo = reference.userInfo;
+      targetHost = reference.host;
+      targetPort = reference.hasPort ? reference.port : null;
+    }
+    targetPath = _removeDotSegments(reference.path);
+    if (reference.hasQuery) {
+      targetQuery = reference.query;
+    }
+  } else {
+    targetScheme = this.scheme;
+    if (reference.hasAuthority) {
+      targetUserInfo = reference.userInfo;
+      targetHost = reference.host;
+      targetPort = _makePort(reference.hasPort ? reference.port : null,
+                             targetScheme);
+      targetPath = _removeDotSegments(reference.path);
+      if (reference.hasQuery) targetQuery = reference.query;
+    } else {
+      targetUserInfo = this._userInfo;
+      targetHost = this._host;
+      targetPort = this._port;
+      if (reference.path == &quot;&quot;) {
+        targetPath = this._path;
+        if (reference.hasQuery) {
+          targetQuery = reference.query;
+        } else {
+          targetQuery = this._query;
+        }
+      } else {
+        if (reference.hasAbsolutePath) {
+          targetPath = _removeDotSegments(reference.path);
+        } else {
+          // This is the RFC 3986 behavior for merging.
+          if (this.hasEmptyPath) {
+            if (!this.hasScheme &amp;&amp; !this.hasAuthority) {
+              // Keep the path relative if no scheme or authority.
+              targetPath = reference.path;
+            } else {
+              // Add path normalization on top of RFC algorithm.
+              targetPath = _removeDotSegments(&quot;/&quot; + reference.path);
+            }
+          } else {
+            var mergedPath = _mergePaths(this._path, reference.path);
+            if (this.hasScheme || this.hasAuthority || this.hasAbsolutePath) {
+              targetPath = _removeDotSegments(mergedPath);
+            } else {
+              // Non-RFC 3986 beavior. If both base and reference are relative
+              // path, allow the merged path to start with &quot;..&quot;.
+              // The RFC only specifies the case where the base has a scheme.
+              targetPath = _normalizeRelativePath(mergedPath);
+            }
+          }
+        }
+        if (reference.hasQuery) targetQuery = reference.query;
+      }
+    }
+  }
+  String fragment = reference.hasFragment ? reference.fragment : null;
+  return new Uri._internal(targetScheme,
+                           targetUserInfo,
+                           targetHost,
+                           targetPort,
+                           targetPath,
+                           targetQuery,
+                           fragment);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -169,7 +251,7 @@ an empty path is not converted to "/".</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

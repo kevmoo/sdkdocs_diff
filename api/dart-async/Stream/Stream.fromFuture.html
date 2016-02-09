@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Stream.fromFuture
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/Stream.fromFuture.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -150,7 +153,24 @@
 data or error, and then close with a done-event.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Stream.fromFuture(Future&lt;T&gt; future) {
+  // Use the controller&apos;s buffering to fill in the value even before
+  // the stream has a listener. For a single value, it&apos;s not worth it
+  // to wait for a listener before doing the `then` on the future.
+  _StreamController&lt;T&gt; controller = new StreamController&lt;T&gt;(sync: true);
+  future.then((value) {
+      controller._add(value);
+      controller._closeUnchecked();
+    },
+    onError: (error, stackTrace) {
+      controller._addError(error, stackTrace);
+      controller._closeUnchecked();
+    });
+  return controller.stream;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -162,7 +182,7 @@ data or error, and then close with a done-event.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

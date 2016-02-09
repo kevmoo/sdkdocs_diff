@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> ArgumentError.notNull
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/ArgumentError/ArgumentError.notNull.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -112,7 +115,13 @@
       <p>Create an argument error for a <code>null</code> argument that must not be <code>null</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">ArgumentError.notNull([this.name])
+    : _hasValue = false,
+      message = &quot;Must not be null&quot;,
+      invalidValue = null;</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -124,7 +133,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

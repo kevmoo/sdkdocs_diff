@@ -58,6 +58,9 @@
             <span class="kind">method</span> readLineSync
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/Stdin/readLineSync.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -151,7 +154,64 @@ that data is returned.
 Returns <code>null</code> if no bytes preceeded the end of input.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String readLineSync({Encoding encoding: SYSTEM_ENCODING,
+                     bool retainNewlines: false}) {
+  const CR = 13;
+  const LF = 10;
+  final List line = [];
+  // On Windows, if lineMode is disabled, only CR is received.
+  bool crIsNewline = Platform.isWindows &amp;&amp;
+      (stdioType(stdin) == StdioType.TERMINAL) &amp;&amp;
+      !lineMode;
+  if (retainNewlines) {
+    int byte;
+    do {
+      byte = readByteSync();
+      if (byte &lt; 0) {
+        break;
+      }
+      line.add(byte);
+    } while (byte != LF &amp;&amp; !(byte == CR &amp;&amp; crIsNewline));
+    if (line.isEmpty) {
+      return null;
+    }
+  } else if (crIsNewline) {
+    // CR and LF are both line terminators, neither is retained.
+    while (true) {
+      int byte = readByteSync();
+      if (byte &lt; 0) {
+        if (line.isEmpty) return null;
+        break;
+      }
+      if (byte == LF || byte == CR) break;
+      line.add(byte);
+    }
+  } else {
+    // Case having to hande CR LF as a single unretained line terminator.
+    outer: while (true) {
+      int byte = readByteSync();
+      if (byte == LF) break;
+      if (byte == CR) {
+        do {
+          byte = readByteSync();
+          if (byte == LF) break outer;
+
+          line.add(CR);
+        } while (byte == CR);
+        // Fall through and handle non-CR character.
+      }
+      if (byte &lt; 0) {
+        if (line.isEmpty) return null;
+        break;
+      }
+      line.add(byte);
+    }
+  }
+  return encoding.decode(line);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -163,7 +223,7 @@ Returns <code>null</code> if no bytes preceeded the end of input.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

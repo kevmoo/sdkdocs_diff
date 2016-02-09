@@ -58,6 +58,9 @@
             <span class="kind">method</span> startChunkedConversion
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/Utf8Decoder/startChunkedConversion.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -110,7 +113,18 @@
 <a href="dart-convert/StringConversionSink-class.html">StringConversionSink</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">ByteConversionSink startChunkedConversion(Sink&lt;String&gt; sink) {
+  StringConversionSink stringSink;
+  if (sink is StringConversionSink) {
+    stringSink = sink;
+  } else {
+    stringSink = new StringConversionSink.from(sink);
+  }
+  return stringSink.asUtf8Sink(_allowMalformed);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -122,7 +136,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

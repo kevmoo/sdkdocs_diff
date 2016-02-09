@@ -58,6 +58,9 @@
             <span class="kind">method</span> getArrayIndex
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsNative/getArrayIndex.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -107,7 +110,13 @@
       <span class="name ">getArrayIndex</span>(<wbr><span class="parameter" id="getArrayIndex-param-array"><span class="type-annotation"><a href="dart-js/JsArray-class.html">JsArray</a></span> <span class="parameter-name">array</span></span>, <span class="parameter" id="getArrayIndex-param-index"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">index</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static getArrayIndex(JsArray array, int index) {
+  array._checkIndex(index);
+  return getProperty(array, index);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -119,7 +128,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

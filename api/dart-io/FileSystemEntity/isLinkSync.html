@@ -58,6 +58,9 @@
             <span class="kind">method</span> isLinkSync
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/FileSystemEntity/isLinkSync.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -135,7 +138,11 @@
 FileSystemEntityType.LINK.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static bool isLinkSync(String path) =&gt;
+    (_getTypeSync(path, false) == FileSystemEntityType.LINK._type);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -147,7 +154,7 @@ FileSystemEntityType.LINK.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> shuffle
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/shuffle.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -156,7 +159,20 @@
       <p>Shuffles the elements of this list randomly.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void shuffle([Random random]) {
+  if (random == null) random = new Random();
+  int length = this.length;
+  while (length &gt; 1) {
+    int pos = random.nextInt(length);
+    length -= 1;
+    var tmp = this[length];
+    this[length] = this[pos];
+    this[pos] = tmp;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -168,7 +184,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

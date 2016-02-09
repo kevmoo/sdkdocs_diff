@@ -58,6 +58,9 @@
             <span class="kind">method</span> speak
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/SpeechSynthesis/speak.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -122,7 +125,12 @@
       <span class="name ">speak</span>(<wbr><span class="parameter" id="speak-param-utterance"><span class="type-annotation"><a href="dart-html/SpeechSynthesisUtterance-class.html">SpeechSynthesisUtterance</a></span> <span class="parameter-name">utterance</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;SpeechSynthesis.speak&apos;)
+@DocsEditable()
+void speak(SpeechSynthesisUtterance utterance) =&gt; _blink.BlinkSpeechSynthesis.instance.speak_Callback_1_(unwrap_jso(this), unwrap_jso(utterance));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -134,7 +142,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

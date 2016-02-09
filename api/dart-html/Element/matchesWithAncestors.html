@@ -58,6 +58,9 @@
             <span class="kind">method</span> matchesWithAncestors
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/matchesWithAncestors.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -396,7 +399,18 @@
       <p>Checks if this element or any of its parents match the CSS selectors.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Experimental()
+bool matchesWithAncestors(String selectors) {
+  var elem = this;
+  do {
+    if (elem.matches(selectors)) return true;
+    elem = elem.parent;
+  } while(elem != null);
+  return false;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -408,7 +422,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

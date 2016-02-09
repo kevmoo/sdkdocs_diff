@@ -58,6 +58,9 @@
             <span class="kind">method</span> lock
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/RandomAccessFile/lock.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -154,7 +157,11 @@ is not the case unlocking will result in the OS error "The segment is
 already unlocked".</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;RandomAccessFile&gt; lock(
+    [FileLock mode = FileLock.EXCLUSIVE, int start = 0, int end]);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -166,7 +173,7 @@ already unlocked".</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

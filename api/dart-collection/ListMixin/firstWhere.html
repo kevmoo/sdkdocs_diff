@@ -58,6 +58,9 @@
             <span class="kind">method</span> firstWhere
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/firstWhere.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,21 @@ function is returned.
 If <code>orElse</code> is omitted, it defaults to throwing a <code>StateError</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">E firstWhere(bool test(E element), { E orElse() }) {
+  int length = this.length;
+  for (int i = 0; i &lt; length; i++) {
+    E element = this[i];
+    if (test(element)) return element;
+    if (length != this.length) {
+      throw new ConcurrentModificationError(this);
+    }
+  }
+  if (orElse != null) return orElse();
+  throw IterableElementError.noElement();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +189,7 @@ If <code>orElse</code> is omitted, it defaults to throwing a <code>StateError</c
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

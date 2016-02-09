@@ -58,6 +58,9 @@
             <span class="kind">method</span> createPeriodicWave
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_audio/AudioContext/createPeriodicWave.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -145,7 +148,13 @@
       <span class="name ">createPeriodicWave</span>(<wbr><span class="parameter" id="createPeriodicWave-param-real"><span class="type-annotation"><a href="dart-typed_data/Float32List-class.html">Float32List</a></span> <span class="parameter-name">real</span></span>, <span class="parameter" id="createPeriodicWave-param-imag"><span class="type-annotation"><a href="dart-typed_data/Float32List-class.html">Float32List</a></span> <span class="parameter-name">imag</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;AudioContext.createPeriodicWave&apos;)
+@DocsEditable()
+@Experimental() // untriaged
+PeriodicWave createPeriodicWave(Float32List real, Float32List imag) =&gt; wrap_jso(_blink.BlinkAudioContext.instance.createPeriodicWave_Callback_2_(unwrap_jso(this), real, imag));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -157,7 +166,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

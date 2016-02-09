@@ -58,6 +58,9 @@
             <span class="kind">method</span> putIfAbsent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeMap/putIfAbsent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -137,7 +140,30 @@ scores['Sophena'];  //  7
 <p>Calling <code>ifAbsent</code> must not add or remove keys from the map.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">V putIfAbsent(K key, V ifAbsent()) {
+  if (key == null) throw new ArgumentError(key);
+  int comp = _splay(key);
+  if (comp == 0) {
+    _SplayTreeMapNode mapRoot = _root;
+    return mapRoot.value;
+  }
+  int modificationCount = _modificationCount;
+  int splayCount = _splayCount;
+  V value = ifAbsent();
+  if (modificationCount != _modificationCount) {
+    throw new ConcurrentModificationError(this);
+  }
+  if (splayCount != _splayCount) {
+    comp = _splay(key);
+    // Key is still not there, otherwise _modificationCount would be changed.
+    assert(comp != 0);
+  }
+  _addNewRoot(new _SplayTreeMapNode(key, value), comp);
+  return value;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -149,7 +175,7 @@ scores['Sophena'];  //  7
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

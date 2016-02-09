@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> CustomEvent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CustomEvent/CustomEvent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -122,7 +125,33 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory CustomEvent(String type,
+    {bool canBubble: true, bool cancelable: true, Object detail}) {
+
+  final CustomEvent e = document._createEvent(&apos;CustomEvent&apos;);
+
+  e._dartDetail = detail;
+
+  // Only try setting the detail if it&apos;s one of these types to avoid
+  // first-chance exceptions. Can expand this list in the future as needed.
+  if (detail is List || detail is Map || detail is String || detail is num) {
+    try {
+      e._initCustomEvent(type, canBubble, cancelable, detail);
+    } catch(_) {
+      e._initCustomEvent(type, canBubble, cancelable, null);
+    }
+  } else {
+    e._initCustomEvent(type, canBubble, cancelable, null);
+  }
+
+  // Need for identity.
+  js.setDartHtmlWrapperFor(e.blink_jsObject, e);
+
+  return e;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -134,7 +163,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

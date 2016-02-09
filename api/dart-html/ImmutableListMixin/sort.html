@@ -58,6 +58,9 @@
             <span class="kind">method</span> sort
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/ImmutableListMixin/sort.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -176,7 +179,12 @@ print(numbers);  // [one, two, four, three] OR [two, one, four, three]
 </code></pre>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void sort([int compare(E a, E b)]) {
+  throw new UnsupportedError(&quot;Cannot sort immutable List.&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -188,7 +196,7 @@ print(numbers);  // [one, two, four, three] OR [two, one, four, three]
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> parseIPv4Address
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/parseIPv4Address.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -152,7 +155,28 @@ as a list of 4 bytes in network byte order (big endian).</p>
 representation.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static List&lt;int&gt; parseIPv4Address(String host) {
+  void error(String msg) {
+    throw new FormatException(&apos;Illegal IPv4 address, $msg&apos;);
+  }
+  var bytes = host.split(&apos;.&apos;);
+  if (bytes.length != 4) {
+    error(&apos;IPv4 address should contain exactly 4 parts&apos;);
+  }
+  // TODO(ajohnsen): Consider using Uint8List.
+  return bytes
+      .map((byteString) {
+        int byte = int.parse(byteString);
+        if (byte &lt; 0 || byte &gt; 255) {
+          error(&apos;each part must be in the range of `0..255`&apos;);
+        }
+        return byte;
+      })
+      .toList();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -164,7 +188,7 @@ representation.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

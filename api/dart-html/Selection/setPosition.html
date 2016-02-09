@@ -58,6 +58,9 @@
             <span class="kind">method</span> setPosition
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Selection/setPosition.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -129,7 +132,17 @@
       <span class="name ">setPosition</span>(<wbr><span class="parameter" id="setPosition-param-node"><span class="type-annotation"><a href="dart-html/Node-class.html">Node</a></span> <span class="parameter-name">node</span></span>, [<span class="parameter" id="setPosition-param-offset"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">offset</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void setPosition(Node node, [int offset]) {
+  if (offset != null) {
+    _blink.BlinkSelection.instance.setPosition_Callback_2_(unwrap_jso(this), unwrap_jso(node), offset);
+    return;
+  }
+  _blink.BlinkSelection.instance.setPosition_Callback_1_(unwrap_jso(this), unwrap_jso(node));
+  return;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +154,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

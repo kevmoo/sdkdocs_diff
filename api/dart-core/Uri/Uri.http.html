@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Uri.http
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/Uri.http.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -174,7 +177,14 @@ encodes the path.</p>
 argument.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Uri.http(String authority,
+                 String unencodedPath,
+                 [Map&lt;String, String&gt; queryParameters]) {
+  return _makeHttpUri(&quot;http&quot;, authority, unencodedPath, queryParameters);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -186,7 +196,7 @@ argument.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

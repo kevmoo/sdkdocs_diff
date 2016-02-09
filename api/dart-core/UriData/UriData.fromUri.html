@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> UriData.fromUri
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/UriData/UriData.fromUri.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -121,7 +124,28 @@ and the path (concatenated with the query, if there is one) must be valid
 as data URI content with the same rules as <a href="dart-core/UriData/parse.html">parse</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory UriData.fromUri(Uri uri) {
+  if (uri.scheme != &quot;data&quot;) {
+    throw new ArgumentError.value(uri, &quot;uri&quot;,
+                                  &quot;Scheme must be &apos;data&apos;&quot;);
+  }
+  if (uri.hasAuthority) {
+    throw new ArgumentError.value(uri, &quot;uri&quot;,
+                                  &quot;Data uri must not have authority&quot;);
+  }
+  if (uri.hasFragment) {
+    throw new ArgumentError.value(uri, &quot;uri&quot;,
+                                  &quot;Data uri must not have a fragment part&quot;);
+  }
+  if (!uri.hasQuery) {
+    return _parse(uri.path, 0, uri);
+  }
+  // Includes path and query (and leading &quot;data:&quot;).
+  return _parse(&quot;$uri&quot;, 5, uri);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -133,7 +157,7 @@ as data URI content with the same rules as <a href="dart-core/UriData/parse.html
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

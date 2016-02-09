@@ -58,6 +58,9 @@
             <span class="kind">method</span> requestFileSystem
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Window/requestFileSystem.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -287,7 +290,12 @@ sandboxed file system for use. Because the file system is sandboxed,
 applications cannot access file systems created in other web pages.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;FileSystem&gt; requestFileSystem(int size, {bool persistent: false}) {
+  return _requestFileSystem(persistent? 1 : 0, size);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -299,7 +307,7 @@ applications cannot access file systems created in other web pages.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

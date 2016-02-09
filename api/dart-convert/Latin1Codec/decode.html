@@ -58,6 +58,9 @@
             <span class="kind">method</span> decode
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/Latin1Codec/decode.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -117,7 +120,17 @@ will eventually throw a <a href="dart-core/FormatException-class.html">FormatExc
 this <a href="dart-convert/Latin1Codec-class.html">Latin1Codec</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String decode(List&lt;int&gt; bytes, { bool allowInvalid }) {
+  if (allowInvalid == null) allowInvalid = _allowInvalid;
+  if (allowInvalid) {
+    return const Latin1Decoder(allowInvalid: true).convert(bytes);
+  } else {
+    return const Latin1Decoder(allowInvalid: false).convert(bytes);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -129,7 +142,7 @@ this <a href="dart-convert/Latin1Codec-class.html">Latin1Codec</a>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

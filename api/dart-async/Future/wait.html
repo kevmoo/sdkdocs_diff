@@ -58,6 +58,9 @@
             <span class="kind">method</span> wait
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Future/wait.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -133,7 +136,70 @@ resources that the successful operation allocated.</p>
 uncaught asynchronous error.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;List/*&lt;T&gt;*/&gt; wait/*&lt;T&gt;*/(Iterable&lt;Future/*&lt;T&gt;*/&gt; futures,
+                         {bool eagerError: false,
+                          void cleanUp(/*=T*/ successValue)}) {
+  final _Future&lt;List&gt; result = new _Future&lt;List&gt;();
+  List values;  // Collects the values. Set to null on error.
+  int remaining = 0;  // How many futures are we waiting for.
+  var error;   // The first error from a future.
+  StackTrace stackTrace;  // The stackTrace that came with the error.
+
+  // Handle an error from any of the futures.
+  void handleError(theError, theStackTrace) {
+    remaining--;
+    if (values != null) {
+      if (cleanUp != null) {
+        for (var value in values) {
+          if (value != null) {
+            // Ensure errors from cleanUp are uncaught.
+            new Future.sync(() { cleanUp(value); });
+          }
+        }
+      }
+      values = null;
+      if (remaining == 0 || eagerError) {
+        result._completeError(theError, theStackTrace);
+      } else {
+        error = theError;
+        stackTrace = theStackTrace;
+      }
+    } else if (remaining == 0 &amp;&amp; !eagerError) {
+      result._completeError(error, stackTrace);
+    }
+  }
+
+  // As each future completes, put its value into the corresponding
+  // position in the list of values.
+  for (Future future in futures) {
+    int pos = remaining++;
+    future.then((Object value) {
+      remaining--;
+      if (values != null) {
+        values[pos] = value;
+        if (remaining == 0) {
+          result._completeWithValue(values);
+        }
+      } else {
+        if (cleanUp != null &amp;&amp; value != null) {
+          // Ensure errors from cleanUp are uncaught.
+          new Future.sync(() { cleanUp(value); });
+        }
+        if (remaining == 0 &amp;&amp; !eagerError) {
+          result._completeError(error, stackTrace);
+        }
+      }
+    }, onError: handleError);
+  }
+  if (remaining == 0) {
+    return new Future.value(const []);
+  }
+  values = new List(remaining);
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -145,7 +211,7 @@ uncaught asynchronous error.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

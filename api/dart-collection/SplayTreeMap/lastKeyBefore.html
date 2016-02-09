@@ -58,6 +58,9 @@
             <span class="kind">method</span> lastKeyBefore
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeMap/lastKeyBefore.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -126,7 +129,21 @@
 <code>null</code> if no key was not found.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">K lastKeyBefore(K key) {
+  if (key == null) throw new ArgumentError(key);
+  if (_root == null) return null;
+  int comp = _splay(key);
+  if (comp &lt; 0) return _root.key;
+  _SplayTreeNode&lt;K&gt; node = _root.left;
+  if (node == null) return null;
+  while (node.right != null) {
+    node = node.right;
+  }
+  return node.key;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -138,7 +155,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

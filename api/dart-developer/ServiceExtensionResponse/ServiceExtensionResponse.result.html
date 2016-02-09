@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> ServiceExtensionResponse.result
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-developer/ServiceExtensionResponse/ServiceExtensionResponse.result.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,16 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">ServiceExtensionResponse.result(this._result)
+    : _errorCode = null,
+      _errorDetail = null {
+  if (_result is! String) {
+    throw new ArgumentError.value(_result, &quot;result&quot;, &quot;Must be a String&quot;);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +133,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

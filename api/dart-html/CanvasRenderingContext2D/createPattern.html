@@ -58,6 +58,9 @@
             <span class="kind">method</span> createPattern
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasRenderingContext2D/createPattern.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,18 @@
       <span class="name ">createPattern</span>(<wbr><span class="parameter" id="createPattern-param-canvas_OR_image"><span class="parameter-name">canvas_OR_image</span></span>, <span class="parameter" id="createPattern-param-repetitionType"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">repetitionType</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">CanvasPattern createPattern(canvas_OR_image, String repetitionType) {
+  if ((repetitionType is String || repetitionType == null) &amp;&amp; (canvas_OR_image is CanvasElement)) {
+    return wrap_jso(_blink.BlinkCanvasRenderingContext2D.instance.createPattern_Callback_2_(unwrap_jso(this), unwrap_jso(canvas_OR_image), repetitionType));
+  }
+  if ((repetitionType is String || repetitionType == null) &amp;&amp; (canvas_OR_image is VideoElement)) {
+    return wrap_jso(_blink.BlinkCanvasRenderingContext2D.instance.createPattern_Callback_2_(unwrap_jso(this), unwrap_jso(canvas_OR_image), repetitionType));
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +205,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> containsValue
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeMap/containsValue.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -127,7 +130,25 @@
 according to the <code>==</code> operator.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool containsValue(Object value) {
+  bool found = false;
+  int initialSplayCount = _splayCount;
+  bool visit(_SplayTreeMapNode node) {
+    while (node != null) {
+      if (node.value == value) return true;
+      if (initialSplayCount != _splayCount) {
+        throw new ConcurrentModificationError(this);
+      }
+      if (node.right != null &amp;&amp; visit(node.right)) return true;
+      node = node.left;
+    }
+    return false;
+  }
+  return visit(_root);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -139,7 +160,7 @@ according to the <code>==</code> operator.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

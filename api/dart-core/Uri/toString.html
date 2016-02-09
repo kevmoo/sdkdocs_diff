@@ -58,6 +58,9 @@
             <span class="kind">method</span> toString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/toString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -149,7 +152,23 @@
       <p>Returns a string representation of this object.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String toString() {
+  StringBuffer sb = new StringBuffer();
+  _addIfNonEmpty(sb, scheme, scheme, &apos;:&apos;);
+  if (hasAuthority || path.startsWith(&quot;//&quot;) || (scheme == &quot;file&quot;)) {
+    // File URIS always have the authority, even if it is empty.
+    // The empty URI means &quot;localhost&quot;.
+    sb.write(&quot;//&quot;);
+    _writeAuthority(sb);
+  }
+  sb.write(path);
+  if (_query != null) { sb..write(&quot;?&quot;)..write(_query); }
+  if (_fragment != null) { sb..write(&quot;#&quot;)..write(_fragment); }
+  return sb.toString();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -161,7 +180,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

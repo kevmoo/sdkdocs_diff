@@ -58,6 +58,9 @@
             <span class="kind">method</span> getBoundingClientRect
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/getBoundingClientRect.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -404,7 +407,12 @@ padding, scrollbar, and border.</p>
   from W3C.</p></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Element.getBoundingClientRect&apos;)
+@DocsEditable()
+Rectangle getBoundingClientRect() =&gt; make_dart_rectangle(_blink.BlinkElement.instance.getBoundingClientRect_Callback_0_(unwrap_jso(this)));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -416,7 +424,7 @@ padding, scrollbar, and border.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

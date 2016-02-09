@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Uri.https
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/Uri.https.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -153,7 +156,14 @@
 which is set to <code>https</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Uri.https(String authority,
+                  String unencodedPath,
+                  [Map&lt;String, String&gt; queryParameters]) {
+  return _makeHttpUri(&quot;https&quot;, authority, unencodedPath, queryParameters);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -165,7 +175,7 @@ which is set to <code>https</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

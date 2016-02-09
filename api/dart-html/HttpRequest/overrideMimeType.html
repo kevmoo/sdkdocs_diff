@@ -58,6 +58,9 @@
             <span class="kind">method</span> overrideMimeType
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/HttpRequest/overrideMimeType.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -167,7 +170,15 @@ response.</p>
 of <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA Official MIME types</a></p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;XMLHttpRequest.overrideMimeType&apos;)
+@DocsEditable()
+@SupportedBrowser(SupportedBrowser.CHROME)
+@SupportedBrowser(SupportedBrowser.FIREFOX)
+@SupportedBrowser(SupportedBrowser.SAFARI)
+void overrideMimeType(String override) =&gt; _blink.BlinkXMLHttpRequest.instance.overrideMimeType_Callback_1_(unwrap_jso(this), override);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -179,7 +190,7 @@ of <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> openKeyCursor
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-indexed_db/Index/openKeyCursor.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -118,7 +121,29 @@
 <p>See also:</p><ul><li><a href="dart-indexed_db/ObjectStore/openCursor.html">ObjectStore.openCursor</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Stream&lt;Cursor&gt; openKeyCursor({key, KeyRange range, String direction,
+    bool autoAdvance}) {
+  var key_OR_range = null;
+  if (key != null) {
+    if (range != null) {
+      throw new ArgumentError(&apos;Cannot specify both key and range.&apos;);
+    }
+    key_OR_range = key;
+  } else {
+    key_OR_range = range;
+  }
+  var request;
+  if (direction == null) {
+    // FIXME: Passing in &quot;next&quot; should be unnecessary.
+    request = _openKeyCursor(key_OR_range, &quot;next&quot;);
+  } else {
+    request = _openKeyCursor(key_OR_range, direction);
+  }
+  return ObjectStore._cursorStreamFromResult(request, autoAdvance);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -130,7 +155,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

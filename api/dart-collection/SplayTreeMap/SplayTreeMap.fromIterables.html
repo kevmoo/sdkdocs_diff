@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> SplayTreeMap.fromIterables
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeMap/SplayTreeMap.fromIterables.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -132,7 +135,15 @@ overwrites the previous value.</p>
 <p>It is an error if the two <a href="dart-core/Iterable-class.html">Iterable</a>s don't have the same length.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory SplayTreeMap.fromIterables(Iterable&lt;K&gt; keys, Iterable&lt;V&gt; values,
+    [int compare(K key1, K key2), bool isValidKey(potentialKey)]) {
+  SplayTreeMap&lt;K, V&gt; map = new SplayTreeMap&lt;K, V&gt;(compare, isValidKey);
+  Maps._fillMapWithIterables(map, keys, values);
+  return map;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -144,7 +155,7 @@ overwrites the previous value.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

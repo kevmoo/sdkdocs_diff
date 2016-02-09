@@ -58,6 +58,9 @@
             <span class="kind">method</span> insertAllBefore
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Node/insertAllBefore.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -147,7 +150,26 @@
 <p>See also:</p><ul><li><a href="dart-html/Node/insertBefore.html">insertBefore</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Node insertAllBefore(Iterable&lt;Node&gt; newNodes, Node refChild) {
+  if (newNodes is _ChildNodeListLazy) {
+    _ChildNodeListLazy otherList = newNodes;
+    if (identical(otherList._this, this)) {
+      throw new ArgumentError(newNodes);
+    }
+
+    // Optimized route for copying between nodes.
+    for (var i = 0, len = otherList.length; i &lt; len; ++i) {
+      this.insertBefore(otherList._this.firstChild, refChild);
+    }
+  } else {
+    for (var node in newNodes) {
+      this.insertBefore(node, refChild);
+    }
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -159,7 +181,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

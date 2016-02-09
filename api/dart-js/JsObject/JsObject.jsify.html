@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> JsObject.jsify
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsObject/JsObject.jsify.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -120,7 +123,15 @@ Primitives and other transferrable values are directly converted to their
 JavaScript type, and all other objects are proxied.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory JsObject.jsify(object) {
+  if ((object is! Map) &amp;&amp; (object is! Iterable)) {
+    throw new ArgumentError(&quot;object must be a Map or Iterable&quot;);
+  }
+  return _jsify(object);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -132,7 +143,7 @@ JavaScript type, and all other objects are proxied.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

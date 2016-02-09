@@ -58,6 +58,9 @@
             <span class="kind">method</span> texImage2DTyped
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_gl/RenderingContext/texImage2DTyped.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -562,7 +565,14 @@
       <p>Sets the currently bound texture to <code>data</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void texImage2DTyped(int targetTexture, int levelOfDetail, int internalFormat,
+    int width, int height, int border, int format, int type, TypedData data) {
+  texImage2D(targetTexture, levelOfDetail, internalFormat,
+      width, height, border, format, type, data);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -574,7 +584,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

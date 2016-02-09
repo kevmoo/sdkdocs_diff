@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> JsonUtf8Encoder
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/JsonUtf8Encoder/JsonUtf8Encoder.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -128,7 +131,15 @@ object that is of one of the convertible types.</p>
 the object.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">JsonUtf8Encoder([String indent,
+                 toEncodable(Object object),
+                 int bufferSize = DEFAULT_BUFFER_SIZE])
+    : _indent = _utf8Encode(indent),
+      _toEncodable = toEncodable,
+      _bufferSize = bufferSize;</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -140,7 +151,7 @@ the object.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> observe
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/MutationObserver/observe.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -114,7 +117,38 @@
 <p>Some requirements for the optional parameters:</p><ul><li>Either childList, attributes or characterData must be true.</li><li>If attributeOldValue is true then attributes must also be true.</li><li>If attributeFilter is specified then attributes must be true.</li><li>If characterDataOldValue is true then characterData must be true.</li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void observe(Node target,
+             {bool childList,
+              bool attributes,
+              bool characterData,
+              bool subtree,
+              bool attributeOldValue,
+              bool characterDataOldValue,
+              List&lt;String&gt; attributeFilter}) {
+
+  // Parse options into map of known type.
+  var parsedOptions = _createDict();
+
+  // Override options passed in the map with named optional arguments.
+  override(key, value) {
+    if (value != null) _add(parsedOptions, key, value);
+  }
+
+  override(&apos;childList&apos;, childList);
+  override(&apos;attributes&apos;, attributes);
+  override(&apos;characterData&apos;, characterData);
+  override(&apos;subtree&apos;, subtree);
+  override(&apos;attributeOldValue&apos;, attributeOldValue);
+  override(&apos;characterDataOldValue&apos;, characterDataOldValue);
+  if (attributeFilter != null) {
+    override(&apos;attributeFilter&apos;, _fixupList(attributeFilter));
+  }
+
+  _call(target, parsedOptions);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -126,7 +160,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

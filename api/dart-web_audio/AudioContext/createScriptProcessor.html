@@ -58,6 +58,9 @@
             <span class="kind">method</span> createScriptProcessor
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_audio/AudioContext/createScriptProcessor.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -138,7 +141,21 @@
       <span class="name ">createScriptProcessor</span>(<wbr>[<span class="parameter" id="createScriptProcessor-param-bufferSize"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">bufferSize</span></span>, <span class="parameter" id="createScriptProcessor-param-numberOfInputChannels"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">numberOfInputChannels</span></span>, <span class="parameter" id="createScriptProcessor-param-numberOfOutputChannels"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">numberOfOutputChannels</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">ScriptProcessorNode createScriptProcessor([int bufferSize, int numberOfInputChannels, int numberOfOutputChannels]) {
+  if (numberOfOutputChannels != null) {
+    return wrap_jso(_blink.BlinkAudioContext.instance.createScriptProcessor_Callback_3_(unwrap_jso(this), bufferSize, numberOfInputChannels, numberOfOutputChannels));
+  }
+  if (numberOfInputChannels != null) {
+    return wrap_jso(_blink.BlinkAudioContext.instance.createScriptProcessor_Callback_2_(unwrap_jso(this), bufferSize, numberOfInputChannels));
+  }
+  if (bufferSize != null) {
+    return wrap_jso(_blink.BlinkAudioContext.instance.createScriptProcessor_Callback_1_(unwrap_jso(this), bufferSize));
+  }
+  return wrap_jso(_blink.BlinkAudioContext.instance.createScriptProcessor_Callback_0_(unwrap_jso(this)));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -150,7 +167,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

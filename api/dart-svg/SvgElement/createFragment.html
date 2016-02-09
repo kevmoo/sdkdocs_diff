@@ -58,6 +58,9 @@
             <span class="kind">method</span> createFragment
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-svg/SvgElement/createFragment.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -361,7 +364,33 @@ are allowed by the provided validator.</p>
 <p>See also:</p><ul><li><code>NodeValidator</code></li><li><code>NodeTreeSanitizer</code></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">DocumentFragment createFragment(String svg,
+    {NodeValidator validator, NodeTreeSanitizer treeSanitizer}) {
+
+  if (treeSanitizer == null) {
+    if (validator == null) {
+      validator = new NodeValidatorBuilder.common()
+        ..allowSvg();
+    }
+    treeSanitizer = new NodeTreeSanitizer(validator);
+  }
+
+  // We create a fragment which will parse in the HTML parser
+  var html = &apos;&lt;svg version=&quot;1.1&quot;&gt;$svg&lt;/svg&gt;&apos;;
+  var fragment = document.body.createFragment(html,
+      treeSanitizer: treeSanitizer);
+
+  var svgFragment = new DocumentFragment();
+  // The root is the &lt;svg/&gt; element, need to pull out the contents.
+  var root = fragment.nodes.single;
+  while (root.firstChild != null) {
+    svgFragment.append(root.firstChild);
+  }
+  return svgFragment;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -373,7 +402,7 @@ are allowed by the provided validator.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

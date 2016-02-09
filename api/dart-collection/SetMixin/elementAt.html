@@ -58,6 +58,9 @@
             <span class="kind">method</span> elementAt
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SetMixin/elementAt.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -150,7 +153,19 @@ first <code>index</code> elements and returning the next.
 Some iterable may have more efficient ways to find the element.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">E elementAt(int index) {
+  if (index is! int) throw new ArgumentError.notNull(&quot;index&quot;);
+  RangeError.checkNotNegative(index, &quot;index&quot;);
+  int elementIndex = 0;
+  for (E element in this) {
+    if (index == elementIndex) return element;
+    elementIndex++;
+  }
+  throw new RangeError.index(index, this, &quot;index&quot;, null, elementIndex);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -162,7 +177,7 @@ Some iterable may have more efficient ways to find the element.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

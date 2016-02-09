@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Headers
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Headers/Headers.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,24 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Headers.Headers&apos;)
+@DocsEditable()
+factory Headers([input]) {
+  if (input == null) {
+    return wrap_jso(_blink.BlinkHeaders.instance.constructorCallback_0_());
+  }
+  if ((input is Headers || input == null)) {
+    return wrap_jso(_blink.BlinkHeaders.instance.constructorCallback_1_(input));
+  }
+  if ((input is Map || input == null)) {
+    var input_1 = convertDartToNative_Dictionary(input);
+    return wrap_jso(_blink.BlinkHeaders.instance.constructorCallback_1_(input_1));
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +141,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

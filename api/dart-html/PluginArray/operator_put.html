@@ -58,6 +58,9 @@
             <span class="kind">method</span> operator []=
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/PluginArray/operator_put.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -163,7 +166,12 @@
 or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void operator[]=(int index, Plugin value) {
+  throw new UnsupportedError(&quot;Cannot assign element of immutable List.&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -175,7 +183,7 @@ or throws a <code>RangeError</code> if <code>index</code> is out of bounds.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

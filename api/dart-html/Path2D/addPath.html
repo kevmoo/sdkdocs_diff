@@ -58,6 +58,9 @@
             <span class="kind">method</span> addPath
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Path2D/addPath.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -115,7 +118,17 @@
       <span class="name ">addPath</span>(<wbr><span class="parameter" id="addPath-param-path"><span class="type-annotation"><a href="dart-html/Path2D-class.html">Path2D</a></span> <span class="parameter-name">path</span></span>, [<span class="parameter" id="addPath-param-transform"><span class="type-annotation"><a href="dart-svg/Matrix-class.html">Matrix</a></span> <span class="parameter-name">transform</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void addPath(Path2D path, [Matrix transform]) {
+  if (transform != null) {
+    _blink.BlinkPath2D.instance.addPath_Callback_2_(unwrap_jso(this), unwrap_jso(path), unwrap_jso(transform));
+    return;
+  }
+  _blink.BlinkPath2D.instance.addPath_Callback_1_(unwrap_jso(this), unwrap_jso(path));
+  return;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -127,7 +140,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> clone
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/ShadowRoot/clone.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -166,7 +169,12 @@ copied as well. If <code>deep</code> is <code>false</code>, then only this node 
   from MDN.</p></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;ShadowRoot.cloneNode&apos;)
+@DocsEditable()
+Node clone(bool deep) =&gt; wrap_jso(_blink.BlinkShadowRoot.instance.cloneNode_Callback_1_(unwrap_jso(this), deep));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -178,7 +186,7 @@ copied as well. If <code>deep</code> is <code>false</code>, then only this node 
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

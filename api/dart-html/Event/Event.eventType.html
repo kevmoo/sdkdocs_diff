@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Event.eventType
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Event/Event.eventType.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -133,7 +136,15 @@ Normally events should be created via their constructors, if available.</p>
 </code></pre>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Event.eventType(String type, String name, {bool canBubble: true,
+    bool cancelable: true}) {
+  final Event e = document._createEvent(type);
+  e._initEvent(name, canBubble, cancelable);
+  return e;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -145,7 +156,7 @@ Normally events should be created via their constructors, if available.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

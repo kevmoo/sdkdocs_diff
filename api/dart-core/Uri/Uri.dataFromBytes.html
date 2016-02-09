@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Uri.dataFromBytes
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/Uri.dataFromBytes.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -161,7 +164,19 @@ non-ASCII, it is first UTF-8 encoded and then the bytes are percent
 encoded.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Uri.dataFromBytes(List&lt;int&gt; bytes,
+                          {mimeType: &quot;application/octet-stream&quot;,
+                           Map&lt;String, String&gt; parameters,
+                           percentEncoded: false}) {
+  UriData data = new UriData.fromBytes(bytes,
+                                       mimeType: mimeType,
+                                       parameters: parameters,
+                                       percentEncoded: percentEncoded);
+  return data.uri;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -173,7 +188,7 @@ encoded.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

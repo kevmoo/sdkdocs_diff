@@ -58,6 +58,9 @@
             <span class="kind">method</span> insertAll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/insertAll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,28 @@ shifts all later objects towards the end of the list.</p>
 An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void insertAll(int index, Iterable&lt;E&gt; iterable) {
+  RangeError.checkValueInInterval(index, 0, length, &quot;index&quot;);
+  if (iterable is! EfficientLength || identical(iterable, this)) {
+    iterable = iterable.toList();
+  }
+  int insertionLength = iterable.length;
+  // There might be errors after the length change, in which case the list
+  // will end up being modified but the operation not complete. Unless we
+  // always go through a &quot;toList&quot; we can&apos;t really avoid that.
+  this.length += insertionLength;
+  if (iterable.length != insertionLength) {
+    // If the iterable&apos;s length is linked to this list&apos;s length somehow,
+    // we can&apos;t insert one in the other.
+    this.length -= insertionLength;
+    throw new ConcurrentModificationError(iterable);
+  }
+  setRange(index + insertionLength, this.length, this, index);
+  setAll(index, iterable);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +196,7 @@ An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

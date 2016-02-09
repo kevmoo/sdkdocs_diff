@@ -58,6 +58,9 @@
             <span class="kind">method</span> secureServer
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/SecureSocket/secureServer.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -176,7 +179,33 @@ available on the socket.</p>
 arguments.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;SecureSocket&gt; secureServer(
+    Socket socket,
+    SecurityContext context,
+    {List&lt;int&gt; bufferedData,
+     bool requestClientCertificate: false,
+     bool requireClientCertificate: false,
+     List&lt;String&gt; supportedProtocols}) {
+  var completer = new Completer();
+  (socket as dynamic)._detachRaw()
+      .then((detachedRaw) {
+        return RawSecureSocket.secureServer(
+          detachedRaw[0],
+          context,
+          subscription: detachedRaw[1],
+          bufferedData: bufferedData,
+          requestClientCertificate: requestClientCertificate,
+          requireClientCertificate: requireClientCertificate,
+          supportedProtocols: supportedProtocols);
+        })
+      .then((raw) {
+        completer.complete(new SecureSocket._(raw));
+      });
+  return completer.future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -188,7 +217,7 @@ arguments.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

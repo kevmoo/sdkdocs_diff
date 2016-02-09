@@ -56,6 +56,9 @@
             <span class="kind">function</span> <span class="deprecated">wrap_event_listener</span>
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/wrap_event_listener.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -536,7 +539,20 @@
         <span class="name deprecated">wrap_event_listener</span>(<wbr><span class="parameter" id="wrap_event_listener-param-theObject"><span class="parameter-name">theObject</span></span>, <span class="parameter" id="wrap_event_listener-param-listener"><span class="type-annotation"><a href="dart-core/Function-class.html">Function</a></span> <span class="parameter-name">listener</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Deprecated(&quot;Internal Use Only&quot;)
+js.JsFunction wrap_event_listener(theObject, Function listener) {
+  var thisHashCode = theObject.hashCode;
+  var listenerHashCode = identityHashCode(listener);
+
+  _knownListeners.putIfAbsent(thisHashCode, () =&gt; new Map&lt;int, js.JsFunction&gt;());
+  _knownListeners[thisHashCode].putIfAbsent(listenerHashCode, () =&gt;
+    new js.JsFunction.withThis((theObject, event) =&gt; listener(wrap_jso(event))));
+
+  return _knownListeners[thisHashCode][listenerHashCode];
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -548,7 +564,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

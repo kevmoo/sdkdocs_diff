@@ -58,6 +58,9 @@
             <span class="kind">method</span> isCharacterKey
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/KeyCode/isCharacterKey.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -233,7 +236,30 @@ Note: This does not (yet) cover characters on non-US keyboards (Russian,
 Hebrew, etc.).</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static bool isCharacterKey(int keyCode) {
+  if ((keyCode &gt;= ZERO &amp;&amp; keyCode &lt;= NINE) ||
+      (keyCode &gt;= NUM_ZERO &amp;&amp; keyCode &lt;= NUM_MULTIPLY) ||
+      (keyCode &gt;= A &amp;&amp; keyCode &lt;= Z)) {
+    return true;
+  }
+
+  // Safari sends zero key code for non-latin characters.
+  if (Device.isWebKit &amp;&amp; keyCode == 0) {
+    return true;
+  }
+
+  return (keyCode == SPACE || keyCode == QUESTION_MARK || keyCode == NUM_PLUS
+      || keyCode == NUM_MINUS || keyCode == NUM_PERIOD ||
+      keyCode == NUM_DIVISION || keyCode == SEMICOLON ||
+      keyCode == FF_SEMICOLON || keyCode == DASH || keyCode == EQUALS ||
+      keyCode == FF_EQUALS || keyCode == COMMA || keyCode == PERIOD ||
+      keyCode == SLASH || keyCode == APOSTROPHE || keyCode == SINGLE_QUOTE ||
+      keyCode == OPEN_SQUARE_BRACKET || keyCode == BACKSLASH ||
+      keyCode == CLOSE_SQUARE_BRACKET);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -245,7 +271,7 @@ Hebrew, etc.).</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

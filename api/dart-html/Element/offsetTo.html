@@ -58,6 +58,9 @@
             <span class="kind">method</span> offsetTo
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/offsetTo.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -403,7 +406,13 @@ element is <em>not</em> an offset parent or transitive offset parent to this
 element, an <a href="dart-core/ArgumentError-class.html">ArgumentError</a> is thrown.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Experimental()
+Point offsetTo(Element parent) {
+  return Element._offsetToHelper(this, parent);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -415,7 +424,7 @@ element, an <a href="dart-core/ArgumentError-class.html">ArgumentError</a> is th
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

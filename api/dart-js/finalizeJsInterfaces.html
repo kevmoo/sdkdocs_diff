@@ -56,6 +56,9 @@
             <span class="kind">function</span> <span class="deprecated">finalizeJsInterfaces</span>
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/finalizeJsInterfaces.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -114,7 +117,16 @@ be added. Creating an instance of JsObject will also automatically trigger
 all JsObjects to be finalized.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Deprecated(&quot;Internal Use Only&quot;)
+void finalizeJsInterfaces() {
+  if (_finalized == true) {
+    throw &apos;JSInterop class registration already finalized&apos;;
+  }
+  _finalizeJsInterfaces();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -126,7 +138,7 @@ all JsObjects to be finalized.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

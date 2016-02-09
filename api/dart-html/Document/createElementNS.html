@@ -58,6 +58,9 @@
             <span class="kind">method</span> createElementNS
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Document/createElementNS.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -255,7 +258,32 @@
       <span class="name ">createElementNS</span>(<wbr><span class="parameter" id="createElementNS-param-namespaceURI"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">namespaceURI</span></span>, <span class="parameter" id="createElementNS-param-qualifiedName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">qualifiedName</span></span>, [<span class="parameter" id="createElementNS-param-typeExtension"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">typeExtension</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Document.createElementNS&apos;)
+@DocsEditable()
+Element createElementNS(String namespaceURI, String qualifiedName, [String typeExtension]) {
+  var newElement = (typeExtension == null) ?
+    _blink.BlinkDocument.instance.createElementNS_Callback_2_(unwrap_jso(this), namespaceURI, qualifiedName) :
+    _blink.BlinkDocument.instance.createElementNS_Callback_3_(unwrap_jso(this), namespaceURI, qualifiedName, typeExtension);
+
+  var wrapped;
+
+  wrapped = js.getDartHtmlWrapperFor(newElement);  // Here&apos;s our Dart class.
+  if (wrapped != null) {
+    wrapped.blink_jsObject = newElement;
+  } else {
+    wrapped = wrap_jso(newElement);
+    if (wrapped == null) {
+      wrapped = wrap_jso_custom_element(newElement);
+    } else {
+      js.setDartHtmlWrapperFor(wrapped.blink_jsObject, wrapped);  // Here&apos;s our Dart class.
+    }
+  }
+
+  return wrapped;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -267,7 +295,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

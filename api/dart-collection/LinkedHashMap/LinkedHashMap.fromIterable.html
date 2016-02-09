@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> LinkedHashMap.fromIterable
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/LinkedHashMap/LinkedHashMap.fromIterable.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -131,7 +134,15 @@ occurrence of a key will simply overwrite any previous value.</p>
 identity function.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory LinkedHashMap.fromIterable(Iterable iterable,
+    {K key(element), V value(element)}) {
+  LinkedHashMap&lt;K, V&gt; map = new LinkedHashMap&lt;K, V&gt;();
+  Maps._fillMapWithMappedIterable(map, iterable, key, value);
+  return map;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -143,7 +154,7 @@ identity function.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

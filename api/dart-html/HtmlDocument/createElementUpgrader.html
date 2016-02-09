@@ -58,6 +58,9 @@
             <span class="kind">method</span> createElementUpgrader
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/HtmlDocument/createElementUpgrader.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -275,7 +278,13 @@ upgraded then the created constructor will be invoked on that element.</p>
 parameter must be provided.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Experimental()
+ElementUpgrader createElementUpgrader(Type type, {String extendsTag}) {
+  return new _VMElementUpgrader(this, type, extendsTag);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -287,7 +296,7 @@ parameter must be provided.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

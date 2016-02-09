@@ -58,6 +58,9 @@
             <span class="kind">method</span> mapToString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/Maps/mapToString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -126,7 +129,35 @@ to a reference to the map would return <code>'{me: {...}}'</code>.</p>
 simply return the results of this method applied to the collection.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static String mapToString(Map m) {
+  // Reuse the list in IterableBase for detecting toString cycles.
+  if (_isToStringVisiting(m)) { return &apos;{...}&apos;; }
+
+  var result = new StringBuffer();
+  try {
+    _toStringVisiting.add(m);
+    result.write(&apos;{&apos;);
+    bool first = true;
+    m.forEach((k, v) {
+      if(!first) {
+        result.write(&apos;, &apos;);
+      }
+      first = false;
+      result.write(k);
+      result.write(&apos;: &apos;);
+      result.write(v);
+    });
+    result.write(&apos;}&apos;);
+  } finally {
+    assert(identical(_toStringVisiting.last, m));
+    _toStringVisiting.removeLast();
+  }
+
+  return result.toString();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -138,7 +169,7 @@ simply return the results of this method applied to the collection.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

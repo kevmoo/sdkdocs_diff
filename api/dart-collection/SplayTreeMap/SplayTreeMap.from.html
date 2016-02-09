@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> SplayTreeMap.from
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeMap/SplayTreeMap.from.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -127,7 +130,16 @@
       <p>Creates a <a href="dart-collection/SplayTreeMap-class.html">SplayTreeMap</a> that contains all key/value pairs of <code>other</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory SplayTreeMap.from(Map other,
+                          [int compare(K key1, K key2),
+                           bool isValidKey(potentialKey)]) {
+  SplayTreeMap&lt;K, V&gt; result = new SplayTreeMap&lt;K, V&gt;(compare, isValidKey);
+  other.forEach((k, v) { result[k] = v; });
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -139,7 +151,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

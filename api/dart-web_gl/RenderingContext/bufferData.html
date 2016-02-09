@@ -58,6 +58,9 @@
             <span class="kind">method</span> bufferData
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_gl/RenderingContext/bufferData.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -559,7 +562,24 @@
       <span class="name ">bufferData</span>(<wbr><span class="parameter" id="bufferData-param-target"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">target</span></span>, <span class="parameter" id="bufferData-param-data_OR_size"><span class="parameter-name">data_OR_size</span></span>, <span class="parameter" id="bufferData-param-usage"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">usage</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void bufferData(int target, data_OR_size, int usage) {
+  if ((usage is int) &amp;&amp; (data_OR_size is int) &amp;&amp; (target is int)) {
+    _blink.BlinkWebGLRenderingContext.instance.bufferData_Callback_3_(unwrap_jso(this), target, unwrap_jso(data_OR_size), usage);
+    return;
+  }
+  if ((usage is int) &amp;&amp; (data_OR_size is TypedData) &amp;&amp; (target is int)) {
+    _blink.BlinkWebGLRenderingContext.instance.bufferData_Callback_3_(unwrap_jso(this), target, unwrap_jso(data_OR_size), usage);
+    return;
+  }
+  if ((usage is int) &amp;&amp; (data_OR_size is ByteBuffer || data_OR_size == null) &amp;&amp; (target is int)) {
+    _blink.BlinkWebGLRenderingContext.instance.bufferData_Callback_3_(unwrap_jso(this), target, unwrap_jso(data_OR_size), usage);
+    return;
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -571,7 +591,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

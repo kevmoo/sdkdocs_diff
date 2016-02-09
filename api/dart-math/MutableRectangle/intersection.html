@@ -58,6 +58,9 @@
             <span class="kind">method</span> intersection
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-math/MutableRectangle/intersection.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -124,7 +127,23 @@ axis-aligned rectangle.</p>
 intersect.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Rectangle&lt;T&gt; intersection(Rectangle&lt;T&gt; other) {
+  var x0 = max(left, other.left);
+  var x1 = min(left + width, other.left + other.width);
+
+  if (x0 &lt;= x1) {
+    var y0 = max(top, other.top);
+    var y1 = min(top + height, other.top + other.height);
+
+    if (y0 &lt;= y1) {
+      return new Rectangle&lt;T&gt;(x0, y0, x1 - x0, y1 - y0);
+    }
+  }
+  return null;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -136,7 +155,7 @@ intersect.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

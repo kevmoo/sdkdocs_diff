@@ -58,6 +58,9 @@
             <span class="kind">method</span> getResponseHeader
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/HttpRequest/getResponseHeader.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -165,7 +168,13 @@ headers</a>
 for a list of common response headers.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;XMLHttpRequest.getResponseHeader&apos;)
+@DocsEditable()
+@Unstable()
+String getResponseHeader(String header) =&gt; _blink.BlinkXMLHttpRequest.instance.getResponseHeader_Callback_1_(unwrap_jso(this), header);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -177,7 +186,7 @@ for a list of common response headers.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

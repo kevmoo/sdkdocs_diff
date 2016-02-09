@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> CanvasElement
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasElement/CanvasElement.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -302,7 +305,17 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;HTMLCanvasElement.HTMLCanvasElement&apos;)
+@DocsEditable()
+factory CanvasElement({int width, int height}) {
+  var e = document.createElement(&quot;canvas&quot;);
+  if (width != null) e.width = width;
+  if (height != null) e.height = height;
+  return e;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -314,7 +327,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

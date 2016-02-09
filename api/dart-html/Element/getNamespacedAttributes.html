@@ -58,6 +58,9 @@
             <span class="kind">method</span> getNamespacedAttributes
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/getNamespacedAttributes.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -392,7 +395,12 @@
 <p>This is primarily useful for SVG attributes such as xref:link.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Map&lt;String, String&gt; getNamespacedAttributes(String namespace) {
+  return new _NamespacedAttributeMap(this, namespace);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -404,7 +412,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

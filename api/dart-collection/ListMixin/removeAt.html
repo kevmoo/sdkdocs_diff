@@ -58,6 +58,9 @@
             <span class="kind">method</span> removeAt
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/removeAt.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -162,7 +165,15 @@ down by one position.</p>
 the list is not modified.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">E removeAt(int index) {
+  E result = this[index];
+  setRange(index, this.length - 1, this, index + 1);
+  length--;
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -174,7 +185,7 @@ the list is not modified.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

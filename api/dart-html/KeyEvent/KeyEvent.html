@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> KeyEvent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/KeyEvent/KeyEvent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,24 @@
       <p>Programmatically create a new KeyEvent (and KeyboardEvent).</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory KeyEvent(String type,
+    {Window view, bool canBubble: true, bool cancelable: true, int keyCode: 0,
+    int charCode: 0, int keyLocation: 1, bool ctrlKey: false,
+    bool altKey: false, bool shiftKey: false, bool metaKey: false,
+     EventTarget currentTarget}) {
+   var parent = new KeyboardEvent(type, view: view, canBubble: canBubble,
+      cancelable: cancelable, keyLocation: keyLocation, ctrlKey: ctrlKey,
+      altKey: altKey, shiftKey: shiftKey, metaKey: metaKey);
+   var keyEvent = new KeyEvent.wrap(parent);
+   keyEvent._shadowAltKey = altKey;
+   keyEvent._shadowCharCode = charCode;
+   keyEvent._shadowKeyCode = keyCode;
+   keyEvent._currentTarget = currentTarget == null ? window : currentTarget;
+   return keyEvent;
+ }</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +174,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

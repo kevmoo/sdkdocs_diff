@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> WebSocket
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/WebSocket/WebSocket.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -138,7 +141,24 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;WebSocket.WebSocket&apos;)
+@DocsEditable()
+factory WebSocket(String url, [protocol_OR_protocols]) {
+  if ((url is String || url == null) &amp;&amp; protocol_OR_protocols == null) {
+    return wrap_jso(_blink.BlinkWebSocket.instance.constructorCallback_1_(url));
+  }
+  if ((protocol_OR_protocols is String || protocol_OR_protocols == null) &amp;&amp; (url is String || url == null)) {
+    return wrap_jso(_blink.BlinkWebSocket.instance.constructorCallback_2_(url, protocol_OR_protocols));
+  }
+  if ((protocol_OR_protocols is List&lt;String&gt; || protocol_OR_protocols == null) &amp;&amp; (url is String || url == null)) {
+    List protocols_1 = convertDartToNative_StringArray(protocol_OR_protocols);
+    return wrap_jso(_blink.BlinkWebSocket.instance.constructorCallback_2_(url, protocols_1));
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -150,7 +170,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> connect
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/RawSecureSocket/connect.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -171,7 +174,30 @@ the connection or not.  The handler should return true
 to continue the <a href="dart-io/RawSecureSocket-class.html">RawSecureSocket</a> connection.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;RawSecureSocket&gt; connect(
+    host,
+    int port,
+    {SecurityContext context,
+     bool onBadCertificate(X509Certificate certificate),
+     List&lt;String&gt; supportedProtocols}) {
+  _RawSecureSocket._verifyFields(
+      host,
+      port,
+      false,
+      false,
+      false,
+      onBadCertificate);
+  return RawSocket.connect(host, port)
+      .then((socket) {
+        return secure(socket,
+                      context: context,
+                      onBadCertificate: onBadCertificate,
+                      supportedProtocols: supportedProtocols);
+      });
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -183,7 +209,7 @@ to continue the <a href="dart-io/RawSecureSocket-class.html">RawSecureSocket</a>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

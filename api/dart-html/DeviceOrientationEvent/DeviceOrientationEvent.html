@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> DeviceOrientationEvent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DeviceOrientationEvent/DeviceOrientationEvent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -125,7 +128,17 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory DeviceOrientationEvent(String type,
+    {bool canBubble: true, bool cancelable: true, num alpha: 0, num beta: 0,
+    num gamma: 0, bool absolute: false}) {
+  var e = document._createEvent(&quot;DeviceOrientationEvent&quot;);
+  e._initDeviceOrientationEvent(type, canBubble, cancelable, alpha, beta,
+      gamma, absolute);
+  return e;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -137,7 +150,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

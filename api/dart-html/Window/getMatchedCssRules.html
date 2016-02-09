@@ -58,6 +58,9 @@
             <span class="kind">method</span> getMatchedCssRules
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Window/getMatchedCssRules.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -289,7 +292,13 @@
       <p>Returns all CSS rules that apply to the element's pseudo-element.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Window.getMatchedCSSRules&apos;)
+@DocsEditable()
+@Experimental() // non-standard
+List&lt;CssRule&gt; getMatchedCssRules(Element element, String pseudoElement) =&gt; wrap_jso(_blink.BlinkWindow.instance.getMatchedCSSRules_Callback_2_(unwrap_jso(this), unwrap_jso(element), pseudoElement));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -301,7 +310,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

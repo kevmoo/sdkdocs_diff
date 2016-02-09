@@ -58,6 +58,9 @@
             <span class="kind">method</span> clear
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListQueue/clear.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,18 @@
       <p>Removes all elements in the queue. The size of the queue becomes zero.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void clear() {
+  if (_head != _tail) {
+    for (int i = _head; i != _tail; i = (i + 1) &amp; (_table.length - 1)) {
+      _table[i] = null;
+    }
+    _head = _tail = 0;
+    _modificationCount++;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +168,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

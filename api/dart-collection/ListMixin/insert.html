@@ -58,6 +58,9 @@
             <span class="kind">method</span> insert
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/insert.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,23 @@ at or after the index towards the end of the list.</p>
 An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void insert(int index, E element) {
+  RangeError.checkValueInInterval(index, 0, length, &quot;index&quot;);
+  if (index == this.length) {
+    add(element);
+    return;
+  }
+  // We are modifying the length just below the is-check. Without the check
+  // Array.copy could throw an exception, leaving the list in a bad state
+  // (with a length that has been increased, but without a new element).
+  if (index is! int) throw new ArgumentError(index);
+  this.length++;
+  setRange(index + 1, this.length, this, index);
+  this[index] = element;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +191,7 @@ An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> bind
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/RawServerSocket/bind.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -174,7 +177,14 @@ distributed among all the bound <code>RawServerSocket</code>s. Connections can b
 distributed over multiple isolates this way.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">external static Future&lt;RawServerSocket&gt; bind(address,
+                                             int port,
+                                             {int backlog: 0,
+                                              bool v6Only: false,
+                                              bool shared: false});</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -186,7 +196,7 @@ distributed over multiple isolates this way.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

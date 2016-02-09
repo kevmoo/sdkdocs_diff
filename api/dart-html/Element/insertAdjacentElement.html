@@ -58,6 +58,9 @@
             <span class="kind">method</span> insertAdjacentElement
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/insertAdjacentElement.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -395,7 +398,13 @@
       <span class="name ">insertAdjacentElement</span>(<wbr><span class="parameter" id="insertAdjacentElement-param-where"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">where</span></span>, <span class="parameter" id="insertAdjacentElement-param-element"><span class="type-annotation"><a href="dart-html/Element-class.html">Element</a></span> <span class="parameter-name">element</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Element.insertAdjacentElement&apos;)
+@DocsEditable()
+@Experimental() // untriaged
+Element insertAdjacentElement(String where, Element element) =&gt; wrap_jso(_blink.BlinkElement.instance.insertAdjacentElement_Callback_2_(unwrap_jso(this), where, unwrap_jso(element)));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -407,7 +416,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

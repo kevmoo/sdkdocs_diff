@@ -58,6 +58,9 @@
             <span class="kind">method</span> doWhile
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Future/doWhile.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -127,7 +130,25 @@ a <a href="dart-core/bool-class.html">bool</a>. If it returns a non-<a href="dar
 Otherwise it waits for the returned <a href="dart-async/Future-class.html">Future</a> to complete.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future doWhile(f()) {
+  _Future doneSignal = new _Future();
+  var nextIteration;
+  // Bind this callback explicitly so that each iteration isn&apos;t bound in the
+  // context of all the previous iterations&apos; callbacks.
+  nextIteration = Zone.current.bindUnaryCallback((bool keepGoing) {
+    if (keepGoing) {
+      new Future.sync(f).then(nextIteration,
+                              onError: doneSignal._completeError);
+    } else {
+      doneSignal._complete(null);
+    }
+  }, runGuarded: true);
+  nextIteration(true);
+  return doneSignal;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -139,7 +160,7 @@ Otherwise it waits for the returned <a href="dart-async/Future-class.html">Futur
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

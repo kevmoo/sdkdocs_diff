@@ -58,6 +58,9 @@
             <span class="kind">method</span> stat
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/FileStat/stat.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -116,7 +119,29 @@ If the call fails, completes the future with a <a href="dart-io/FileStat-class.h
 .type set to FileSystemEntityType.NOT_FOUND and the other fields invalid.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;FileStat&gt; stat(String path) {
+  // Trailing path is not supported on Windows.
+  if (Platform.isWindows) {
+    path = FileSystemEntity._trimTrailingPathSeparators(path);
+  }
+  return _IOService._dispatch(_FILE_STAT, [path]).then((response) {
+    if (_isErrorResponse(response)) {
+      return FileStat._notFound;
+    }
+    // Unwrap the real list from the &quot;I&apos;m not an error&quot; wrapper.
+    List data = response[1];
+    return new FileStat._internal(
+        new DateTime.fromMillisecondsSinceEpoch(data[_CHANGED_TIME]),
+        new DateTime.fromMillisecondsSinceEpoch(data[_MODIFIED_TIME]),
+        new DateTime.fromMillisecondsSinceEpoch(data[_ACCESSED_TIME]),
+        FileSystemEntityType._lookup(data[_TYPE]),
+        data[_MODE],
+        data[_SIZE]);
+  });
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -128,7 +153,7 @@ If the call fails, completes the future with a <a href="dart-io/FileStat-class.h
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

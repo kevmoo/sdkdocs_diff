@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> ImageData
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/ImageData/ImageData.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -110,7 +113,20 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;ImageData.ImageData&apos;)
+@DocsEditable()
+factory ImageData(data_OR_width, int height_OR_width, [int height]) {
+  if ((height_OR_width is int || height_OR_width == null) &amp;&amp; (data_OR_width is int || data_OR_width == null) &amp;&amp; height == null) {
+    return wrap_jso(_blink.BlinkImageData.instance.constructorCallback_2_(data_OR_width, height_OR_width));
+  }
+  if ((height is int || height == null) &amp;&amp; (height_OR_width is int || height_OR_width == null) &amp;&amp; (data_OR_width is Uint8ClampedList || data_OR_width == null)) {
+    return wrap_jso(_blink.BlinkImageData.instance.constructorCallback_3_(data_OR_width, height_OR_width, height));
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -122,7 +138,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

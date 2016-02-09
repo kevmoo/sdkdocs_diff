@@ -58,6 +58,9 @@
             <span class="kind">method</span> secure
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/RawSecureSocket/secure.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,28 @@ socket as its address value.</p>
 <p>See <a href="dart-io/RawSecureSocket/connect.html">connect</a> for more information on the arguments.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;RawSecureSocket&gt; secure(
+    RawSocket socket,
+    {StreamSubscription subscription,
+     host,
+     SecurityContext context,
+     bool onBadCertificate(X509Certificate certificate),
+     List&lt;String&gt; supportedProtocols}) {
+  socket.readEventsEnabled = false;
+  socket.writeEventsEnabled = false;
+  return  _RawSecureSocket.connect(
+      host != null ? host : socket.address.host,
+      socket.port,
+      is_server: false,
+      socket: socket,
+      subscription: subscription,
+      context: context,
+      onBadCertificate: onBadCertificate,
+      supportedProtocols: supportedProtocols);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +215,7 @@ socket as its address value.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

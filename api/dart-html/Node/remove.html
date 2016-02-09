@@ -58,6 +58,9 @@
             <span class="kind">method</span> remove
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Node/remove.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -151,7 +154,18 @@
       <p>Removes this node from the DOM.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Node.removeChild&apos;)
+void remove() {
+  // TODO(jacobr): should we throw an exception if parent is already null?
+  // TODO(vsm): Use the native remove when available.
+  if (this.parentNode != null) {
+    final Node parent = this.parentNode;
+    parentNode._removeChild(this);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -163,7 +177,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

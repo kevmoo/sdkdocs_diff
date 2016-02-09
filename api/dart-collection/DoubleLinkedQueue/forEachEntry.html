@@ -58,6 +58,9 @@
             <span class="kind">method</span> forEachEntry
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/DoubleLinkedQueue/forEachEntry.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,18 @@
       <span class="name ">forEachEntry</span>(<wbr><span class="parameter" id="forEachEntry-param-f"><span class="type-annotation">void</span> <span class="parameter-name">f</span>(<span class="parameter" id="f-param-element"><span class="type-annotation"><a href="dart-collection/DoubleLinkedQueueEntry-class.html">DoubleLinkedQueueEntry</a>&lt;E&gt;</span> <span class="parameter-name">element</span></span>)</span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void forEachEntry(void f(DoubleLinkedQueueEntry&lt;E&gt; element)) {
+  _DoubleLinkedQueueEntry&lt;E&gt; entry = _sentinel._nextLink;
+  while (!identical(entry, _sentinel)) {
+    _DoubleLinkedQueueEntry&lt;E&gt; nextEntry = entry._nextLink;
+    _DoubleLinkedQueueElement element = entry;
+    f(element);
+    entry = nextEntry;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +168,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

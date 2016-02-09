@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> <span class="deprecated">DomException.jsInterop</span>
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DomException/DomException.jsInterop.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -131,7 +134,20 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Deprecated(&quot;Internal Use Only&quot;)
+DomException.jsInterop(String m) {
+  var name_index = m.indexOf(&apos;: &apos;);
+  if (name_index &lt; 0) {
+    _name = &quot;&quot;;
+    _message = m;
+  } else {
+    _name = m.substring(0, name_index);
+    _message = m.substring(name_index + 1).trim();
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -143,7 +159,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> addAll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/DoubleLinkedQueue/addAll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -146,7 +149,15 @@
 length of the queue is extended by the length of <code>iterable</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void addAll(Iterable&lt;E&gt; iterable) {
+  for (final E value in iterable) {
+    _sentinel._prepend(value);
+    _elementCount++;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -158,7 +169,7 @@ length of the queue is extended by the length of <code>iterable</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

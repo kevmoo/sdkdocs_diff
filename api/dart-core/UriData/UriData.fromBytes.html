@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> UriData.fromBytes
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/UriData/UriData.fromBytes.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -120,7 +123,31 @@
 be more efficient if the <a href="dart-core/UriData/uri.html">uri</a> itself isn't used.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory UriData.fromBytes(List&lt;int&gt; bytes,
+                          {mimeType: &quot;application/octet-stream&quot;,
+                           Map&lt;String, String&gt; parameters,
+                           percentEncoded: false}) {
+  StringBuffer buffer = new StringBuffer();
+  List indices = [_noScheme];
+  _writeUri(mimeType, null, parameters, buffer, indices);
+  indices.add(buffer.length);
+  if (percentEncoded) {
+    buffer.write(&apos;,&apos;);
+    _uriEncodeBytes(_uricTable, bytes, buffer);
+  } else {
+    buffer.write(&apos;;base64,&apos;);
+    indices.add(buffer.length - 1);
+    BASE64.encoder
+          .startChunkedConversion(
+              new StringConversionSink.fromStringSink(buffer))
+          .addSlice(bytes, 0, bytes.length, true);
+  }
+
+  return new UriData._(buffer.toString(), indices, null);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -132,7 +159,7 @@ be more efficient if the <a href="dart-core/UriData/uri.html">uri</a> itself isn
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

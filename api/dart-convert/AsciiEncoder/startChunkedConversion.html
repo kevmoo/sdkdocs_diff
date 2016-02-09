@@ -58,6 +58,9 @@
             <span class="kind">method</span> startChunkedConversion
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/AsciiEncoder/startChunkedConversion.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -110,7 +113,15 @@
 <a href="dart-convert/ByteConversionSink-class.html">ByteConversionSink</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">StringConversionSink startChunkedConversion(Sink&lt;List&lt;int&gt;&gt; sink) {
+  if (sink is! ByteConversionSink) {
+    sink = new ByteConversionSink.from(sink);
+  }
+  return new _UnicodeSubsetEncoderSink(_subsetMask, sink);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -122,7 +133,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

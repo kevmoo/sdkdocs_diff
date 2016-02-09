@@ -58,6 +58,9 @@
             <span class="kind">method</span> secureServer
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/RawSecureSocket/secureServer.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -175,7 +178,31 @@ available on the socket.</p>
 arguments.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;RawSecureSocket&gt; secureServer(
+    RawSocket socket,
+    SecurityContext context,
+    {StreamSubscription subscription,
+     List&lt;int&gt; bufferedData,
+     bool requestClientCertificate: false,
+     bool requireClientCertificate: false,
+     List&lt;String&gt; supportedProtocols}) {
+  socket.readEventsEnabled = false;
+  socket.writeEventsEnabled = false;
+  return _RawSecureSocket.connect(
+      socket.address,
+      socket.remotePort,
+      context: context,
+      is_server: true,
+      socket: socket,
+      subscription: subscription,
+      bufferedData: bufferedData,
+      requestClientCertificate: requestClientCertificate,
+      requireClientCertificate: requireClientCertificate,
+      supportedProtocols: supportedProtocols);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -187,7 +214,7 @@ arguments.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

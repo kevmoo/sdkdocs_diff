@@ -58,6 +58,9 @@
             <span class="kind">method</span> isPointInStroke
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasRenderingContext2D/isPointInStroke.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,18 @@
       <span class="name ">isPointInStroke</span>(<wbr><span class="parameter" id="isPointInStroke-param-path_OR_x"><span class="parameter-name">path_OR_x</span></span>, <span class="parameter" id="isPointInStroke-param-x_OR_y"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">x_OR_y</span></span>, [<span class="parameter" id="isPointInStroke-param-y"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">y</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool isPointInStroke(path_OR_x, num x_OR_y, [num y]) {
+  if ((x_OR_y is num) &amp;&amp; (path_OR_x is num) &amp;&amp; y == null) {
+    return _blink.BlinkCanvasRenderingContext2D.instance.isPointInStroke_Callback_2_(unwrap_jso(this), unwrap_jso(path_OR_x), x_OR_y);
+  }
+  if ((y is num) &amp;&amp; (x_OR_y is num) &amp;&amp; (path_OR_x is Path2D)) {
+    return _blink.BlinkCanvasRenderingContext2D.instance.isPointInStroke_Callback_3_(unwrap_jso(this), unwrap_jso(path_OR_x), x_OR_y, y);
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +205,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

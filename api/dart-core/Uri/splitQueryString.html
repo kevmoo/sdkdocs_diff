@@ -58,6 +58,9 @@
             <span class="kind">method</span> splitQueryString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/splitQueryString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -157,7 +160,26 @@ empty string.</p>
 is UTF-8.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Map&lt;String, String&gt; splitQueryString(String query,
+                                            {Encoding encoding: UTF8}) {
+  return query.split(&quot;&amp;&quot;).fold({}, (map, element) {
+    int index = element.indexOf(&quot;=&quot;);
+    if (index == -1) {
+      if (element != &quot;&quot;) {
+        map[decodeQueryComponent(element, encoding: encoding)] = &quot;&quot;;
+      }
+    } else if (index != 0) {
+      var key = element.substring(0, index);
+      var value = element.substring(index + 1);
+      map[Uri.decodeQueryComponent(key, encoding: encoding)] =
+          decodeQueryComponent(value, encoding: encoding);
+    }
+    return map;
+  });
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -169,7 +191,7 @@ is UTF-8.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

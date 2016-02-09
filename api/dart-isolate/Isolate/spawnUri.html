@@ -58,6 +58,9 @@
             <span class="kind">method</span> spawnUri
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-isolate/Isolate/spawnUri.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -181,7 +184,22 @@ platforms yet.</p>
 spawning succeeded. It will complete with an error otherwise.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">external static Future&lt;Isolate&gt; spawnUri(
+    Uri uri,
+    List&lt;String&gt; args,
+    var message,
+    {bool paused: false,
+     SendPort onExit,
+     SendPort onError,
+     bool errorsAreFatal,
+     bool checked,
+     Map&lt;String, String&gt; environment,
+     Uri packageRoot,
+     Uri packageConfig,
+     bool automaticPackageResolution: false});</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -193,7 +211,7 @@ spawning succeeded. It will complete with an error otherwise.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

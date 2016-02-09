@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> RangeError.value
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/RangeError/RangeError.value.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -123,7 +126,13 @@ invalid value, and the <code>message</code> can override the default error
 description.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">RangeError.value(num value, [String name, String message])
+    : start = null, end = null,
+      super.value(value, name,
+                  (message != null) ? message : &quot;Value not in range&quot;);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -135,7 +144,7 @@ description.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

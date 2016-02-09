@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> SvgElement.svg
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-svg/SvgElement/SvgElement.svg.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -350,7 +353,27 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory SvgElement.svg(String svg,
+    {NodeValidator validator, NodeTreeSanitizer treeSanitizer}) {
+
+  if (validator == null &amp;&amp; treeSanitizer == null) {
+    validator = new NodeValidatorBuilder.common()..allowSvg();
+  }
+
+  final match = _START_TAG_REGEXP.firstMatch(svg);
+  var parentElement;
+  if (match != null &amp;&amp; match.group(1).toLowerCase() == &apos;svg&apos;) {
+    parentElement = document.body;
+  } else {
+    parentElement = new SvgSvgElement();
+  }
+  var fragment = parentElement.createFragment(svg, validator: validator,
+      treeSanitizer: treeSanitizer);
+  return fragment.nodes.where((e) =&gt; e is SvgElement).single;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -362,7 +385,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

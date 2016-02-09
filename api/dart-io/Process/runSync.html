@@ -58,6 +58,9 @@
             <span class="kind">method</span> runSync
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/Process/runSync.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -119,7 +122,18 @@ call and will block until the child process terminates.</p>
 i.e., exit code, standard out and standard in.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">external static ProcessResult runSync(
+    String executable,
+    List&lt;String&gt; arguments,
+    {String workingDirectory,
+     Map&lt;String, String&gt; environment,
+     bool includeParentEnvironment: true,
+     bool runInShell: false,
+     Encoding stdoutEncoding: SYSTEM_ENCODING,
+     Encoding stderrEncoding: SYSTEM_ENCODING});</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -131,7 +145,7 @@ i.e., exit code, standard out and standard in.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

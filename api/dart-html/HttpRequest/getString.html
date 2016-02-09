@@ -58,6 +58,9 @@
             <span class="kind">method</span> getString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/HttpRequest/getString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -170,7 +173,14 @@ HttpRequest.getString('users.json?name=$name&amp;id=$id')
 <p>See also:</p><ul><li><a href="dart-html/HttpRequest/request.html">request</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;String&gt; getString(String url,
+    {bool withCredentials, void onProgress(ProgressEvent e)}) {
+  return request(url, withCredentials: withCredentials,
+      onProgress: onProgress).then((HttpRequest xhr) =&gt; xhr.responseText);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -182,7 +192,7 @@ HttpRequest.getString('users.json?name=$name&amp;id=$id')
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

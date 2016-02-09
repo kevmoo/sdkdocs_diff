@@ -58,6 +58,9 @@
             <span class="kind">method</span> asyncExpand
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/asyncExpand.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -153,7 +156,52 @@ just as if it returned an empty stream.</p>
 <p>The returned stream is a broadcast stream if this stream is.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Stream asyncExpand(Stream convert(T event)) {
+  StreamController controller;
+  StreamSubscription subscription;
+  void onListen() {
+    assert(controller is _StreamController ||
+           controller is _BroadcastStreamController);
+    final eventSink = controller;
+    subscription = this.listen(
+        (T event) {
+          Stream newStream;
+          try {
+            newStream = convert(event);
+          } catch (e, s) {
+            controller.addError(e, s);
+            return;
+          }
+          if (newStream != null) {
+            subscription.pause();
+            controller.addStream(newStream)
+                      .whenComplete(subscription.resume);
+          }
+        },
+        onError: eventSink._addError,  // Avoid Zone error replacement.
+        onDone: controller.close
+    );
+  }
+  if (this.isBroadcast) {
+    controller = new StreamController.broadcast(
+      onListen: onListen,
+      onCancel: () { subscription.cancel(); },
+      sync: true
+    );
+  } else {
+    controller = new StreamController(
+      onListen: onListen,
+      onPause: () { subscription.pause(); },
+      onResume: () { subscription.resume(); },
+      onCancel: () { subscription.cancel(); },
+      sync: true
+    );
+  }
+  return controller.stream;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -165,7 +213,7 @@ just as if it returned an empty stream.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> killPid
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/Process/killPid.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -125,7 +128,11 @@ process. Otherwise the signal could not be sent, usually meaning
 that the process is already dead.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">external static bool killPid(
+    int pid, [ProcessSignal signal = ProcessSignal.SIGTERM]);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -137,7 +144,7 @@ that the process is already dead.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

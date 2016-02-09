@@ -58,6 +58,9 @@
             <span class="kind">method</span> contains
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DomStringList/contains.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -176,7 +179,12 @@ Likewise the <code>Iterable</code> returned by a <code>Map.keys</code> call
 should use the same equality that the <code>Map</code> uses for keys.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;DOMStringList.contains&apos;)
+@DocsEditable()
+bool contains(String string) =&gt; _blink.BlinkDOMStringList.instance.contains_Callback_1_(unwrap_jso(this), string);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -188,7 +196,7 @@ should use the same equality that the <code>Map</code> uses for keys.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

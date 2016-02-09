@@ -58,6 +58,9 @@
             <span class="kind">method</span> translateSelf
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DomMatrix/translateSelf.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,15 @@
       <span class="name ">translateSelf</span>(<wbr><span class="parameter" id="translateSelf-param-tx"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">tx</span></span>, <span class="parameter" id="translateSelf-param-ty"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">ty</span></span>, [<span class="parameter" id="translateSelf-param-tz"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">tz</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">DomMatrix translateSelf(num tx, num ty, [num tz]) {
+  if (tz != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.translateSelf_Callback_3_(unwrap_jso(this), tx, ty, tz));
+  }
+  return wrap_jso(_blink.BlinkDOMMatrix.instance.translateSelf_Callback_2_(unwrap_jso(this), tx, ty));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +165,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

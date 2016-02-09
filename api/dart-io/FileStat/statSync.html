@@ -58,6 +58,9 @@
             <span class="kind">method</span> statSync
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/FileStat/statSync.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -115,7 +118,24 @@ If the call fails, returns a <a href="dart-io/FileStat-class.html">FileStat</a> 
 FileSystemEntityType.NOT_FOUND and the other fields invalid.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static FileStat statSync(String path) {
+  // Trailing path is not supported on Windows.
+  if (Platform.isWindows) {
+    path = FileSystemEntity._trimTrailingPathSeparators(path);
+  }
+  var data = _statSync(path);
+  if (data is OSError) return FileStat._notFound;
+  return new FileStat._internal(
+      new DateTime.fromMillisecondsSinceEpoch(data[_CHANGED_TIME]),
+      new DateTime.fromMillisecondsSinceEpoch(data[_MODIFIED_TIME]),
+      new DateTime.fromMillisecondsSinceEpoch(data[_ACCESSED_TIME]),
+      FileSystemEntityType._lookup(data[_TYPE]),
+      data[_MODE],
+      data[_SIZE]);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -127,7 +147,7 @@ FileSystemEntityType.NOT_FOUND and the other fields invalid.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

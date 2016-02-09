@@ -58,6 +58,9 @@
             <span class="kind">method</span> singleWhere
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/singleWhere.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,29 @@ Otherwise, if there are no matching elements, or if there is more than
 one matching element, a <code>StateError</code> is thrown.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">E singleWhere(bool test(E element)) {
+  int length = this.length;
+  E match = null;
+  bool matchFound = false;
+  for (int i = 0; i &lt; length; i++) {
+    E element = this[i];
+    if (test(element)) {
+      if (matchFound) {
+        throw IterableElementError.tooMany();
+      }
+      matchFound = true;
+      match = element;
+    }
+    if (length != this.length) {
+      throw new ConcurrentModificationError(this);
+    }
+  }
+  if (matchFound) return match;
+  throw IterableElementError.noElement();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +197,7 @@ one matching element, a <code>StateError</code> is thrown.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

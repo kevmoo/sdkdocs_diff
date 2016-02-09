@@ -58,6 +58,9 @@
             <span class="kind">method</span> modeString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/FileStat/modeString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -116,7 +119,22 @@ letter for missing permissions.  Extra permission bits may be represented
 by prepending "(suid)", "(guid)", and/or "(sticky)" to the mode string.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String modeString() {
+  var permissions = mode &amp; 0xFFF;
+  var codes = const [&apos;---&apos;, &apos;--x&apos;, &apos;-w-&apos;, &apos;-wx&apos;, &apos;r--&apos;, &apos;r-x&apos;, &apos;rw-&apos;, &apos;rwx&apos;];
+  var result = [];
+  if ((permissions &amp; 0x800) != 0) result.add(&quot;(suid) &quot;);
+  if ((permissions &amp; 0x400) != 0) result.add(&quot;(guid) &quot;);
+  if ((permissions &amp; 0x200) != 0) result.add(&quot;(sticky) &quot;);
+  result
+      ..add(codes[(permissions &gt;&gt; 6) &amp; 0x7])
+      ..add(codes[(permissions &gt;&gt; 3) &amp; 0x7])
+      ..add(codes[permissions &amp; 0x7]);
+  return result.join();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -128,7 +146,7 @@ by prepending "(suid)", "(guid)", and/or "(sticky)" to the mode string.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

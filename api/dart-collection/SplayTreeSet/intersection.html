@@ -58,6 +58,9 @@
             <span class="kind">method</span> intersection
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeSet/intersection.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -147,7 +150,16 @@
 are also elements of <code>other</code> according to <code>other.contains</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Set&lt;E&gt; intersection(Set&lt;E&gt; other) {
+  Set&lt;E&gt; result = new SplayTreeSet&lt;E&gt;(_comparator, _validKey);
+  for (E element in this) {
+    if (other.contains(element)) result.add(element);
+  }
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -159,7 +171,7 @@ are also elements of <code>other</code> according to <code>other.contains</code>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

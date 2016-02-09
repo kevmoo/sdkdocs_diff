@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> DomPoint
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DomPoint/DomPoint.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -113,7 +116,30 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;DOMPoint.DOMPoint&apos;)
+@DocsEditable()
+factory DomPoint([point_OR_x, num y, num z, num w]) {
+  if (point_OR_x == null &amp;&amp; y == null &amp;&amp; z == null &amp;&amp; w == null) {
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_0_());
+  }
+  if ((point_OR_x is Map || point_OR_x == null) &amp;&amp; y == null &amp;&amp; z == null &amp;&amp; w == null) {
+    var point_1 = convertDartToNative_Dictionary(point_OR_x);
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_1_(point_1));
+  }
+  if ((y is num || y == null) &amp;&amp; (point_OR_x is num || point_OR_x == null) &amp;&amp; z == null &amp;&amp; w == null) {
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_2_(point_OR_x, y));
+  }
+  if ((z is num || z == null) &amp;&amp; (y is num || y == null) &amp;&amp; (point_OR_x is num || point_OR_x == null) &amp;&amp; w == null) {
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_3_(point_OR_x, y, z));
+  }
+  if ((w is num || w == null) &amp;&amp; (z is num || z == null) &amp;&amp; (y is num || y == null) &amp;&amp; (point_OR_x is num || point_OR_x == null)) {
+    return wrap_jso(_blink.BlinkDOMPoint.instance.constructorCallback_4_(point_OR_x, y, z, w));
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -125,7 +151,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

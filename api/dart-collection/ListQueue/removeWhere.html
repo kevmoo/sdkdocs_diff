@@ -58,6 +58,9 @@
             <span class="kind">method</span> removeWhere
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListQueue/removeWhere.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -144,7 +147,12 @@
 elements, each of which can take linear time.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void removeWhere(bool test(E element)) {
+  _filterWhere(test, true);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -156,7 +164,7 @@ elements, each of which can take linear time.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

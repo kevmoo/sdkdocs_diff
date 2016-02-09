@@ -58,6 +58,9 @@
             <span class="kind">method</span> drawImageToRect
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasRenderingContext2D/drawImageToRect.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -220,7 +223,30 @@ from <code>source</code>.</p></li><li>
 from the WHATWG.</p></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;CanvasRenderingContext2D.drawImage&apos;)
+void drawImageToRect(CanvasImageSource source, Rectangle destRect,
+    {Rectangle sourceRect}) {
+  if (sourceRect == null) {
+    _drawImage(source,
+        destRect.left,
+        destRect.top,
+        destRect.width,
+        destRect.height);
+  } else {
+    _drawImage(source,
+        sourceRect.left,
+        sourceRect.top,
+        sourceRect.width,
+        sourceRect.height,
+        destRect.left,
+        destRect.top,
+        destRect.width,
+        destRect.height);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -232,7 +258,7 @@ from the WHATWG.</p></li></ul>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

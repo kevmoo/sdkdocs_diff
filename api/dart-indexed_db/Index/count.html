@@ -58,6 +58,9 @@
             <span class="kind">method</span> count
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-indexed_db/Index/count.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -119,7 +122,18 @@
       <span class="name ">count</span>(<wbr>[<span class="parameter" id="count-param-key_OR_range"><span class="parameter-name">key_OR_range</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;IDBIndex.count&apos;)
+Future&lt;int&gt; count([key_OR_range]) {
+ try {
+    var request = _count(key_OR_range);
+    return _completeRequest(request);
+  } catch (e, stacktrace) {
+    return new Future.error(e, stacktrace);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -131,7 +145,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

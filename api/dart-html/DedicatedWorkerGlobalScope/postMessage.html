@@ -58,6 +58,9 @@
             <span class="kind">method</span> postMessage
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DedicatedWorkerGlobalScope/postMessage.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -135,7 +138,13 @@
       <span class="name ">postMessage</span>(<wbr><span class="parameter" id="postMessage-param-message"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">message</span></span>, [<span class="parameter" id="postMessage-param-transfer"><span class="type-annotation"><a href="dart-core/List-class.html">List</a>&lt;<a href="dart-html/MessagePort-class.html">MessagePort</a>&gt;</span> <span class="parameter-name">transfer</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;DedicatedWorkerGlobalScope.postMessage&apos;)
+@DocsEditable()
+@Experimental() // untriaged
+void postMessage(Object message, [List&lt;MessagePort&gt; transfer]) =&gt; _blink.BlinkDedicatedWorkerGlobalScope.instance.postMessage_Callback_2_(unwrap_jso(this), convertDartToNative_SerializedScriptValue(message), transfer);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -147,7 +156,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

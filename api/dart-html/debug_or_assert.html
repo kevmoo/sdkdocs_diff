@@ -56,6 +56,9 @@
             <span class="kind">function</span> <span class="deprecated">debug_or_assert</span>
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/debug_or_assert.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -536,7 +539,15 @@
         <span class="name deprecated">debug_or_assert</span>(<wbr><span class="parameter" id="debug_or_assert-param-message"><span class="parameter-name">message</span></span>, <span class="parameter" id="debug_or_assert-param-expression"><span class="parameter-name">expression</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Deprecated(&quot;Internal Use Only&quot;)
+debug_or_assert(message, expression) {
+  if (!expression) {
+    throw new DebugAssertException(&quot;$message&quot;);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -548,7 +559,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

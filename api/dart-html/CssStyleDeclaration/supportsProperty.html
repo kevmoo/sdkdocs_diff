@@ -58,6 +58,9 @@
             <span class="kind">method</span> supportsProperty
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CssStyleDeclaration/supportsProperty.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -466,7 +469,13 @@ method returns true if the property is accessible via an unprefixed <em>or</em>
 prefixed property.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool supportsProperty(String propertyName) {
+  return _supportsProperty(propertyName) ||
+      _supportsProperty(_camelCase(Device.cssPrefix + propertyName));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -478,7 +487,7 @@ prefixed property.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> insert
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsArray/insert.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -166,7 +169,13 @@ at or after the index towards the end of the list.</p>
 An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void insert(int index, E element) {
+  _checkIndex(index, insert: true);
+  callMethod(&apos;splice&apos;, [index, 0, element]);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -178,7 +187,7 @@ An <code>UnsupportedError</code> occurs if the list is fixed-length.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

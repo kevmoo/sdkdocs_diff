@@ -58,6 +58,9 @@
             <span class="kind">method</span> toIso8601String
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/DateTime/toIso8601String.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -165,7 +168,25 @@ where:</p><ul><li>
 <p>The resulting string can be parsed back using <a href="dart-core/DateTime/parse.html">parse</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String toIso8601String() {
+  String y = (year &gt;= -9999 &amp;&amp; year &lt;= 9999) ? _fourDigits(year)
+                                             : _sixDigits(year);
+  String m = _twoDigits(month);
+  String d = _twoDigits(day);
+  String h = _twoDigits(hour);
+  String min = _twoDigits(minute);
+  String sec = _twoDigits(second);
+  String ms = _threeDigits(millisecond);
+  String us = microsecond == 0 ? &quot;&quot; : _threeDigits(microsecond);
+  if (isUtc) {
+    return &quot;$y-$m-${d}T$h:$min:$sec.$ms${us}Z&quot;;
+  } else {
+    return &quot;$y-$m-${d}T$h:$min:$sec.$ms$us&quot;;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -177,7 +198,7 @@ where:</p><ul><li>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

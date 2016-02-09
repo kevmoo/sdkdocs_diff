@@ -58,6 +58,9 @@
             <span class="kind">method</span> operator ==
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/DateTime/operator_equals.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -163,7 +166,13 @@ assert(dDayUtc.isAtSameMomentAs(dDayLocal) == false);
 <p>See <a href="dart-core/DateTime/isAtSameMomentAs.html">isAtSameMomentAs</a> for a comparison that adjusts for time zone.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool operator ==(other) {
+  if (!(other is DateTime)) return false;
+  return (_value == other._value &amp;&amp; isUtc == other.isUtc);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -175,7 +184,7 @@ assert(dDayUtc.isAtSameMomentAs(dDayLocal) == false);
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

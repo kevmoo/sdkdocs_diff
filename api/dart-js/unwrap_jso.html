@@ -56,6 +56,9 @@
             <span class="kind">function</span> <span class="deprecated">unwrap_jso</span>
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/unwrap_jso.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -114,7 +117,15 @@ argument is a Dart class instance that delegates to a DOM object.  See
 wrap_jso defined in dart:html.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@Deprecated(&quot;Internal Use Only&quot;)
+unwrap_jso(dartClass_instance) {
+  if (dartClass_instance is html.DartHtmlDomObject &amp;&amp;
+      dartClass_instance is! JsObject) return dartClass_instance.blink_jsObject;
+  else return dartClass_instance;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -126,7 +137,7 @@ wrap_jso defined in dart:html.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

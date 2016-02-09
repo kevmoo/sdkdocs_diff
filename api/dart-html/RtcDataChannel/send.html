@@ -58,6 +58,9 @@
             <span class="kind">method</span> send
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/RtcDataChannel/send.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -134,7 +137,28 @@
       <span class="name ">send</span>(<wbr><span class="parameter" id="send-param-data"><span class="parameter-name">data</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void send(data) {
+  if ((data is String || data == null)) {
+    _blink.BlinkRTCDataChannel.instance.send_Callback_1_(unwrap_jso(this), unwrap_jso(data));
+    return;
+  }
+  if ((data is Blob || data == null)) {
+    _blink.BlinkRTCDataChannel.instance.send_Callback_1_(unwrap_jso(this), unwrap_jso(data));
+    return;
+  }
+  if ((data is TypedData || data == null)) {
+    _blink.BlinkRTCDataChannel.instance.send_Callback_1_(unwrap_jso(this), unwrap_jso(data));
+    return;
+  }
+  if ((data is ByteBuffer || data == null)) {
+    _blink.BlinkRTCDataChannel.instance.send_Callback_1_(unwrap_jso(this), unwrap_jso(data));
+    return;
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -146,7 +170,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> decodeComponent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/decodeComponent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -157,7 +160,13 @@ the individual parts.</p>
 decoded component.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static String decodeComponent(String encodedComponent) {
+  return _uriDecode(encodedComponent, 0, encodedComponent.length,
+                    UTF8, false);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -169,7 +178,7 @@ decoded component.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

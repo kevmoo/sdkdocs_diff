@@ -58,6 +58,9 @@
             <span class="kind">method</span> convert
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/JsonEncoder/convert.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -129,7 +132,11 @@ for it. In other words, if the content of an object changes after it is
 first serialized, the new values may not be reflected in the result.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String convert(Object object) =&gt;
+    _JsonStringStringifier.stringify(object, _toEncodable, indent);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +148,7 @@ first serialized, the new values may not be reflected in the result.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

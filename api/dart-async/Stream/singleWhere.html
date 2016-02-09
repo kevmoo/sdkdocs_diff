@@ -58,6 +58,9 @@
             <span class="kind">method</span> singleWhere
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/singleWhere.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -148,7 +151,50 @@
 matching element occurs in the stream.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;T&gt; singleWhere(bool test(T element)) {
+  _Future&lt;T&gt; future = new _Future&lt;T&gt;();
+  T result = null;
+  bool foundResult = false;
+  StreamSubscription subscription;
+  subscription = this.listen(
+    (T value) {
+      _runUserCode(
+        () =&gt; true == test(value),
+        (bool isMatch) {
+          if (isMatch) {
+            if (foundResult) {
+              try {
+                throw IterableElementError.tooMany();
+              } catch (e, s) {
+                _cancelAndErrorWithReplacement(subscription, future, e, s);
+              }
+              return;
+            }
+            foundResult = true;
+            result = value;
+          }
+        },
+        _cancelAndErrorClosure(subscription, future)
+      );
+    },
+    onError: future._completeError,
+    onDone: () {
+      if (foundResult) {
+        future._complete(result);
+        return;
+      }
+      try {
+        throw IterableElementError.noElement();
+      } catch (e, s) {
+        _completeWithErrorCallback(future, e, s);
+      }
+    },
+    cancelOnError: true);
+  return future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -160,7 +206,7 @@ matching element occurs in the stream.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

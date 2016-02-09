@@ -58,6 +58,9 @@
             <span class="kind">method</span> scaleNonUniformSelf
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DomMatrix/scaleNonUniformSelf.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,27 @@
       <span class="name ">scaleNonUniformSelf</span>(<wbr><span class="parameter" id="scaleNonUniformSelf-param-sx"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">sx</span></span>, [<span class="parameter" id="scaleNonUniformSelf-param-sy"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">sy</span></span>, <span class="parameter" id="scaleNonUniformSelf-param-sz"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">sz</span></span>, <span class="parameter" id="scaleNonUniformSelf-param-ox"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">ox</span></span>, <span class="parameter" id="scaleNonUniformSelf-param-oy"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">oy</span></span>, <span class="parameter" id="scaleNonUniformSelf-param-oz"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">oz</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">DomMatrix scaleNonUniformSelf(num sx, [num sy, num sz, num ox, num oy, num oz]) {
+  if (oz != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scaleNonUniformSelf_Callback_6_(unwrap_jso(this), sx, sy, sz, ox, oy, oz));
+  }
+  if (oy != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scaleNonUniformSelf_Callback_5_(unwrap_jso(this), sx, sy, sz, ox, oy));
+  }
+  if (ox != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scaleNonUniformSelf_Callback_4_(unwrap_jso(this), sx, sy, sz, ox));
+  }
+  if (sz != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scaleNonUniformSelf_Callback_3_(unwrap_jso(this), sx, sy, sz));
+  }
+  if (sy != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scaleNonUniformSelf_Callback_2_(unwrap_jso(this), sx, sy));
+  }
+  return wrap_jso(_blink.BlinkDOMMatrix.instance.scaleNonUniformSelf_Callback_1_(unwrap_jso(this), sx));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +177,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

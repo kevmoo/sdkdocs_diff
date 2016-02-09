@@ -58,6 +58,9 @@
             <span class="kind">method</span> assertCondition
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/ConsoleBase/assertCondition.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -134,7 +137,13 @@
       <span class="name ">assertCondition</span>(<wbr><span class="parameter" id="assertCondition-param-condition"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">condition</span></span>, <span class="parameter" id="assertCondition-param-arg"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">arg</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;ConsoleBase.assertCondition&apos;)
+@DocsEditable()
+@Experimental() // untriaged
+void assertCondition(bool condition, Object arg) =&gt; _blink.BlinkConsoleBase.instance.assert_Callback_2_(unwrap_jso(this), condition, arg);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -146,7 +155,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> delete
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-indexed_db/ObjectStore/delete.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -125,7 +128,17 @@
       <span class="name ">delete</span>(<wbr><span class="parameter" id="delete-param-key_OR_keyRange"><span class="parameter-name">key_OR_keyRange</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;IDBObjectStore.delete&apos;)
+Future delete(key_OR_keyRange){
+  try {
+    return _completeRequest(_delete(key_OR_keyRange));
+  } catch (e, stacktrace) {
+    return new Future.error(e, stacktrace);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -137,7 +150,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

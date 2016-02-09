@@ -58,6 +58,9 @@
             <span class="kind">method</span> allowsAttribute
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/NodeValidatorBuilder/allowsAttribute.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -120,7 +123,13 @@
 <p>See <code>allowsElement</code> for format of tagName.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool allowsAttribute(Element element, String attributeName, String value) {
+  return _validators.any(
+      (v) =&gt; v.allowsAttribute(element, attributeName, value));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -132,7 +141,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

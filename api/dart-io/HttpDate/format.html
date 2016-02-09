@@ -58,6 +58,9 @@
             <span class="kind">method</span> format
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/HttpDate/format.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,33 @@
 e.g. <code>Thu, 1 Jan 1970 00:00:00 GMT</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static String format(DateTime date) {
+  const List wkday = const [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;];
+  const List month = const [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;,
+                            &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;];
+
+  DateTime d = date.toUtc();
+  StringBuffer sb = new StringBuffer()
+      ..write(wkday[d.weekday - 1])
+      ..write(&quot;, &quot;)
+      ..write(d.day &lt;= 9 ? &quot;0&quot; : &quot;&quot;)
+      ..write(d.day.toString())
+      ..write(&quot; &quot;)
+      ..write(month[d.month - 1])
+      ..write(&quot; &quot;)
+      ..write(d.year.toString())
+      ..write(d.hour &lt;= 9 ? &quot; 0&quot; : &quot; &quot;)
+      ..write(d.hour.toString())
+      ..write(d.minute &lt;= 9 ? &quot;:0&quot; : &quot;:&quot;)
+      ..write(d.minute.toString())
+      ..write(d.second &lt;= 9 ? &quot;:0&quot; : &quot;:&quot;)
+      ..write(d.second.toString())
+      ..write(&quot; GMT&quot;);
+  return sb.toString();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +150,7 @@ e.g. <code>Thu, 1 Jan 1970 00:00:00 GMT</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

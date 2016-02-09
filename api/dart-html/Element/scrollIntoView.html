@@ -58,6 +58,9 @@
             <span class="kind">method</span> scrollIntoView
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/scrollIntoView.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -398,7 +401,25 @@ alignTop.</p>
 <p>See also:</p><ul><li><a href="http://docs.webplatform.org/wiki/dom/methods/scrollIntoView">scrollIntoView</a></li><li><a href="http://docs.webplatform.org/wiki/dom/methods/scrollIntoViewIfNeeded">scrollIntoViewIfNeeded</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void scrollIntoView([ScrollAlignment alignment]) {
+  var hasScrollIntoViewIfNeeded = true;
+  if (alignment == ScrollAlignment.TOP) {
+    this._scrollIntoView(true);
+  } else if (alignment == ScrollAlignment.BOTTOM) {
+    this._scrollIntoView(false);
+  } else if (hasScrollIntoViewIfNeeded) {
+    if (alignment == ScrollAlignment.CENTER) {
+      this._scrollIntoViewIfNeeded(true);
+    } else {
+      this._scrollIntoViewIfNeeded();
+    }
+  } else {
+    this._scrollIntoView();
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -410,7 +431,7 @@ alignTop.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

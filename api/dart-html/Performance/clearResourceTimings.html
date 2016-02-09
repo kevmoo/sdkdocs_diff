@@ -58,6 +58,9 @@
             <span class="kind">method</span> clearResourceTimings
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Performance/clearResourceTimings.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -135,7 +138,16 @@
       <span class="name ">clearResourceTimings</span>(<wbr>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Performance.webkitClearResourceTimings&apos;)
+@DocsEditable()
+@SupportedBrowser(SupportedBrowser.CHROME)
+@SupportedBrowser(SupportedBrowser.SAFARI)
+@Experimental()
+// http://www.w3c-test.org/webperf/specs/ResourceTiming/#extensions-performance-interface
+void clearResourceTimings() =&gt; _blink.BlinkPerformance.instance.webkitClearResourceTimings_Callback_0_(unwrap_jso(this));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -147,7 +159,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

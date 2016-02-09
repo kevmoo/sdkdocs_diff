@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> HashChangeEvent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/HashChangeEvent/HashChangeEvent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -125,7 +128,19 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory HashChangeEvent(String type,
+    {bool canBubble: true, bool cancelable: true, String oldUrl,
+    String newUrl}) {
+
+  // TODO(alanknight): This is required while we&apos;re on Dartium 39, but will need
+  // to look like dart2js with later versions when initHashChange is removed.
+  var event = document._createEvent(&quot;HashChangeEvent&quot;);
+  event._initHashChangeEvent(type, canBubble, cancelable, oldUrl, newUrl);
+  return event;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -137,7 +152,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

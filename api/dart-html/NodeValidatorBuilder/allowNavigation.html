@@ -58,6 +58,9 @@
             <span class="kind">method</span> allowNavigation
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/NodeValidatorBuilder/allowNavigation.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -121,7 +124,15 @@ attributes.</p>
 are allowed to direct to. By default this will use the default <a href="dart-html/UriPolicy-class.html">UriPolicy</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void allowNavigation([UriPolicy uriPolicy]) {
+  if (uriPolicy == null) {
+    uriPolicy = new UriPolicy();
+  }
+  add(new _SimpleNodeValidator.allowNavigation(uriPolicy));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -133,7 +144,7 @@ are allowed to direct to. By default this will use the default <a href="dart-htm
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> forEach
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/Maps/forEach.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -112,7 +115,14 @@
       <span class="name ">forEach</span>(<wbr><span class="parameter" id="forEach-param-map"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a></span> <span class="parameter-name">map</span></span>, <span class="parameter" id="forEach-param-f"><span class="type-annotation">void</span> <span class="parameter-name">f</span>(<span class="parameter" id="f-param-key"><span class="parameter-name">key</span></span>, <span class="parameter" id="f-param-value"><span class="parameter-name">value</span></span>)</span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static forEach(Map map, void f(key, value)) {
+  for (final k in map.keys) {
+    f(k, map[k]);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -124,7 +134,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

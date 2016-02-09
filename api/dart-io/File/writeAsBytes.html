@@ -58,6 +58,9 @@
             <span class="kind">method</span> writeAsBytes
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/File/writeAsBytes.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -151,7 +154,12 @@ file, pass <a href="dart-io/FileMode/APPEND-constant.html">FileMode.APPEND</a> a
 flushed to the file system before the returned future completes.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;File&gt; writeAsBytes(List&lt;int&gt; bytes,
+                          {FileMode mode: FileMode.WRITE,
+                           bool flush: false});</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -163,7 +171,7 @@ flushed to the file system before the returned future completes.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

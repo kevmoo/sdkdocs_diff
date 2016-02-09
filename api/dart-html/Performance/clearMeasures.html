@@ -58,6 +58,9 @@
             <span class="kind">method</span> clearMeasures
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Performance/clearMeasures.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -133,7 +136,14 @@
       <span class="name ">clearMeasures</span>(<wbr><span class="parameter" id="clearMeasures-param-measureName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">measureName</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Performance.clearMeasures&apos;)
+@DocsEditable()
+// https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/UserTiming/Overview.html#extensions-performance-interface
+@Experimental()
+void clearMeasures(String measureName) =&gt; _blink.BlinkPerformance.instance.clearMeasures_Callback_1_(unwrap_jso(this), measureName);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -145,7 +155,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> resolve
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/resolve.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -153,7 +156,12 @@ resulting URI relative to <code>this</code>.</p>
 <p>See <a href="dart-core/Uri/resolveUri.html">resolveUri</a> for details.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Uri resolve(String reference) {
+  return resolveUri(Uri.parse(reference));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -165,7 +173,7 @@ resulting URI relative to <code>this</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

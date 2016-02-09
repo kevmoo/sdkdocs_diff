@@ -58,6 +58,9 @@
             <span class="kind">method</span> parse
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/DateTime/parse.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -184,7 +187,95 @@ the time is converted to the equivalent UTC time.</p>
 <p>Examples of accepted strings:</p><ul><li><code>"2012-02-27 13:27:00"</code></li><li><code>"2012-02-27 13:27:00.123456z"</code></li><li><code>"20120227 13:27:00"</code></li><li><code>"20120227T132700"</code></li><li><code>"20120227"</code></li><li><code>"+20120227"</code></li><li><code>"2012-02-27T14Z"</code></li><li><code>"2012-02-27T14+00:00"</code></li><li><code>"-123450101 00:00:00 Z"</code>: in the year -12345.</li><li><code>"2002-02-27T14:00:00-0500"</code>: Same as <code>"2002-02-27T19:00:00Z"</code></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">// TODO(lrn): restrict incorrect values like  2003-02-29T50:70:80.
+// Or not, that may be a breaking change.
+static DateTime parse(String formattedString) {
+  /*
+   * date ::= yeardate time_opt timezone_opt
+   * yeardate ::= year colon_opt month colon_opt day
+   * year ::= sign_opt digit{4,6}
+   * colon_opt :: &lt;empty&gt; | &apos;:&apos;
+   * sign ::= &apos;+&apos; | &apos;-&apos;
+   * sign_opt ::=  &lt;empty&gt; | sign
+   * month ::= digit{2}
+   * day ::= digit{2}
+   * time_opt ::= &lt;empty&gt; | (&apos; &apos; | &apos;T&apos;) hour minutes_opt
+   * minutes_opt ::= &lt;empty&gt; | colon_opt digit{2} seconds_opt
+   * seconds_opt ::= &lt;empty&gt; | colon_opt digit{2} millis_opt
+   * micros_opt ::= &lt;empty&gt; | &apos;.&apos; digit{1,6}
+   * timezone_opt ::= &lt;empty&gt; | space_opt timezone
+   * space_opt :: &apos; &apos; | &lt;empty&gt;
+   * timezone ::= &apos;z&apos; | &apos;Z&apos; | sign digit{2} timezonemins_opt
+   * timezonemins_opt ::= &lt;empty&gt; | colon_opt digit{2}
+   */
+  final RegExp re = new RegExp(
+      r&apos;^([+-]?\d{4,6})-?(\d\d)-?(\d\d)&apos;  // Day part.
+      r&apos;(?:[ T](\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d{1,6}))?)?)?&apos; // Time part.
+      r&apos;( ?[zZ]| ?([-+])(\d\d)(?::?(\d\d))?)?)?$&apos;); // Timezone part.
+
+  Match match = re.firstMatch(formattedString);
+  if (match != null) {
+    int parseIntOrZero(String matched) {
+      if (matched == null) return 0;
+      return int.parse(matched);
+    }
+
+    // Parses fractional second digits of &apos;.(\d{1,6})&apos; into the combined
+    // microseconds.
+    int parseMilliAndMicroseconds(String matched) {
+      if (matched == null) return 0;
+      int length = matched.length;
+      assert(length &gt;= 1);
+      assert(length &lt;= 6);
+
+      int result = 0;
+      for (int i = 0; i &lt; 6; i++) {
+        result *= 10;
+        if (i &lt; matched.length) {
+          result += matched.codeUnitAt(i) ^ 0x30;
+        }
+      }
+      return result;
+    }
+
+    int years = int.parse(match[1]);
+    int month = int.parse(match[2]);
+    int day = int.parse(match[3]);
+    int hour = parseIntOrZero(match[4]);
+    int minute = parseIntOrZero(match[5]);
+    int second = parseIntOrZero(match[6]);
+    bool addOneMillisecond = false;
+    int milliAndMicroseconds = parseMilliAndMicroseconds(match[7]);
+    int millisecond =
+        milliAndMicroseconds ~/ Duration.MICROSECONDS_PER_MILLISECOND;
+    int microsecond =
+        milliAndMicroseconds.remainder(Duration.MICROSECONDS_PER_MILLISECOND);
+    bool isUtc = false;
+    if (match[8] != null) {  // timezone part
+      isUtc = true;
+      if (match[9] != null) {
+        // timezone other than &apos;Z&apos; and &apos;z&apos;.
+        int sign = (match[9] == &apos;-&apos;) ? -1 : 1;
+        int hourDifference = int.parse(match[10]);
+        int minuteDifference = parseIntOrZero(match[11]);
+        minuteDifference += 60 * hourDifference;
+        minute -= sign * minuteDifference;
+      }
+    }
+    int value = _brokenDownDateToValue(
+        years, month, day, hour, minute, second, millisecond, microsecond,
+        isUtc);
+    if (value == null) {
+      throw new FormatException(&quot;Time out of range&quot;, formattedString);
+    }
+    return new DateTime._withValue(value, isUtc: isUtc);
+  } else {
+    throw new FormatException(&quot;Invalid date format&quot;, formattedString);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -196,7 +287,7 @@ the time is converted to the equivalent UTC time.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

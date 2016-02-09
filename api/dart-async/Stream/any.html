@@ -58,6 +58,9 @@
             <span class="kind">method</span> any
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/any.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -153,7 +156,31 @@ means that single-subscription (non-broadcast) streams are closed and
 cannot be reused after a call to this method.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;bool&gt; any(bool test(T element)) {
+  _Future&lt;bool&gt; future = new _Future&lt;bool&gt;();
+  StreamSubscription subscription;
+  subscription = this.listen(
+      (T element) {
+        _runUserCode(
+          () =&gt; test(element),
+          (bool isMatch) {
+            if (isMatch) {
+              _cancelAndValue(subscription, future, true);
+            }
+          },
+          _cancelAndErrorClosure(subscription, future)
+        );
+      },
+      onError: future._completeError,
+      onDone: () {
+        future._complete(false);
+      },
+      cancelOnError: true);
+  return future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -165,7 +192,7 @@ cannot be reused after a call to this method.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

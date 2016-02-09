@@ -58,6 +58,9 @@
             <span class="kind">method</span> setToString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SetBase/setToString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -148,7 +151,11 @@
 to a string ends up converting <code>set</code> to a string again.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static String setToString(Set set) =&gt;
+    IterableBase.iterableToFullString(set, &apos;{&apos;, &apos;}&apos;);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -160,7 +167,7 @@ to a string ends up converting <code>set</code> to a string again.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

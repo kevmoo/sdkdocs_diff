@@ -58,6 +58,9 @@
             <span class="kind">method</span> reset
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Stopwatch/reset.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -114,7 +117,20 @@
 <p>This method does not stop or start the <a href="dart-core/Stopwatch-class.html">Stopwatch</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void reset() {
+  if (_start == null) return;
+  // If [_start] is not null, then the stopwatch had already been started. It
+  // may running right now.
+  _start = _now();
+  if (_stop != null) {
+    // The watch is not running. So simply set the [_stop] to [_start] thus
+    // having an elapsed time of 0.
+    _stop = _start;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -126,7 +142,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

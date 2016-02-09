@@ -58,6 +58,9 @@
             <span class="kind">method</span> getContext3d
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasElement/getContext3d.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -313,7 +316,29 @@
   from HTML5Rocks.</p></li><li><a href="http://get.webgl.org/">WebGL homepage</a>.</li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@SupportedBrowser(SupportedBrowser.CHROME)
+@SupportedBrowser(SupportedBrowser.FIREFOX)
+@Experimental()
+gl.RenderingContext getContext3d({alpha: true, depth: true, stencil: false,
+  antialias: true, premultipliedAlpha: true, preserveDrawingBuffer: false}) {
+
+  var options = {
+    &apos;alpha&apos;: alpha,
+    &apos;depth&apos;: depth,
+    &apos;stencil&apos;: stencil,
+    &apos;antialias&apos;: antialias,
+    &apos;premultipliedAlpha&apos;: premultipliedAlpha,
+    &apos;preserveDrawingBuffer&apos;: preserveDrawingBuffer,
+  };
+  var context = getContext(&apos;webgl&apos;, options);
+  if (context == null) {
+    context = getContext(&apos;experimental-webgl&apos;, options);
+  }
+  return context;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -325,7 +350,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> decode
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/JsonCodec/decode.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -116,7 +119,14 @@ properties, or <code>null</code> for the final result.</p>
 <p>The default <code>reviver</code> (when not provided) is the identity function.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">dynamic decode(String source, {reviver(var key, var value)}) {
+  if (reviver == null) reviver = _reviver;
+  if (reviver == null) return decoder.convert(source);
+  return new JsonDecoder(reviver).convert(source);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -128,7 +138,7 @@ properties, or <code>null</code> for the final result.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> expand
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/IterableMixin/expand.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -135,7 +138,11 @@ by <code>f</code> for each element of this, in iteration order.</p>
 of this every time it's iterated.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Iterable/*&lt;T&gt;*/ expand/*&lt;T&gt;*/(Iterable/*&lt;T&gt;*/ f(E element)) =&gt;
+    new ExpandIterable&lt;E, dynamic/*=T*/&gt;(this, f);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -147,7 +154,7 @@ of this every time it's iterated.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

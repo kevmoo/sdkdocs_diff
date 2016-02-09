@@ -58,6 +58,9 @@
             <span class="kind">method</span> replaceWith
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Node/replaceWith.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -151,7 +154,19 @@
       <p>Replaces this node with another node.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Node.replaceChild&apos;)
+Node replaceWith(Node otherNode) {
+  try {
+    final Node parent = this.parentNode;
+    parent._replaceChild(otherNode, this);
+  } catch (e) {
+
+  };
+  return this;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -163,7 +178,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> setInnerHtml
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/setInnerHtml.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -402,7 +405,19 @@ are allowed by the provided validator.</p>
 <p>See also:</p><ul><li><a href="dart-html/NodeValidator-class.html">NodeValidator</a></li><li><a href="dart-html/NodeTreeSanitizer-class.html">NodeTreeSanitizer</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void setInnerHtml(String html,
+  {NodeValidator validator, NodeTreeSanitizer treeSanitizer}) {
+  text = null;
+  if (treeSanitizer is _TrustedHtmlTreeSanitizer) {
+    _innerHtml = html;
+  } else {
+    append(createFragment(
+        html, validator: validator, treeSanitizer: treeSanitizer));
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -414,7 +429,7 @@ are allowed by the provided validator.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

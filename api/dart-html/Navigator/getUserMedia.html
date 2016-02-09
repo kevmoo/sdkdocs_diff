@@ -58,6 +58,9 @@
             <span class="kind">method</span> getUserMedia
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Navigator/getUserMedia.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -176,7 +179,27 @@ writing, here is an example providing more constraints.</p>
 * <a href="dart-html/MediaStream/supported.html">MediaStream.supported</a></p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Navigator.webkitGetUserMedia&apos;)
+@SupportedBrowser(SupportedBrowser.CHROME)
+@Experimental()
+Future&lt;MediaStream&gt; getUserMedia({audio: false, video: false}) {
+  var completer = new Completer&lt;MediaStream&gt;();
+  var options = {
+    &apos;audio&apos;: audio,
+    &apos;video&apos;: video
+  };
+  this._getUserMedia(options,
+    (stream) {
+      completer.complete(stream);
+    },
+    (error) {
+      completer.completeError(error);
+    });
+  return completer.future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -188,7 +211,7 @@ writing, here is an example providing more constraints.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

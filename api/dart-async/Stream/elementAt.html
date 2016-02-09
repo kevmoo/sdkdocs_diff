@@ -58,6 +58,9 @@
             <span class="kind">method</span> elementAt
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/elementAt.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -155,7 +158,30 @@ with this error.</p>
 with a <a href="dart-core/RangeError-class.html">RangeError</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;T&gt; elementAt(int index) {
+  if (index is! int || index &lt; 0) throw new ArgumentError(index);
+  _Future&lt;T&gt; future = new _Future&lt;T&gt;();
+  StreamSubscription subscription;
+  int elementIndex = 0;
+  subscription = this.listen(
+    (T value) {
+      if (index == elementIndex) {
+        _cancelAndValue(subscription, future, value);
+        return;
+      }
+      elementIndex += 1;
+    },
+    onError: future._completeError,
+    onDone: () {
+      future._completeError(
+          new RangeError.index(index, this, &quot;index&quot;, null, elementIndex));
+    },
+    cancelOnError: true);
+  return future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -167,7 +193,7 @@ with a <a href="dart-core/RangeError-class.html">RangeError</a>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

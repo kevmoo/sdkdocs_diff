@@ -58,6 +58,9 @@
             <span class="kind">method</span> addAll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeSet/addAll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -147,7 +150,17 @@
 but some collections may be able to optimize it.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void addAll(Iterable&lt;E&gt; elements) {
+  for (E element in elements) {
+    int compare = _splay(element);
+    if (compare != 0) {
+      _addNewRoot(new _SplayTreeNode(element), compare);
+    }
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -159,7 +172,7 @@ but some collections may be able to optimize it.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

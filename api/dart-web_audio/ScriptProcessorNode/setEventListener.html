@@ -58,6 +58,9 @@
             <span class="kind">method</span> setEventListener
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_audio/ScriptProcessorNode/setEventListener.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -126,10 +129,16 @@
         </ol>
       </div>
       <span class="returntype">void</span>
-      <span class="name ">setEventListener</span>(<wbr><span class="parameter" id="setEventListener-param-eventListener"><span class="type-annotation"><a href="dart-html/EventListener.html">EventListener</a></span> <span class="parameter-name">eventListener</span>(<span class="parameter" id="EventListener-param-event"><span class="type-annotation"><a href="dart-html/Event-class.html">Event</a></span> <span class="parameter-name">event</span></span>)</span>)
+      <span class="name ">setEventListener</span>(<wbr><span class="parameter" id="setEventListener-param-eventListener"><span class="type-annotation">EventListener</span> <span class="parameter-name">eventListener</span>(<span class="parameter" id="EventListener-param-event"><span class="type-annotation"><a href="dart-html/Event-class.html">Event</a></span> <span class="parameter-name">event</span></span>)</span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;ScriptProcessorNode.setEventListener&apos;)
+@DocsEditable()
+@Experimental() // untriaged
+void setEventListener(EventListener eventListener) =&gt; _blink.BlinkScriptProcessorNode.instance.setEventListener_Callback_1_(unwrap_jso(this), unwrap_jso((event) =&gt; eventListener(wrap_jso(event))));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +150,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

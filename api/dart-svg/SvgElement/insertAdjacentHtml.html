@@ -58,6 +58,9 @@
             <span class="kind">method</span> insertAdjacentHtml
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-svg/SvgElement/insertAdjacentHtml.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -365,7 +368,14 @@ print(createdElement.classes<code>0</code>); // Prints 'something'</p></li></ul>
 <p>See also:</p><ul><li><code>insertAdjacentText</code></li><li><code>insertAdjacentElement</code></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Element.insertAdjacentHTML&apos;)
+void insertAdjacentHtml(String where, String text, {NodeValidator validator,
+    NodeTreeSanitizer treeSanitizer}) {
+  throw new UnsupportedError(&quot;Cannot invoke insertAdjacentHtml on SVG.&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -377,7 +387,7 @@ print(createdElement.classes<code>0</code>); // Prints 'something'</p></li></ul>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

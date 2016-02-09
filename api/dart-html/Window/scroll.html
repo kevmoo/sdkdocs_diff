@@ -58,6 +58,9 @@
             <span class="kind">method</span> scroll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Window/scroll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -279,7 +282,28 @@
       <span class="name ">scroll</span>(<wbr><span class="parameter" id="scroll-param-x"><span class="parameter-name">x</span></span>, <span class="parameter" id="scroll-param-y"><span class="parameter-name">y</span></span>, [<span class="parameter" id="scroll-param-scrollOptions"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a></span> <span class="parameter-name">scrollOptions</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void scroll(x, y, [Map scrollOptions]) {
+  if ((y is num) &amp;&amp; (x is num) &amp;&amp; scrollOptions == null) {
+    _blink.BlinkWindow.instance.scroll_Callback_2_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y));
+    return;
+  }
+  if ((scrollOptions is Map) &amp;&amp; (y is num) &amp;&amp; (x is num)) {
+    _blink.BlinkWindow.instance.scroll_Callback_3_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y), convertDartToNative_Dictionary(scrollOptions));
+    return;
+  }
+  if ((y is int) &amp;&amp; (x is int) &amp;&amp; scrollOptions == null) {
+    _blink.BlinkWindow.instance.scroll_Callback_2_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y));
+    return;
+  }
+  if ((scrollOptions is Map) &amp;&amp; (y is int) &amp;&amp; (x is int)) {
+    _blink.BlinkWindow.instance.scroll_Callback_3_(unwrap_jso(this), unwrap_jso(x), unwrap_jso(y), convertDartToNative_Dictionary(scrollOptions));
+    return;
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -291,7 +315,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

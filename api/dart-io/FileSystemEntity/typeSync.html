@@ -58,6 +58,9 @@
             <span class="kind">method</span> typeSync
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/FileSystemEntity/typeSync.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,11 @@ error or exception that may be thrown is ArgumentError,
 caused by passing the wrong type of arguments to the function.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static FileSystemEntityType typeSync(String path, {bool followLinks: true})
+    =&gt; FileSystemEntityType._lookup(_getTypeSync(path, followLinks));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +161,7 @@ caused by passing the wrong type of arguments to the function.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> parse
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/HttpDate/parse.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -117,7 +120,136 @@ Thu Jan  1 00:00:00 1970
 3.1.1</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static DateTime parse(String date) {
+  final int SP = 32;
+  const List wkdays = const [&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;];
+  const List weekdays = const [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;,
+                         &quot;Friday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;];
+  const List months = const [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;,
+                       &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;];
+  const List wkdaysLowerCase =
+      const [&quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot;, &quot;thu&quot;, &quot;fri&quot;, &quot;sat&quot;, &quot;sun&quot;];
+  const List weekdaysLowerCase = const [&quot;monday&quot;, &quot;tuesday&quot;, &quot;wednesday&quot;,
+                                        &quot;thursday&quot;, &quot;friday&quot;, &quot;saturday&quot;,
+                                        &quot;sunday&quot;];
+  const List monthsLowerCase = const [&quot;jan&quot;, &quot;feb&quot;, &quot;mar&quot;, &quot;apr&quot;, &quot;may&quot;,
+                                      &quot;jun&quot;, &quot;jul&quot;, &quot;aug&quot;, &quot;sep&quot;, &quot;oct&quot;,
+                                      &quot;nov&quot;, &quot;dec&quot;];
+
+  final int formatRfc1123 = 0;
+  final int formatRfc850 = 1;
+  final int formatAsctime = 2;
+
+  int index = 0;
+  String tmp;
+  int format;
+
+  void expect(String s) {
+    if (date.length - index &lt; s.length) {
+      throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+    }
+    String tmp = date.substring(index, index + s.length);
+    if (tmp != s) {
+      throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+    }
+    index += s.length;
+  }
+
+  int expectWeekday() {
+    int weekday;
+    // The formatting of the weekday signals the format of the date string.
+    int pos = date.indexOf(&quot;,&quot;, index);
+    if (pos == -1) {
+      int pos = date.indexOf(&quot; &quot;, index);
+      if (pos == -1) throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+      tmp = date.substring(index, pos);
+      index = pos + 1;
+      weekday = wkdays.indexOf(tmp);
+      if (weekday != -1) {
+        format = formatAsctime;
+        return weekday;
+      }
+    } else {
+      tmp = date.substring(index, pos);
+      index = pos + 1;
+      weekday = wkdays.indexOf(tmp);
+      if (weekday != -1) {
+        format = formatRfc1123;
+        return weekday;
+      }
+      weekday = weekdays.indexOf(tmp);
+      if (weekday != -1) {
+        format = formatRfc850;
+        return weekday;
+      }
+    }
+    throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+  }
+
+  int expectMonth(String separator) {
+    int pos = date.indexOf(separator, index);
+    if (pos - index != 3) throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+    tmp = date.substring(index, pos);
+    index = pos + 1;
+    int month = months.indexOf(tmp);
+    if (month != -1) return month;
+    throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+  }
+
+  int expectNum(String separator) {
+    int pos;
+    if (separator.length &gt; 0) {
+      pos = date.indexOf(separator, index);
+    } else {
+      pos = date.length;
+    }
+    String tmp = date.substring(index, pos);
+    index = pos + separator.length;
+    try {
+      int value = int.parse(tmp);
+      return value;
+    } on FormatException catch (e) {
+      throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+    }
+  }
+
+  void expectEnd() {
+    if (index != date.length) {
+      throw new HttpException(&quot;Invalid HTTP date $date&quot;);
+    }
+  }
+
+  int weekday = expectWeekday();
+  int day;
+  int month;
+  int year;
+  int hours;
+  int minutes;
+  int seconds;
+  if (format == formatAsctime) {
+    month = expectMonth(&quot; &quot;);
+    if (date.codeUnitAt(index) == SP) index++;
+    day = expectNum(&quot; &quot;);
+    hours = expectNum(&quot;:&quot;);
+    minutes = expectNum(&quot;:&quot;);
+    seconds = expectNum(&quot; &quot;);
+    year = expectNum(&quot;&quot;);
+  } else {
+    expect(&quot; &quot;);
+    day = expectNum(format == formatRfc1123 ? &quot; &quot; : &quot;-&quot;);
+    month = expectMonth(format == formatRfc1123 ? &quot; &quot; : &quot;-&quot;);
+    year = expectNum(&quot; &quot;);
+    hours = expectNum(&quot;:&quot;);
+    minutes = expectNum(&quot;:&quot;);
+    seconds = expectNum(&quot; &quot;);
+    expect(&quot;GMT&quot;);
+  }
+  expectEnd();
+  return new DateTime.utc(year, month + 1, day, hours, minutes, seconds, 0);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -129,7 +261,7 @@ Thu Jan  1 00:00:00 1970
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> scale3dSelf
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DomMatrix/scale3dSelf.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,21 @@
       <span class="name ">scale3dSelf</span>(<wbr><span class="parameter" id="scale3dSelf-param-scale"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">scale</span></span>, [<span class="parameter" id="scale3dSelf-param-ox"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">ox</span></span>, <span class="parameter" id="scale3dSelf-param-oy"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">oy</span></span>, <span class="parameter" id="scale3dSelf-param-oz"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">oz</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">DomMatrix scale3dSelf(num scale, [num ox, num oy, num oz]) {
+  if (oz != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scale3dSelf_Callback_4_(unwrap_jso(this), scale, ox, oy, oz));
+  }
+  if (oy != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scale3dSelf_Callback_3_(unwrap_jso(this), scale, ox, oy));
+  }
+  if (ox != null) {
+    return wrap_jso(_blink.BlinkDOMMatrix.instance.scale3dSelf_Callback_2_(unwrap_jso(this), scale, ox));
+  }
+  return wrap_jso(_blink.BlinkDOMMatrix.instance.scale3dSelf_Callback_1_(unwrap_jso(this), scale));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +171,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

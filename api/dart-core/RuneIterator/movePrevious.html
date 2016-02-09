@@ -58,6 +58,9 @@
             <span class="kind">method</span> movePrevious
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/RuneIterator/movePrevious.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -115,7 +118,29 @@
 and sets <code>current</code> to null if there is no previous element.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool movePrevious() {
+  _nextPosition = _position;
+  if (_position == 0) {
+    _currentCodePoint = null;
+    return false;
+  }
+  int position = _position - 1;
+  int codeUnit = string.codeUnitAt(position);
+  if (_isTrailSurrogate(codeUnit) &amp;&amp; position &gt; 0) {
+    int prevCodeUnit = string.codeUnitAt(position - 1);
+    if (_isLeadSurrogate(prevCodeUnit)) {
+      _position = position - 1;
+      _currentCodePoint = _combineSurrogatePair(prevCodeUnit, codeUnit);
+      return true;
+    }
+  }
+  _position = position;
+  _currentCodePoint = codeUnit;
+  return true;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -127,7 +152,7 @@ and sets <code>current</code> to null if there is no previous element.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

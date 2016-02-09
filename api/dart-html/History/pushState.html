@@ -58,6 +58,9 @@
             <span class="kind">method</span> pushState
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/History/pushState.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -123,7 +126,16 @@
       <span class="name ">pushState</span>(<wbr><span class="parameter" id="pushState-param-data"><span class="type-annotation"><a href="dart-core/Object-class.html">Object</a></span> <span class="parameter-name">data</span></span>, <span class="parameter" id="pushState-param-title"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span></span>, [<span class="parameter" id="pushState-param-url"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">url</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;History.pushState&apos;)
+@DocsEditable()
+@SupportedBrowser(SupportedBrowser.CHROME)
+@SupportedBrowser(SupportedBrowser.FIREFOX)
+@SupportedBrowser(SupportedBrowser.IE, &apos;10&apos;)
+@SupportedBrowser(SupportedBrowser.SAFARI)
+void pushState(Object data, String title, [String url]) =&gt; _blink.BlinkHistory.instance.pushState_Callback_3_(unwrap_jso(this), convertDartToNative_SerializedScriptValue(data), title, url);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -135,7 +147,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

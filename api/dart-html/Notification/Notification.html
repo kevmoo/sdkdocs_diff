@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Notification
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Notification/Notification.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -131,7 +134,20 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Notification(String title, {String dir: null, String body: null,
+    String lang: null, String tag: null, String icon: null}) {
+
+  var parsedOptions = {};
+  if (dir != null) parsedOptions[&apos;dir&apos;] = dir;
+  if (body != null) parsedOptions[&apos;body&apos;] = body;
+  if (lang != null) parsedOptions[&apos;lang&apos;] = lang;
+  if (tag != null) parsedOptions[&apos;tag&apos;] = tag;
+  if (icon != null) parsedOptions[&apos;icon&apos;] = icon;
+  return Notification._factoryNotification(title, parsedOptions);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -143,7 +159,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

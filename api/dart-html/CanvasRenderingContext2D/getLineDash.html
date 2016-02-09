@@ -58,6 +58,9 @@
             <span class="kind">method</span> getLineDash
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasRenderingContext2D/getLineDash.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -188,7 +191,23 @@
       <span class="name ">getLineDash</span>(<wbr>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@SupportedBrowser(SupportedBrowser.CHROME)
+@SupportedBrowser(SupportedBrowser.SAFARI)
+@SupportedBrowser(SupportedBrowser.IE, &apos;11&apos;)
+@Unstable()
+@DomName(&apos;CanvasRenderingContext2D.getLineDash&apos;)
+List&lt;num&gt; getLineDash() {
+  // TODO(14316): Firefox has this functionality with mozDash, but it&apos;s a bit
+  // different.
+  var result = _getLineDash();
+  if (result == null) {
+    result = [];
+  }
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -200,7 +219,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

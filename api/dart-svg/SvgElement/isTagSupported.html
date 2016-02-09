@@ -58,6 +58,9 @@
             <span class="kind">method</span> isTagSupported
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-svg/SvgElement/isTagSupported.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -352,7 +355,13 @@
 <p>The tag should be a valid SVG element tag name.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static bool isTagSupported(String tag) {
+  var e = new SvgElement.tag(tag);
+  return e is SvgElement &amp;&amp; !(e is UnknownElement);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -364,7 +373,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

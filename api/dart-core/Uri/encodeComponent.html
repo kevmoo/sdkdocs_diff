@@ -58,6 +58,9 @@
             <span class="kind">method</span> encodeComponent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/encodeComponent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -162,7 +165,12 @@ and <a href="dart-core/Uri/queryParameters.html">queryParameters</a> optional na
 a <a href="dart-core/Uri-class.html">Uri</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static String encodeComponent(String component) {
+  return _uriEncode(_unreserved2396Table, component, UTF8, false);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -174,7 +182,7 @@ a <a href="dart-core/Uri-class.html">Uri</a>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

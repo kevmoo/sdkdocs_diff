@@ -58,6 +58,9 @@
             <span class="kind">method</span> addOnExitListener
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-isolate/Isolate/addOnExitListener.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -143,7 +146,13 @@ function, or start the isolate paused, add the listener and
 then resume the isolate.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">/* TODO(lrn): Can we do better? Can the system recognize this message and
+ * send a reply if the receiving isolate is dead?
+ */
+external void addOnExitListener(SendPort responsePort, {Object response});</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -155,7 +164,7 @@ then resume the isolate.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

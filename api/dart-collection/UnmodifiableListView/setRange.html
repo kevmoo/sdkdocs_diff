@@ -58,6 +58,9 @@
             <span class="kind">method</span> setRange
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/UnmodifiableListView/setRange.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -157,7 +160,13 @@
       <p>This operation is not supported by an unmodifiable list.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void setRange(int start, int end, Iterable&lt;E&gt; iterable, [int skipCount = 0]) {
+  throw new UnsupportedError(
+      &quot;Cannot modify an unmodifiable list&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -169,7 +178,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

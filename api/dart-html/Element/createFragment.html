@@ -58,6 +58,9 @@
             <span class="kind">method</span> createFragment
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/createFragment.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -401,7 +404,69 @@ are allowed by the provided validator.</p>
 <p>See also:</p><ul><li><a href="dart-html/NodeValidator-class.html">NodeValidator</a></li><li><a href="dart-html/NodeTreeSanitizer-class.html">NodeTreeSanitizer</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">DocumentFragment createFragment(String html,
+    {NodeValidator validator, NodeTreeSanitizer treeSanitizer}) {
+  if (treeSanitizer == null) {
+    if (validator == null) {
+      if (_defaultValidator == null) {
+        _defaultValidator = new NodeValidatorBuilder.common();
+      }
+      validator = _defaultValidator;
+    }
+    if (_defaultSanitizer == null) {
+      _defaultSanitizer = new _ValidatingTreeSanitizer(validator);
+    } else {
+      _defaultSanitizer.validator = validator;
+    }
+    treeSanitizer = _defaultSanitizer;
+  } else if (validator != null) {
+    throw new ArgumentError(
+        &apos;validator can only be passed if treeSanitizer is null&apos;);
+  }
+
+  if (_parseDocument == null) {
+    _parseDocument = document.implementation.createHtmlDocument(&apos;&apos;);
+    _parseRange = _parseDocument.createRange();
+
+    // Workaround for Safari bug. Was also previously Chrome bug 229142
+    // - URIs are not resolved in new doc.
+    var base = _parseDocument.createElement(&apos;base&apos;);
+    base.href = document.baseUri;
+    _parseDocument.head.append(base);
+  }
+  var contextElement;
+  if (this is BodyElement) {
+    contextElement = _parseDocument.body;
+  } else {
+    contextElement = _parseDocument.createElement(tagName);
+    _parseDocument.body.append(contextElement);
+  }
+  var fragment;
+  if (Range.supportsCreateContextualFragment &amp;&amp;
+      _canBeUsedToCreateContextualFragment) {
+    _parseRange.selectNodeContents(contextElement);
+    fragment = _parseRange.createContextualFragment(html);
+  } else {
+    contextElement._innerHtml = html;
+
+    fragment = _parseDocument.createDocumentFragment();
+    while (contextElement.firstChild != null) {
+      fragment.append(contextElement.firstChild);
+    }
+  }
+  if (contextElement != _parseDocument.body) {
+    contextElement.remove();
+  }
+
+  treeSanitizer.sanitizeTree(fragment);
+  // Copy the fragment over to the main document (fix for 14184)
+  document.adoptNode(fragment);
+
+  return fragment;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -413,7 +478,7 @@ are allowed by the provided validator.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

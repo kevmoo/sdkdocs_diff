@@ -58,6 +58,9 @@
             <span class="kind">method</span> replace
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/replace.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,78 @@ call above, but may also be slightly faster because the parts taken
 from this <code>Uri</code> need not be checked for validity again.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Uri replace({String scheme,
+             String userInfo,
+             String host,
+             int port,
+             String path,
+             Iterable&lt;String&gt; pathSegments,
+             String query,
+             Map&lt;String, String&gt; queryParameters,
+             String fragment}) {
+  // Set to true if the scheme has (potentially) changed.
+  // In that case, the default port may also have changed and we need
+  // to check even the existing port.
+  bool schemeChanged = false;
+  if (scheme != null) {
+    scheme = _makeScheme(scheme, 0, scheme.length);
+    schemeChanged = true;
+  } else {
+    scheme = this.scheme;
+  }
+  bool isFile = (scheme == &quot;file&quot;);
+  if (userInfo != null) {
+    userInfo = _makeUserInfo(userInfo, 0, userInfo.length);
+  } else {
+    userInfo = this._userInfo;
+  }
+  if (port != null) {
+    port = _makePort(port, scheme);
+  } else {
+    port = this._port;
+    if (schemeChanged) {
+      // The default port might have changed.
+      port = _makePort(port, scheme);
+    }
+  }
+  if (host != null) {
+    host = _makeHost(host, 0, host.length, false);
+  } else if (this.hasAuthority) {
+    host = this._host;
+  } else if (userInfo.isNotEmpty || port != null || isFile) {
+    host = &quot;&quot;;
+  }
+
+  bool hasAuthority = host != null;
+  if (path != null || pathSegments != null) {
+    path = _makePath(path, 0, _stringOrNullLength(path), pathSegments,
+                     scheme, hasAuthority);
+  } else {
+    path = this._path;
+    if ((isFile || (hasAuthority &amp;&amp; !path.isEmpty)) &amp;&amp;
+        !path.startsWith(&apos;/&apos;)) {
+      path = &quot;/&quot; + path;
+    }
+  }
+
+  if (query != null || queryParameters != null) {
+    query = _makeQuery(query, 0, _stringOrNullLength(query), queryParameters);
+  } else {
+    query = this._query;
+  }
+
+  if (fragment != null) {
+    fragment = _makeFragment(fragment, 0, fragment.length);
+  } else {
+    fragment = this._fragment;
+  }
+
+  return new Uri._internal(
+      scheme, userInfo, host, port, path, query, fragment);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +265,7 @@ from this <code>Uri</code> need not be checked for validity again.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

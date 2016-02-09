@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Stream.eventTransformed
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/Stream.eventTransformed.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -181,7 +184,13 @@ stringStream.transform(new DuplicationTransformer());
 <p>The resulting stream is a broadcast stream if <code>source</code> is.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Stream.eventTransformed(Stream source,
+                                EventSink mapSink(EventSink&lt;T&gt; sink)) {
+  return new _BoundSinkStream(source, mapSink);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -193,7 +202,7 @@ stringStream.transform(new DuplicationTransformer());
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

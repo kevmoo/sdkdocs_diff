@@ -58,6 +58,9 @@
             <span class="kind">method</span> setRange
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsArray/setRange.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,17 @@ range <code>start</code> to <code>end</code>, even if the two ranges overlap.</p
 made.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void setRange(int start, int end, Iterable&lt;E&gt; iterable, [int skipCount = 0]) {
+  _checkRange(start, end);
+  int length = end - start;
+  if (length == 0) return;
+  if (skipCount &lt; 0) throw new ArgumentError(skipCount);
+  var args = [start, length]..addAll(iterable.skip(skipCount).take(length));
+  callMethod(&apos;splice&apos;, args);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +204,7 @@ made.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

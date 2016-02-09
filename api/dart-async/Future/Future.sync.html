@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Future.sync
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Future/Future.sync.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -129,7 +132,17 @@ and will then complete with the same result.</p>
 the returned future is completed with that value.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Future.sync(computation()) {
+  try {
+    var result = computation();
+    return new Future&lt;T&gt;.value(result);
+  } catch (error, stackTrace) {
+    return new Future&lt;T&gt;.error(error, stackTrace);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +154,7 @@ the returned future is completed with that value.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

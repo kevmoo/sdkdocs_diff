@@ -58,6 +58,9 @@
             <span class="kind">method</span> texSubImage2DTyped
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_gl/RenderingContext/texSubImage2DTyped.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -562,7 +565,15 @@
       <p>Updates a sub-rectangle of the currently bound texture to <code>data</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void texSubImage2DTyped(int targetTexture, int levelOfDetail,
+    int xOffset, int yOffset, int width, int height, int format,
+    int type, TypedData data) {
+  texSubImage2D(targetTexture, levelOfDetail, xOffset, yOffset,
+      width, height, format, type, data);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -574,7 +585,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

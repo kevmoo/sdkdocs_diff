@@ -58,6 +58,9 @@
             <span class="kind">method</span> toString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/SocketException/toString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,28 @@
       <p>Returns a string representation of this object.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String toString() {
+  StringBuffer sb = new StringBuffer();
+  sb.write(&quot;SocketException&quot;);
+  if (!message.isEmpty) {
+    sb.write(&quot;: $message&quot;);
+    if (osError != null) {
+      sb.write(&quot; ($osError)&quot;);
+    }
+  } else if (osError != null) {
+    sb.write(&quot;: $osError&quot;);
+  }
+  if (address != null) {
+    sb.write(&quot;, address = ${address.host}&quot;);
+  }
+  if (port != null) {
+    sb.write(&quot;, port = $port&quot;);
+  }
+  return sb.toString();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +145,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

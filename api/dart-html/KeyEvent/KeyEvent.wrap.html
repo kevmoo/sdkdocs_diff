@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> KeyEvent.wrap
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/KeyEvent/KeyEvent.wrap.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -142,7 +145,17 @@
       <p>Construct a KeyEvent with <code>parent</code> as the event we're emulating.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">KeyEvent.wrap(KeyboardEvent parent): super(parent) {
+  _parent = parent;
+  _shadowAltKey = _realAltKey;
+  _shadowCharCode = _realCharCode;
+  _shadowKeyCode = _realKeyCode;
+  _currentTarget = _parent.currentTarget == null? window :
+      _parent.currentTarget;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -154,7 +167,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

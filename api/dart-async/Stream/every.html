@@ -58,6 +58,9 @@
             <span class="kind">method</span> every
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/every.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -148,7 +151,31 @@
 If this stream reports an error, the <a href="dart-async/Future-class.html">Future</a> will report that error.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;bool&gt; every(bool test(T element)) {
+  _Future&lt;bool&gt; future = new _Future&lt;bool&gt;();
+  StreamSubscription subscription;
+  subscription = this.listen(
+      (T element) {
+        _runUserCode(
+          () =&gt; test(element),
+          (bool isMatch) {
+            if (!isMatch) {
+              _cancelAndValue(subscription, future, false);
+            }
+          },
+          _cancelAndErrorClosure(subscription, future)
+        );
+      },
+      onError: future._completeError,
+      onDone: () {
+        future._complete(true);
+      },
+      cancelOnError: true);
+  return future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -160,7 +187,7 @@ If this stream reports an error, the <a href="dart-async/Future-class.html">Futu
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> takeWhile
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/takeWhile.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -161,7 +164,12 @@ element is found where <code>test(element)</code> is false. At that point,
 the returned iterable stops (its <code>moveNext()</code> returns false).</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Iterable&lt;E&gt; takeWhile(bool test(E element)) {
+  return new TakeWhileIterable&lt;E&gt;(this, test);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -173,7 +181,7 @@ the returned iterable stops (its <code>moveNext()</code> returns false).</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

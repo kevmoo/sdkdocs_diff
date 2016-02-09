@@ -58,6 +58,9 @@
             <span class="kind">method</span> removeRange
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/removeRange.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,15 @@
 the list is not modified.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void removeRange(int start, int end) {
+  RangeError.checkValidRange(start, end, this.length);
+  int length = end - start;
+  setRange(start, this.length - length, this, end);
+  this.length -= length;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +183,7 @@ the list is not modified.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

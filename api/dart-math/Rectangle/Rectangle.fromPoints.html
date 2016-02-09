@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Rectangle.fromPoints
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-math/Rectangle/Rectangle.fromPoints.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -129,7 +132,16 @@ the actual right edge might be slightly off from <code>max(a.x, b.x)</code>.
 Similar for the y-coordinates and the bottom edge.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Rectangle.fromPoints(Point&lt;T&gt; a, Point&lt;T&gt; b) {
+  T left = min(a.x, b.x);
+  T width = max(a.x, b.x) - left;
+  T top = min(a.y, b.y);
+  T height = max(a.y, b.y) - top;
+  return new Rectangle&lt;T&gt;(left, top, width, height);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -141,7 +153,7 @@ Similar for the y-coordinates and the bottom edge.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

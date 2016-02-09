@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Uri.directory
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/Uri.directory.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -154,7 +157,14 @@ then a slash is added to the returned URI's path.
 In all other cases, the result is the same as returned by <code>Uri.file</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Uri.directory(String path, {bool windows}) {
+  windows = (windows == null) ? Uri._isWindows : windows;
+  return windows ? _makeWindowsFileUrl(path, true)
+                 : _makeFileUri(path, true);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -166,7 +176,7 @@ In all other cases, the result is the same as returned by <code>Uri.file</code>.
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

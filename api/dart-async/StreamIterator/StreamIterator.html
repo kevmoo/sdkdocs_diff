@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> StreamIterator
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/StreamIterator/StreamIterator.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,13 @@
       <p>Create a <a href="dart-async/StreamIterator-class.html">StreamIterator</a> on <code>stream</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory StreamIterator(Stream&lt;T&gt; stream)
+    // TODO(lrn): use redirecting factory constructor when type
+    // arguments are supported.
+    =&gt; new _StreamIteratorImpl&lt;T&gt;(stream);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +130,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

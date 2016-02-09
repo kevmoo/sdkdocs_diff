@@ -58,6 +58,9 @@
             <span class="kind">method</span> noSuchMethod
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsObject/noSuchMethod.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -116,7 +119,59 @@
 <p>The default behavior is to throw a <code>NoSuchMethodError</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">noSuchMethod(Invocation invocation) {
+  throwError() {
+    throw new NoSuchMethodError(this, invocation.memberName,
+        invocation.positionalArguments, invocation.namedArguments);
+  }
+
+  String name = mirrors.MirrorSystem.getName(invocation.memberName);
+  if (invocation.isGetter) {
+    if (CHECK_JS_INVOCATIONS) {
+      var matches = _allowedGetters[invocation.memberName];
+      if (matches == null &amp;&amp;
+          !_allowedMethods.containsKey(invocation.memberName)) {
+        throwError();
+      }
+      var ret = this[name];
+      if (matches != null &amp;&amp; matches._checkReturnType(ret)) return ret;
+      if (ret is Function ||
+          (ret is JsFunction /* shouldn&apos;t be needed in the future*/) &amp;&amp;
+              _allowedMethods.containsKey(
+                  invocation.memberName)) return ret; // Warning: we have not bound &quot;this&quot;... we could type check on the Function but that is of little value in Dart.
+      throwError();
+    } else {
+      // TODO(jacobr): should we throw if the JavaScript object doesn&apos;t have the property?
+      return maybeWrapTypedInterop(this._operator_getter(name));
+    }
+  } else if (invocation.isSetter) {
+    if (CHECK_JS_INVOCATIONS) {
+      var matches = _allowedSetters[invocation.memberName];
+      if (matches == null ||
+          !matches.checkInvocation(invocation)) throwError();
+    }
+    assert(name.endsWith(&quot;=&quot;));
+    name = name.substring(0, name.length - 1);
+    return maybeWrapTypedInterop(_operator_setter(
+        name, invocation.positionalArguments.first));
+  } else {
+    // TODO(jacobr): also allow calling getters that look like functions.
+    var matches;
+    if (CHECK_JS_INVOCATIONS) {
+      matches = _allowedMethods[invocation.memberName];
+      if (matches == null ||
+          !matches.checkInvocation(invocation)) throwError();
+    }
+    var ret = maybeWrapTypedInterop(this._callMethod(name, _buildArgs(invocation)));
+    if (CHECK_JS_INVOCATIONS) {
+      if (!matches._checkReturnType(ret)) throwError();
+    }
+    return ret;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -128,7 +183,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

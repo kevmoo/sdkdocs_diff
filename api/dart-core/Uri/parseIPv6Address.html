@@ -58,6 +58,9 @@
             <span class="kind">method</span> parseIPv6Address
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/parseIPv6Address.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,105 @@ defaults ot the end of the string.</p>
  * 2010:836B:4179::836B:4179</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static List&lt;int&gt; parseIPv6Address(String host, [int start = 0, int end]) {
+  if (end == null) end = host.length;
+  // An IPv6 address consists of exactly 8 parts of 1-4 hex digits, seperated
+  // by `:`&apos;s, with the following exceptions:
+  //
+  //  - One (and only one) wildcard (`::`) may be present, representing a fill
+  //    of 0&apos;s. The IPv6 `::` is thus 16 bytes of `0`.
+  //  - The last two parts may be replaced by an IPv4 address.
+  void error(String msg, [position]) {
+    throw new FormatException(&apos;Illegal IPv6 address, $msg&apos;, host, position);
+  }
+  int parseHex(int start, int end) {
+    if (end - start &gt; 4) {
+      error(&apos;an IPv6 part can only contain a maximum of 4 hex digits&apos;, start);
+    }
+    int value = int.parse(host.substring(start, end), radix: 16);
+    if (value &lt; 0 || value &gt; (1 &lt;&lt; 16) - 1) {
+      error(&apos;each part must be in the range of `0x0..0xFFFF`&apos;, start);
+    }
+    return value;
+  }
+  if (host.length &lt; 2) error(&apos;address is too short&apos;);
+  List&lt;int&gt; parts = [];
+  bool wildcardSeen = false;
+  int partStart = start;
+  // Parse all parts, except a potential last one.
+  for (int i = start; i &lt; end; i++) {
+    if (host.codeUnitAt(i) == _COLON) {
+      if (i == start) {
+        // If we see a `:` in the beginning, expect wildcard.
+        i++;
+        if (host.codeUnitAt(i) != _COLON) {
+          error(&apos;invalid start colon.&apos;, i);
+        }
+        partStart = i;
+      }
+      if (i == partStart) {
+        // Wildcard. We only allow one.
+        if (wildcardSeen) {
+          error(&apos;only one wildcard `::` is allowed&apos;, i);
+        }
+        wildcardSeen = true;
+        parts.add(-1);
+      } else {
+        // Found a single colon. Parse [partStart..i] as a hex entry.
+        parts.add(parseHex(partStart, i));
+      }
+      partStart = i + 1;
+    }
+  }
+  if (parts.length == 0) error(&apos;too few parts&apos;);
+  bool atEnd = (partStart == end);
+  bool isLastWildcard = (parts.last == -1);
+  if (atEnd &amp;&amp; !isLastWildcard) {
+    error(&apos;expected a part after last `:`&apos;, end);
+  }
+  if (!atEnd) {
+    try {
+      parts.add(parseHex(partStart, end));
+    } catch (e) {
+      // Failed to parse the last chunk as hex. Try IPv4.
+      try {
+        List&lt;int&gt; last = parseIPv4Address(host.substring(partStart, end));
+        parts.add(last[0] &lt;&lt; 8 | last[1]);
+        parts.add(last[2] &lt;&lt; 8 | last[3]);
+      } catch (e) {
+        error(&apos;invalid end of IPv6 address.&apos;, partStart);
+      }
+    }
+  }
+  if (wildcardSeen) {
+    if (parts.length &gt; 7) {
+      error(&apos;an address with a wildcard must have less than 7 parts&apos;);
+    }
+  } else if (parts.length != 8) {
+    error(&apos;an address without a wildcard must contain exactly 8 parts&apos;);
+  }
+  // TODO(ajohnsen): Consider using Uint8List.
+  List bytes = new List&lt;int&gt;(16);
+  for (int i = 0, index = 0; i &lt; parts.length; i++) {
+    int value = parts[i];
+    if (value == -1) {
+      int wildCardLength = 9 - parts.length;
+      for (int j = 0; j &lt; wildCardLength; j++) {
+        bytes[index] = 0;
+        bytes[index + 1] = 0;
+        index += 2;
+      }
+    } else {
+      bytes[index] = value &gt;&gt; 8;
+      bytes[index + 1] = value &amp; 0xff;
+      index += 2;
+    }
+  }
+  return bytes;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +273,7 @@ defaults ot the end of the string.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

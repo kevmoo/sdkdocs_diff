@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> LinkedHashSet.from
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/LinkedHashSet/LinkedHashSet.from.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -157,7 +160,16 @@ Set&lt;SubType&gt; subSet = new LinkedHashSet&lt;SubType&gt;.from(tmp);
 </code></pre>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory LinkedHashSet.from(Iterable&lt;E&gt; elements) {
+  LinkedHashSet&lt;E&gt; result = new LinkedHashSet&lt;E&gt;();
+  for (final E element in elements) {
+    result.add(element);
+  }
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -169,7 +181,7 @@ Set&lt;SubType&gt; subSet = new LinkedHashSet&lt;SubType&gt;.from(tmp);
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

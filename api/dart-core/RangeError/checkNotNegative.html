@@ -58,6 +58,9 @@
             <span class="kind">method</span> checkNotNegative
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/RangeError/checkNotNegative.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -119,7 +122,12 @@
 <p>Throws if the value is negative.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static void checkNotNegative(int value, [String name, String message]) {
+  if (value &lt; 0) throw new RangeError.range(value, 0, null, name, message);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -131,7 +139,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

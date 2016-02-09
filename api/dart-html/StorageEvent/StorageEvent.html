@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> StorageEvent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/StorageEvent/StorageEvent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -126,7 +129,18 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory StorageEvent(String type,
+  {bool canBubble: false, bool cancelable: false, String key, String oldValue,
+  String newValue, String url, Storage storageArea}) {
+
+  var e = document._createEvent(&quot;StorageEvent&quot;);
+  e._initStorageEvent(type, canBubble, cancelable, key, oldValue,
+      newValue, url, storageArea);
+  return e;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -138,7 +152,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

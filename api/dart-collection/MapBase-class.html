@@ -112,6 +112,19 @@
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
 
+    <section class="desc markdown">
+      <p>Base class for implementing a <a href="dart-core/Map-class.html">Map</a>.</p>
+<p>This class has a basic implementation of all but five of the members of
+<a href="dart-core/Map-class.html">Map</a>.
+A basic <code>Map</code> class can be implemented by extending this class and
+implementing <code>keys</code>, <code>operator[]</code>, <code>operator[]=</code>, <code>remove</code> and <code>clear</code>.
+The remaining operations are implemented in terms of these five.</p>
+<p>The <code>keys</code> iterable should have efficient <code>length</code> and <code>contains</code>
+operations, and it should catch concurrent modifications of the keys
+while iterating.</p>
+<p>A more efficient implementation is usually possible by overriding
+some of the other members as well.</p>
+    </section>
     
     <section>
       <dl class="dl-horizontal">
@@ -404,7 +417,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

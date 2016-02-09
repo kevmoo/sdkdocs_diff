@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Worker
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Worker/Worker.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -120,7 +123,14 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Worker.Worker&apos;)
+@DocsEditable()
+factory Worker(String scriptUrl) {
+  return wrap_jso(_blink.BlinkWorker.instance.constructorCallback_1_(scriptUrl));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -132,7 +142,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

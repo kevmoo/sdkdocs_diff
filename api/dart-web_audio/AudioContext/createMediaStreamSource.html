@@ -58,6 +58,9 @@
             <span class="kind">method</span> createMediaStreamSource
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_audio/AudioContext/createMediaStreamSource.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -144,7 +147,12 @@
       <span class="name ">createMediaStreamSource</span>(<wbr><span class="parameter" id="createMediaStreamSource-param-mediaStream"><span class="type-annotation"><a href="dart-html/MediaStream-class.html">MediaStream</a></span> <span class="parameter-name">mediaStream</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;AudioContext.createMediaStreamSource&apos;)
+@DocsEditable()
+MediaStreamAudioSourceNode createMediaStreamSource(MediaStream mediaStream) =&gt; wrap_jso(_blink.BlinkAudioContext.instance.createMediaStreamSource_Callback_1_(unwrap_jso(this), unwrap_jso(mediaStream)));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -156,7 +164,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

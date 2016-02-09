@@ -58,6 +58,9 @@
             <span class="kind">method</span> identical
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/FileSystemEntity/identical.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -141,7 +144,18 @@ inside a path are followed, though, to find the file system object.</p>
 to an object that does not exist.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;bool&gt; identical(String path1, String path2) {
+  return _IOService._dispatch(_FILE_IDENTICAL, [path1, path2]).then((response) {
+    if (_isErrorResponse(response)) {
+      throw _exceptionFromResponse(response,
+          &quot;Error in FileSystemEntity.identical($path1, $path2)&quot;, &quot;&quot;);
+    }
+    return response;
+  });
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -153,7 +167,7 @@ to an object that does not exist.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

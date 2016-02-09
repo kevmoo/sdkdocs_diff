@@ -58,6 +58,9 @@
             <span class="kind">method</span> timeout
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/timeout.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,81 @@ will have its individually timer that starts counting on listen,
 and the subscriptions' timers can be paused individually.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Stream timeout(Duration timeLimit, {void onTimeout(EventSink sink)}) {
+  StreamController controller;
+  // The following variables are set on listen.
+  StreamSubscription&lt;T&gt; subscription;
+  Timer timer;
+  Zone zone;
+  Function timeout;
+
+  void onData(T event) {
+    timer.cancel();
+    controller.add(event);
+    timer = zone.createTimer(timeLimit, timeout);
+  }
+  void onError(error, StackTrace stackTrace) {
+    timer.cancel();
+    assert(controller is _StreamController ||
+           controller is _BroadcastStreamController);
+    var eventSink = controller;
+    eventSink._addError(error, stackTrace);  // Avoid Zone error replacement.
+    timer = zone.createTimer(timeLimit, timeout);
+  }
+  void onDone() {
+    timer.cancel();
+    controller.close();
+  }
+  void onListen() {
+    // This is the onListen callback for of controller.
+    // It runs in the same zone that the subscription was created in.
+    // Use that zone for creating timers and running the onTimeout
+    // callback.
+    zone = Zone.current;
+    if (onTimeout == null) {
+      timeout = () {
+        controller.addError(new TimeoutException(&quot;No stream event&quot;,
+                                                 timeLimit), null);
+      };
+    } else {
+      onTimeout = zone.registerUnaryCallback(onTimeout);
+      _ControllerEventSinkWrapper wrapper =
+          new _ControllerEventSinkWrapper(null);
+      timeout = () {
+        wrapper._sink = controller;  // Only valid during call.
+        zone.runUnaryGuarded(onTimeout, wrapper);
+        wrapper._sink = null;
+      };
+    }
+
+    subscription = this.listen(onData, onError: onError, onDone: onDone);
+    timer = zone.createTimer(timeLimit, timeout);
+  }
+  Future onCancel() {
+    timer.cancel();
+    Future result = subscription.cancel();
+    subscription = null;
+    return result;
+  }
+  controller = isBroadcast
+      ? new _SyncBroadcastStreamController(onListen, onCancel)
+      : new _SyncStreamController(
+            onListen,
+            () {
+              // Don&apos;t null the timer, onCancel may call cancel again.
+              timer.cancel();
+              subscription.pause();
+            },
+            () {
+              subscription.resume();
+              timer = zone.createTimer(timeLimit, timeout);
+            },
+            onCancel);
+  return controller.stream;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +249,7 @@ and the subscriptions' timers can be paused individually.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

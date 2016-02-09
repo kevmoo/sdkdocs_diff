@@ -58,6 +58,9 @@
             <span class="kind">method</span> getAll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/ServiceWorkerClients/getAll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -105,7 +108,15 @@
       <span class="name ">getAll</span>(<wbr>[<span class="parameter" id="getAll-param-options"><span class="type-annotation"><a href="dart-core/Map-class.html">Map</a></span> <span class="parameter-name">options</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future getAll([Map options]) {
+  if (options != null) {
+    return wrap_jso(_blink.BlinkServiceWorkerClients.instance.getAll_Callback_1_(unwrap_jso(this), convertDartToNative_Dictionary(options)));
+  }
+  return wrap_jso(_blink.BlinkServiceWorkerClients.instance.getAll_Callback_0_(unwrap_jso(this)));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -117,7 +128,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

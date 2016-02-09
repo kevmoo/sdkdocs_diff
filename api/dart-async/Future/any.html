@@ -58,6 +58,9 @@
             <span class="kind">method</span> any
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Future/any.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -124,7 +127,22 @@ The results of all the other futures are discarded.</p>
 the returned future never completes.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future/*&lt;T&gt;*/ any/*&lt;T&gt;*/(Iterable&lt;Future/*&lt;T&gt;*/&gt; futures) {
+  var completer = new Completer.sync();
+  var onValue = (value) {
+    if (!completer.isCompleted) completer.complete(value);
+  };
+  var onError = (error, stack) {
+    if (!completer.isCompleted) completer.completeError(error, stack);
+  };
+  for (var future in futures) {
+    future.then(onValue, onError: onError);
+  }
+  return completer.future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -136,7 +154,7 @@ the returned future never completes.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

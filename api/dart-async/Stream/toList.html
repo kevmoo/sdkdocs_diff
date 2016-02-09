@@ -58,6 +58,9 @@
             <span class="kind">method</span> toList
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/toList.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -146,7 +149,23 @@
       <p>Collects the data of this stream in a <a href="dart-core/List-class.html">List</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;List&lt;T&gt;&gt; toList() {
+  List&lt;T&gt; result = &lt;T&gt;[];
+  _Future&lt;List&lt;T&gt;&gt; future = new _Future&lt;List&lt;T&gt;&gt;();
+  this.listen(
+    (T data) {
+      result.add(data);
+    },
+    onError: future._completeError,
+    onDone: () {
+      future._complete(result);
+    },
+    cancelOnError: true);
+  return future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -158,7 +177,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

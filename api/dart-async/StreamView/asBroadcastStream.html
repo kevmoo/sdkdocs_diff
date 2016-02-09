@@ -58,6 +58,9 @@
             <span class="kind">method</span> asBroadcastStream
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/StreamView/asBroadcastStream.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -154,7 +157,12 @@ while having no subscribers to prevent losing events, or canceling the
 subscription when there are no listeners.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Stream&lt;T&gt; asBroadcastStream({void onListen(StreamSubscription subscription),
+                             void onCancel(StreamSubscription subscription)})
+    =&gt; _stream.asBroadcastStream(onListen: onListen, onCancel: onCancel);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -166,7 +174,7 @@ subscription when there are no listeners.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> addAll
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/MapMixin/addAll.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -122,7 +125,14 @@ and associated value in other. It iterates over <code>other</code>, which must
 therefore not change during the iteration.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void addAll(Map&lt;K, V&gt; other) {
+  for (K key in other.keys) {
+    this[key] = other[key];
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -134,7 +144,7 @@ therefore not change during the iteration.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

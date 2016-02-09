@@ -58,6 +58,9 @@
             <span class="kind">method</span> cancelAnimationFrame
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Window/cancelAnimationFrame.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -285,7 +288,12 @@
       <span class="name ">cancelAnimationFrame</span>(<wbr><span class="parameter" id="cancelAnimationFrame-param-id"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">id</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Window.cancelAnimationFrame&apos;)
+@DocsEditable()
+void cancelAnimationFrame(int id) =&gt; _blink.BlinkWindow.instance.cancelAnimationFrame_Callback_1_(unwrap_jso(this), id);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -297,7 +305,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

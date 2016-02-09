@@ -58,6 +58,9 @@
             <span class="kind">method</span> drawFocusIfNeeded
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasRenderingContext2D/drawFocusIfNeeded.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,20 @@
       <span class="name ">drawFocusIfNeeded</span>(<wbr><span class="parameter" id="drawFocusIfNeeded-param-element_OR_path"><span class="parameter-name">element_OR_path</span></span>, [<span class="parameter" id="drawFocusIfNeeded-param-element"><span class="type-annotation"><a href="dart-html/Element-class.html">Element</a></span> <span class="parameter-name">element</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void drawFocusIfNeeded(element_OR_path, [Element element]) {
+  if ((element_OR_path is Element) &amp;&amp; element == null) {
+    _blink.BlinkCanvasRenderingContext2D.instance.drawFocusIfNeeded_Callback_1_(unwrap_jso(this), unwrap_jso(element_OR_path));
+    return;
+  }
+  if ((element is Element) &amp;&amp; (element_OR_path is Path2D)) {
+    _blink.BlinkCanvasRenderingContext2D.instance.drawFocusIfNeeded_Callback_2_(unwrap_jso(this), unwrap_jso(element_OR_path), unwrap_jso(element));
+    return;
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +207,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

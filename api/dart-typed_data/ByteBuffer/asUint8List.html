@@ -58,6 +58,9 @@
             <span class="kind">method</span> asUint8List
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-typed_data/ByteBuffer/asUint8List.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -126,7 +129,10 @@ If <code>length</code> is omitted, the range extends to the end of the buffer.</
 <p>The start index and length must describe a valid range of the buffer:</p><ul><li><code>offsetInBytes</code> must not be negative,</li><li><code>length</code> must not be negative, and</li><li><code>offsetInBytes + length</code> must not be greater than <a href="dart-typed_data/ByteBuffer/lengthInBytes.html">lengthInBytes</a>.</li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Uint8List asUint8List([int offsetInBytes = 0, int length]);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -138,7 +144,7 @@ If <code>length</code> is omitted, the range extends to the end of the buffer.</
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

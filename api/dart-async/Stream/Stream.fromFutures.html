@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Stream.fromFutures
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/Stream.fromFutures.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -155,7 +158,35 @@ order.</p>
 <p>If no future is passed, the stream closes as soon as possible.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Stream.fromFutures(Iterable&lt;Future&lt;T&gt;&gt; futures) {
+  var controller = new StreamController&lt;T&gt;(sync: true);
+  int count = 0;
+  var onValue = (value) {
+    if (!controller.isClosed) {
+      controller._add(value);
+      if (--count == 0) controller._closeUnchecked();
+    }
+  };
+  var onError = (error, stack) {
+    if (!controller.isClosed) {
+      controller._addError(error, stack);
+      if (--count == 0) controller._closeUnchecked();
+    }
+  };
+  // The futures are already running, so start listening to them immediately
+  // (instead of waiting for the stream to be listened on).
+  // If we wait, we might not catch errors in the futures in time.
+  for (var future in futures) {
+    count++;
+    future.then(onValue, onError: onError);
+  }
+  // Use schedule microtask since controller is sync.
+  if (count == 0) scheduleMicrotask(controller.close);
+  return controller.stream;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -167,7 +198,7 @@ order.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

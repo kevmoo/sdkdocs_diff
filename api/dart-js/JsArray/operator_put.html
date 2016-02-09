@@ -58,6 +58,9 @@
             <span class="kind">method</span> operator []=
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsArray/operator_put.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -164,7 +167,15 @@ object.</p>
 <p>The type of <code>property</code> must be either <code>String</code> or <code>num</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void operator []=(index, E value) {
+  if (index is int) {
+    _checkIndex(index);
+  }
+  super[index] = value;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -176,7 +187,7 @@ object.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> TextEvent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/TextEvent/TextEvent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -127,7 +130,18 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory TextEvent(String type,
+  {bool canBubble: false, bool cancelable: false, Window view, String data}) {
+  if (view == null) {
+    view = window;
+  }
+  var e = document._createEvent(&quot;TextEvent&quot;);
+  e._initTextEvent(type, canBubble, cancelable, view, data);
+  return e;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -139,7 +153,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

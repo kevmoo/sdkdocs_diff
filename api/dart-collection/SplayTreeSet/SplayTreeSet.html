@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> SplayTreeSet
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/SplayTreeSet/SplayTreeSet.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -162,7 +165,12 @@ not be in the set.</p>
 type parameter: <code>other is E</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">SplayTreeSet([int compare(E key1, E key2), bool isValidKey(potentialKey)])
+    : _comparator = (compare == null) ? Comparable.compare : compare,
+      _validKey = (isValidKey != null) ? isValidKey : ((v) =&gt; v is E);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -174,7 +182,7 @@ type parameter: <code>other is E</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

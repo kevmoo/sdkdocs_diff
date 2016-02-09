@@ -58,6 +58,9 @@
             <span class="kind">method</span> upgrade
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/WebSocketTransformer/upgrade.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -120,7 +123,15 @@ to negotiate with the specified <a href="dart-io/CompressionOptions-class.html">
 then the <a href="dart-io/WebSocket-class.html">WebSocket</a> will be created with the default <a href="dart-io/CompressionOptions-class.html">CompressionOptions</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;WebSocket&gt; upgrade(HttpRequest request,
+    {protocolSelector(List&lt;String&gt; protocols),
+    CompressionOptions compression: CompressionOptions.DEFAULT}) {
+  return _WebSocketTransformerImpl._upgrade(
+      request, protocolSelector, compression);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -132,7 +143,7 @@ then the <a href="dart-io/WebSocket-class.html">WebSocket</a> will be created wi
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

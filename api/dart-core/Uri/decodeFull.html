@@ -58,6 +58,9 @@
             <span class="kind">method</span> decodeFull
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/decodeFull.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -153,7 +156,12 @@ cases an encoded URI should be parsed into components using
 <a href="dart-core/Uri/parse.html">Uri.parse</a> before decoding the separate components.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static String decodeFull(String uri) {
+  return _uriDecode(uri, 0, uri.length, UTF8, false);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -165,7 +173,7 @@ cases an encoded URI should be parsed into components using
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

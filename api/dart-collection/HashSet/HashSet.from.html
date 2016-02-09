@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> HashSet.from
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/HashSet/HashSet.from.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -157,7 +160,14 @@ Set&lt;SubType&gt; subSet =
 </code></pre>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory HashSet.from(Iterable elements) {
+  HashSet&lt;E&gt; result = new HashSet&lt;E&gt;();
+  for (E e in elements) result.add(e);
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -169,7 +179,7 @@ Set&lt;SubType&gt; subSet =
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

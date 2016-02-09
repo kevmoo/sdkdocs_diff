@@ -58,6 +58,9 @@
             <span class="kind">method</span> toFilePath
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/toFilePath.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -197,7 +200,25 @@ Uri.parse("file://server/share/file");  // \\server\share\file
 <a href="dart-core/UnsupportedError-class.html">UnsupportedError</a>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String toFilePath({bool windows}) {
+  if (scheme != &quot;&quot; &amp;&amp; scheme != &quot;file&quot;) {
+    throw new UnsupportedError(
+        &quot;Cannot extract a file path from a $scheme URI&quot;);
+  }
+  if (query != &quot;&quot;) {
+    throw new UnsupportedError(
+        &quot;Cannot extract a file path from a URI with a query component&quot;);
+  }
+  if (fragment != &quot;&quot;) {
+    throw new UnsupportedError(
+        &quot;Cannot extract a file path from a URI with a fragment component&quot;);
+  }
+  if (windows == null) windows = _isWindows;
+  return windows ? _toWindowsFilePath() : _toFilePath();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -209,7 +230,7 @@ Uri.parse("file://server/share/file");  // \\server\share\file
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

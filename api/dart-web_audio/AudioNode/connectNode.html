@@ -58,6 +58,9 @@
             <span class="kind">method</span> connectNode
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-web_audio/AudioNode/connectNode.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -122,7 +125,12 @@
       <span class="name ">connectNode</span>(<wbr><span class="parameter" id="connectNode-param-destination"><span class="type-annotation"><a href="dart-web_audio/AudioNode-class.html">AudioNode</a></span> <span class="parameter-name">destination</span></span>, [<span class="parameter" id="connectNode-param-output"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">output</span> = <span class="default-value">0</span></span>, <span class="parameter" id="connectNode-param-input"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">input</span> = <span class="default-value">0</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;AudioNode.connect&apos;)
+void connectNode(AudioNode destination, [int output = 0, int input = 0]) =&gt;
+    _connect(destination, output, input);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -134,7 +142,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

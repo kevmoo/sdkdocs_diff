@@ -58,6 +58,9 @@
             <span class="kind">method</span> distinct
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/distinct.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -153,7 +156,12 @@ If a broadcast stream is listened to more than once, each subscription
 will individually perform the <code>equals</code> test.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Stream&lt;T&gt; distinct([bool equals(T previous, T next)]) {
+  return new _DistinctStream&lt;T&gt;(this, equals);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -165,7 +173,7 @@ will individually perform the <code>equals</code> test.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> appendHtml
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DocumentFragment/appendHtml.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -147,7 +150,14 @@
 last child of this document fragment.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void appendHtml(String text, {NodeValidator validator,
+    NodeTreeSanitizer, treeSanitizer}) {
+  this.append(new DocumentFragment.html(text, validator: validator,
+      treeSanitizer: treeSanitizer));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -159,7 +169,7 @@ last child of this document fragment.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> ZoneSpecification.from
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/ZoneSpecification/ZoneSpecification.from.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -121,7 +124,65 @@
 the ones in <code>other</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory ZoneSpecification.from(ZoneSpecification other, {
+  dynamic handleUncaughtError(Zone self, ZoneDelegate parent, Zone zone,
+                              error, StackTrace stackTrace): null,
+  dynamic run(Zone self, ZoneDelegate parent, Zone zone, f()): null,
+  dynamic runUnary(
+      Zone self, ZoneDelegate parent, Zone zone, f(arg), arg): null,
+  dynamic runBinary(Zone self, ZoneDelegate parent, Zone zone,
+                    f(arg1, arg2), arg1, arg2): null,
+  ZoneCallback registerCallback(
+      Zone self, ZoneDelegate parent, Zone zone, f()): null,
+  ZoneUnaryCallback registerUnaryCallback(
+      Zone self, ZoneDelegate parent, Zone zone, f(arg)): null,
+  ZoneBinaryCallback registerBinaryCallback(
+      Zone self, ZoneDelegate parent, Zone zone, f(arg1, arg2)): null,
+  AsyncError errorCallback(Zone self, ZoneDelegate parent, Zone zone,
+                           Object error, StackTrace stackTrace),
+  void scheduleMicrotask(
+      Zone self, ZoneDelegate parent, Zone zone, f()): null,
+  Timer createTimer(Zone self, ZoneDelegate parent, Zone zone,
+                    Duration duration, void f()): null,
+  Timer createPeriodicTimer(Zone self, ZoneDelegate parent, Zone zone,
+                            Duration period, void f(Timer timer)): null,
+  void print(Zone self, ZoneDelegate parent, Zone zone, String line): null,
+  Zone fork(Zone self, ZoneDelegate parent, Zone zone,
+            ZoneSpecification specification,
+            Map zoneValues): null
+}) {
+  return new ZoneSpecification(
+    handleUncaughtError: handleUncaughtError != null
+                         ? handleUncaughtError
+                         : other.handleUncaughtError,
+    run: run != null ? run : other.run,
+    runUnary: runUnary != null ? runUnary : other.runUnary,
+    runBinary: runBinary != null ? runBinary : other.runBinary,
+    registerCallback: registerCallback != null
+                      ? registerCallback
+                      : other.registerCallback,
+    registerUnaryCallback: registerUnaryCallback != null
+                       ? registerUnaryCallback
+                       : other.registerUnaryCallback,
+    registerBinaryCallback: registerBinaryCallback != null
+                       ? registerBinaryCallback
+                       : other.registerBinaryCallback,
+    errorCallback: errorCallback != null
+                       ? errorCallback
+                       : other.errorCallback,
+    scheduleMicrotask: scheduleMicrotask != null
+                       ? scheduleMicrotask
+                       : other.scheduleMicrotask,
+    createTimer : createTimer != null ? createTimer : other.createTimer,
+    createPeriodicTimer: createPeriodicTimer != null
+                         ? createPeriodicTimer
+                         : other.createPeriodicTimer,
+    print : print != null ? print : other.print,
+    fork: fork != null ? fork : other.fork);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -133,7 +194,7 @@ the ones in <code>other</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

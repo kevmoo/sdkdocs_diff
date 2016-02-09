@@ -58,6 +58,9 @@
             <span class="kind">method</span> openDatabase
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Window/openDatabase.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -276,10 +279,18 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <section class="multi-line-signature">
       <span class="returntype"><a href="dart-web_sql/SqlDatabase-class.html">SqlDatabase</a></span>
-      <span class="name ">openDatabase</span>(<wbr><span class="parameter" id="openDatabase-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>, <span class="parameter" id="openDatabase-param-version"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">version</span></span>, <span class="parameter" id="openDatabase-param-displayName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">displayName</span></span>, <span class="parameter" id="openDatabase-param-estimatedSize"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">estimatedSize</span></span>, [<span class="parameter" id="openDatabase-param-creationCallback"><span class="type-annotation"><a href="dart-html/DatabaseCallback.html">DatabaseCallback</a></span> <span class="parameter-name">creationCallback</span>(<span class="parameter" id="DatabaseCallback-param-database"><span class="type-annotation"><a href="dart-web_sql/SqlDatabase-class.html">SqlDatabase</a></span> <span class="parameter-name">database</span></span>)</span>])
+      <span class="name ">openDatabase</span>(<wbr><span class="parameter" id="openDatabase-param-name"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>, <span class="parameter" id="openDatabase-param-version"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">version</span></span>, <span class="parameter" id="openDatabase-param-displayName"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">displayName</span></span>, <span class="parameter" id="openDatabase-param-estimatedSize"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">estimatedSize</span></span>, [<span class="parameter" id="openDatabase-param-creationCallback"><span class="type-annotation">DatabaseCallback</span> <span class="parameter-name">creationCallback</span>(<span class="parameter" id="DatabaseCallback-param-database"><span class="type-annotation"><a href="dart-web_sql/SqlDatabase-class.html">SqlDatabase</a></span> <span class="parameter-name">database</span></span>)</span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">SqlDatabase openDatabase(String name, String version, String displayName, int estimatedSize, [DatabaseCallback creationCallback]) {
+  if (creationCallback != null) {
+    return wrap_jso(_blink.BlinkWindow.instance.openDatabase_Callback_5_(unwrap_jso(this), name, version, displayName, estimatedSize, unwrap_jso((database) =&gt; creationCallback(wrap_jso(database)))));
+  }
+  return wrap_jso(_blink.BlinkWindow.instance.openDatabase_Callback_4_(unwrap_jso(this), name, version, displayName, estimatedSize));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -291,7 +302,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

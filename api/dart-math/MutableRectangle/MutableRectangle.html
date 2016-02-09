@@ -58,6 +58,9 @@
             <span class="kind">constructor</span> MutableRectangle
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-math/MutableRectangle/MutableRectangle.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -130,7 +133,12 @@ If <code>width</code> or <code>height</code> are negative, they are clamped to z
 point <code>(left, top)</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">MutableRectangle(this.left, this.top, T width, T height)
+    : this._width = (width &lt; 0) ? _clampToZero(width) : width,
+      this._height = (height &lt; 0) ? _clampToZero(height) : height;</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -142,7 +150,7 @@ point <code>(left, top)</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

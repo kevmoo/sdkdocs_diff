@@ -58,6 +58,9 @@
             <span class="kind">method</span> insertAdjacentHtml
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/insertAdjacentHtml.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -400,7 +403,18 @@ print(createdElement.classes<code>0</code>); // Prints 'something'</p></li></ul>
 <p>See also:</p><ul><li><a href="dart-html/Element/insertAdjacentText.html">insertAdjacentText</a></li><li><a href="dart-html/Element/insertAdjacentElement.html">insertAdjacentElement</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void insertAdjacentHtml(String where, String html, {NodeValidator validator,
+    NodeTreeSanitizer treeSanitizer}) {
+    if (treeSanitizer is _TrustedHtmlTreeSanitizer) {
+      _insertAdjacentHtml(where, html);
+    } else {
+      _insertAdjacentNode(where, createFragment(html,
+          validator: validator, treeSanitizer: treeSanitizer));
+    }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -412,7 +426,7 @@ print(createdElement.classes<code>0</code>); // Prints 'something'</p></li></ul>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

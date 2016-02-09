@@ -58,6 +58,9 @@
             <span class="kind">method</span> every
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/IterableMixin/every.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -133,7 +136,15 @@
 any of them make <code>test</code> return <code>false</code>, otherwise returns <code>true</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool every(bool f(E element)) {
+  for (E element in this) {
+    if (!f(element)) return false;
+  }
+  return true;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -145,7 +156,7 @@ any of them make <code>test</code> return <code>false</code>, otherwise returns 
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

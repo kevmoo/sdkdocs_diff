@@ -58,6 +58,9 @@
             <span class="kind">method</span> toSet
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/toSet.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -151,7 +154,23 @@ element to the set, or use
 to create the set.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;Set&lt;T&gt;&gt; toSet() {
+  Set&lt;T&gt; result = new Set&lt;T&gt;();
+  _Future&lt;Set&lt;T&gt;&gt; future = new _Future&lt;Set&lt;T&gt;&gt;();
+  this.listen(
+    (T data) {
+      result.add(data);
+    },
+    onError: future._completeError,
+    onDone: () {
+      future._complete(result);
+    },
+    cancelOnError: true);
+  return future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -163,7 +182,7 @@ to create the set.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> convert
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/HtmlEscape/convert.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,13 @@
       <p>Converts <code>input</code> and returns the result of the conversion.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String convert(String text) {
+  var val = _convert(text, 0, text.length);
+  return val == null ? text : val;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +130,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

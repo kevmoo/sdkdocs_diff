@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> FontFace
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/FontFace/FontFace.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -117,7 +120,35 @@
     </section>
 
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;FontFace.FontFace&apos;)
+@DocsEditable()
+factory FontFace(String family, source, [Map descriptors]) {
+  if ((source is String || source == null) &amp;&amp; (family is String || family == null) &amp;&amp; descriptors == null) {
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_2_(family, source));
+  }
+  if ((descriptors is Map || descriptors == null) &amp;&amp; (source is String || source == null) &amp;&amp; (family is String || family == null)) {
+    var descriptors_1 = convertDartToNative_Dictionary(descriptors);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors_1));
+  }
+  if ((source is TypedData || source == null) &amp;&amp; (family is String || family == null) &amp;&amp; descriptors == null) {
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_2_(family, source));
+  }
+  if ((descriptors is Map || descriptors == null) &amp;&amp; (source is TypedData || source == null) &amp;&amp; (family is String || family == null)) {
+    var descriptors_1 = convertDartToNative_Dictionary(descriptors);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors_1));
+  }
+  if ((source is ByteBuffer || source == null) &amp;&amp; (family is String || family == null) &amp;&amp; descriptors == null) {
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_2_(family, source));
+  }
+  if ((descriptors is Map || descriptors == null) &amp;&amp; (source is ByteBuffer || source == null) &amp;&amp; (family is String || family == null)) {
+    var descriptors_1 = convertDartToNative_Dictionary(descriptors);
+    return wrap_jso(_blink.BlinkFontFace.instance.constructorCallback_3_(family, source, descriptors_1));
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -129,7 +160,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Element.html
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/Element.html.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -404,7 +407,16 @@ and remove all scriptable elements and attributes.</p>
 <p>See also:</p><ul><li><a href="dart-html/NodeValidator-class.html">NodeValidator</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Element.html(String html,
+    {NodeValidator validator, NodeTreeSanitizer treeSanitizer}) {
+  var fragment = document.body.createFragment(html, validator: validator,
+      treeSanitizer: treeSanitizer);
+
+  return fragment.nodes.where((e) =&gt; e is Element).single;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -416,7 +428,7 @@ and remove all scriptable elements and attributes.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

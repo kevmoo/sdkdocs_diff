@@ -58,6 +58,9 @@
             <span class="kind">method</span> append
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Node/append.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -156,7 +159,12 @@ current parent node, then added to this node.</p>
 way of appending a child node.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Node.appendChild&apos;)
+@DocsEditable()
+Node append(Node newChild) =&gt; wrap_jso(_blink.BlinkNode.instance.appendChild_Callback_1_(unwrap_jso(this), unwrap_jso(newChild)));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -168,7 +176,7 @@ way of appending a child node.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

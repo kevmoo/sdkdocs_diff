@@ -58,6 +58,9 @@
             <span class="kind">method</span> getStats
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/RtcPeerConnection/getStats.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -151,7 +154,15 @@
       <span class="name ">getStats</span>(<wbr><span class="parameter" id="getStats-param-selector"><span class="type-annotation"><a href="dart-html/MediaStreamTrack-class.html">MediaStreamTrack</a></span> <span class="parameter-name">selector</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;RTCPeerConnection.getStats&apos;)
+Future&lt;RtcStatsResponse&gt; getStats(MediaStreamTrack selector) {
+  var completer = new Completer&lt;RtcStatsResponse&gt;();
+  _getStats((value) { completer.complete(value); }, selector);
+  return completer.future;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -163,7 +174,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

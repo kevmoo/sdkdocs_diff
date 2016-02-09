@@ -58,6 +58,9 @@
             <span class="kind">method</span> toString
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/ArgumentError/toString.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -110,7 +113,22 @@
       <p>Returns a string representation of this object.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String toString() {
+  String nameString = &quot;&quot;;
+  if (name != null) {
+    nameString = &quot; ($name)&quot;;
+  }
+  var message = (this.message == null) ? &quot;&quot; : &quot;: ${this.message}&quot;;
+  String prefix = &quot;$_errorName$nameString$message&quot;;
+  if (!_hasValue) return prefix;
+  // If we know the invalid value, we can try to describe the problem.
+  String explanation = _errorExplanation;
+  String errorValue = Error.safeToString(invalidValue);
+  return &quot;$prefix$explanation: $errorValue&quot;;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -122,7 +140,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

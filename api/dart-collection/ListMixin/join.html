@@ -58,6 +58,9 @@
             <span class="kind">method</span> join
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/join.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -160,7 +163,14 @@ and then concatenates the strings, with the
 <code>separator</code> string interleaved between the elements.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">String join([String separator = &quot;&quot;]) {
+  if (length == 0) return &quot;&quot;;
+  StringBuffer buffer = new StringBuffer()..writeAll(this, separator);
+  return buffer.toString();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -172,7 +182,7 @@ and then concatenates the strings, with the
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

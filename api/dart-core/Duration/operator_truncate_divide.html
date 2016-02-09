@@ -58,6 +58,9 @@
             <span class="kind">method</span> operator ~/
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Duration/operator_truncate_divide.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -141,7 +144,15 @@ result as a new Duration object.</p>
 <p>Throws an <a href="dart-core/IntegerDivisionByZeroException-class.html">IntegerDivisionByZeroException</a> if <code>quotient</code> is <code>0</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Duration operator ~/(int quotient) {
+  // By doing the check here instead of relying on &quot;~/&quot; below we get the
+  // exception even with dart2js.
+  if (quotient == 0) throw new IntegerDivisionByZeroException();
+  return new Duration._microseconds(_duration ~/ quotient);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -153,7 +164,7 @@ result as a new Duration object.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

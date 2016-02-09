@@ -58,6 +58,9 @@
             <span class="kind">method</span> getComputedStyle
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Element/getComputedStyle.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -399,7 +402,16 @@ element.</p>
 <p>See also:</p><ul><li><a href="http://docs.webplatform.org/wiki/tutorials/inheritance_and_cascade">CSS Inheritance and Cascade</a></li><li><a href="http://docs.webplatform.org/wiki/css/selectors/pseudo-elements">Pseudo-elements</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">CssStyleDeclaration getComputedStyle([String pseudoElement]) {
+  if (pseudoElement == null) {
+    pseudoElement = &apos;&apos;;
+  }
+  // TODO(jacobr): last param should be null, see b/5045788
+  return window._getComputedStyle(this, pseudoElement);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -411,7 +423,7 @@ element.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

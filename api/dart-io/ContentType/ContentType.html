@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> ContentType
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/ContentType/ContentType.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -125,7 +128,14 @@ converted to lower case. The <code>charset</code> entry, whether passed as <code
 or in <code>parameters</code>, will have its value converted to lower-case.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory ContentType(String primaryType,
+                    String subType,
+                    {String charset, Map&lt;String, String&gt; parameters}) {
+  return new _ContentType(primaryType, subType, charset, parameters);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -137,7 +147,7 @@ or in <code>parameters</code>, will have its value converted to lower-case.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

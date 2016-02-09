@@ -58,6 +58,9 @@
             <span class="kind">method</span> setProperty
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-js/JsNative/setProperty.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -107,7 +110,12 @@
       <span class="name ">setProperty</span>(<wbr><span class="parameter" id="setProperty-param-o"><span class="parameter-name">o</span></span>, <span class="parameter" id="setProperty-param-name"><span class="parameter-name">name</span></span>, <span class="parameter" id="setProperty-param-value"><span class="parameter-name">value</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static setProperty(o, name, value) {
+  return unwrap_jso(o)._operator_setter(name, value);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -119,7 +127,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

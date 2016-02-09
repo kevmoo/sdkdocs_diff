@@ -58,6 +58,9 @@
             <span class="kind">method</span> queryUsageAndQuota
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DeprecatedStorageQuota/queryUsageAndQuota.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -103,10 +106,20 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <section class="multi-line-signature">
       <span class="returntype">void</span>
-      <span class="name ">queryUsageAndQuota</span>(<wbr><span class="parameter" id="queryUsageAndQuota-param-usageCallback"><span class="type-annotation"><a href="dart-html/StorageUsageCallback.html">StorageUsageCallback</a></span> <span class="parameter-name">usageCallback</span>(<span class="parameter" id="StorageUsageCallback-param-currentUsageInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">currentUsageInBytes</span></span>, <span class="parameter" id="StorageUsageCallback-param-currentQuotaInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">currentQuotaInBytes</span></span>)</span>, [<span class="parameter" id="queryUsageAndQuota-param-errorCallback"><span class="type-annotation"><a href="dart-html/StorageErrorCallback.html">StorageErrorCallback</a></span> <span class="parameter-name">errorCallback</span>(<span class="parameter" id="StorageErrorCallback-param-error"><span class="type-annotation"><a href="dart-html/DomError-class.html">DomError</a></span> <span class="parameter-name">error</span></span>)</span>])
+      <span class="name ">queryUsageAndQuota</span>(<wbr><span class="parameter" id="queryUsageAndQuota-param-usageCallback"><span class="type-annotation">StorageUsageCallback</span> <span class="parameter-name">usageCallback</span>(<span class="parameter" id="StorageUsageCallback-param-currentUsageInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">currentUsageInBytes</span></span>, <span class="parameter" id="StorageUsageCallback-param-currentQuotaInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">currentQuotaInBytes</span></span>)</span>, [<span class="parameter" id="queryUsageAndQuota-param-errorCallback"><span class="type-annotation">StorageErrorCallback</span> <span class="parameter-name">errorCallback</span>(<span class="parameter" id="StorageErrorCallback-param-error"><span class="type-annotation"><a href="dart-html/DomError-class.html">DomError</a></span> <span class="parameter-name">error</span></span>)</span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void queryUsageAndQuota(StorageUsageCallback usageCallback, [StorageErrorCallback errorCallback]) {
+  if (errorCallback != null) {
+    _blink.BlinkDeprecatedStorageQuota.instance.queryUsageAndQuota_Callback_2_(unwrap_jso(this), unwrap_jso((currentUsageInBytes, currentQuotaInBytes) =&gt; usageCallback(currentUsageInBytes, currentQuotaInBytes)), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))));
+    return;
+  }
+  _blink.BlinkDeprecatedStorageQuota.instance.queryUsageAndQuota_Callback_1_(unwrap_jso(this), unwrap_jso((currentUsageInBytes, currentQuotaInBytes) =&gt; usageCallback(currentUsageInBytes, currentQuotaInBytes)));
+  return;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -118,7 +131,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

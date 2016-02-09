@@ -58,6 +58,9 @@
             <span class="kind">method</span> reduce
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListMixin/reduce.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -171,7 +174,21 @@ return value;
 </code></pre>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">E reduce(E combine(E previousValue, E element)) {
+  int length = this.length;
+  if (length == 0) throw IterableElementError.noElement();
+  E value = this[0];
+  for (int i = 1; i &lt; length; i++) {
+    value = combine(value, this[i]);
+    if (length != this.length) {
+      throw new ConcurrentModificationError(this);
+    }
+  }
+  return value;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -183,7 +200,7 @@ return value;
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

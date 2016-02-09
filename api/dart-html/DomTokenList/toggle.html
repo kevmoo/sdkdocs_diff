@@ -58,6 +58,9 @@
             <span class="kind">method</span> toggle
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DomTokenList/toggle.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -110,7 +113,15 @@
       <span class="name ">toggle</span>(<wbr><span class="parameter" id="toggle-param-token"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">token</span></span>, [<span class="parameter" id="toggle-param-force"><span class="type-annotation"><a href="dart-core/bool-class.html">bool</a></span> <span class="parameter-name">force</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool toggle(String token, [bool force]) {
+  if (force != null) {
+    return _blink.BlinkDOMTokenList.instance.toggle_Callback_2_(unwrap_jso(this), token, force);
+  }
+  return _blink.BlinkDOMTokenList.instance.toggle_Callback_1_(unwrap_jso(this), token);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -122,7 +133,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

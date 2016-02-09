@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> StreamController.broadcast
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/StreamController/StreamController.broadcast.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -154,7 +157,16 @@ If a listener is added again later, after the <code>onCancel</code> was called,
 the <code>onListen</code> will be called again.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory StreamController.broadcast({void onListen(),
+                                    void onCancel(),
+                                    bool sync: false}) {
+  return sync
+      ? new _SyncBroadcastStreamController&lt;T&gt;(onListen, onCancel)
+      : new _AsyncBroadcastStreamController&lt;T&gt;(onListen, onCancel);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -166,7 +178,7 @@ the <code>onListen</code> will be called again.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

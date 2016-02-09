@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Stream.periodic
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/Stream.periodic.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -152,7 +155,64 @@ every event.</p>
 <p>If <code>computation</code> is omitted the event values will all be <code>null</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Stream.periodic(Duration period,
+                        [T computation(int computationCount)]) {
+  Timer timer;
+  int computationCount = 0;
+  StreamController&lt;T&gt; controller;
+  // Counts the time that the Stream was running (and not paused).
+  Stopwatch watch = new Stopwatch();
+
+  void sendEvent() {
+    watch.reset();
+    T data;
+    if (computation != null) {
+      try {
+        data = computation(computationCount++);
+      } catch (e, s) {
+        controller.addError(e, s);
+        return;
+      }
+    }
+    controller.add(data);
+  }
+
+  void startPeriodicTimer() {
+    assert(timer == null);
+    timer = new Timer.periodic(period, (Timer timer) {
+      sendEvent();
+    });
+  }
+
+  controller = new StreamController&lt;T&gt;(sync: true,
+      onListen: () {
+        watch.start();
+        startPeriodicTimer();
+      },
+      onPause: () {
+        timer.cancel();
+        timer = null;
+        watch.stop();
+      },
+      onResume: () {
+        assert(timer == null);
+        Duration elapsed = watch.elapsed;
+        watch.start();
+        timer = new Timer(period - elapsed, () {
+          timer = null;
+          startPeriodicTimer();
+          sendEvent();
+        });
+      },
+      onCancel: () {
+        if (timer != null) timer.cancel();
+        timer = null;
+      });
+  return controller.stream;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -164,7 +224,7 @@ every event.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> parse
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/Uri/parse.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -153,7 +156,256 @@ to <code>end</code> is parsed as a URI.</p>
 a <a href="dart-core/FormatException-class.html">FormatException</a> is thrown.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Uri parse(String uri, [int start = 0, int end]) {
+  // This parsing will not validate percent-encoding, IPv6, etc.
+  // When done splitting into parts, it will call, e.g., [_makeFragment]
+  // to do the final parsing.
+  //
+  // Important parts of the RFC 3986 used here:
+  // URI           = scheme &quot;:&quot; hier-part [ &quot;?&quot; query ] [ &quot;#&quot; fragment ]
+  //
+  // hier-part     = &quot;//&quot; authority path-abempty
+  //               / path-absolute
+  //               / path-rootless
+  //               / path-empty
+  //
+  // URI-reference = URI / relative-ref
+  //
+  // absolute-URI  = scheme &quot;:&quot; hier-part [ &quot;?&quot; query ]
+  //
+  // relative-ref  = relative-part [ &quot;?&quot; query ] [ &quot;#&quot; fragment ]
+  //
+  // relative-part = &quot;//&quot; authority path-abempty
+  //               / path-absolute
+  //               / path-noscheme
+  //               / path-empty
+  //
+  // scheme        = ALPHA *( ALPHA / DIGIT / &quot;+&quot; / &quot;-&quot; / &quot;.&quot; )
+  //
+  // authority     = [ userinfo &quot;@&quot; ] host [ &quot;:&quot; port ]
+  // userinfo      = *( unreserved / pct-encoded / sub-delims / &quot;:&quot; )
+  // host          = IP-literal / IPv4address / reg-name
+  // port          = *DIGIT
+  // reg-name      = *( unreserved / pct-encoded / sub-delims )
+  //
+  // path          = path-abempty    ; begins with &quot;/&quot; or is empty
+  //               / path-absolute   ; begins with &quot;/&quot; but not &quot;//&quot;
+  //               / path-noscheme   ; begins with a non-colon segment
+  //               / path-rootless   ; begins with a segment
+  //               / path-empty      ; zero characters
+  //
+  // path-abempty  = *( &quot;/&quot; segment )
+  // path-absolute = &quot;/&quot; [ segment-nz *( &quot;/&quot; segment ) ]
+  // path-noscheme = segment-nz-nc *( &quot;/&quot; segment )
+  // path-rootless = segment-nz *( &quot;/&quot; segment )
+  // path-empty    = 0&lt;pchar&gt;
+  //
+  // segment       = *pchar
+  // segment-nz    = 1*pchar
+  // segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / &quot;@&quot; )
+  //               ; non-zero-length segment without any colon &quot;:&quot;
+  //
+  // pchar         = unreserved / pct-encoded / sub-delims / &quot;:&quot; / &quot;@&quot;
+  //
+  // query         = *( pchar / &quot;/&quot; / &quot;?&quot; )
+  //
+  // fragment      = *( pchar / &quot;/&quot; / &quot;?&quot; )
+  const int EOI = -1;
+
+  String scheme = &quot;&quot;;
+  String userinfo = &quot;&quot;;
+  String host = null;
+  int port = null;
+  String path = null;
+  String query = null;
+  String fragment = null;
+  if (end == null) end = uri.length;
+
+  int index = start;
+  int pathStart = start;
+  // End of input-marker.
+  int char = EOI;
+
+  void parseAuth() {
+    if (index == end) {
+      char = EOI;
+      return;
+    }
+    int authStart = index;
+    int lastColon = -1;
+    int lastAt = -1;
+    char = uri.codeUnitAt(index);
+    while (index &lt; end) {
+      char = uri.codeUnitAt(index);
+      if (char == _SLASH || char == _QUESTION || char == _NUMBER_SIGN) {
+        break;
+      }
+      if (char == _AT_SIGN) {
+        lastAt = index;
+        lastColon = -1;
+      } else if (char == _COLON) {
+        lastColon = index;
+      } else if (char == _LEFT_BRACKET) {
+        lastColon = -1;
+        int endBracket = uri.indexOf(&apos;]&apos;, index + 1);
+        if (endBracket == -1) {
+          index = end;
+          char = EOI;
+          break;
+        } else {
+          index = endBracket;
+        }
+      }
+      index++;
+      char = EOI;
+    }
+    int hostStart = authStart;
+    int hostEnd = index;
+    if (lastAt &gt;= 0) {
+      userinfo = _makeUserInfo(uri, authStart, lastAt);
+      hostStart = lastAt + 1;
+    }
+    if (lastColon &gt;= 0) {
+      int portNumber;
+      if (lastColon + 1 &lt; index) {
+        portNumber = 0;
+        for (int i = lastColon + 1; i &lt; index; i++) {
+          int digit = uri.codeUnitAt(i);
+          if (_ZERO &gt; digit || _NINE &lt; digit) {
+            _fail(uri, i, &quot;Invalid port number&quot;);
+          }
+          portNumber = portNumber * 10 + (digit - _ZERO);
+        }
+      }
+      port = _makePort(portNumber, scheme);
+      hostEnd = lastColon;
+    }
+    host = _makeHost(uri, hostStart, hostEnd, true);
+    if (index &lt; end) {
+      char = uri.codeUnitAt(index);
+    }
+  }
+
+  // When reaching path parsing, the current character is known to not
+  // be part of the path.
+  const int NOT_IN_PATH = 0;
+  // When reaching path parsing, the current character is part
+  // of the a non-empty path.
+  const int IN_PATH = 1;
+  // When reaching authority parsing, authority is possible.
+  // This is only true at start or right after scheme.
+  const int ALLOW_AUTH = 2;
+
+  // Current state.
+  // Initialized to the default value that is used when exiting the
+  // scheme loop by reaching the end of input.
+  // All other breaks set their own state.
+  int state = NOT_IN_PATH;
+  int i = index;  // Temporary alias for index to avoid bug 19550 in dart2js.
+  while (i &lt; end) {
+    char = uri.codeUnitAt(i);
+    if (char == _QUESTION || char == _NUMBER_SIGN) {
+      state = NOT_IN_PATH;
+      break;
+    }
+    if (char == _SLASH) {
+      state = (i == start) ? ALLOW_AUTH : IN_PATH;
+      break;
+    }
+    if (char == _COLON) {
+      if (i == start) _fail(uri, start, &quot;Invalid empty scheme&quot;);
+      scheme = _makeScheme(uri, start, i);
+      i++;
+      pathStart = i;
+      if (i == end) {
+        char = EOI;
+        state = NOT_IN_PATH;
+      } else {
+        char = uri.codeUnitAt(i);
+        if (char == _QUESTION || char == _NUMBER_SIGN) {
+          state = NOT_IN_PATH;
+        } else if (char == _SLASH) {
+          state = ALLOW_AUTH;
+        } else {
+          state = IN_PATH;
+        }
+      }
+      break;
+    }
+    i++;
+    char = EOI;
+  }
+  index = i;  // Remove alias when bug is fixed.
+
+  if (state == ALLOW_AUTH) {
+    assert(char == _SLASH);
+    // Have seen one slash either at start or right after scheme.
+    // If two slashes, it&apos;s an authority, otherwise it&apos;s just the path.
+    index++;
+    if (index == end) {
+      char = EOI;
+      state = NOT_IN_PATH;
+    } else {
+      char = uri.codeUnitAt(index);
+      if (char == _SLASH) {
+        index++;
+        parseAuth();
+        pathStart = index;
+      }
+      if (char == _QUESTION || char == _NUMBER_SIGN || char == EOI) {
+        state = NOT_IN_PATH;
+      } else {
+        state = IN_PATH;
+      }
+    }
+  }
+
+  assert(state == IN_PATH || state == NOT_IN_PATH);
+  if (state == IN_PATH) {
+    // Characters from pathStart to index (inclusive) are known
+    // to be part of the path.
+    while (++index &lt; end) {
+      char = uri.codeUnitAt(index);
+      if (char == _QUESTION || char == _NUMBER_SIGN) {
+        break;
+      }
+      char = EOI;
+    }
+    state = NOT_IN_PATH;
+  }
+
+  assert(state == NOT_IN_PATH);
+  bool hasAuthority = (host != null);
+  path = _makePath(uri, pathStart, index, null, scheme, hasAuthority);
+
+  if (char == _QUESTION) {
+    int numberSignIndex = -1;
+    for (int i = index + 1; i &lt; end; i++) {
+      if (uri.codeUnitAt(i) == _NUMBER_SIGN) {
+        numberSignIndex = i;
+        break;
+      }
+    }
+    if (numberSignIndex &lt; 0) {
+      query = _makeQuery(uri, index + 1, end, null);
+    } else {
+      query = _makeQuery(uri, index + 1, numberSignIndex, null);
+      fragment = _makeFragment(uri, numberSignIndex + 1, end);
+    }
+  } else if (char == _NUMBER_SIGN) {
+    fragment = _makeFragment(uri, index + 1, end);
+  }
+  return new Uri._internal(scheme,
+                           userinfo,
+                           host,
+                           port,
+                           path,
+                           query,
+                           fragment);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -165,7 +417,7 @@ a <a href="dart-core/FormatException-class.html">FormatException</a> is thrown.<
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

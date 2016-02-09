@@ -58,6 +58,9 @@
             <span class="kind">method</span> boundingBox
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-math/MutableRectangle/boundingBox.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -120,7 +123,18 @@
       <p>Returns a new rectangle which completely contains <code>this</code> and <code>other</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Rectangle&lt;T&gt; boundingBox(Rectangle&lt;T&gt; other) {
+  var right = max(this.left + this.width, other.left + other.width);
+  var bottom = max(this.top + this.height, other.top + other.height);
+
+  var left = min(this.left, other.left);
+  var top = min(this.top, other.top);
+
+  return new Rectangle&lt;T&gt;(left, top, right - left, bottom - top);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -132,7 +146,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

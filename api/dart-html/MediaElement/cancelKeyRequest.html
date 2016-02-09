@@ -58,6 +58,9 @@
             <span class="kind">method</span> cancelKeyRequest
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/MediaElement/cancelKeyRequest.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -356,7 +359,16 @@
       <span class="name ">cancelKeyRequest</span>(<wbr><span class="parameter" id="cancelKeyRequest-param-keySystem"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">keySystem</span></span>, <span class="parameter" id="cancelKeyRequest-param-sessionId"><span class="type-annotation"><a href="dart-core/String-class.html">String</a></span> <span class="parameter-name">sessionId</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;HTMLMediaElement.webkitCancelKeyRequest&apos;)
+@DocsEditable()
+@SupportedBrowser(SupportedBrowser.CHROME)
+@SupportedBrowser(SupportedBrowser.SAFARI)
+@Experimental()
+// https://dvcs.w3.org/hg/html-media/raw-file/eme-v0.1/encrypted-media/encrypted-media.html#extensions
+void cancelKeyRequest(String keySystem, String sessionId) =&gt; _blink.BlinkHTMLMediaElement.instance.webkitCancelKeyRequest_Callback_2_(unwrap_jso(this), keySystem, sessionId);</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -368,7 +380,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

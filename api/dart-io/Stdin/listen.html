@@ -58,6 +58,9 @@
             <span class="kind">method</span> listen
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/Stdin/listen.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -154,7 +157,19 @@ Otherwise it is called with just the error object.</p>
 the first error is reported. The default is false.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">StreamSubscription&lt;List&lt;int&gt;&gt; listen(void onData(List&lt;int&gt; event),
+                                     {Function onError,
+                                      void onDone(),
+                                      bool cancelOnError}) {
+  return _stream.listen(
+      onData,
+      onError: onError,
+      onDone: onDone,
+      cancelOnError: cancelOnError);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -166,7 +181,7 @@ the first error is reported. The default is false.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

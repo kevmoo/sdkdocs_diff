@@ -58,6 +58,9 @@
             <span class="kind">method</span> remove
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListQueue/remove.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -144,7 +147,20 @@
 contained no element equal to <code>value</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool remove(Object value) {
+  for (int i = _head; i != _tail; i = (i + 1) &amp; (_table.length - 1)) {
+    E element = _table[i];
+    if (element == value) {
+      _remove(i);
+      _modificationCount++;
+      return true;
+    }
+  }
+  return false;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -156,7 +172,7 @@ contained no element equal to <code>value</code>.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

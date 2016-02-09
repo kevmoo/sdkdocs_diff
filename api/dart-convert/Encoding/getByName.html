@@ -58,6 +58,9 @@
             <span class="kind">method</span> getByName
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/Encoding/getByName.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -119,7 +122,14 @@ http://www.iana.org/assignments/character-sets/character-sets.xml).</p>
 <p>If character set is not supported <code>null</code> is returned.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Encoding getByName(String name) {
+  if (name == null) return null;
+  name = name.toLowerCase();
+  return _nameToEncoding[name];
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -131,7 +141,7 @@ http://www.iana.org/assignments/character-sets/character-sets.xml).</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> Future.error
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Future/Future.error.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -123,7 +126,20 @@
 <p>Use <a href="dart-async/Completer-class.html">Completer</a> to create a future and complete it later.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory Future.error(Object error, [StackTrace stackTrace]) {
+  error = _nonNullError(error);
+  if (!identical(Zone.current, _ROOT_ZONE)) {
+    AsyncError replacement = Zone.current.errorCallback(error, stackTrace);
+    if (replacement != null) {
+      error = _nonNullError(replacement.error);
+      stackTrace = replacement.stackTrace;
+    }
+  }
+  return new _Future&lt;T&gt;.immediateError(error, stackTrace);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -135,7 +151,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">factory constructor</span> ListQueue.from
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-collection/ListQueue/ListQueue.from.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -147,7 +150,30 @@
 <p>All <code>elements</code> should be assignable to <code>E</code>.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">factory ListQueue.from(Iterable elements) {
+  if (elements is List) {
+    int length = elements.length;
+    ListQueue&lt;E&gt; queue = new ListQueue(length + 1);
+    assert(queue._table.length &gt; length);
+    List sourceList = elements;
+    queue._table.setRange(0, length, sourceList, 0);
+    queue._tail = length;
+    return queue;
+  } else {
+    int capacity = _INITIAL_CAPACITY;
+    if (elements is EfficientLength) {
+      capacity = elements.length;
+    }
+    ListQueue&lt;E&gt; result = new ListQueue&lt;E&gt;(capacity);
+    for (final E element in elements) {
+      result.addLast(element);
+    }
+    return result;
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -159,7 +185,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> reset
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/RuneIterator/reset.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -118,7 +121,15 @@ or <a href="dart-core/RuneIterator/movePrevious.html">movePrevious</a> for the l
 is an error. So is setting it in the middle of a surrogate pair.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void reset([int rawIndex = 0]) {
+  RangeError.checkValueInInterval(rawIndex, 0, string.length, &quot;rawIndex&quot;);
+  _checkSplitSurrogate(rawIndex);
+  _position = _nextPosition = rawIndex;
+  _currentCodePoint = null;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -130,7 +141,7 @@ is an error. So is setting it in the middle of a surrogate pair.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

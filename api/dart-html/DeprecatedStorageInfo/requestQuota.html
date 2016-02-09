@@ -58,6 +58,9 @@
             <span class="kind">method</span> requestQuota
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/DeprecatedStorageInfo/requestQuota.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -106,10 +109,24 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <section class="multi-line-signature">
       <span class="returntype">void</span>
-      <span class="name ">requestQuota</span>(<wbr><span class="parameter" id="requestQuota-param-storageType"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">storageType</span></span>, <span class="parameter" id="requestQuota-param-newQuotaInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">newQuotaInBytes</span></span>, [<span class="parameter" id="requestQuota-param-quotaCallback"><span class="type-annotation"><a href="dart-html/StorageQuotaCallback.html">StorageQuotaCallback</a></span> <span class="parameter-name">quotaCallback</span>(<span class="parameter" id="StorageQuotaCallback-param-grantedQuotaInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">grantedQuotaInBytes</span></span>)</span>, <span class="parameter" id="requestQuota-param-errorCallback"><span class="type-annotation"><a href="dart-html/StorageErrorCallback.html">StorageErrorCallback</a></span> <span class="parameter-name">errorCallback</span>(<span class="parameter" id="StorageErrorCallback-param-error"><span class="type-annotation"><a href="dart-html/DomError-class.html">DomError</a></span> <span class="parameter-name">error</span></span>)</span>])
+      <span class="name ">requestQuota</span>(<wbr><span class="parameter" id="requestQuota-param-storageType"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">storageType</span></span>, <span class="parameter" id="requestQuota-param-newQuotaInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">newQuotaInBytes</span></span>, [<span class="parameter" id="requestQuota-param-quotaCallback"><span class="type-annotation">StorageQuotaCallback</span> <span class="parameter-name">quotaCallback</span>(<span class="parameter" id="StorageQuotaCallback-param-grantedQuotaInBytes"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">grantedQuotaInBytes</span></span>)</span>, <span class="parameter" id="requestQuota-param-errorCallback"><span class="type-annotation">StorageErrorCallback</span> <span class="parameter-name">errorCallback</span>(<span class="parameter" id="StorageErrorCallback-param-error"><span class="type-annotation"><a href="dart-html/DomError-class.html">DomError</a></span> <span class="parameter-name">error</span></span>)</span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void requestQuota(int storageType, int newQuotaInBytes, [StorageQuotaCallback quotaCallback, StorageErrorCallback errorCallback]) {
+  if (errorCallback != null) {
+    _blink.BlinkDeprecatedStorageInfo.instance.requestQuota_Callback_4_(unwrap_jso(this), storageType, newQuotaInBytes, unwrap_jso((grantedQuotaInBytes) =&gt; quotaCallback(grantedQuotaInBytes)), unwrap_jso((error) =&gt; errorCallback(wrap_jso(error))));
+    return;
+  }
+  if (quotaCallback != null) {
+    _blink.BlinkDeprecatedStorageInfo.instance.requestQuota_Callback_3_(unwrap_jso(this), storageType, newQuotaInBytes, unwrap_jso((grantedQuotaInBytes) =&gt; quotaCallback(grantedQuotaInBytes)));
+    return;
+  }
+  _blink.BlinkDeprecatedStorageInfo.instance.requestQuota_Callback_2_(unwrap_jso(this), storageType, newQuotaInBytes);
+  return;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +138,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -58,6 +58,9 @@
             <span class="kind">method</span> join
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-async/Stream/join.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -151,7 +154,35 @@ error. Otherwise it completes with the collected string when
 the "done" event arrives.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">Future&lt;String&gt; join([String separator = &quot;&quot;]) {
+  _Future&lt;String&gt; result = new _Future&lt;String&gt;();
+  StringBuffer buffer = new StringBuffer();
+  StreamSubscription subscription;
+  bool first = true;
+  subscription = this.listen(
+    (T element) {
+      if (!first) {
+        buffer.write(separator);
+      }
+      first = false;
+      try {
+        buffer.write(element);
+      } catch (e, s) {
+        _cancelAndErrorWithReplacement(subscription, result, e, s);
+      }
+    },
+    onError: (e) {
+      result._completeError(e);
+    },
+    onDone: () {
+      result._complete(buffer.toString());
+    },
+    cancelOnError: true);
+  return result;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -163,7 +194,7 @@ the "done" event arrives.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

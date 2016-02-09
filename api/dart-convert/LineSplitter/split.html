@@ -58,6 +58,9 @@
             <span class="kind">method</span> split
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/LineSplitter/split.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -114,7 +117,30 @@ specify a valid sub-range of <code>lines</code>
 (<code>0 &lt;= start &lt;= end &lt;= lines.length</code>).</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Iterable&lt;String&gt; split(String lines, [int start = 0, int end]) sync* {
+  end = RangeError.checkValidRange(start, end, lines.length);
+  int sliceStart = start;
+  int char = 0;
+  for (int i = start; i &lt; end; i++) {
+    int previousChar = char;
+    char = lines.codeUnitAt(i);
+    if (char != _CR) {
+      if (char != _LF) continue;
+      if (previousChar == _CR) {
+        sliceStart = i + 1;
+        continue;
+      }
+    }
+    yield lines.substring(sliceStart, i);
+    sliceStart = i + 1;
+  }
+  if (sliceStart &lt; end) {
+    yield lines.substring(sliceStart, end);
+  }
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -126,7 +152,7 @@ specify a valid sub-range of <code>lines</code>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

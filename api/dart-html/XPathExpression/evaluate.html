@@ -58,6 +58,9 @@
             <span class="kind">method</span> evaluate
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/XPathExpression/evaluate.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -111,7 +114,12 @@
       <span class="name ">evaluate</span>(<wbr><span class="parameter" id="evaluate-param-contextNode"><span class="type-annotation"><a href="dart-html/Node-class.html">Node</a></span> <span class="parameter-name">contextNode</span></span>, <span class="parameter" id="evaluate-param-type"><span class="type-annotation"><a href="dart-core/int-class.html">int</a></span> <span class="parameter-name">type</span></span>, <span class="parameter" id="evaluate-param-inResult"><span class="type-annotation"><a class="deprecated" href="dart-html/XPathResult-class.html">XPathResult</a></span> <span class="parameter-name">inResult</span></span>)
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;XPathExpression.evaluate&apos;)
+@DocsEditable()
+XPathResult evaluate(Node contextNode, int type, XPathResult inResult) =&gt; wrap_jso(_blink.BlinkXPathExpression.instance.evaluate_Callback_3_(unwrap_jso(this), unwrap_jso(contextNode), type, unwrap_jso(inResult)));</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -123,7 +131,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

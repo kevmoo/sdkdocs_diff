@@ -58,6 +58,9 @@
             <span class="kind">method</span> postFormData
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/HttpRequest/postFormData.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -170,7 +173,32 @@ HttpRequest.postFormData('/send', data).then((HttpRequest resp) {
 <p>See also:</p><ul><li><a href="dart-html/HttpRequest/request.html">request</a></li></ul>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static Future&lt;HttpRequest&gt; postFormData(String url, Map&lt;String, String&gt; data,
+    {bool withCredentials, String responseType,
+    Map&lt;String, String&gt; requestHeaders,
+    void onProgress(ProgressEvent e)}) {
+
+  var parts = [];
+  data.forEach((key, value) {
+    parts.add(&apos;${Uri.encodeQueryComponent(key)}=&apos;
+        &apos;${Uri.encodeQueryComponent(value)}&apos;);
+  });
+  var formData = parts.join(&apos;&amp;&apos;);
+
+  if (requestHeaders == null) {
+    requestHeaders = &lt;String, String&gt;{};
+  }
+  requestHeaders.putIfAbsent(&apos;Content-Type&apos;,
+      () =&gt; &apos;application/x-www-form-urlencoded; charset=UTF-8&apos;);
+
+  return request(url, method: &apos;POST&apos;, withCredentials: withCredentials,
+      responseType: responseType,
+      requestHeaders: requestHeaders, sendData: formData,
+      onProgress: onProgress);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -182,7 +210,7 @@ HttpRequest.postFormData('/send', data).then((HttpRequest resp) {
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

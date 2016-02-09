@@ -58,6 +58,9 @@
             <span class="kind">method</span> pass
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-developer/TimelineTask/pass.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -110,7 +113,18 @@
 stack is not empty.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">int pass() {
+  if (_stack.length &gt; 0) {
+    throw new StateError(
+        &apos;You cannot pass a TimelineTask without finishing all started &apos;
+        &apos;operations&apos;);
+  }
+  int r = _taskId;
+  return r;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -122,7 +136,7 @@ stack is not empty.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

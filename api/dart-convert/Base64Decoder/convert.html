@@ -58,6 +58,9 @@
             <span class="kind">method</span> convert
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-convert/Base64Decoder/convert.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -108,7 +111,17 @@
       <p>Converts <code>input</code> and returns the result of the conversion.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">List&lt;int&gt; convert(String input, [int start = 0, int end]) {
+  end = RangeError.checkValidRange(start, end, input.length);
+  if (start == end) return new Uint8List(0);
+  var decoder = new _Base64Decoder();
+  Uint8List buffer = decoder.decode(input, start, end);
+  decoder.close(input, end);
+  return buffer;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -120,7 +133,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

@@ -56,6 +56,9 @@
             <span class="kind">function</span> postEvent
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-developer/postEvent.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,23 @@
 event stream.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void postEvent(String eventKind, Map eventData) {
+  if (eventKind is! String) {
+    throw new ArgumentError.value(eventKind,
+                                  &apos;eventKind&apos;,
+                                  &apos;Must be a String&apos;);
+  }
+  if (eventData is! Map) {
+    throw new ArgumentError.value(eventData,
+                                  &apos;eventData&apos;,
+                                  &apos;Must be a Map&apos;);
+  }
+  String eventDataAsString = JSON.encode(eventData);
+  _postEvent(eventKind, eventDataAsString);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +140,7 @@ event stream.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

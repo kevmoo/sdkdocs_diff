@@ -58,6 +58,9 @@
             <span class="kind">method</span> instantSync
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-developer/Timeline/instantSync.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -111,7 +114,24 @@
       <p>Emit an instant event.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static void instantSync(String name, {Map arguments}) {
+  if (name is! String) {
+    throw new ArgumentError.value(name,
+                                  &apos;name&apos;,
+                                  &apos;Must be a String&apos;);
+  }
+  Map instantArguments;
+  if (arguments is Map) {
+    instantArguments = new Map.from(arguments);
+  }
+  _reportInstantEvent(_getTraceClock(),
+                      &apos;Dart&apos;,
+                      name,
+                      _argumentsAsJson(instantArguments));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -123,7 +143,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

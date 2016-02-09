@@ -58,6 +58,9 @@
             <span class="kind">method</span> requestAnimationFrame
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/Window/requestAnimationFrame.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -281,7 +284,7 @@
         </ol>
       </div>
       <span class="returntype"><a href="dart-core/int-class.html">int</a></span>
-      <span class="name ">requestAnimationFrame</span>(<wbr><span class="parameter" id="requestAnimationFrame-param-callback"><span class="type-annotation"><a href="dart-html/RequestAnimationFrameCallback.html">RequestAnimationFrameCallback</a></span> <span class="parameter-name">callback</span>(<span class="parameter" id="RequestAnimationFrameCallback-param-highResTime"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">highResTime</span></span>)</span>)
+      <span class="name ">requestAnimationFrame</span>(<wbr><span class="parameter" id="requestAnimationFrame-param-callback"><span class="type-annotation">RequestAnimationFrameCallback</span> <span class="parameter-name">callback</span>(<span class="parameter" id="RequestAnimationFrameCallback-param-highResTime"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">highResTime</span></span>)</span>)
     </section>
     <section class="desc markdown">
       <p>Called to draw an animation frame and then request the window to repaint
@@ -297,7 +300,13 @@ cancel.</p>
 for the animation to continue.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">@DomName(&apos;Window.requestAnimationFrame&apos;)
+int requestAnimationFrame(RequestAnimationFrameCallback callback) {
+  return _requestAnimationFrame(_wrapZone(callback));
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -309,7 +318,7 @@ for the animation to continue.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

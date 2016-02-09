@@ -58,6 +58,9 @@
             <span class="kind">method</span> moveNext
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-core/RuneIterator/moveNext.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -120,7 +123,29 @@ In this case <code>moveNext</code> returns false again and has no effect.</p>
 changing the underlying collection.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">bool moveNext() {
+  _position = _nextPosition;
+  if (_position == string.length) {
+    _currentCodePoint = null;
+    return false;
+  }
+  int codeUnit = string.codeUnitAt(_position);
+  int nextPosition = _position + 1;
+  if (_isLeadSurrogate(codeUnit) &amp;&amp; nextPosition &lt; string.length) {
+    int nextCodeUnit = string.codeUnitAt(nextPosition);
+    if (_isTrailSurrogate(nextCodeUnit)) {
+      _nextPosition = nextPosition + 1;
+      _currentCodePoint = _combineSurrogatePair(codeUnit, nextCodeUnit);
+      return true;
+    }
+  }
+  _nextPosition = nextPosition;
+  _currentCodePoint = codeUnit;
+  return true;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -132,7 +157,7 @@ changing the underlying collection.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

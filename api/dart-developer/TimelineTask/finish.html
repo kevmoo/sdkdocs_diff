@@ -58,6 +58,9 @@
             <span class="kind">method</span> finish
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-developer/TimelineTask/finish.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -109,7 +112,18 @@
       <p>Finish the last synchronous operation that was started.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void finish() {
+  if (_stack.length == 0) {
+    throw new StateError(
+        &apos;Uneven calls to start and finish&apos;);
+  }
+  // Pop top item off of stack.
+  var block = _stack.removeLast();
+  block._finish();
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -121,7 +135,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

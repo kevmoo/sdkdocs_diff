@@ -58,6 +58,9 @@
             <span class="kind">method</span> putImageData
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-html/CanvasRenderingContext2D/putImageData.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -179,7 +182,20 @@
       <span class="name ">putImageData</span>(<wbr><span class="parameter" id="putImageData-param-imagedata"><span class="type-annotation"><a href="dart-html/ImageData-class.html">ImageData</a></span> <span class="parameter-name">imagedata</span></span>, <span class="parameter" id="putImageData-param-dx"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">dx</span></span>, <span class="parameter" id="putImageData-param-dy"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">dy</span></span>, [<span class="parameter" id="putImageData-param-dirtyX"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">dirtyX</span></span>, <span class="parameter" id="putImageData-param-dirtyY"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">dirtyY</span></span>, <span class="parameter" id="putImageData-param-dirtyWidth"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">dirtyWidth</span></span>, <span class="parameter" id="putImageData-param-dirtyHeight"><span class="type-annotation"><a href="dart-core/num-class.html">num</a></span> <span class="parameter-name">dirtyHeight</span></span>])
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">void putImageData(ImageData imagedata, num dx, num dy, [num dirtyX, num dirtyY, num dirtyWidth, num dirtyHeight]) {
+  if ((dy is num) &amp;&amp; (dx is num) &amp;&amp; (imagedata is ImageData) &amp;&amp; dirtyX == null &amp;&amp; dirtyY == null &amp;&amp; dirtyWidth == null &amp;&amp; dirtyHeight == null) {
+    _blink.BlinkCanvasRenderingContext2D.instance.putImageData_Callback_3_(unwrap_jso(this), unwrap_jso(imagedata), dx, dy);
+    return;
+  }
+  if ((dirtyHeight is num) &amp;&amp; (dirtyWidth is num) &amp;&amp; (dirtyY is num) &amp;&amp; (dirtyX is num) &amp;&amp; (dy is num) &amp;&amp; (dx is num) &amp;&amp; (imagedata is ImageData)) {
+    _blink.BlinkCanvasRenderingContext2D.instance.putImageData_Callback_7_(unwrap_jso(this), unwrap_jso(imagedata), dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight);
+    return;
+  }
+  throw new ArgumentError(&quot;Incorrect number or type of arguments&quot;);
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -191,7 +207,7 @@
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">

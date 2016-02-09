@@ -56,6 +56,9 @@
             <span class="kind">function</span> stdioType
           </h1>
         </div>
+        <ul class="subnav">
+          <li><a href="dart-io/stdioType.html#source">Source</a></li>
+        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -196,7 +199,40 @@
 something else.</p>
     </section>
     
-    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">StdioType stdioType(object) {
+  if (object is _StdStream) {
+    object = object._stream;
+  } else if (object == stdout || object == stderr) {
+    switch (_StdIOUtils._getStdioHandleType(object == stdout ? 1 : 2)) {
+      case _STDIO_HANDLE_TYPE_TERMINAL: return StdioType.TERMINAL;
+      case _STDIO_HANDLE_TYPE_PIPE: return StdioType.PIPE;
+      case _STDIO_HANDLE_TYPE_FILE:  return StdioType.FILE;
+    }
+  }
+  if (object is _FileStream) {
+    return StdioType.FILE;
+  }
+  if (object is Socket) {
+    switch (_StdIOUtils._socketType(object._nativeSocket)) {
+      case _STDIO_HANDLE_TYPE_TERMINAL: return StdioType.TERMINAL;
+      case _STDIO_HANDLE_TYPE_PIPE: return StdioType.PIPE;
+      case _STDIO_HANDLE_TYPE_FILE:  return StdioType.FILE;
+    }
+  }
+  if (object is IOSink) {
+    try {
+      if (object._target is _FileStreamConsumer) {
+        return StdioType.FILE;
+      }
+    } catch (e) {
+      // Only the interface implemented, _sink not available.
+    }
+  }
+  return StdioType.OTHER;
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 
@@ -208,7 +244,7 @@ something else.</p>
     <div class="container">
       <p class="text-center">
         <span class="no-break">
-          Dart SDK 1.14.0-dev.7.2
+          Dart SDK 1.14.1
         </span>
         &bull;
         <span class="no-break">
